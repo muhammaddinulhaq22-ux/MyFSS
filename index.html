@@ -290,6 +290,67 @@
         }
         .captcha-note a { color: #3366cc; }
 
+        /* ── Admin Modal ── */
+        .modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: #fff;
+            border: 1px solid #a2a9b1;
+            padding: 24px 28px;
+            width: 340px;
+            border-radius: 4px;
+            position: relative;
+        }
+        .modal-box h3 {
+            font-family: 'Linux Libertine', serif;
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #1a3a5c;
+            border-bottom: 1px solid #eaecf0;
+            padding-bottom: 8px;
+        }
+        .modal-box input {
+            width: 100%; padding: 8px 10px;
+            border: 1px solid #a2a9b1; border-radius: 2px;
+            font-size: 0.95em; margin-bottom: 12px;
+            font-family: monospace; letter-spacing: 0.1em;
+        }
+        .modal-box input:focus { outline: none; border-color: #1a3a5c; }
+        .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+        .modal-btn {
+            padding: 7px 16px; border: none; border-radius: 2px;
+            cursor: pointer; font-size: 0.88em; font-weight: 600;
+        }
+        .modal-btn-confirm { background: #1a3a5c; color: #fff; }
+        .modal-btn-confirm:hover { background: #0f2540; }
+        .modal-btn-cancel { background: #eaecf0; color: #333; }
+        .modal-btn-cancel:hover { background: #d0d3d8; }
+        .modal-error { color: #dc3545; font-size: 0.82em; margin-bottom: 8px; display: none; }
+
+        .status-locked { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+        /* Admin action buttons in sidebar */
+        .admin-action-bar {
+            display: flex; gap: 5px; flex-wrap: wrap; margin-top: 3px;
+        }
+        .aa-btn {
+            font-size: 0.7em; padding: 2px 6px; border-radius: 2px;
+            cursor: pointer; border: 1px solid; font-weight: 600;
+        }
+        .aa-approve { background:#d4edda; color:#155724; border-color:#c3e6cb; }
+        .aa-edit    { background:#cce5ff; color:#004085; border-color:#b8daff; }
+        .aa-lock    { background:#fff3cd; color:#856404; border-color:#ffeeba; }
+        .aa-unlock  { background:#e2e3e5; color:#383d41; border-color:#d6d8db; }
+        .aa-delete  { background:#f8d7da; color:#721c24; border-color:#f5c6cb; }
+
         .btn-submit {
             background: #3366cc; color: white; border: none; padding: 13px;
             cursor: pointer; width: 100%; font-weight: 600; font-size: 1em;
@@ -645,10 +706,48 @@
 
 </main>
 
+<!-- ════ ADMIN MODAL ════ -->
+<div class="modal-overlay" id="admin-modal">
+    <div class="modal-box">
+        <h3 id="modal-title">🔐 Kode Admin Diperlukan</h3>
+        <div class="modal-error" id="modal-error">❌ Kode admin salah. Coba lagi.</div>
+        <input type="password" id="modal-input" placeholder="Masukkan kode admin..." onkeydown="if(event.key==='Enter')modalConfirm()">
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-cancel" onclick="modalClose()">Batal</button>
+            <button class="modal-btn modal-btn-confirm" onclick="modalConfirm()">✔ Konfirmasi</button>
+        </div>
+    </div>
+</div>
+
 <script>
-/* ════ KODE OTORISASI ════ */
-const USER_CODE  = "FSS2026";
+/* ════ KODE ADMIN ════ */
 const ADMIN_CODE = "FSSWIKI2";
+
+/* ════ MODAL SISTEM ════ */
+let _modalCallback = null;
+function modalOpen(title, callback) {
+    _modalCallback = callback;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-input').value = '';
+    document.getElementById('modal-error').style.display = 'none';
+    document.getElementById('admin-modal').classList.add('active');
+    setTimeout(() => document.getElementById('modal-input').focus(), 100);
+}
+function modalClose() {
+    document.getElementById('admin-modal').classList.remove('active');
+    _modalCallback = null;
+}
+function modalConfirm() {
+    const code = document.getElementById('modal-input').value.trim();
+    if (code !== ADMIN_CODE) {
+        document.getElementById('modal-error').style.display = 'block';
+        document.getElementById('modal-input').value = '';
+        document.getElementById('modal-input').focus();
+        return;
+    }
+    modalClose();
+    if (_modalCallback) _modalCallback();
+}
 
 /* ════ PAGE NAVIGATION ════ */
 function showPage(page) {
@@ -671,15 +770,13 @@ function checkCooldownBanner() {
     if (lastSubmit && (now - lastSubmit) < COOLDOWN_MS) {
         banner.classList.remove('hidden');
         if (btn) { btn.disabled = true; btn.textContent = '⏳ Cooldown Aktif — Tunggu 24 Jam'; }
-
-        /* Update teks sisa waktu tiap detik */
         if (window._cdTimer) clearInterval(window._cdTimer);
         window._cdTimer = setInterval(() => {
-            const sisa     = COOLDOWN_MS - (Date.now() - lastSubmit);
+            const sisa = COOLDOWN_MS - (Date.now() - lastSubmit);
             if (sisa <= 0) {
                 clearInterval(window._cdTimer);
                 banner.classList.add('hidden');
-                if (btn) { btn.disabled = true; btn.textContent = '🔒 Selesaikan reCAPTCHA untuk Mengajukan'; }
+                if (btn) { btn.disabled = false; btn.textContent = '🚀 Ajukan Peninjauan Admin'; }
                 return;
             }
             const j = Math.floor(sisa / 3600000);
@@ -689,6 +786,7 @@ function checkCooldownBanner() {
         }, 1000);
     } else {
         banner.classList.add('hidden');
+        if (btn) { btn.disabled = false; btn.textContent = '🚀 Ajukan Peninjauan Admin'; }
         if (window._cdTimer) clearInterval(window._cdTimer);
     }
 }
@@ -701,38 +799,26 @@ function handleImgUpload(input, previewId, dropId) {
     reader.onload = e => {
         const prev = document.getElementById(previewId);
         if (prev) { prev.src = e.target.result; prev.style.display = 'block'; }
-        const drop = document.getElementById(dropId);
-        if (drop) {
-            const placeholder = drop.querySelector('.upload-icon, div:not([id])');
-        }
     };
     reader.readAsDataURL(file);
 }
-
 function handleImgUploadDynamic(input, previewEl) {
     const file = input.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = e => {
-        previewEl.src = e.target.result;
-        previewEl.style.display = 'block';
-    };
+    reader.onload = e => { previewEl.src = e.target.result; previewEl.style.display = 'block'; };
     reader.readAsDataURL(file);
 }
-
 function handleAudioUpload(input) {
     const file = input.files[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = e => {
         const player = document.getElementById('audio-preview-player');
-        player.src = e.target.result;
-        player.style.display = 'block';
-        const ph = document.getElementById('audio-placeholder');
-        if (ph) ph.style.display = 'none';
+        player.src = e.target.result; player.style.display = 'block';
+        document.getElementById('audio-placeholder').style.display = 'none';
         const fn = document.getElementById('audio-filename');
-        fn.textContent = '🎵 ' + file.name;
-        fn.style.display = 'block';
+        fn.textContent = '🎵 ' + file.name; fn.style.display = 'block';
     };
     reader.readAsDataURL(file);
 }
@@ -741,19 +827,13 @@ function handleAudioUpload(input) {
 function addEtnis() {
     const row = document.createElement('div');
     row.className = 'etnis-row';
-    row.innerHTML = `
-        <input type="text" placeholder="Nama etnis" class="etnis-name">
-        <input type="text" placeholder="%" class="etnis-pct" style="text-align:center;">
-        <button class="remove-btn" onclick="removeEtnis(this)" title="Hapus">✕</button>`;
+    row.innerHTML = `<input type="text" placeholder="Nama etnis" class="etnis-name"><input type="text" placeholder="%" class="etnis-pct" style="text-align:center;"><button class="remove-btn" onclick="removeEtnis(this)">✕</button>`;
     document.getElementById('etnis-rows').appendChild(row);
 }
 function addAgama() {
     const row = document.createElement('div');
     row.className = 'etnis-row';
-    row.innerHTML = `
-        <input type="text" placeholder="Nama agama" class="agama-name">
-        <input type="text" placeholder="%" class="agama-pct" style="text-align:center;">
-        <button class="remove-btn" onclick="removeEtnis(this)" title="Hapus">✕</button>`;
+    row.innerHTML = `<input type="text" placeholder="Nama agama" class="agama-name"><input type="text" placeholder="%" class="agama-pct" style="text-align:center;"><button class="remove-btn" onclick="removeEtnis(this)">✕</button>`;
     document.getElementById('agama-rows').appendChild(row);
 }
 function removeEtnis(btn) { btn.closest('.etnis-row').remove(); }
@@ -764,60 +844,35 @@ function addGallerySlot() {
     const idx = galleryCount++;
     const div = document.createElement('div');
     div.className = 'form-group';
-    div.id = 'gallery-slot-' + idx;
     div.innerHTML = `
         <label>Gambar ${idx+1}</label>
         <div class="image-upload-area">
             <input type="file" accept="image/*" onchange="handleImgUploadDynamic(this, document.getElementById('gal-prev-${idx}'))">
-            <div class="upload-icon">📷</div>
-            <div>Klik upload gambar</div>
+            <div class="upload-icon">📷</div><div>Klik upload gambar</div>
             <img id="gal-prev-${idx}" class="image-preview">
         </div>
-        <input type="text" placeholder="Keterangan gambar..." id="gal-cap-${idx}" style="margin-top:5px;padding:6px 8px;border:1px solid #a2a9b1;width:100%;font-size:0.85em;">
-    `;
+        <input type="text" placeholder="Keterangan gambar..." id="gal-cap-${idx}" style="margin-top:5px;padding:6px 8px;border:1px solid #a2a9b1;width:100%;font-size:0.85em;">`;
     document.getElementById('gallery-uploads').appendChild(div);
 }
 
-/* Inisialisasi 4 slot gallery */
 window.onload = function() {
     for(let i=0;i<4;i++) addGallerySlot();
     loadEntries();
-    /* Muat tanda tangan tersimpan */
     const savedTTD = localStorage.getItem('fss_ahmad_ttd');
     if (savedTTD) applyTTD(savedTTD);
 };
 
-/* ════ TANDA TANGAN MR. AHMAD ════ */
+/* ════ TANDA TANGAN ════ */
 function uploadTTD(input) {
-    const file = input.files[0];
-    if (!file) return;
+    const file = input.files[0]; if (!file) return;
     const reader = new FileReader();
-    reader.onload = e => {
-        localStorage.setItem('fss_ahmad_ttd', e.target.result);
-        applyTTD(e.target.result);
-    };
+    reader.onload = e => { localStorage.setItem('fss_ahmad_ttd', e.target.result); applyTTD(e.target.result); };
     reader.readAsDataURL(file);
 }
 function applyTTD(src) {
     const img = document.getElementById('ahmad-ttd-img');
     const ph  = document.getElementById('ahmad-ttd-placeholder');
-    if (img && ph) {
-        img.src = src;
-        img.style.display = 'block';
-        ph.style.display = 'none';
-    }
-}
-
-/* ════ reCAPTCHA CALLBACKS ════ */
-function onCaptchaSuccess(token) {
-    const btn = document.getElementById('btn-submit');
-    btn.disabled = false;
-    btn.textContent = '🚀 Ajukan Peninjauan Admin';
-}
-function onCaptchaExpired() {
-    const btn = document.getElementById('btn-submit');
-    btn.disabled = true;
-    btn.textContent = '🔒 reCAPTCHA Kedaluwarsa — Ulangi';
+    if (img && ph) { img.src = src; img.style.display = 'block'; ph.style.display = 'none'; }
 }
 
 /* ════ SAVE DATA ════ */
@@ -825,71 +880,40 @@ function saveData() {
     const name = document.getElementById('input-name').value.trim();
     if (!name) { alert("Mohon isi Nama Negara/Organisasi!"); return; }
 
-    /* Validasi reCAPTCHA */
-    let captchaOk = false;
-    try {
-        captchaOk = grecaptcha.getResponse().length > 0;
-    } catch(e) { captchaOk = false; }
-    if (!captchaOk) {
-        alert("⚠️ Mohon selesaikan verifikasi reCAPTCHA terlebih dahulu!");
-        return;
-    }
-
-    /* ── Cooldown 24 Jam ── */
-    const COOLDOWN_MS  = 24 * 60 * 60 * 1000;
-    const lastSubmit   = parseInt(localStorage.getItem('fss_last_submit') || '0');
-    const now          = Date.now();
+    /* Cooldown 24 jam */
+    const COOLDOWN_MS = 24 * 60 * 60 * 1000;
+    const lastSubmit  = parseInt(localStorage.getItem('fss_last_submit') || '0');
+    const now         = Date.now();
     if (lastSubmit && (now - lastSubmit) < COOLDOWN_MS) {
-        const sisaMs    = COOLDOWN_MS - (now - lastSubmit);
-        const sisaJam   = Math.floor(sisaMs / (1000 * 60 * 60));
-        const sisaMenit = Math.floor((sisaMs % (1000 * 60 * 60)) / (1000 * 60));
-        alert(
-            "⏳ Kamu sudah mengajukan artikel dalam 24 jam terakhir!\n\n" +
-            "Sisa waktu cooldown: " + sisaJam + " jam " + sisaMenit + " menit lagi.\n\n" +
-            "Batas: 1 artikel per 24 jam per browser."
-        );
-        try { grecaptcha.reset(); } catch(e) {}
-        const btnC = document.getElementById('btn-submit');
-        btnC.disabled = true;
-        btnC.textContent = '🔒 Selesaikan reCAPTCHA untuk Mengajukan';
+        const sisa  = COOLDOWN_MS - (now - lastSubmit);
+        const j = Math.floor(sisa / 3600000);
+        const m = Math.floor((sisa % 3600000) / 60000);
+        alert("⏳ Kamu sudah mengajukan artikel dalam 24 jam terakhir!\n\nSisa cooldown: " + j + " jam " + m + " menit.\nBatas: 1 artikel per 24 jam per browser.");
         return;
     }
 
-    /* Kumpulkan etnis */
+    /* Kumpulkan data */
     const etnisList = [];
     document.querySelectorAll('#etnis-rows .etnis-row').forEach(row => {
         const n = row.querySelector('.etnis-name').value.trim();
         const p = row.querySelector('.etnis-pct').value.trim();
         if (n) etnisList.push({ name: n, pct: p });
     });
-
-    /* Kumpulkan agama */
     const agamaList = [];
     document.querySelectorAll('#agama-rows .etnis-row').forEach(row => {
         const n = row.querySelector('.agama-name').value.trim();
         const p = row.querySelector('.agama-pct').value.trim();
         if (n) agamaList.push({ name: n, pct: p });
     });
-
-    /* Kumpulkan gallery */
     const gallery = [];
     for (let i=0; i<galleryCount; i++) {
         const prev = document.getElementById('gal-prev-'+i);
         const cap  = document.getElementById('gal-cap-'+i);
-        if (prev && prev.src && prev.src !== window.location.href) {
+        if (prev && prev.src && !prev.src.endsWith(window.location.pathname))
             gallery.push({ src: prev.src, caption: cap ? cap.value : '' });
-        }
     }
-
-    /* Audio */
     const audioPlayer = document.getElementById('audio-preview-player');
-    const anthemSrc = (audioPlayer && audioPlayer.src && !audioPlayer.src.endsWith(window.location.pathname))
-        ? audioPlayer.src : '';
-    const anthemName = document.getElementById('audio-filename').textContent.replace('🎵 ','');
-
-    /* Gambar Flag & COA */
-    const flagSrc = document.getElementById('flag-preview')?.src || '';
-    const coaSrc  = document.getElementById('coa-preview')?.src || '';
+    const anthemSrc = (audioPlayer && audioPlayer.src && !audioPlayer.src.endsWith(window.location.pathname)) ? audioPlayer.src : '';
 
     const entry = {
         name,
@@ -908,33 +932,22 @@ function saveData() {
         currencySymbol: document.getElementById('input-currency-symbol').value,
         anthemTitle:    document.getElementById('input-anthem-title').value,
         anthemSrc,
-        anthemName,
         phoneCode:      document.getElementById('input-phone-code').value,
-        etnis:          etnisList,
-        agama:          agamaList,
-        desc:           document.getElementById('input-desc').value,
-        flagSrc,
-        coaSrc,
+        etnis: etnisList, agama: agamaList, desc: document.getElementById('input-desc').value,
+        flagSrc: document.getElementById('flag-preview')?.src || '',
+        coaSrc:  document.getElementById('coa-preview')?.src || '',
         gallery,
         approved: false,
+        locked: false,
         date: new Date().toLocaleDateString('id-ID')
     };
 
     let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
     entries.push(entry);
     localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
-
-    alert("Artikel '" + name + "' berhasil diajukan! Menunggu persetujuan Admin untuk tayang.");
-
-    /* Simpan timestamp cooldown */
     localStorage.setItem('fss_last_submit', Date.now().toString());
 
-    /* Reset reCAPTCHA & tombol */
-    try { grecaptcha.reset(); } catch(e) {}
-    const btn = document.getElementById('btn-submit');
-    btn.disabled = true;
-    btn.textContent = '🔒 Selesaikan reCAPTCHA untuk Mengajukan';
-
+    alert("✅ Artikel '" + name + "' berhasil diajukan! Menunggu persetujuan Admin.");
     loadEntries();
     showPage('home');
 }
@@ -946,20 +959,106 @@ function loadEntries() {
     const entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
     entries.forEach((entry, index) => {
         const li = document.createElement('li');
-        const badge = entry.approved
-            ? '<span class="status-badge status-approved">✓ Publik</span>'
-            : '<span class="status-badge status-pending">⏳ Pending</span>';
+
+        let badge = '';
+        if (entry.locked)        badge = '<span class="status-badge status-locked">🔒 Terkunci</span>';
+        else if (entry.approved) badge = '<span class="status-badge status-approved">✓ Publik</span>';
+        else                     badge = '<span class="status-badge status-pending">⏳ Pending</span>';
+
+        const canOpen = entry.approved && !entry.locked;
+
         li.innerHTML = `
             <div style="display:flex;flex-direction:column;">
-                <a onclick="${entry.approved ? "openArticle("+index+")" : "alert('Artikel ini sedang ditinjau Admin.')"}">
+                <a onclick="${canOpen ? "openArticle("+index+")" : "alert('"+(entry.locked?'Artikel ini dikunci oleh Admin.':'Artikel ini sedang ditinjau Admin.')+"')"}">
                     📄 ${entry.name} ${badge}
                 </a>
-                <div class="action-links">
-                    ${!entry.approved ? `<span class="approve-btn" onclick="approveEntry(${index})">Approve</span>` : ''}
-                    <span class="del-btn" onclick="deleteEntry(${index})">[Hapus]</span>
+                <div class="admin-action-bar">
+                    ${!entry.approved && !entry.locked ? `<span class="aa-btn aa-approve" onclick="adminApprove(${index})">✔ Approve</span>` : ''}
+                    ${entry.approved && !entry.locked  ? `<span class="aa-btn aa-edit"    onclick="adminEdit(${index})">✏️ Sunting</span>` : ''}
+                    ${!entry.locked                    ? `<span class="aa-btn aa-lock"     onclick="adminLock(${index})">🔒 Kunci</span>` : ''}
+                    ${entry.locked                     ? `<span class="aa-btn aa-unlock"   onclick="adminUnlock(${index})">🔓 Buka</span>` : ''}
+                    <span class="aa-btn aa-delete" onclick="adminDelete(${index})">🗑 Hapus</span>
                 </div>
             </div>`;
         menu.appendChild(li);
+    });
+}
+
+/* ════ ADMIN ACTIONS ════ */
+function adminApprove(index) {
+    modalOpen('✔ Approve Artikel — Kode Admin', () => {
+        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
+        entries[index].approved = true;
+        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
+        loadEntries();
+        alert("✅ Artikel resmi dipublikasikan!");
+    });
+}
+
+function adminEdit(index) {
+    modalOpen('✏️ Sunting Artikel — Kode Admin', () => {
+        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
+        const e = entries[index];
+        /* Isi form dengan data lama */
+        showPage('tambah');
+        document.getElementById('input-name').value         = e.name || '';
+        document.getElementById('input-motto').value        = e.motto || '';
+        document.getElementById('input-capital').value      = e.capital || '';
+        document.getElementById('input-language').value     = e.language || '';
+        document.getElementById('input-area').value         = e.area || '';
+        document.getElementById('input-population').value   = e.population || '';
+        document.getElementById('input-density').value      = e.density || '';
+        document.getElementById('input-gov-type').value     = e.govType || '';
+        document.getElementById('input-leader-title').value = e.leaderTitle || '';
+        document.getElementById('input-leader-name').value  = e.leaderName || '';
+        document.getElementById('input-deputy').value       = e.deputy || '';
+        document.getElementById('input-currency-name').value   = e.currencyName || '';
+        document.getElementById('input-currency-code').value   = e.currencyCode || '';
+        document.getElementById('input-currency-symbol').value = e.currencySymbol || '';
+        document.getElementById('input-anthem-title').value = e.anthemTitle || '';
+        document.getElementById('input-phone-code').value   = e.phoneCode || '';
+        document.getElementById('input-desc').value         = e.desc || '';
+        /* Hapus entri lama, submit baru akan push ulang */
+        entries.splice(index, 1);
+        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
+        loadEntries();
+        alert("📝 Form diisi dengan data artikel lama. Edit lalu klik Ajukan kembali.\n⚠️ Cooldown tidak berlaku untuk edit admin.");
+        /* Bypass cooldown untuk edit */
+        localStorage.removeItem('fss_last_submit');
+    });
+}
+
+function adminLock(index) {
+    modalOpen('🔒 Kunci Artikel — Kode Admin', () => {
+        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
+        entries[index].locked   = true;
+        entries[index].approved = false;
+        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
+        loadEntries();
+        alert("🔒 Artikel dikunci. Tidak dapat diakses publik.");
+    });
+}
+
+function adminUnlock(index) {
+    modalOpen('🔓 Buka Kunci Artikel — Kode Admin', () => {
+        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
+        entries[index].locked   = false;
+        entries[index].approved = true;
+        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
+        loadEntries();
+        alert("🔓 Artikel dibuka kembali dan dipublikasikan.");
+    });
+}
+
+function adminDelete(index) {
+    modalOpen('🗑 Hapus Artikel — Kode Admin', () => {
+        if (!confirm("Yakin ingin menghapus artikel ini secara permanen?")) return;
+        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
+        const nama = entries[index].name;
+        entries.splice(index, 1);
+        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
+        loadEntries();
+        alert("🗑 Artikel '" + nama + "' dihapus permanen.");
     });
 }
 
@@ -971,13 +1070,8 @@ function openArticle(index) {
 
     document.getElementById('article-title').textContent = e.name;
 
-    /* ── Build Infobox ── */
-    let flagHtml = e.flagSrc
-        ? `<div class="infobox-flag"><img src="${e.flagSrc}" alt="Bendera ${e.name}"><div class="infobox-flag-caption">Bendera ${e.name}</div></div>`
-        : '';
-    let coaHtml = e.coaSrc
-        ? `<div class="infobox-emblem"><img src="${e.coaSrc}" alt="Lambang ${e.name}"><div class="infobox-emblem-caption">Lambang Negara</div></div>`
-        : '';
+    let flagHtml = e.flagSrc ? `<div class="infobox-flag"><img src="${e.flagSrc}" alt="Bendera ${e.name}"><div class="infobox-flag-caption">Bendera ${e.name}</div></div>` : '';
+    let coaHtml  = e.coaSrc  ? `<div class="infobox-emblem"><img src="${e.coaSrc}" alt="Lambang ${e.name}"><div class="infobox-emblem-caption">Lambang Negara</div></div>` : '';
 
     const rows = [
         ['Semboyan',     e.motto],
@@ -996,102 +1090,43 @@ function openArticle(index) {
 
     const tableRows = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
 
-    /* Etnis */
     let etnisHtml = '';
     if (e.etnis && e.etnis.length) {
-        const items = e.etnis.map(et => `<li>${et.name}${et.pct ? ' <span style="color:#555">('+et.pct+'%)</span>' : ''}</li>`).join('');
+        const items = e.etnis.map(et => `<li>${et.name}${et.pct?' <span style="color:#555">('+et.pct+'%)</span>':''}</li>`).join('');
         etnisHtml = `<tr><td>Etnis</td><td><ul class="etnis-list">${items}</ul></td></tr>`;
     }
-
-    /* Agama */
     let agamaHtml = '';
     if (e.agama && e.agama.length) {
-        const items = e.agama.map(ag => `
-            <li>
-                <span style="min-width:80px;display:inline-block;">${ag.name}</span>
-                ${ag.pct ? `<div class="agama-bar" style="width:${Math.min(parseFloat(ag.pct)||0,100)}px;display:inline-block;vertical-align:middle;"></div> <span style="color:#555;font-size:0.9em;">${ag.pct}%</span>` : ''}
-            </li>`).join('');
-        agamaHtml = `<tr><td>Agama</td><td><ul class="agama-list" style="list-style:none;padding:0;">${items}</ul></td></tr>`;
+        const items = e.agama.map(ag => `<li><span style="min-width:80px;display:inline-block;">${ag.name}</span>${ag.pct?`<div class="agama-bar" style="width:${Math.min(parseFloat(ag.pct)||0,100)}px;display:inline-block;vertical-align:middle;"></div> <span style="color:#555;font-size:0.9em;">${ag.pct}%</span>`:''}</li>`).join('');
+        agamaHtml = `<tr><td>Agama</td><td><ul style="list-style:none;padding:0;">${items}</ul></td></tr>`;
     }
 
-    /* Anthem */
-    let anthemHtml = '';
-    if (e.anthemSrc) {
-        anthemHtml = `
-        <div class="anthem-player">
-            <div class="anthem-label">🎵 Lagu Kebangsaan${e.anthemTitle ? ': '+e.anthemTitle : ''}</div>
-            <audio controls style="width:100%;height:30px;"><source src="${e.anthemSrc}">Browser tidak mendukung audio.</audio>
-        </div>`;
-    } else if (e.anthemTitle) {
-        anthemHtml = `<tr><td>Lagu Kebangsaan</td><td>${e.anthemTitle}</td></tr>`;
-    }
+    let anthemHtml = e.anthemSrc
+        ? `<div class="anthem-player"><div class="anthem-label">🎵 Lagu Kebangsaan${e.anthemTitle?': '+e.anthemTitle:''}</div><audio controls style="width:100%;height:30px;"><source src="${e.anthemSrc}"></audio></div>`
+        : (e.anthemTitle ? `<tr><td>Lagu Kebangsaan</td><td>${e.anthemTitle}</td></tr>` : '');
 
     const infobox = `
     <div class="infobox">
         <div class="infobox-title">${e.name}</div>
-        ${flagHtml}
-        ${coaHtml}
+        ${flagHtml}${coaHtml}
         <table>${tableRows}${etnisHtml}${agamaHtml}</table>
         ${anthemHtml}
     </div>`;
 
-    /* ── Gallery ── */
     let galleryHtml = '';
     if (e.gallery && e.gallery.length) {
-        const items = e.gallery.map(g => `
-            <div class="gallery-item">
-                <img src="${g.src}" alt="${g.caption||''}">
-                <div class="gallery-caption">${g.caption || 'Gambar pendukung'}</div>
-            </div>`).join('');
-        galleryHtml = `
-        <div class="gallery-section">
-            <h2>Galeri</h2>
-            <div class="gallery-grid">${items}</div>
-        </div>`;
+        const items = e.gallery.map(g => `<div class="gallery-item"><img src="${g.src}" alt="${g.caption||''}"><div class="gallery-caption">${g.caption||'Gambar pendukung'}</div></div>`).join('');
+        galleryHtml = `<div class="gallery-section"><h2>Galeri</h2><div class="gallery-grid">${items}</div></div>`;
     }
 
-    /* ── Description ── */
-    const descHtml = e.desc
-        ? `<h2>Sejarah & Deskripsi</h2><p class="article-intro">${e.desc.replace(/\n/g,'</p><p class="article-intro">')}</p>`
-        : '';
+    const descHtml = e.desc ? `<h2>Sejarah & Deskripsi</h2><p class="article-intro">${e.desc.replace(/\n/g,'</p><p class="article-intro">')}</p>` : '';
 
     document.getElementById('article-body').innerHTML = infobox + `
-        <p class="article-intro" style="margin-top:0;">
-            <b>${e.name}</b>${e.capital ? ' adalah sebuah negara dengan ibu kota di <b>'+e.capital+'</b>' : ''}.
-            ${e.motto ? 'Semboyan negara ini adalah "<i>'+e.motto+'</i>".' : ''}
-        </p>
-        ${descHtml}
-        ${galleryHtml}
-        <div style="clear:both;"></div>
-    `;
+        <p class="article-intro" style="margin-top:0;"><b>${e.name}</b>${e.capital?' adalah sebuah negara dengan ibu kota di <b>'+e.capital+'</b>':''}.${e.motto?' Semboyan negara ini adalah "<i>'+e.motto+'</i>"':''}</p>
+        ${descHtml}${galleryHtml}
+        <div style="clear:both;"></div>`;
 
     showPage('article');
-}
-
-/* ════ APPROVE / DELETE ════ */
-function approveEntry(index) {
-    const code = prompt("Masukkan KODE ADMIN untuk menyetujui artikel:");
-    if (code === ADMIN_CODE) {
-        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
-        entries[index].approved = true;
-        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
-        loadEntries();
-        alert("Artikel resmi dipublikasikan!");
-    } else {
-        alert("Kode Admin Salah!");
-    }
-}
-function deleteEntry(index) {
-    const code = prompt("Masukkan Kode Otoritas untuk menghapus:");
-    if (code === USER_CODE || code === ADMIN_CODE) {
-        let entries = JSON.parse(localStorage.getItem('fss_wiki_data') || '[]');
-        entries.splice(index, 1);
-        localStorage.setItem('fss_wiki_data', JSON.stringify(entries));
-        loadEntries();
-        alert("Artikel dihapus.");
-    } else {
-        alert("Kode Salah!");
-    }
 }
 </script>
 </body>
