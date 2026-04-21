@@ -171,10 +171,271 @@
     margin-top: 20px;
   }
 
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; } /* Sembunyikan link di mobile untuk kesederhanaan */
-    .hero { height: 80vh; }
+  /* ===================================================
+     RESPONSIVE: LANDSCAPE (LAPTOP/DESKTOP)
+     Layar lebar >= 1024px
+  =================================================== */
+  @media (min-width: 1024px) {
+    nav {
+      height: 80px;
+      padding: 0 60px;
+    }
+
+    .nav-logo img {
+      height: 60px;
+    }
+
+    .nav-logo-text span:first-child {
+      font-size: 26px;
+    }
+
+    .nav-logo-text span:last-child {
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+    }
+
+    .hero {
+      margin-top: 80px;
+      height: 90vh;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(70px, 8vw, 110px);
+      letter-spacing: 6px;
+    }
+
+    .hero-content p {
+      font-size: clamp(18px, 1.8vw, 26px);
+    }
+
+    .gold-line {
+      width: 120px;
+      height: 4px;
+      margin: 22px auto;
+    }
+
+    footer {
+      padding: 70px 20px;
+    }
+
+    .footer-logo img {
+      height: 90px;
+    }
+  }
+
+  /* ===================================================
+     RESPONSIVE: TABLET LANDSCAPE
+     Layar 768px - 1023px
+  =================================================== */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    nav {
+      padding: 0 30px;
+      height: 70px;
+    }
+
+    .nav-logo img {
+      height: 50px;
+    }
+
+    .nav-logo-text span:first-child {
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+    }
+
+    .hero {
+      margin-top: 70px;
+      height: 88vh;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(50px, 7vw, 80px);
+    }
+
+    .hero-content p {
+      font-size: clamp(16px, 2.2vw, 22px);
+    }
+  }
+
+  /* ===================================================
+     RESPONSIVE: PORTRAIT HANDPHONE
+     Layar <= 767px (portrait / mobile)
+  =================================================== */
+  @media (max-width: 767px) {
+    /* --- Navbar --- */
+    nav {
+      padding: 0 16px;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+    }
+
+    .nav-logo-text span:first-child {
+      font-size: 17px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-logo-text span:last-child {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+    }
+
+    /* Sembunyikan nav links di mobile */
+    .nav-links {
+      display: none;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      margin-top: 64px;
+      height: calc(100dvh - 64px); /* Full layar minus navbar */
+      align-items: center;
+    }
+
+    .hero-bg {
+      background-position: center top;
+    }
+
+    .hero-content {
+      max-width: 100%;
+      padding: 0 24px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(42px, 13vw, 68px);
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .hero-content p {
+      font-size: clamp(15px, 4vw, 19px);
+      line-height: 1.55;
+    }
+
+    .gold-line {
+      width: 72px;
+      height: 3px;
+      margin: 16px auto;
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 40px 16px;
+    }
+
+    .footer-logo img {
+      height: 64px;
+      margin-bottom: 14px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+    }
+  }
+
+  /* ===================================================
+     RESPONSIVE: HANDPHONE SANGAT KECIL (< 380px)
+  =================================================== */
+  @media (max-width: 380px) {
+    nav {
+      padding: 0 12px;
+      height: 58px;
+    }
+
+    .nav-logo img {
+      height: 38px;
+    }
+
+    .nav-logo-text span:first-child {
+      font-size: 15px;
+    }
+
+    .nav-logo-text span:last-child {
+      font-size: 10px;
+    }
+
+    .hero {
+      margin-top: 58px;
+      height: calc(100dvh - 58px);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(36px, 12vw, 52px);
+      letter-spacing: 2px;
+    }
+
+    .hero-content p {
+      font-size: 14px;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 3px;
+    }
+  }
+
+  /* ===================================================
+     RESPONSIVE: LANDSCAPE HANDPHONE (horizontal)
+     Tinggi layar kecil tapi lebar (hape diputar)
+  =================================================== */
+  @media (max-width: 767px) and (orientation: landscape) {
+    nav {
+      height: 54px;
+    }
+
+    .nav-logo img {
+      height: 38px;
+    }
+
+    .hero {
+      margin-top: 54px;
+      height: calc(100dvh - 54px);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(32px, 7vw, 56px);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: clamp(13px, 2.5vw, 17px);
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      margin: 12px auto;
+    }
+
+    footer {
+      padding: 30px 16px;
+    }
+
+    .footer-logo img {
+      height: 52px;
+    }
   }
 </style>
 </head>
