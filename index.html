@@ -115,7 +115,7 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 65%, rgba(255,255,255,1) 100%);
     z-index: 2;
   }
 
@@ -155,9 +155,9 @@
   /* ===== FOOTER ===== */
   footer {
     padding: 60px 20px;
-    background: var(--dark);
+    background: var(--white);
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(0,0,0,0.08);
   }
 
   .footer-logo img {
@@ -169,6 +169,125 @@
     font-size: 13px;
     color: var(--gray);
     margin-top: 20px;
+  }
+
+  /* ===== HAMBURGER MENU ===== */
+  .hamburger {
+    display: none;
+    margin-left: auto;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1100;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 26px;
+    height: 2.5px;
+    background: var(--dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* ===== MOBILE DRAWER ===== */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 999;
+    pointer-events: none;
+  }
+
+  .mobile-menu-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu-panel {
+    position: absolute;
+    top: 0; right: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--white);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    padding-top: 80px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu.active {
+    display: block;
+    pointer-events: all;
+  }
+
+  .mobile-menu.active .mobile-menu-overlay {
+    opacity: 1;
+  }
+
+  .mobile-menu.active .mobile-menu-panel {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    padding: 20px 0;
+  }
+
+  .mobile-menu-list li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 30px;
+    color: var(--dark);
+    text-decoration: none;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-list li a:hover {
+    color: var(--gold-dark);
+    border-left-color: var(--gold);
+    background: rgba(201,153,26,0.06);
+  }
+
+  .mobile-menu-list li a .menu-icon {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .mobile-menu-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+    margin: 8px 30px;
   }
 
   /* ===================================================
@@ -301,9 +420,13 @@
       letter-spacing: 1.5px;
     }
 
-    /* Sembunyikan nav links di mobile */
+    /* Sembunyikan nav links di mobile, tampilkan hamburger */
     .nav-links {
       display: none;
+    }
+
+    .hamburger {
+      display: flex;
     }
 
     /* --- Hero --- */
@@ -451,17 +574,58 @@
   </a>
   <ul class="nav-links">
     <li><a href="#">Beranda</a></li>
-    <li><a href="#">Tentang</a></li>
-    <li><a href="#">Negara Fiksi</a></li>
-    <li><a href="#">Kontak</a></li>
+    <li><a href="#">Peserta</a></li>
+    <li><a href="#">Jadwal dan Skor</a></li>
+    <li><a href="#">Informasi</a></li>
   </ul>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Buka Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- Mobile Drawer Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <div class="mobile-menu-panel">
+    <ul class="mobile-menu-list">
+      <li>
+        <a href="#">
+          <span class="menu-icon">🏠</span>
+          Beranda
+        </a>
+      </li>
+      <div class="mobile-menu-divider"></div>
+      <li>
+        <a href="#">
+          <span class="menu-icon">🏳️</span>
+          Peserta
+        </a>
+      </li>
+      <div class="mobile-menu-divider"></div>
+      <li>
+        <a href="#">
+          <span class="menu-icon">📅</span>
+          Jadwal dan Skor
+        </a>
+      </li>
+      <div class="mobile-menu-divider"></div>
+      <li>
+        <a href="#">
+          <span class="menu-icon">ℹ️</span>
+          Informasi
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>IFFA AHMAD CUP 2026</h1>
+    <h1>IFFA AHMAD CUP</h1>
     <div class="gold-line"></div>
     <p>
       Dibuat untuk menyatukan keberagaman Negara Fiksi melalui Sepak Bola, 
@@ -475,10 +639,43 @@
     <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png" alt="IFFA Logo">
   </div>
   <p style="color: var(--gold-dark); font-weight: 600; letter-spacing: 1px;">#UnitingFictionalNations</p>
-  <div class="footer-copy">
+  <div class="footer-copy" style="color: #aaa;">
     &copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.
   </div>
 </footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  function openMenu() {
+    mobileMenu.classList.add('active');
+    hamburgerBtn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('active');
+    hamburgerBtn.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburgerBtn.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuOverlay.addEventListener('click', closeMenu);
+
+  // Tutup menu saat klik link
+  document.querySelectorAll('.mobile-menu-list a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>
 
 </body>
 </html>
