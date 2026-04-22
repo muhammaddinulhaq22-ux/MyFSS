@@ -11,7 +11,6 @@
     --gold-dark: #A67C12;
     --dark: #0A0A0A;
     --white: #FFFFFF;
-    --gray-light: #F4F4F4;
     --gray: #888888;
   }
 
@@ -24,657 +23,257 @@
     overflow-x: hidden;
   }
 
-  /* ===== NAVBAR (SEKARANG PUTIH) ===== */
+  /* ===== NAVBAR ===== */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
     background: var(--white);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     height: 80px;
     display: flex;
     align-items: center;
     padding: 0 40px;
   }
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-decoration: none;
-  }
+  .nav-logo { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; }
+  .nav-logo img { height: 60px; }
+  .nav-logo-text span:first-child { font-family: 'Bebas Neue'; font-size: 24px; color: var(--dark); display: block; }
+  .nav-logo-text span:last-child { font-family: 'Barlow Condensed'; font-size: 14px; color: var(--gold-dark); font-weight: 700; }
 
-  .nav-logo img {
-    height: 60px;
-    width: auto;
-  }
-
-  .nav-logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .nav-logo-text span:first-child {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: var(--dark);
-    letter-spacing: 1px;
-  }
-
-  .nav-logo-text span:last-child {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    color: var(--gold-dark);
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-
-  .nav-links {
-    margin-left: auto;
-    display: flex;
-    gap: 30px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--dark);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover {
-    color: var(--gold-dark);
-  }
-
-  /* ===== HERO SECTION ===== */
-  .hero {
-    margin-top: 80px;
-    position: relative;
-    height: 90vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('https://www.image2url.com/r2/default/images/1776789169537-2807c285-5fb3-4f58-88bf-b93aaafe84f0.png') no-repeat center center;
-    background-size: cover;
-    z-index: 1;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 65%, rgba(255,255,255,1) 100%);
-    z-index: 2;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    max-width: 900px;
-    padding: 0 20px;
-  }
-
-  .hero-content h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(50px, 8vw, 100px);
-    color: var(--white);
-    letter-spacing: 4px;
-    line-height: 0.9;
-    margin-bottom: 20px;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  }
-
-  .hero-content p {
-    font-size: clamp(18px, 2vw, 24px);
-    color: var(--gray-light);
-    font-weight: 400;
-    line-height: 1.6;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-  }
-
-  .gold-line {
-    width: 100px;
-    height: 4px;
-    background: var(--gold);
-    margin: 20px auto;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    padding: 60px 20px;
-    background: var(--white);
-    text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.08);
-  }
-
-  .footer-logo img {
-    height: 80px;
-    margin-bottom: 20px;
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--gray);
-    margin-top: 20px;
-  }
+  .nav-links { margin-left: auto; display: flex; gap: 30px; list-style: none; }
+  .nav-links a { color: var(--dark); text-decoration: none; font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+  .nav-links a.active { color: var(--gold-dark); }
 
   /* ===== HAMBURGER MENU ===== */
-  .hamburger {
-    display: none;
-    margin-left: auto;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-    background: none;
-    border: none;
-    z-index: 1100;
-  }
+  .hamburger { display: none; margin-left: auto; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 1100; }
+  .hamburger span { display: block; width: 26px; height: 3px; background: var(--dark); transition: 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-  .hamburger span {
-    display: block;
-    width: 26px;
-    height: 2.5px;
-    background: var(--dark);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
+  /* ===== MOBILE MENU ===== */
+  .mobile-menu { display: none; position: fixed; inset: 0; z-index: 999; }
+  .mobile-menu.active { display: block; }
+  .mobile-menu-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+  .mobile-menu-panel { position: absolute; top: 0; right: 0; width: 280px; height: 100%; background: var(--white); padding-top: 100px; transform: translateX(100%); transition: 0.3s; }
+  .mobile-menu.active .mobile-menu-panel { transform: translateX(0); }
+  .mobile-menu-list { list-style: none; }
+  .mobile-menu-list a { display: block; padding: 15px 30px; color: var(--dark); text-decoration: none; font-weight: 700; text-transform: uppercase; }
 
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(7.5px) rotate(45deg);
-  }
-  .hamburger.open span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-7.5px) rotate(-45deg);
-  }
+  /* ===== PAGES ===== */
+  .page { display: none; }
+  .page.active { display: block; }
+  .hero { margin-top: 80px; height: 85vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: url('https://www.image2url.com/r2/default/images/1776789169537-2807c285-5fb3-4f58-88bf-b93aaafe84f0.png') no-repeat center center/cover; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7), rgba(255,255,255,1)); }
+  .hero-content { position: relative; z-index: 2; text-align: center; }
+  .hero-content h1 { font-family: 'Bebas Neue'; font-size: 70px; margin-bottom: 10px; }
 
-  /* ===== MOBILE DRAWER ===== */
-  .mobile-menu {
+  /* ===== FOOTER ===== */
+  footer { padding: 60px 20px; background: var(--white); text-align: center; color: var(--dark); }
+  .footer-logo img { height: 80px; margin-bottom: 20px; }
+  .footer-hashtag { color: var(--gold-dark); font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
+  .footer-copy { font-size: 13px; color: var(--gray); }
+
+  /* ===== PARTICIPANTS GRID ===== */
+  .page-header { margin-top: 80px; padding: 60px 20px; text-align: center; border-bottom: 3px solid var(--gold); }
+  .participants-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto; }
+  .participant-card { background: #111; border-radius: 5px; overflow: hidden; border: 1px solid #222; }
+  .card-flag-banner { height: 180px; cursor: pointer; position: relative; overflow: hidden; }
+  .card-flag-banner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .card-flag-banner:hover img { transform: scale(1.05); }
+
+  .card-body { padding: 20px; display: flex; align-items: center; gap: 15px; }
+  .coach-photo-wrap { width: 65px; height: 65px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); }
+  .coach-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .card-nation-name { font-family: 'Bebas Neue'; font-size: 18px; color: #fff; }
+
+  /* ===== MODAL IMAGE VIEWER ===== */
+  .image-modal {
     display: none;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 999;
-    pointer-events: none;
-  }
-
-  .mobile-menu-overlay {
-    position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.4);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .mobile-menu-panel {
-    position: absolute;
-    top: 0; right: 0;
-    width: 280px;
-    height: 100%;
-    background: var(--white);
-    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-    padding-top: 80px;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .mobile-menu.active {
-    display: block;
-    pointer-events: all;
-  }
-
-  .mobile-menu.active .mobile-menu-overlay {
-    opacity: 1;
-  }
-
-  .mobile-menu.active .mobile-menu-panel {
-    transform: translateX(0);
-  }
-
-  .mobile-menu-list {
-    list-style: none;
-    padding: 20px 0;
-  }
-
-  .mobile-menu-list li a {
-    display: flex;
+    z-index: 2000;
+    background: rgba(0,0,0,0.9);
     align-items: center;
-    gap: 14px;
-    padding: 16px 30px;
-    color: var(--dark);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
+    justify-content: center;
+    padding: 20px;
+    cursor: zoom-out;
+  }
+  .image-modal.active { display: flex; }
+  .modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border: 3px solid var(--gold);
+    border-radius: 8px;
   }
 
-  .mobile-menu-list li a:hover {
-    color: var(--gold-dark);
-    border-left-color: var(--gold);
-    background: rgba(201,153,26,0.06);
-  }
-
-  .mobile-menu-list li a .menu-icon {
-    font-size: 20px;
-    width: 24px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-
-  .mobile-menu-divider {
-    height: 1px;
-    background: rgba(0,0,0,0.08);
-    margin: 8px 30px;
-  }
-
-  /* ===================================================
-     RESPONSIVE: LANDSCAPE (LAPTOP/DESKTOP)
-     Layar lebar >= 1024px
-  =================================================== */
-  @media (min-width: 1024px) {
-    nav {
-      height: 80px;
-      padding: 0 60px;
-    }
-
-    .nav-logo img {
-      height: 60px;
-    }
-
-    .nav-logo-text span:first-child {
-      font-size: 26px;
-    }
-
-    .nav-logo-text span:last-child {
-      font-size: 14px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 35px;
-    }
-
-    .nav-links a {
-      font-size: 16px;
-    }
-
-    .hero {
-      margin-top: 80px;
-      height: 90vh;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(70px, 8vw, 110px);
-      letter-spacing: 6px;
-    }
-
-    .hero-content p {
-      font-size: clamp(18px, 1.8vw, 26px);
-    }
-
-    .gold-line {
-      width: 120px;
-      height: 4px;
-      margin: 22px auto;
-    }
-
-    footer {
-      padding: 70px 20px;
-    }
-
-    .footer-logo img {
-      height: 90px;
-    }
-  }
-
-  /* ===================================================
-     RESPONSIVE: TABLET LANDSCAPE
-     Layar 768px - 1023px
-  =================================================== */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    nav {
-      padding: 0 30px;
-      height: 70px;
-    }
-
-    .nav-logo img {
-      height: 50px;
-    }
-
-    .nav-logo-text span:first-child {
-      font-size: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-    }
-
-    .hero {
-      margin-top: 70px;
-      height: 88vh;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(50px, 7vw, 80px);
-    }
-
-    .hero-content p {
-      font-size: clamp(16px, 2.2vw, 22px);
-    }
-  }
-
-  /* ===================================================
-     RESPONSIVE: PORTRAIT HANDPHONE
-     Layar <= 767px (portrait / mobile)
-  =================================================== */
-  @media (max-width: 767px) {
-    /* --- Navbar --- */
-    nav {
-      padding: 0 16px;
-      height: 64px;
-    }
-
-    .nav-logo img {
-      height: 44px;
-    }
-
-    .nav-logo-text span:first-child {
-      font-size: 17px;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-logo-text span:last-child {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-    }
-
-    /* Sembunyikan nav links di mobile, tampilkan hamburger */
-    .nav-links {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    /* --- Hero --- */
-    .hero {
-      margin-top: 64px;
-      height: calc(100dvh - 64px); /* Full layar minus navbar */
-      align-items: center;
-    }
-
-    .hero-bg {
-      background-position: center top;
-    }
-
-    .hero-content {
-      max-width: 100%;
-      padding: 0 24px;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(42px, 13vw, 68px);
-      letter-spacing: 3px;
-      margin-bottom: 14px;
-    }
-
-    .hero-content p {
-      font-size: clamp(15px, 4vw, 19px);
-      line-height: 1.55;
-    }
-
-    .gold-line {
-      width: 72px;
-      height: 3px;
-      margin: 16px auto;
-    }
-
-    /* --- Footer --- */
-    footer {
-      padding: 40px 16px;
-    }
-
-    .footer-logo img {
-      height: 64px;
-      margin-bottom: 14px;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-    }
-  }
-
-  /* ===================================================
-     RESPONSIVE: HANDPHONE SANGAT KECIL (< 380px)
-  =================================================== */
-  @media (max-width: 380px) {
-    nav {
-      padding: 0 12px;
-      height: 58px;
-    }
-
-    .nav-logo img {
-      height: 38px;
-    }
-
-    .nav-logo-text span:first-child {
-      font-size: 15px;
-    }
-
-    .nav-logo-text span:last-child {
-      font-size: 10px;
-    }
-
-    .hero {
-      margin-top: 58px;
-      height: calc(100dvh - 58px);
-    }
-
-    .hero-content h1 {
-      font-size: clamp(36px, 12vw, 52px);
-      letter-spacing: 2px;
-    }
-
-    .hero-content p {
-      font-size: 14px;
-    }
-
-    .gold-line {
-      width: 60px;
-      height: 3px;
-    }
-  }
-
-  /* ===================================================
-     RESPONSIVE: LANDSCAPE HANDPHONE (horizontal)
-     Tinggi layar kecil tapi lebar (hape diputar)
-  =================================================== */
-  @media (max-width: 767px) and (orientation: landscape) {
-    nav {
-      height: 54px;
-    }
-
-    .nav-logo img {
-      height: 38px;
-    }
-
-    .hero {
-      margin-top: 54px;
-      height: calc(100dvh - 54px);
-    }
-
-    .hero-content h1 {
-      font-size: clamp(32px, 7vw, 56px);
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-    }
-
-    .hero-content p {
-      font-size: clamp(13px, 2.5vw, 17px);
-    }
-
-    .gold-line {
-      width: 60px;
-      height: 3px;
-      margin: 12px auto;
-    }
-
-    footer {
-      padding: 30px 16px;
-    }
-
-    .footer-logo img {
-      height: 52px;
-    }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">
-    <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png" alt="IFFA Logo">
+  <div class="nav-logo" onclick="showPage('beranda')">
+    <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
     <div class="nav-logo-text">
       <span>IFFA AHMAD CUP 2026</span>
       <span>OFFICIAL PORTAL</span>
     </div>
-  </a>
+  </div>
   <ul class="nav-links">
-    <li><a href="#">Beranda</a></li>
-    <li><a href="#">Peserta</a></li>
-    <li><a href="#">Jadwal dan Skor</a></li>
-    <li><a href="#">Informasi</a></li>
+    <li><a onclick="showPage('beranda')" class="active" data-page="beranda">Beranda</a></li>
+    <li><a onclick="showPage('peserta')" data-page="peserta">Peserta</a></li>
+    <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
   </ul>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Buka Menu">
-    <span></span>
-    <span></span>
-    <span></span>
+  <button class="hamburger" id="hamburgerBtn">
+    <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile Drawer Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <div class="mobile-menu-overlay" onclick="closeMenu()"></div>
   <div class="mobile-menu-panel">
     <ul class="mobile-menu-list">
-      <li>
-        <a href="#">
-          <span class="menu-icon">🏠</span>
-          Beranda
-        </a>
-      </li>
-      <div class="mobile-menu-divider"></div>
-      <li>
-        <a href="#">
-          <span class="menu-icon">🏳️</span>
-          Peserta
-        </a>
-      </li>
-      <div class="mobile-menu-divider"></div>
-      <li>
-        <a href="#">
-          <span class="menu-icon">📅</span>
-          Jadwal dan Skor
-        </a>
-      </li>
-      <div class="mobile-menu-divider"></div>
-      <li>
-        <a href="#">
-          <span class="menu-icon">ℹ️</span>
-          Informasi
-        </a>
-      </li>
+      <li><a onclick="showPage('beranda')">Beranda</a></li>
+      <li><a onclick="showPage('peserta')">Peserta</a></li>
+      <li><a onclick="showPage('jadwal')">Jadwal</a></li>
     </ul>
   </div>
 </div>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>IFFA AHMAD CUP</h1>
-    <div class="gold-line"></div>
-    <p>
-      Dibuat untuk menyatukan keberagaman Negara Fiksi melalui Sepak Bola, 
-      Menyatukan semua untuk sportifitas tinggi.
-    </p>
-  </div>
-</section>
+<div class="image-modal" id="imageModal" onclick="this.classList.remove('active')">
+  <img class="modal-content" id="fullImage">
+</div>
 
-<footer>
-  <div class="footer-logo">
-    <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png" alt="IFFA Logo">
+<div id="page-beranda" class="page active">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>IFFA AHMAD CUP</h1>
+      <p>Menyatukan Negara Fiksi Melalui Sepak Bola</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
+    </div>
+    <p class="footer-hashtag">#UnitingFictionalNations</p>
+    <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
+  </footer>
+</div>
+
+<div id="page-peserta" class="page">
+  <div class="page-header">
+    <h1>DAFTAR PESERTA</h1>
   </div>
-  <p style="color: var(--gold-dark); font-weight: 600; letter-spacing: 1px;">#UnitingFictionalNations</p>
-  <div class="footer-copy" style="color: #aaa;">
-    &copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.
+  <div class="participants-grid">
+    
+    <div class="participant-card">
+      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')">
+        <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png">
+      </div>
+      <div class="card-body">
+        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776836552996-a992fc36-f2d6-4f80-af42-c2437e6fd050.jpg"></div>
+        <div>
+          <div class="card-nation-name">REPUBLIK ISLAM WINERIASIA</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Patrick Kluivert</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="participant-card">
+      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')">
+        <img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg">
+      </div>
+      <div class="card-body">
+        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div>
+        <div>
+          <div class="card-nation-name">VEROLIA</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Wilfried Nancy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="participant-card">
+      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')">
+        <img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg">
+      </div>
+      <div class="card-body">
+        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859049132-7a600a73-ecc6-4a1a-b931-a90054d608e5.jpeg"></div>
+        <div>
+          <div class="card-nation-name">TAZBEKISTAN</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Gierna Botrivko</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="participant-card">
+      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')">
+        <img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg">
+      </div>
+      <div class="card-body">
+        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859654478-afdc8fdb-99ae-4c4c-add9-47520c2c5e76.jpeg"></div>
+        <div>
+          <div class="card-nation-name">BIKINI BOTTOM</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Winston Niuket</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="participant-card">
+      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')">
+        <img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp">
+      </div>
+      <div class="card-body">
+        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859973034-ee169fba-db7f-496b-a636-d88142dcb1a4.webp"></div>
+        <div>
+          <div class="card-nation-name">MALAYSIA</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Peter Cklamovski</div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</footer>
+</div>
 
 <script>
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuOverlay = document.getElementById('menuOverlay');
-
-  function openMenu() {
-    mobileMenu.classList.add('active');
-    hamburgerBtn.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function zoomImage(imgSrc) {
+    const modal = document.getElementById('imageModal');
+    const fullImg = document.getElementById('fullImage');
+    fullImg.src = imgSrc;
+    modal.classList.add('active');
   }
+
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.remove('active');
+      if(a.getAttribute('data-page') === pageId) a.classList.add('active');
+    });
+    closeMenu();
+    window.scrollTo(0,0);
+  }
+
+  const btn = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('active');
+  });
 
   function closeMenu() {
-    mobileMenu.classList.remove('active');
-    hamburgerBtn.classList.remove('open');
-    document.body.style.overflow = '';
+    btn.classList.remove('open');
+    menu.classList.remove('active');
   }
-
-  hamburgerBtn.addEventListener('click', () => {
-    if (mobileMenu.classList.contains('active')) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  menuOverlay.addEventListener('click', closeMenu);
-
-  // Tutup menu saat klik link
-  document.querySelectorAll('.mobile-menu-list a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
 </script>
 
 </body>
