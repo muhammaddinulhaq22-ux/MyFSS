@@ -70,10 +70,37 @@
   .hero-content h1 { font-family: 'Bebas Neue'; font-size: 70px; margin-bottom: 10px; }
 
   /* ===== FOOTER ===== */
-  footer { padding: 60px 20px; background: var(--white); text-align: center; color: var(--dark); }
+  footer { padding: 60px 20px 40px; background: var(--white); text-align: center; color: var(--dark); }
   .footer-logo img { height: 80px; margin-bottom: 20px; }
   .footer-hashtag { color: var(--gold-dark); font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
-  .footer-copy { font-size: 13px; color: var(--gray); }
+  .footer-copy { font-size: 13px; color: var(--gray); margin-bottom: 0; }
+
+  /* ===== SUPPORT & SPONSORSHIP ===== */
+  .footer-partners { border-top: 1px solid #e5e5e5; padding-top: 32px; margin-top: 32px; }
+  .footer-partners-title {
+    font-family: 'Barlow Condensed';
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gray);
+    margin-bottom: 28px;
+  }
+  .partners-section { margin-bottom: 28px; }
+  .partners-section-label {
+    font-family: 'Barlow Condensed';
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bbb;
+    margin-bottom: 16px;
+  }
+  .partners-row { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .partner-item { display: flex; align-items: center; justify-content: center; }
+  .partner-item img { height: 60px; object-fit: contain; transition: opacity 0.2s; }
+  .partner-item img:hover { opacity: 0.8; }
+  .partner-divider { width: 60px; height: 1px; background: #e5e5e5; margin: 0 auto 28px; }
 
   /* ===== PARTICIPANTS GRID ===== */
   .page-header { margin-top: 80px; padding: 60px 20px; text-align: center; border-bottom: 3px solid var(--gold); }
@@ -82,31 +109,15 @@
   .card-flag-banner { height: 180px; cursor: pointer; position: relative; overflow: hidden; }
   .card-flag-banner img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
   .card-flag-banner:hover img { transform: scale(1.05); }
-
   .card-body { padding: 20px; display: flex; align-items: center; gap: 15px; }
   .coach-photo-wrap { width: 65px; height: 65px; border-radius: 50%; overflow: hidden; border: 2px solid var(--gold); }
   .coach-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
   .card-nation-name { font-family: 'Bebas Neue'; font-size: 18px; color: #fff; text-transform: uppercase; }
 
   /* ===== MODAL IMAGE VIEWER ===== */
-  .image-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    background: rgba(0,0,0,0.9);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    cursor: zoom-out;
-  }
+  .image-modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
   .image-modal.active { display: flex; }
-  .modal-content {
-    max-width: 90%;
-    max-height: 80vh;
-    border: 3px solid var(--gold);
-    border-radius: 8px;
-  }
+  .modal-content { max-width: 90%; max-height: 80vh; border: 3px solid var(--gold); border-radius: 8px; }
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -165,6 +176,45 @@
     </div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
+
+    <!-- SUPPORT & SPONSORSHIP -->
+    <div class="footer-partners">
+      <p class="footer-partners-title">Support &amp; Sponsorship</p>
+
+      <!-- SPONSOR -->
+      <div class="partners-section">
+        <p class="partners-section-label">Sponsor</p>
+        <div class="partners-row">
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat">
+          </div>
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas">
+          </div>
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport">
+          </div>
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor">
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-divider"></div>
+
+      <!-- SUPPORT -->
+      <div class="partners-section">
+        <p class="partners-section-label">Support</p>
+        <div class="partners-row">
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA">
+          </div>
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS">
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 </div>
 
@@ -369,17 +419,28 @@
       </div>
     </div>
     
-      <div class="participant-card">
+    <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg">
       </div>
       <div class="card-body">
         <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776953754703-5b3b184a-cf30-45b2-ba99-eea8be4fdc9c.jpg"></div>
-        <div><div class="card-nation-name">LICHTENBURG</div><div style="font-size: 13px; color: var(--gold);">Coach: Toni Kroos</div></div>
+        <div>
+          <div class="card-nation-name">LICHTENBURG</div>
+          <div style="font-size: 13px; color: var(--gold);">Coach: Toni Kroos</div>
+        </div>
       </div>
     </div>
-    
 
+  </div>
+</div>
+
+<div id="page-jadwal" class="page">
+  <div class="page-header">
+    <h1>JADWAL PERTANDINGAN</h1>
+  </div>
+  <div style="padding: 60px 20px; text-align: center; color: var(--gray);">
+    Jadwal akan segera diumumkan.
   </div>
 </div>
 
@@ -394,7 +455,6 @@
   function showPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + pageId).classList.add('active');
-    
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.classList.remove('active');
       if(a.getAttribute('data-page') === pageId) a.classList.add('active');
@@ -405,7 +465,6 @@
 
   const btn = document.getElementById('hamburgerBtn');
   const menu = document.getElementById('mobileMenu');
-
   btn.addEventListener('click', () => {
     btn.classList.toggle('open');
     menu.classList.toggle('active');
