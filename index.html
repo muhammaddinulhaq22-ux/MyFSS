@@ -147,6 +147,29 @@
     .slide img { height: 320px; }
   }
 
+  /* ===== STADIUM SECTION ===== */
+  .stadium-section { background: #0f0f0f; padding: 60px 40px; }
+  .stadium-header { text-align: center; margin-bottom: 40px; }
+  .stadium-title { font-family: 'Bebas Neue'; font-size: 42px; color: var(--white); letter-spacing: 2px; line-height: 1; }
+  .stadium-subtitle { font-family: 'Barlow Condensed'; font-size: 16px; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-top: 6px; }
+  .stadium-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .stadium-card { background: #1a1a1a; border-radius: 6px; overflow: hidden; border: 1px solid #2a2a2a; transition: transform 0.3s, border-color 0.3s; }
+  .stadium-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .stadium-img-wrap { height: 200px; overflow: hidden; }
+  .stadium-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .stadium-card:hover .stadium-img-wrap img { transform: scale(1.05); }
+  .stadium-placeholder { width: 100%; height: 200px; background: #222; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border-bottom: 2px dashed #333; }
+  .stadium-placeholder span { font-size: 36px; }
+  .stadium-placeholder p { font-family: 'Barlow Condensed'; color: #555; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+  .stadium-info { padding: 16px 20px; }
+  .stadium-name { font-family: 'Bebas Neue'; font-size: 20px; color: var(--white); margin-bottom: 4px; }
+  .stadium-loc { font-family: 'Barlow Condensed'; font-size: 13px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+  @media (max-width: 600px) {
+    .stadium-section { padding: 40px 20px; }
+    .stadium-title { font-size: 32px; }
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -234,6 +257,43 @@
     </div>
   </section>
 
+  <!-- STADIUM SECTION -->
+  <section class="stadium-section">
+    <div class="stadium-header">
+      <h2 class="stadium-title">STADION YANG DIGUNAKAN</h2>
+      <p class="stadium-subtitle">dalam IFFA AHMAD CUP 2026</p>
+    </div>
+    <div class="stadium-grid">
+      <div class="stadium-card">
+        <div class="stadium-img-wrap">
+          <img src="https://www.image2url.com/r2/default/images/1777029944491-f5c1c426-251d-4a55-93d5-655bf62b78ae.webp" alt="Ahmad Internasional Stadium">
+        </div>
+        <div class="stadium-info">
+          <p class="stadium-name">Ahmad Internasional Stadium</p>
+          <p class="stadium-loc">Venue Utama</p>
+        </div>
+      </div>
+      <div class="stadium-card">
+        <div class="stadium-img-wrap">
+          <img src="https://www.image2url.com/r2/default/images/1777030165044-5583338c-51d3-445a-b8d5-e923f1bb5c35.jpg" alt="Wineriasia Center Stadium">
+        </div>
+        <div class="stadium-info">
+          <p class="stadium-name">Wineriasia Center Stadium</p>
+          <p class="stadium-loc">Venue Kedua</p>
+        </div>
+      </div>
+      <div class="stadium-card">
+        <div class="stadium-img-wrap">
+          <img src="https://www.image2url.com/r2/default/images/1777030348699-924121c8-ec47-4362-a268-bb8f0187eb47.webp" alt="Al Jamasyia Stadium">
+        </div>
+        <div class="stadium-info">
+          <p class="stadium-name">Al Jamasyia Stadium</p>
+          <p class="stadium-loc">Venue Ketiga</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="footer-logo">
       <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
@@ -266,6 +326,9 @@
           </div>
           <div class="partner-item">
             <img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6">
+          </div>
+          <div class="partner-item">
+            <img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7">
           </div>
         </div>
       </div>
@@ -521,6 +584,7 @@
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
         </div>
       </div>
       <div class="partner-divider"></div>
@@ -560,6 +624,7 @@
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
           <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
         </div>
       </div>
       <div class="partner-divider"></div>
