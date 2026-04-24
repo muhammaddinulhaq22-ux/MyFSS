@@ -119,6 +119,34 @@
   .image-modal.active { display: flex; }
   .modal-content { max-width: 90%; max-height: 80vh; border: 3px solid var(--gold); border-radius: 8px; }
 
+  /* ===== WELCOME SECTION ===== */
+  .welcome-section { background: var(--dark); }
+  .welcome-image-wrap { position: relative; width: 100%; max-height: 500px; overflow: hidden; }
+  .welcome-image-wrap img { width: 100%; height: 500px; object-fit: cover; display: block; filter: brightness(0.45); }
+  .welcome-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .welcome-text-box { text-align: center; padding: 20px; }
+  .welcome-label { font-family: 'Barlow Condensed'; font-size: 16px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .welcome-title { font-family: 'Bebas Neue'; font-size: 58px; color: var(--white); line-height: 1; margin-bottom: 16px; }
+  .welcome-desc { font-family: 'Barlow Condensed'; font-size: 18px; color: #ccc; letter-spacing: 1px; }
+
+  /* ===== SLIDER ===== */
+  .slider-wrap { position: relative; width: 100%; overflow: hidden; background: #000; }
+  .slide { display: none; position: relative; width: 100%; }
+  .slide.active-slide { display: block; }
+  .slide img { width: 100%; height: 500px; object-fit: cover; filter: brightness(0.45); display: block; }
+  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); border: 2px solid var(--gold); color: var(--gold); font-size: 22px; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .slider-btn:hover { background: var(--gold); color: #000; }
+  .slider-btn.prev { left: 18px; }
+  .slider-btn.next { right: 18px; }
+  .slider-dots { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
+  .dot.active-dot { background: var(--gold); border-color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .welcome-title { font-size: 36px; }
+    .slide img { height: 320px; }
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -167,6 +195,42 @@
     <div class="hero-content">
       <h1>IFFA AHMAD CUP</h1>
       <p>Menyatukan Negara Fiksi Melalui Sepak Bola</p>
+    </div>
+  </section>
+
+  <!-- WELCOME SECTION - SLIDER -->
+  <section class="welcome-section">
+    <div class="slider-wrap">
+      <!-- SLIDE 1 -->
+      <div class="slide active-slide">
+        <img src="https://www.image2url.com/r2/default/images/1776997098177-a2e50c09-4998-4bfe-8b88-494f190d6ac0.webp" alt="Welcome Banner">
+        <div class="welcome-overlay">
+          <div class="welcome-text-box">
+            <p class="welcome-label">Selamat Datang di</p>
+            <h2 class="welcome-title">WEB IFFA AHMAD CUP</h2>
+            <p class="welcome-desc">Turnamen Non-Resmi yang diselenggarakan dalam Website</p>
+          </div>
+        </div>
+      </div>
+      <!-- SLIDE 2 -->
+      <div class="slide">
+        <img src="https://www.image2url.com/r2/default/images/1776997334939-88853b35-db8e-4380-a184-b792761dd12a.webp" alt="Banner 2">
+        <div class="welcome-overlay">
+          <div class="welcome-text-box">
+            <p class="welcome-label">IFFA AHMAD CUP 2026</p>
+            <h2 class="welcome-title">TRANSFORMASI<br>SEPAK BOLA</h2>
+            <p class="welcome-desc">Menuju Transformasi Sepak Bola Negara Fiksi</p>
+          </div>
+        </div>
+      </div>
+      <!-- CONTROLS -->
+      <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+      <!-- DOTS -->
+      <div class="slider-dots">
+        <span class="dot active-dot" onclick="goSlide(0)"></span>
+        <span class="dot" onclick="goSlide(1)"></span>
+      </div>
     </div>
   </section>
 
@@ -530,6 +594,24 @@
     btn.classList.remove('open');
     menu.classList.remove('active');
   }
+
+  // SLIDER
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function goSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    dots[currentSlide].classList.remove('active-dot');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active-slide');
+    dots[currentSlide].classList.add('active-dot');
+  }
+
+  function moveSlide(dir) { goSlide(currentSlide + dir); }
+
+  // Auto-slide every 5 seconds
+  setInterval(() => moveSlide(1), 5000);
 </script>
 
 </body>
