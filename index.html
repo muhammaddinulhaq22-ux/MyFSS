@@ -147,6 +147,67 @@
     .slide img { height: 320px; }
   }
 
+  /* ===== COUNTDOWN SECTION ===== */
+  .countdown-section {
+    background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .countdown-inner { max-width: 800px; margin: 0 auto; }
+  .countdown-label { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .countdown-title { font-family: 'Bebas Neue'; font-size: 48px; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .countdown-date { font-family: 'Barlow Condensed'; font-size: 18px; color: #aaa; font-weight: 600; letter-spacing: 2px; margin-bottom: 40px; }
+  .countdown-boxes { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .countdown-box {
+    background: #1a1a1a;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    width: 120px;
+    padding: 20px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 0 20px rgba(201,153,26,0.15);
+  }
+  .countdown-num {
+    font-family: 'Bebas Neue';
+    font-size: 64px;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .countdown-unit {
+    font-family: 'Barlow Condensed';
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #888;
+    text-transform: uppercase;
+  }
+  .countdown-sep {
+    font-family: 'Bebas Neue';
+    font-size: 52px;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 20px;
+  }
+  .countdown-finished {
+    font-family: 'Bebas Neue';
+    font-size: 32px;
+    color: var(--gold);
+    margin-top: 20px;
+    letter-spacing: 2px;
+  }
+  @media (max-width: 600px) {
+    .countdown-box { width: 75px; padding: 14px 6px 10px; }
+    .countdown-num { font-size: 42px; }
+    .countdown-title { font-size: 34px; }
+    .countdown-sep { font-size: 36px; }
+  }
+
   /* ===== STADIUM SECTION ===== */
   .stadium-section { background: #0f0f0f; padding: 60px 40px; }
   .stadium-header { text-align: center; margin-bottom: 40px; }
@@ -212,17 +273,8 @@
 </div>
 
 <div id="page-beranda" class="page active">
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>IFFA AHMAD CUP</h1>
-      <p>Menyatukan Negara Fiksi Melalui Sepak Bola</p>
-    </div>
-  </section>
-
   <!-- WELCOME SECTION - SLIDER -->
-  <section class="welcome-section">
+  <section class="welcome-section" style="margin-top: 80px;">
     <div class="slider-wrap">
       <!-- SLIDE 1 -->
       <div class="slide active-slide">
@@ -254,6 +306,37 @@
         <span class="dot active-dot" onclick="goSlide(0)"></span>
         <span class="dot" onclick="goSlide(1)"></span>
       </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN SECTION -->
+  <section class="countdown-section">
+    <div class="countdown-inner">
+      <p class="countdown-label">TURNAMEN DIMULAI DALAM</p>
+      <h2 class="countdown-title">IFFA AHMAD CUP 2026</h2>
+      <p class="countdown-date">23 MEI 2026</p>
+      <div class="countdown-boxes">
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-unit">Hari</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-unit">Jam</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-minutes">00</span>
+          <span class="countdown-unit">Menit</span>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-seconds">00</span>
+          <span class="countdown-unit">Detik</span>
+        </div>
+      </div>
+      <p class="countdown-finished" id="cd-finished" style="display:none;">🏆 IFFA AHMAD CUP 2026 TELAH DIMULAI!</p>
     </div>
   </section>
 
@@ -669,6 +752,31 @@
     btn.classList.remove('open');
     menu.classList.remove('active');
   }
+
+  // COUNTDOWN
+  function updateCountdown() {
+    const target = new Date('2026-05-23T00:00:00').getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-finished').style.display = 'block';
+      document.querySelector('.countdown-boxes').style.display = 'none';
+      return;
+    }
+
+    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent    = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent   = String(hours).padStart(2, '0');
+    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
   // SLIDER
   let currentSlide = 0;
