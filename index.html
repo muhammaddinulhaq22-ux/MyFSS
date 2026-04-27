@@ -797,5 +797,200 @@
   setInterval(() => moveSlide(1), 5000);
 </script>
 
+<!-- BACKGROUND MUSIC PLAYER -->
+<div id="ytPlayer" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
+  <iframe id="ytIframe" style="width:1px;height:1px;border:none;" allow="autoplay"></iframe>
+</div>
+
+<!-- MUSIC PLAYER UI -->
+<div id="musicPlayer" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(10,10,10,0.92);
+  border: 1px solid #C9991A;
+  border-radius: 12px;
+  width: 280px;
+  font-family: 'Barlow Condensed', sans-serif;
+  box-shadow: 0 4px 24px rgba(201,153,26,0.18);
+  overflow: hidden;
+">
+  <!-- HEADER -->
+  <div style="background:#C9991A;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="togglePlayerPanel()">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span id="playerIcon">🎵</span>
+      <span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#000;">OFFICIAL SOUNDTRACK</span>
+    </div>
+    <span id="toggleArrow" style="color:#000;font-size:16px;font-weight:700;">▲</span>
+  </div>
+
+  <!-- PANEL -->
+  <div id="playerPanel">
+    <!-- NOW PLAYING -->
+    <div style="padding:12px 14px 8px;border-bottom:1px solid #222;">
+      <div style="font-size:10px;letter-spacing:2px;color:#888;margin-bottom:4px;">NOW PLAYING</div>
+      <div id="nowPlayingName" style="font-size:15px;font-weight:700;color:#C9991A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
+      <!-- animated bars -->
+      <div id="playerBars" style="display:flex;gap:2px;align-items:flex-end;height:12px;margin-top:6px;">
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease infinite alternate;height:6px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.2s infinite alternate;height:10px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.4s infinite alternate;height:4px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.1s infinite alternate;height:12px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.3s infinite alternate;height:7px;"></span>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 14px;border-bottom:1px solid #222;">
+      <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Sebelumnya">⏮</button>
+      <button id="playPauseBtn" onclick="togglePlay()" style="background:#C9991A;border:none;color:#000;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
+      <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Berikutnya">⏭</button>
+    </div>
+
+    <!-- PLAYLIST -->
+    <div style="padding:8px 0;">
+      <div style="font-size:10px;letter-spacing:2px;color:#888;padding:0 14px 6px;">PLAYLIST</div>
+      <div id="playlist"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes barAnim {
+  from { transform: scaleY(0.3); }
+  to   { transform: scaleY(1); }
+}
+.bar { transform-origin: bottom; }
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-size: 13px;
+  font-weight: 600;
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+.playlist-item:hover { background: #1a1a1a; color: #fff; }
+.playlist-item.active { background: #1a1a1a; color: #C9991A; }
+.playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
+.playlist-item.active .track-num { color: #C9991A; }
+</style>
+
+<script>
+  const playlist = [
+    { title: "Sea of Problem",     id: "gtpCl_QWaLg" },
+    { title: "Stereo Love",        id: "p-Z3YrHJ1sU" },
+    { title: "Hate Me",            id: "" },
+    { title: "Welcome to Paradise",id: "" },
+  ];
+
+  let currentIndex = 0;
+  let isPlaying    = false;
+  let started      = false;
+  let panelOpen    = true;
+
+  const iframe        = document.getElementById('ytIframe');
+  const nowPlaying    = document.getElementById('nowPlayingName');
+  const playPauseBtn  = document.getElementById('playPauseBtn');
+  const playerBars    = document.getElementById('playerBars');
+  const playlistEl    = document.getElementById('playlist');
+  const toggleArrow   = document.getElementById('toggleArrow');
+  const playerPanel   = document.getElementById('playerPanel');
+
+  // Build playlist UI
+  playlist.forEach((track, i) => {
+    const item = document.createElement('div');
+    item.className = 'playlist-item' + (i === 0 ? ' active' : '');
+    item.id = 'track-' + i;
+    item.innerHTML = `
+      <span class="track-num">${i + 1}</span>
+      <span>${track.title}</span>
+      ${!track.id ? '<span style="font-size:10px;color:#555;margin-left:auto;">SEGERA</span>' : ''}
+    `;
+    if (track.id) item.onclick = () => playSong(i);
+    playlistEl.appendChild(item);
+  });
+
+  function loadSong(index, autoplay) {
+    const track = playlist[index];
+    if (!track.id) return;
+    currentIndex = index;
+    nowPlaying.textContent = track.title;
+
+    // Update active state
+    document.querySelectorAll('.playlist-item').forEach((el, i) => {
+      el.classList.toggle('active', i === index);
+    });
+
+    iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=${autoplay ? 1 : 0}&controls=0&loop=0&enablejsapi=1`;
+
+    if (autoplay) {
+      isPlaying = true;
+      playPauseBtn.textContent = '⏸';
+      playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'running');
+    }
+  }
+
+  function playSong(index) {
+    started = true;
+    loadSong(index, true);
+  }
+
+  function togglePlay() {
+    if (!started) {
+      started = true;
+      loadSong(currentIndex, true);
+      return;
+    }
+    if (isPlaying) {
+      // pause - reload muted/paused
+      const track = playlist[currentIndex];
+      iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=0&controls=0&mute=1`;
+      isPlaying = false;
+      playPauseBtn.textContent = '▶';
+      playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+    } else {
+      loadSong(currentIndex, true);
+    }
+  }
+
+  function nextSong() {
+    let next = currentIndex + 1;
+    while (next < playlist.length && !playlist[next].id) next++;
+    if (next < playlist.length) playSong(next);
+    else playSong(0);
+  }
+
+  function prevSong() {
+    let prev = currentIndex - 1;
+    while (prev >= 0 && !playlist[prev].id) prev--;
+    if (prev >= 0) playSong(prev);
+  }
+
+  function togglePlayerPanel() {
+    panelOpen = !panelOpen;
+    playerPanel.style.display = panelOpen ? 'block' : 'none';
+    toggleArrow.textContent = panelOpen ? '▲' : '▼';
+  }
+
+  // Auto-start on first click anywhere
+  function startOnFirstClick() {
+    if (!started) {
+      started = true;
+      loadSong(0, true);
+    }
+  }
+  document.addEventListener('click', startOnFirstClick, { once: true });
+  document.addEventListener('touchstart', startOnFirstClick, { once: true });
+
+  // Init display
+  nowPlaying.textContent = playlist[0].title;
+  playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+</script>
+
 </body>
 </html>
