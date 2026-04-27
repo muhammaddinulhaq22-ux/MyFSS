@@ -235,6 +235,29 @@
     .nav-links { display: none; }
     .hamburger { display: flex; }
   }
+
+  /* ===== MUSIC PLAYER ===== */
+  @keyframes barAnim {
+    from { transform: scaleY(0.3); }
+    to   { transform: scaleY(1); }
+  }
+  .bar { transform-origin: bottom; }
+  .playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 13px;
+    font-weight: 600;
+    color: #aaa;
+    letter-spacing: 0.5px;
+  }
+  .playlist-item:hover { background: #1a1a1a; color: #fff; }
+  .playlist-item.active { background: #1a1a1a; color: #C9991A; }
+  .playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
+  .playlist-item.active .track-num { color: #C9991A; }
 </style>
 </head>
 <body>
@@ -272,11 +295,10 @@
   <img class="modal-content" id="fullImage">
 </div>
 
+<!-- ===== BERANDA ===== -->
 <div id="page-beranda" class="page active">
-  <!-- WELCOME SECTION - SLIDER -->
   <section class="welcome-section" style="margin-top: 80px;">
     <div class="slider-wrap">
-      <!-- SLIDE 1 -->
       <div class="slide active-slide">
         <img src="https://www.image2url.com/r2/default/images/1776997098177-a2e50c09-4998-4bfe-8b88-494f190d6ac0.webp" alt="Welcome Banner">
         <div class="welcome-overlay">
@@ -287,7 +309,6 @@
           </div>
         </div>
       </div>
-      <!-- SLIDE 2 -->
       <div class="slide">
         <img src="https://www.image2url.com/r2/default/images/1776997334939-88853b35-db8e-4380-a184-b792761dd12a.webp" alt="Banner 2">
         <div class="welcome-overlay">
@@ -298,10 +319,8 @@
           </div>
         </div>
       </div>
-      <!-- CONTROLS -->
       <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
       <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
-      <!-- DOTS -->
       <div class="slider-dots">
         <span class="dot active-dot" onclick="goSlide(0)"></span>
         <span class="dot" onclick="goSlide(1)"></span>
@@ -309,7 +328,6 @@
     </div>
   </section>
 
-  <!-- COUNTDOWN SECTION -->
   <section class="countdown-section">
     <div class="countdown-inner">
       <p class="countdown-label">TURNAMEN DIMULAI DALAM</p>
@@ -340,7 +358,6 @@
     </div>
   </section>
 
-  <!-- STADIUM SECTION -->
   <section class="stadium-section">
     <div class="stadium-header">
       <h2 class="stadium-title">STADION YANG DIGUNAKAN</h2>
@@ -383,57 +400,33 @@
     </div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-
-    <!-- SUPPORT & SPONSORSHIP -->
     <div class="footer-partners">
       <p class="footer-partners-title">Support &amp; Sponsorship</p>
-
-      <!-- SPONSOR -->
       <div class="partners-section">
         <p class="partners-section-label">Sponsor</p>
         <div class="partners-row">
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7">
-          </div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
         </div>
       </div>
-
       <div class="partner-divider"></div>
-
-      <!-- SUPPORT -->
       <div class="partners-section">
         <p class="partners-section-label">Support</p>
         <div class="partners-row">
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA">
-          </div>
-          <div class="partner-item">
-            <img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS">
-          </div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"></div>
         </div>
       </div>
     </div>
   </footer>
 </div>
 
+<!-- ===== PESERTA ===== -->
 <div id="page-peserta" class="page">
   <div class="page-header">
     <h1>DAFTAR PESERTA</h1>
@@ -460,7 +453,7 @@
       <div class="card-body">
         <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div>
         <div>
-          <div class="card-nation-name">VELORIA</div>
+          <div class="card-nation-name">VEROLIA</div>
           <div style="font-size: 13px; color: var(--gold);">Coach: Wilfried Nancy</div>
         </div>
       </div>
@@ -682,6 +675,7 @@
   </footer>
 </div>
 
+<!-- ===== JADWAL ===== -->
 <div id="page-jadwal" class="page">
   <div class="page-header">
     <h1>JADWAL PERTANDINGAN</h1>
@@ -722,7 +716,61 @@
   </footer>
 </div>
 
+<!-- ===== YOUTUBE PLAYER (hidden) ===== -->
+<div id="ytPlayer" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
+  <iframe id="ytIframe" style="width:1px;height:1px;border:none;" allow="autoplay"></iframe>
+</div>
+
+<!-- ===== MUSIC PLAYER UI ===== -->
+<div id="musicPlayer" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(10,10,10,0.92);
+  border: 1px solid #C9991A;
+  border-radius: 12px;
+  width: 280px;
+  font-family: 'Barlow Condensed', sans-serif;
+  box-shadow: 0 4px 24px rgba(201,153,26,0.18);
+  overflow: hidden;
+">
+  <div style="background:#C9991A;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="togglePlayerPanel()">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span id="playerIcon">🎵</span>
+      <span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#000;">OFFICIAL SOUNDTRACK</span>
+    </div>
+    <span id="toggleArrow" style="color:#000;font-size:16px;font-weight:700;">▲</span>
+  </div>
+
+  <div id="playerPanel">
+    <div style="padding:12px 14px 8px;border-bottom:1px solid #222;">
+      <div style="font-size:10px;letter-spacing:2px;color:#888;margin-bottom:4px;">NOW PLAYING</div>
+      <div id="nowPlayingName" style="font-size:15px;font-weight:700;color:#C9991A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
+      <div id="playerBars" style="display:flex;gap:2px;align-items:flex-end;height:12px;margin-top:6px;">
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease infinite alternate;height:6px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.2s infinite alternate;height:10px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.4s infinite alternate;height:4px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.1s infinite alternate;height:12px;"></span>
+        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.3s infinite alternate;height:7px;"></span>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 14px;border-bottom:1px solid #222;">
+      <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Sebelumnya">⏮</button>
+      <button id="playPauseBtn" onclick="togglePlay()" style="background:#C9991A;border:none;color:#000;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
+      <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Berikutnya">⏭</button>
+    </div>
+
+    <div style="padding:8px 0;">
+      <div style="font-size:10px;letter-spacing:2px;color:#888;padding:0 14px 6px;">PLAYLIST</div>
+      <div id="playlist"></div>
+    </div>
+  </div>
+</div>
+
 <script>
+  // ===== NAVIGATION =====
   function zoomImage(imgSrc) {
     const modal = document.getElementById('imageModal');
     const fullImg = document.getElementById('fullImage');
@@ -753,7 +801,7 @@
     menu.classList.remove('active');
   }
 
-  // COUNTDOWN
+  // ===== COUNTDOWN =====
   function updateCountdown() {
     const target = new Date('2026-05-23T00:00:00').getTime();
     const now = new Date().getTime();
@@ -778,7 +826,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // SLIDER
+  // ===== SLIDER =====
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
@@ -792,100 +840,15 @@
   }
 
   function moveSlide(dir) { goSlide(currentSlide + dir); }
-
-  // Auto-slide every 5 seconds
   setInterval(() => moveSlide(1), 5000);
-</script>
 
-<!-- BACKGROUND MUSIC PLAYER -->
-<div id="ytPlayer" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
-  <iframe id="ytIframe" style="width:1px;height:1px;border:none;" allow="autoplay"></iframe>
-</div>
-
-<!-- MUSIC PLAYER UI -->
-<div id="musicPlayer" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  background: rgba(10,10,10,0.92);
-  border: 1px solid #C9991A;
-  border-radius: 12px;
-  width: 280px;
-  font-family: 'Barlow Condensed', sans-serif;
-  box-shadow: 0 4px 24px rgba(201,153,26,0.18);
-  overflow: hidden;
-">
-  <!-- HEADER -->
-  <div style="background:#C9991A;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="togglePlayerPanel()">
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span id="playerIcon">🎵</span>
-      <span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#000;">OFFICIAL SOUNDTRACK</span>
-    </div>
-    <span id="toggleArrow" style="color:#000;font-size:16px;font-weight:700;">▲</span>
-  </div>
-
-  <!-- PANEL -->
-  <div id="playerPanel">
-    <!-- NOW PLAYING -->
-    <div style="padding:12px 14px 8px;border-bottom:1px solid #222;">
-      <div style="font-size:10px;letter-spacing:2px;color:#888;margin-bottom:4px;">NOW PLAYING</div>
-      <div id="nowPlayingName" style="font-size:15px;font-weight:700;color:#C9991A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
-      <!-- animated bars -->
-      <div id="playerBars" style="display:flex;gap:2px;align-items:flex-end;height:12px;margin-top:6px;">
-        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease infinite alternate;height:6px;"></span>
-        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.2s infinite alternate;height:10px;"></span>
-        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.4s infinite alternate;height:4px;"></span>
-        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.1s infinite alternate;height:12px;"></span>
-        <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.3s infinite alternate;height:7px;"></span>
-      </div>
-    </div>
-
-    <!-- CONTROLS -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 14px;border-bottom:1px solid #222;">
-      <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Sebelumnya">⏮</button>
-      <button id="playPauseBtn" onclick="togglePlay()" style="background:#C9991A;border:none;color:#000;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
-      <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Berikutnya">⏭</button>
-    </div>
-
-    <!-- PLAYLIST -->
-    <div style="padding:8px 0;">
-      <div style="font-size:10px;letter-spacing:2px;color:#888;padding:0 14px 6px;">PLAYLIST</div>
-      <div id="playlist"></div>
-    </div>
-  </div>
-</div>
-
-<style>
-@keyframes barAnim {
-  from { transform: scaleY(0.3); }
-  to   { transform: scaleY(1); }
-}
-.bar { transform-origin: bottom; }
-.playlist-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: background 0.15s;
-  font-size: 13px;
-  font-weight: 600;
-  color: #aaa;
-  letter-spacing: 0.5px;
-}
-.playlist-item:hover { background: #1a1a1a; color: #fff; }
-.playlist-item.active { background: #1a1a1a; color: #C9991A; }
-.playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
-.playlist-item.active .track-num { color: #C9991A; }
-</style>
-
-<script>
+  // ===== MUSIC PLAYER =====
   const playlist = [
-    { title: "Sea of Problem",     id: "gtpCl_QWaLg" },
-    { title: "Stereo Love",        id: "p-Z3YrHJ1sU" },
-    { title: "Hate Me",            id: "" },
-    { title: "Welcome to Paradise",id: "" },
+    { title: "Sea of Problem",    id: "gtpCl_QWaLg" },
+    { title: "Stereo Love",       id: "p-Z3YrHJ1sU" },
+    { title: "Hate Me",           id: "UZwi9SHgzGY" },
+    { title: "Night Call",        id: "MV_3Dpw-BRY" },
+    { title: "Beauty And A Beat", id: "Ys7-6_t7OEQ" },
   ];
 
   let currentIndex = 0;
@@ -909,9 +872,8 @@
     item.innerHTML = `
       <span class="track-num">${i + 1}</span>
       <span>${track.title}</span>
-      ${!track.id ? '<span style="font-size:10px;color:#555;margin-left:auto;">SEGERA</span>' : ''}
     `;
-    if (track.id) item.onclick = () => playSong(i);
+    item.onclick = () => playSong(i);
     playlistEl.appendChild(item);
   });
 
@@ -921,7 +883,6 @@
     currentIndex = index;
     nowPlaying.textContent = track.title;
 
-    // Update active state
     document.querySelectorAll('.playlist-item').forEach((el, i) => {
       el.classList.toggle('active', i === index);
     });
@@ -947,7 +908,6 @@
       return;
     }
     if (isPlaying) {
-      // pause - reload muted/paused
       const track = playlist[currentIndex];
       iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=0&controls=0&mute=1`;
       isPlaying = false;
@@ -959,16 +919,13 @@
   }
 
   function nextSong() {
-    let next = currentIndex + 1;
-    while (next < playlist.length && !playlist[next].id) next++;
-    if (next < playlist.length) playSong(next);
-    else playSong(0);
+    let next = (currentIndex + 1) % playlist.length;
+    playSong(next);
   }
 
   function prevSong() {
-    let prev = currentIndex - 1;
-    while (prev >= 0 && !playlist[prev].id) prev--;
-    if (prev >= 0) playSong(prev);
+    let prev = (currentIndex - 1 + playlist.length) % playlist.length;
+    playSong(prev);
   }
 
   function togglePlayerPanel() {
