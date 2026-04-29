@@ -97,13 +97,61 @@
     margin-bottom: 16px;
   }
   .partners-row { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-  .partner-item { display: flex; align-items: center; justify-content: center; }
+  .partner-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
   .partner-item img { height: 60px; object-fit: contain; transition: opacity 0.2s; }
   .partner-item img:hover { opacity: 0.8; }
+  .partner-name { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; }
   .partner-divider { width: 60px; height: 1px; background: #e5e5e5; margin: 0 auto 28px; }
 
+  /* ===== PAGE HEADER BANNER ===== */
+  .page-header {
+    margin-top: 80px;
+    padding: 36px 48px 36px 48px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    background: #111111;
+    border-bottom: 3px solid var(--gold);
+    min-height: 120px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 28px;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 70%;
+    height: 200%;
+    background: repeating-linear-gradient(
+      122deg,
+      transparent 0px,
+      transparent 22px,
+      rgba(255,255,255,0.055) 22px,
+      rgba(255,255,255,0.055) 36px,
+      transparent 36px,
+      transparent 50px,
+      rgba(255,255,255,0.03) 50px,
+      rgba(255,255,255,0.03) 58px
+    );
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%);
+    pointer-events: none;
+    z-index: 1;
+    transform-origin: top right;
+  }
+  .page-header h1 {
+    position: relative;
+    z-index: 2;
+    font-family: 'Bebas Neue';
+    font-size: 48px;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
   /* ===== PARTICIPANTS GRID ===== */
-  .page-header { margin-top: 80px; padding: 60px 20px; text-align: center; border-bottom: 3px solid var(--gold); }
   .participants-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto; }
   .participant-card { background: #111; border-radius: 5px; overflow: hidden; border: 1px solid #222; }
   .card-flag-banner { height: 180px; cursor: pointer; position: relative; overflow: hidden; }
@@ -295,6 +343,9 @@
   <img class="modal-content" id="fullImage">
 </div>
 
+<!-- ===== FOOTER SPONSORS TEMPLATE (reused across all pages) ===== -->
+<!-- Sponsor names are now consistent: Super Eat, Adidas, EA Sport, CB CLOTHING, PIRATE BAY, HAMID COMPANY, ALEXA GROUP -->
+
 <!-- ===== BERANDA ===== -->
 <div id="page-beranda" class="page active">
   <section class="welcome-section" style="margin-top: 80px;">
@@ -405,21 +456,21 @@
       <div class="partners-section">
         <p class="partners-section-label">Sponsor</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
         </div>
       </div>
       <div class="partner-divider"></div>
       <div class="partners-section">
         <p class="partners-section-label">Support</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
         </div>
       </div>
     </div>
@@ -654,21 +705,21 @@
       <div class="partners-section">
         <p class="partners-section-label">Sponsor</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
         </div>
       </div>
       <div class="partner-divider"></div>
       <div class="partners-section">
         <p class="partners-section-label">Support</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
         </div>
       </div>
     </div>
@@ -695,21 +746,21 @@
       <div class="partners-section">
         <p class="partners-section-label">Sponsor</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="Sponsor"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="Sponsor 5"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="Sponsor 6"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="Sponsor 7"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
         </div>
       </div>
       <div class="partner-divider"></div>
       <div class="partners-section">
         <p class="partners-section-label">Support</p>
         <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
         </div>
       </div>
     </div>
