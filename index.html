@@ -44,14 +44,12 @@
   .nav-links a { color: var(--dark); text-decoration: none; font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; cursor: pointer; }
   .nav-links a.active { color: var(--gold-dark); }
 
-  /* ===== HAMBURGER MENU ===== */
   .hamburger { display: none; margin-left: auto; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; z-index: 1100; }
   .hamburger span { display: block; width: 26px; height: 3px; background: var(--dark); transition: 0.3s; }
   .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-  /* ===== MOBILE MENU ===== */
   .mobile-menu { display: none; position: fixed; inset: 0; z-index: 999; }
   .mobile-menu.active { display: block; }
   .mobile-menu-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
@@ -60,7 +58,6 @@
   .mobile-menu-list { list-style: none; }
   .mobile-menu-list a { display: block; padding: 15px 30px; color: var(--dark); text-decoration: none; font-weight: 700; text-transform: uppercase; }
 
-  /* ===== PAGES ===== */
   .page { display: none; }
   .page.active { display: block; }
   .hero { margin-top: 80px; height: 85vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -69,33 +66,15 @@
   .hero-content { position: relative; z-index: 2; text-align: center; }
   .hero-content h1 { font-family: 'Bebas Neue'; font-size: 70px; margin-bottom: 10px; }
 
-  /* ===== FOOTER ===== */
   footer { padding: 60px 20px 40px; background: var(--white); text-align: center; color: var(--dark); }
   .footer-logo img { height: 80px; margin-bottom: 20px; }
   .footer-hashtag { color: var(--gold-dark); font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
   .footer-copy { font-size: 13px; color: var(--gray); margin-bottom: 0; }
 
-  /* ===== SUPPORT & SPONSORSHIP ===== */
   .footer-partners { border-top: 1px solid #e5e5e5; padding-top: 32px; margin-top: 32px; }
-  .footer-partners-title {
-    font-family: 'Barlow Condensed';
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--gray);
-    margin-bottom: 28px;
-  }
+  .footer-partners-title { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--gray); margin-bottom: 28px; }
   .partners-section { margin-bottom: 28px; }
-  .partners-section-label {
-    font-family: 'Barlow Condensed';
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #bbb;
-    margin-bottom: 16px;
-  }
+  .partners-section-label { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #bbb; margin-bottom: 16px; }
   .partners-row { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
   .partner-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
   .partner-item img { height: 60px; object-fit: contain; transition: opacity 0.2s; }
@@ -103,46 +82,13 @@
   .partner-name { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888; }
   .partner-divider { width: 60px; height: 1px; background: #e5e5e5; margin: 0 auto 28px; }
 
-  /* ===== PAGE HEADER BANNER ===== */
-  .page-header {
-    margin-top: 80px;
-    width: 100%;
-    position: relative;
-    line-height: 0;
-  }
-  .page-header img {
-    width: 100%;
-    height: 320px;
-    display: block;
-    object-fit: cover;
-  }
-  @media (max-width: 600px) {
-    .page-header img { height: 200px; }
-  }
-  .page-header-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: 28px 48px;
-    background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 60%, transparent 100%);
-    line-height: 1;
-  }
-  .page-header-overlay h1 {
-    font-family: 'Bebas Neue';
-    font-size: 52px;
-    color: var(--white);
-    letter-spacing: 3px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
-    border-left: 5px solid var(--gold);
-    padding-left: 18px;
-  }
-  @media (max-width: 600px) {
-    .page-header-overlay { padding: 18px 20px; }
-    .page-header-overlay h1 { font-size: 34px; }
-  }
+  .page-header { margin-top: 80px; width: 100%; position: relative; line-height: 0; }
+  .page-header img { width: 100%; height: 320px; display: block; object-fit: cover; }
+  @media (max-width: 600px) { .page-header img { height: 200px; } }
+  .page-header-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 28px 48px; background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 60%, transparent 100%); line-height: 1; }
+  .page-header-overlay h1 { font-family: 'Bebas Neue'; font-size: 52px; color: var(--white); letter-spacing: 3px; text-shadow: 0 2px 12px rgba(0,0,0,0.7); border-left: 5px solid var(--gold); padding-left: 18px; }
+  @media (max-width: 600px) { .page-header-overlay { padding: 18px 20px; } .page-header-overlay h1 { font-size: 34px; } }
 
-  /* ===== PARTICIPANTS GRID ===== */
   .participants-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; padding: 40px; max-width: 1200px; margin: 0 auto; }
   .participant-card { background: #111; border-radius: 5px; overflow: hidden; border: 1px solid #222; }
   .card-flag-banner { height: 180px; cursor: pointer; position: relative; overflow: hidden; }
@@ -153,12 +99,10 @@
   .coach-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
   .card-nation-name { font-family: 'Bebas Neue'; font-size: 18px; color: #fff; text-transform: uppercase; }
 
-  /* ===== MODAL IMAGE VIEWER ===== */
   .image-modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
   .image-modal.active { display: flex; }
   .modal-content { max-width: 90%; max-height: 80vh; border: 3px solid var(--gold); border-radius: 8px; }
 
-  /* ===== WELCOME SECTION ===== */
   .welcome-section { background: var(--dark); }
   .welcome-image-wrap { position: relative; width: 100%; max-height: 500px; overflow: hidden; }
   .welcome-image-wrap img { width: 100%; height: 500px; object-fit: cover; display: block; filter: brightness(0.45); }
@@ -168,7 +112,6 @@
   .welcome-title { font-family: 'Bebas Neue'; font-size: 58px; color: var(--white); line-height: 1; margin-bottom: 16px; }
   .welcome-desc { font-family: 'Barlow Condensed'; font-size: 18px; color: #ccc; letter-spacing: 1px; }
 
-  /* ===== SLIDER ===== */
   .slider-wrap { position: relative; width: 100%; overflow: hidden; background: #000; }
   .slide { display: none; position: relative; width: 100%; }
   .slide.active-slide { display: block; }
@@ -181,73 +124,21 @@
   .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
   .dot.active-dot { background: var(--gold); border-color: var(--gold); }
 
-  @media (max-width: 600px) {
-    .welcome-title { font-size: 36px; }
-    .slide img { height: 320px; }
-  }
+  @media (max-width: 600px) { .welcome-title { font-size: 36px; } .slide img { height: 320px; } }
 
-  /* ===== COUNTDOWN SECTION ===== */
-  .countdown-section {
-    background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
-    border-top: 3px solid var(--gold);
-    border-bottom: 3px solid var(--gold);
-    padding: 60px 20px;
-    text-align: center;
-  }
+  .countdown-section { background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 60px 20px; text-align: center; }
   .countdown-inner { max-width: 800px; margin: 0 auto; }
   .countdown-label { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
   .countdown-title { font-family: 'Bebas Neue'; font-size: 48px; color: var(--white); line-height: 1; margin-bottom: 6px; }
   .countdown-date { font-family: 'Barlow Condensed'; font-size: 18px; color: #aaa; font-weight: 600; letter-spacing: 2px; margin-bottom: 40px; }
   .countdown-boxes { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-  .countdown-box {
-    background: #1a1a1a;
-    border: 2px solid var(--gold);
-    border-radius: 8px;
-    width: 120px;
-    padding: 20px 10px 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    box-shadow: 0 0 20px rgba(201,153,26,0.15);
-  }
-  .countdown-num {
-    font-family: 'Bebas Neue';
-    font-size: 64px;
-    color: var(--gold);
-    line-height: 1;
-    letter-spacing: 2px;
-  }
-  .countdown-unit {
-    font-family: 'Barlow Condensed';
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #888;
-    text-transform: uppercase;
-  }
-  .countdown-sep {
-    font-family: 'Bebas Neue';
-    font-size: 52px;
-    color: var(--gold);
-    opacity: 0.5;
-    margin-bottom: 20px;
-  }
-  .countdown-finished {
-    font-family: 'Bebas Neue';
-    font-size: 32px;
-    color: var(--gold);
-    margin-top: 20px;
-    letter-spacing: 2px;
-  }
-  @media (max-width: 600px) {
-    .countdown-box { width: 75px; padding: 14px 6px 10px; }
-    .countdown-num { font-size: 42px; }
-    .countdown-title { font-size: 34px; }
-    .countdown-sep { font-size: 36px; }
-  }
+  .countdown-box { background: #1a1a1a; border: 2px solid var(--gold); border-radius: 8px; width: 120px; padding: 20px 10px 14px; display: flex; flex-direction: column; align-items: center; gap: 6px; box-shadow: 0 0 20px rgba(201,153,26,0.15); }
+  .countdown-num { font-family: 'Bebas Neue'; font-size: 64px; color: var(--gold); line-height: 1; letter-spacing: 2px; }
+  .countdown-unit { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+  .countdown-sep { font-family: 'Bebas Neue'; font-size: 52px; color: var(--gold); opacity: 0.5; margin-bottom: 20px; }
+  .countdown-finished { font-family: 'Bebas Neue'; font-size: 32px; color: var(--gold); margin-top: 20px; letter-spacing: 2px; }
+  @media (max-width: 600px) { .countdown-box { width: 75px; padding: 14px 6px 10px; } .countdown-num { font-size: 42px; } .countdown-title { font-size: 34px; } .countdown-sep { font-size: 36px; } }
 
-  /* ===== STADIUM SECTION ===== */
   .stadium-section { background: #0f0f0f; padding: 60px 40px; }
   .stadium-header { text-align: center; margin-bottom: 40px; }
   .stadium-title { font-family: 'Bebas Neue'; font-size: 42px; color: var(--white); letter-spacing: 2px; line-height: 1; }
@@ -262,167 +153,43 @@
   .stadium-name { font-family: 'Bebas Neue'; font-size: 20px; color: var(--white); margin-bottom: 4px; }
   .stadium-loc { font-family: 'Barlow Condensed'; font-size: 13px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-  @media (max-width: 600px) {
-    .stadium-section { padding: 40px 20px; }
-    .stadium-title { font-size: 32px; }
-  }
+  @media (max-width: 600px) { .stadium-section { padding: 40px 20px; } .stadium-title { font-size: 32px; } }
+  @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
 
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-  }
-
-  /* ===== MUSIC PLAYER ===== */
-  @keyframes barAnim {
-    from { transform: scaleY(0.3); }
-    to   { transform: scaleY(1); }
-  }
+  @keyframes barAnim { from { transform: scaleY(0.3); } to { transform: scaleY(1); } }
   .bar { transform-origin: bottom; }
-  .playlist-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 14px;
-    cursor: pointer;
-    transition: background 0.15s;
-    font-size: 13px;
-    font-weight: 600;
-    color: #aaa;
-    letter-spacing: 0.5px;
-  }
+  .playlist-item { display: flex; align-items: center; gap: 10px; padding: 8px 14px; cursor: pointer; transition: background 0.15s; font-size: 13px; font-weight: 600; color: #aaa; letter-spacing: 0.5px; }
   .playlist-item:hover { background: #1a1a1a; color: #fff; }
   .playlist-item.active { background: #1a1a1a; color: #C9991A; }
   .playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
   .playlist-item.active .track-num { color: #C9991A; }
 
   /* ===== GRUP PAGE ===== */
-  .grup-section {
-    background: var(--dark);
-    padding: 60px 20px 80px;
-  }
-
-  .grup-intro {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 56px;
-  }
-  .grup-intro .label {
-    font-family: 'Barlow Condensed';
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .grup-intro h2 {
-    font-family: 'Bebas Neue';
-    font-size: 48px;
-    color: var(--white);
-    letter-spacing: 3px;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .grup-intro p {
-    font-family: 'Barlow Condensed';
-    font-size: 16px;
-    color: #888;
-    letter-spacing: 1px;
-  }
-
-  .grup-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    .grup-grid { grid-template-columns: 1fr; }
-  }
-
-  .grup-card {
-    background: #0f0f0f;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .grup-card:hover {
-    border-color: var(--gold);
-    transform: translateY(-3px);
-  }
-
-  .grup-card-header {
-    background: linear-gradient(135deg, #1a1400 0%, #2a2000 60%, #1a1400 100%);
-    border-bottom: 3px solid var(--gold);
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .grup-letter {
-    font-family: 'Bebas Neue';
-    font-size: 52px;
-    color: var(--gold);
-    line-height: 1;
-    text-shadow: 0 0 20px rgba(201,153,26,0.4);
-  }
-  .grup-header-text {}
-  .grup-header-text .grup-label-small {
-    font-family: 'Barlow Condensed';
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #888;
-    text-transform: uppercase;
-  }
-  .grup-header-text .grup-name {
-    font-family: 'Bebas Neue';
-    font-size: 22px;
-    color: var(--white);
-    letter-spacing: 2px;
-    line-height: 1.1;
-  }
-
-  .grup-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+  .grup-section { background: var(--dark); padding: 60px 20px 80px; }
+  .grup-intro { text-align: center; max-width: 700px; margin: 0 auto 56px; }
+  .grup-intro .label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .grup-intro h2 { font-family: 'Bebas Neue'; font-size: 48px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 12px; }
+  .grup-intro p { font-family: 'Barlow Condensed'; font-size: 16px; color: #888; letter-spacing: 1px; }
+  .grup-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1100px; margin: 0 auto; }
+  @media (max-width: 768px) { .grup-grid { grid-template-columns: 1fr; } }
+  .grup-card { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 8px; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
+  .grup-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .grup-card-header { background: linear-gradient(135deg, #1a1400 0%, #2a2000 60%, #1a1400 100%); border-bottom: 3px solid var(--gold); padding: 18px 24px; display: flex; align-items: center; gap: 16px; }
+  .grup-letter { font-family: 'Bebas Neue'; font-size: 52px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.4); }
+  .grup-header-text .grup-label-small { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+  .grup-header-text .grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 2px; line-height: 1.1; }
+  .grup-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .grup-table-wrap::-webkit-scrollbar { height: 4px; }
   .grup-table-wrap::-webkit-scrollbar-track { background: #111; }
   .grup-table-wrap::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
-
-  .grup-table {
-    width: 100%;
-    min-width: 480px;
-    border-collapse: collapse;
-  }
+  .grup-table { width: 100%; min-width: 480px; border-collapse: collapse; }
   .grup-table thead tr { background: #1a1a1a; }
-  .grup-table thead th {
-    font-family: 'Barlow Condensed';
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #666;
-    text-transform: uppercase;
-    padding: 10px 12px;
-    text-align: center;
-    border-bottom: 1px solid #2a2a2a;
-  }
+  .grup-table thead th { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #666; text-transform: uppercase; padding: 10px 12px; text-align: center; border-bottom: 1px solid #2a2a2a; }
   .grup-table thead th:first-child { text-align: left; padding-left: 20px; }
   .grup-table tbody tr { border-bottom: 1px solid #1a1a1a; transition: background 0.15s; }
   .grup-table tbody tr:hover { background: #161616; }
   .grup-table tbody tr:last-child { border-bottom: none; }
-  .grup-table td {
-    padding: 13px 12px;
-    text-align: center;
-    font-family: 'Barlow Condensed';
-    font-size: 15px;
-    font-weight: 600;
-    color: #ccc;
-  }
+  .grup-table td { padding: 13px 12px; text-align: center; font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 600; color: #ccc; }
   .grup-table td:first-child { text-align: left; padding-left: 20px; }
   .grup-table .team-cell { display: flex; align-items: center; gap: 12px; }
   .team-flag { width: 42px; height: 28px; border-radius: 3px; object-fit: cover; border: 1px solid #333; flex-shrink: 0; }
@@ -430,7 +197,6 @@
   .team-name-text { font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
   .td-pts { font-family: 'Bebas Neue'; font-size: 20px; color: var(--gold) !important; }
   .grup-table thead th.th-pts { color: var(--gold-dark); }
-
   .grup-legend { display: flex; align-items: center; gap: 20px; padding: 14px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 7px; font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
@@ -439,235 +205,72 @@
   .grup-table tbody tr.row-lolos td:first-child { border-left: 3px solid var(--gold); }
 
   /* ===== BERITA PAGE ===== */
-  .berita-section {
-    background: var(--dark);
-    padding: 50px 20px 80px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .berita-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 36px;
-  }
-  .berita-top-title .label-small {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .berita-top-title h2 {
-    font-family: 'Bebas Neue';
-    font-size: 40px;
-    color: var(--white);
-    letter-spacing: 2px;
-    line-height: 1;
-  }
-  .btn-tulis-berita {
-    background: var(--gold);
-    color: #000;
-    border: none;
-    font-family: 'Bebas Neue';
-    font-size: 16px;
-    letter-spacing: 2px;
-    padding: 12px 28px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    white-space: nowrap;
-  }
+  .berita-section { background: var(--dark); padding: 50px 20px 80px; max-width: 1100px; margin: 0 auto; }
+  .berita-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 36px; }
+  .berita-top-title .label-small { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; }
+  .berita-top-title h2 { font-family: 'Bebas Neue'; font-size: 40px; color: var(--white); letter-spacing: 2px; line-height: 1; }
+  .btn-tulis-berita { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 16px; letter-spacing: 2px; padding: 12px 28px; border-radius: 4px; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
   .btn-tulis-berita:hover { background: #e0aa20; transform: translateY(-1px); }
 
-  .berita-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
-  .berita-card {
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.3s, transform 0.3s;
-  }
+  .berita-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+  .berita-card { background: #111; border: 1px solid #222; border-radius: 8px; overflow: hidden; cursor: pointer; transition: border-color 0.3s, transform 0.3s; }
   .berita-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .berita-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
-  .berita-card-img-placeholder {
-    width: 100%; height: 200px;
-    background: linear-gradient(135deg, #1a1a00 0%, #2a2200 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 48px;
-  }
+  .berita-card-img-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #1a1a00 0%, #2a2200 100%); display: flex; align-items: center; justify-content: center; font-size: 48px; }
   .berita-card-body { padding: 18px 20px; }
-  .berita-card-meta {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700;
-    letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase;
-    margin-bottom: 8px;
-  }
+  .berita-card-meta { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
   .berita-card-meta span { color: #555; }
-  .berita-card-title {
-    font-family: 'Bebas Neue'; font-size: 20px; color: var(--white);
-    letter-spacing: 1px; line-height: 1.2; margin-bottom: 10px;
-  }
-  .berita-card-excerpt {
-    font-family: 'Barlow Condensed'; font-size: 14px; color: #888;
-    line-height: 1.5; display: -webkit-box;
-    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .berita-empty {
-    text-align: center; padding: 80px 20px;
-    font-family: 'Barlow Condensed'; font-size: 18px; color: #444;
-    letter-spacing: 1px;
-    grid-column: 1 / -1;
-  }
+  .berita-card-title { font-family: 'Bebas Neue'; font-size: 20px; color: var(--white); letter-spacing: 1px; line-height: 1.2; margin-bottom: 10px; }
+  .berita-card-excerpt { font-family: 'Barlow Condensed'; font-size: 14px; color: #888; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .berita-empty { text-align: center; padding: 80px 20px; font-family: 'Barlow Condensed'; font-size: 18px; color: #444; letter-spacing: 1px; grid-column: 1 / -1; }
   .berita-empty span { font-size: 48px; display: block; margin-bottom: 16px; }
+  .berita-loading { text-align: center; padding: 60px 20px; font-family: 'Barlow Condensed'; font-size: 15px; color: #555; letter-spacing: 2px; text-transform: uppercase; grid-column: 1 / -1; }
+
+  /* Info banner Supabase */
+  .storage-info { background: #0d1a00; border: 1px solid #1a3a00; border-radius: 6px; padding: 10px 16px; margin-bottom: 20px; font-family: 'Barlow Condensed'; font-size: 13px; color: #888; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
+  .storage-info strong { color: var(--gold); }
 
   /* ===== MODAL TULIS BERITA ===== */
-  .berita-modal-overlay {
-    display: none; position: fixed; inset: 0; z-index: 3000;
-    background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
-    padding: 20px;
-  }
+  .berita-modal-overlay { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; padding: 20px; }
   .berita-modal-overlay.active { display: flex; }
-  .berita-modal {
-    background: #111; border: 1px solid var(--gold);
-    border-radius: 10px; width: 100%; max-width: 600px;
-    max-height: 90vh; overflow-y: auto;
-  }
+  .berita-modal { background: #111; border: 1px solid var(--gold); border-radius: 10px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; }
   .berita-modal::-webkit-scrollbar { width: 4px; }
   .berita-modal::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
-  .berita-modal-header {
-    background: linear-gradient(135deg, #1a1400, #2a2000);
-    border-bottom: 3px solid var(--gold);
-    padding: 20px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: sticky; top: 0; z-index: 1;
-  }
-  .berita-modal-header h3 {
-    font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold);
-  }
-  .berita-modal-close {
-    background: none; border: none; color: #888; font-size: 24px;
-    cursor: pointer; line-height: 1; transition: color 0.2s;
-  }
+  .berita-modal-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 3px solid var(--gold); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1; }
+  .berita-modal-header h3 { font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold); }
+  .berita-modal-close { background: none; border: none; color: #888; font-size: 24px; cursor: pointer; line-height: 1; transition: color 0.2s; }
   .berita-modal-close:hover { color: var(--white); }
   .berita-modal-body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
   .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-label {
-    font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700;
-    letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
-  }
-  .form-input, .form-textarea {
-    background: #1a1a1a; border: 1px solid #333; border-radius: 5px;
-    color: var(--white); font-family: 'Rajdhani'; font-size: 15px;
-    padding: 10px 14px; outline: none; transition: border-color 0.2s;
-    width: 100%;
-  }
+  .form-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .form-input, .form-textarea { background: #1a1a1a; border: 1px solid #333; border-radius: 5px; color: var(--white); font-family: 'Rajdhani'; font-size: 15px; padding: 10px 14px; outline: none; transition: border-color 0.2s; width: 100%; }
   .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
   .form-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
-  .form-img-preview {
-    width: 100%; height: 180px; object-fit: cover;
-    border-radius: 5px; display: none; margin-top: 8px; border: 1px solid #333;
-  }
-  .form-img-placeholder {
-    width: 100%; height: 120px;
-    background: #1a1a1a; border: 2px dashed #333; border-radius: 5px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 8px; cursor: pointer; transition: border-color 0.2s; margin-top: 8px;
-  }
+  .form-img-preview { width: 100%; height: 180px; object-fit: cover; border-radius: 5px; display: none; margin-top: 8px; border: 1px solid #333; }
+  .form-img-placeholder { width: 100%; height: 120px; background: #1a1a1a; border: 2px dashed #333; border-radius: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; transition: border-color 0.2s; margin-top: 8px; }
   .form-img-placeholder:hover { border-color: var(--gold); }
   .form-img-placeholder span { font-size: 28px; }
-  .form-img-placeholder p {
-    font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700;
-    letter-spacing: 1px; color: #555; text-transform: uppercase;
-  }
+  .form-img-placeholder p { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #555; text-transform: uppercase; }
   .form-img-input { display: none; }
-  .btn-publish {
-    background: var(--gold); color: #000; border: none;
-    font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px;
-    padding: 14px; border-radius: 5px; cursor: pointer; width: 100%;
-    transition: background 0.2s; margin-top: 4px;
-  }
+  .btn-publish { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px; padding: 14px; border-radius: 5px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 4px; }
   .btn-publish:hover { background: #e0aa20; }
   .btn-publish:disabled { background: #444; color: #666; cursor: not-allowed; }
-  .publish-status {
-    font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700;
-    letter-spacing: 1px; text-align: center; padding: 8px;
-    border-radius: 4px; display: none;
-  }
+  .publish-status { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-align: center; padding: 8px; border-radius: 4px; display: none; }
   .publish-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
   .publish-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
 
   /* ===== MODAL DETAIL BERITA ===== */
-  .berita-detail-overlay {
-    display: none; position: fixed; inset: 0; z-index: 3000;
-    background: rgba(0,0,0,0.9); align-items: flex-start; justify-content: center;
-    padding: 20px; overflow-y: auto;
-  }
+  .berita-detail-overlay { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.9); align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
   .berita-detail-overlay.active { display: flex; }
-  .berita-detail-modal {
-    background: #111; border: 1px solid #2a2a2a;
-    border-radius: 10px; width: 100%; max-width: 720px;
-    margin: auto;
-  }
+  .berita-detail-modal { background: #111; border: 1px solid #2a2a2a; border-radius: 10px; width: 100%; max-width: 720px; margin: auto; }
   .berita-detail-img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 10px 10px 0 0; display: block; }
   .berita-detail-body { padding: 28px 30px 36px; }
-  .berita-detail-meta {
-    font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700;
-    letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase;
-    margin-bottom: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
-  }
+  .berita-detail-meta { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
   .berita-detail-meta span { color: #444; }
-  .berita-detail-title {
-    font-family: 'Bebas Neue'; font-size: 34px; color: var(--white);
-    letter-spacing: 2px; line-height: 1.1; margin-bottom: 20px;
-    border-left: 4px solid var(--gold); padding-left: 16px;
-  }
-  .berita-detail-content {
-    font-family: 'Rajdhani'; font-size: 16px; color: #ccc;
-    line-height: 1.8; white-space: pre-wrap;
-  }
-  .berita-detail-close-btn {
-    display: block; margin: 24px auto 0;
-    background: none; border: 1px solid #444; color: #888;
-    font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase;
-    padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: 0.2s;
-  }
+  .berita-detail-title { font-family: 'Bebas Neue'; font-size: 34px; color: var(--white); letter-spacing: 2px; line-height: 1.1; margin-bottom: 20px; border-left: 4px solid var(--gold); padding-left: 16px; }
+  .berita-detail-content { font-family: 'Rajdhani'; font-size: 16px; color: #ccc; line-height: 1.8; white-space: pre-wrap; }
+  .berita-detail-close-btn { display: block; margin: 24px auto 0; background: none; border: 1px solid #444; color: #888; font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
   .berita-detail-close-btn:hover { border-color: var(--gold); color: var(--white); }
-
-  /* Loading */
-  .berita-loading {
-    text-align: center; padding: 60px 20px;
-    font-family: 'Barlow Condensed'; font-size: 15px; color: #555;
-    letter-spacing: 2px; text-transform: uppercase;
-    grid-column: 1 / -1;
-  }
-
-  /* Storage info banner */
-  .storage-info {
-    background: #1a1400;
-    border: 1px solid #3a2f00;
-    border-radius: 6px;
-    padding: 10px 16px;
-    margin-bottom: 20px;
-    font-family: 'Barlow Condensed';
-    font-size: 13px;
-    color: #888;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .storage-info strong { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -748,25 +351,13 @@
       <h2 class="countdown-title">IFFA AHMAD CUP 2026</h2>
       <p class="countdown-date">23 MEI 2026</p>
       <div class="countdown-boxes">
-        <div class="countdown-box">
-          <span class="countdown-num" id="cd-days">00</span>
-          <span class="countdown-unit">Hari</span>
-        </div>
+        <div class="countdown-box"><span class="countdown-num" id="cd-days">00</span><span class="countdown-unit">Hari</span></div>
         <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <span class="countdown-num" id="cd-hours">00</span>
-          <span class="countdown-unit">Jam</span>
-        </div>
+        <div class="countdown-box"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-unit">Jam</span></div>
         <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <span class="countdown-num" id="cd-minutes">00</span>
-          <span class="countdown-unit">Menit</span>
-        </div>
+        <div class="countdown-box"><span class="countdown-num" id="cd-minutes">00</span><span class="countdown-unit">Menit</span></div>
         <div class="countdown-sep">:</div>
-        <div class="countdown-box">
-          <span class="countdown-num" id="cd-seconds">00</span>
-          <span class="countdown-unit">Detik</span>
-        </div>
+        <div class="countdown-box"><span class="countdown-num" id="cd-seconds">00</span><span class="countdown-unit">Detik</span></div>
       </div>
       <p class="countdown-finished" id="cd-finished" style="display:none;">🏆 IFFA AHMAD CUP 2026 TELAH DIMULAI!</p>
     </div>
@@ -779,31 +370,16 @@
     </div>
     <div class="stadium-grid">
       <div class="stadium-card">
-        <div class="stadium-img-wrap">
-          <img src="https://www.image2url.com/r2/default/images/1777029944491-f5c1c426-251d-4a55-93d5-655bf62b78ae.webp" alt="Ahmad Internasional Stadium">
-        </div>
-        <div class="stadium-info">
-          <p class="stadium-name">Ahmad Internasional Stadium</p>
-          <p class="stadium-loc">Venue Utama</p>
-        </div>
+        <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777029944491-f5c1c426-251d-4a55-93d5-655bf62b78ae.webp" alt="Ahmad Internasional Stadium"></div>
+        <div class="stadium-info"><p class="stadium-name">Ahmad Internasional Stadium</p><p class="stadium-loc">Venue Utama</p></div>
       </div>
       <div class="stadium-card">
-        <div class="stadium-img-wrap">
-          <img src="https://www.image2url.com/r2/default/images/1777030165044-5583338c-51d3-445a-b8d5-e923f1bb5c35.jpg" alt="Wineriasia Center Stadium">
-        </div>
-        <div class="stadium-info">
-          <p class="stadium-name">Wineriasia Center Stadium</p>
-          <p class="stadium-loc">Venue Kedua</p>
-        </div>
+        <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777030165044-5583338c-51d3-445a-b8d5-e923f1bb5c35.jpg" alt="Wineriasia Center Stadium"></div>
+        <div class="stadium-info"><p class="stadium-name">Wineriasia Center Stadium</p><p class="stadium-loc">Venue Kedua</p></div>
       </div>
       <div class="stadium-card">
-        <div class="stadium-img-wrap">
-          <img src="https://www.image2url.com/r2/default/images/1777030348699-924121c8-ec47-4362-a268-bb8f0187eb47.webp" alt="Al Jamasyia Stadium">
-        </div>
-        <div class="stadium-info">
-          <p class="stadium-name">Al Jamasyia Stadium</p>
-          <p class="stadium-loc">Venue Ketiga</p>
-        </div>
+        <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777030348699-924121c8-ec47-4362-a268-bb8f0187eb47.webp" alt="Al Jamasyia Stadium"></div>
+        <div class="stadium-info"><p class="stadium-name">Al Jamasyia Stadium</p><p class="stadium-loc">Venue Ketiga</p></div>
       </div>
     </div>
   </section>
@@ -845,200 +421,23 @@
     <div class="page-header-overlay"><h1>DAFTAR PESERTA</h1></div>
   </div>
   <div class="participants-grid">
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')">
-        <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776836552996-a992fc36-f2d6-4f80-af42-c2437e6fd050.jpg"></div>
-        <div>
-          <div class="card-nation-name">REPUBLIK ISLAM WINERIASIA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Patrick Kluivert</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div>
-        <div>
-          <div class="card-nation-name">VEROLIA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Wilfried Nancy</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859049132-7a600a73-ecc6-4a1a-b931-a90054d608e5.jpeg"></div>
-        <div>
-          <div class="card-nation-name">TAZBEKISTAN</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Gierna Botrivko</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859654478-afdc8fdb-99ae-4c4c-add9-47520c2c5e76.jpeg"></div>
-        <div>
-          <div class="card-nation-name">BIKINI BOTTOM</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Winston Niuket</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')">
-        <img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859973034-ee169fba-db7f-496b-a636-d88142dcb1a4.webp"></div>
-        <div>
-          <div class="card-nation-name">MALAYSIA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Peter Cklamovski</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776946688929-2b1fb4b2-a2b1-4698-bb5c-3b0d22a7056b.jpeg"></div>
-        <div>
-          <div class="card-nation-name">NORTH ERLASKA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Michael Trebonach</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947055866-eb67c5c7-8fb5-4818-bbfc-ba0c5f4ef364.jpeg"></div>
-        <div>
-          <div class="card-nation-name">SERVESILA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Kosim Veneza</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947660303-eaae69be-31ec-4990-823c-93723c8ffec2.jpeg"></div>
-        <div>
-          <div class="card-nation-name">TRENHOA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Kolo Toure</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948117365-fe069dc9-e7b4-4c7e-ba13-afdb6bb81524.jpeg"></div>
-        <div>
-          <div class="card-nation-name">GLADIOLREP</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Stephen Jensen</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948547437-fb580a5f-1b8f-4faf-80b2-2e3f95fdab4f.jpeg"></div>
-        <div>
-          <div class="card-nation-name">CABANGBUNGIN RAYA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Virkam Sigh</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776949763269-211fde65-05e1-48ec-992f-0138b5198707.jpeg"></div>
-        <div>
-          <div class="card-nation-name">SOPOZIA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Vladimir Petkovic</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776950348420-cfdc0b6c-b7e6-4660-8975-7218fc15119e.jpg"></div>
-        <div>
-          <div class="card-nation-name">ISLAMNEZIA</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Shin Tae-yong</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776951247056-5b106133-3b60-45fe-897b-d536c2e3a0be.jpeg"></div>
-        <div>
-          <div class="card-nation-name">THALORIA B</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Vyktor Draxen</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952400740-4f83d19b-deb4-4fc5-b5df-3097d15feec8.jpeg"></div>
-        <div>
-          <div class="card-nation-name">KING US GERNAZ</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Gilgeous Alexander</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png')">
-        <img src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952817370-c367a129-1a0e-4976-b270-8782dd41ba88.jpg"></div>
-        <div>
-          <div class="card-nation-name">JERMAN</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Julian Nagelsmann</div>
-        </div>
-      </div>
-    </div>
-    <div class="participant-card">
-      <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')">
-        <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg">
-      </div>
-      <div class="card-body">
-        <div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776953754703-5b3b184a-cf30-45b2-ba99-eea8be4fdc9c.jpg"></div>
-        <div>
-          <div class="card-nation-name">LICHTENBURG</div>
-          <div style="font-size: 13px; color: var(--gold);">Coach: Toni Kroos</div>
-        </div>
-      </div>
-    </div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776836552996-a992fc36-f2d6-4f80-af42-c2437e6fd050.jpg"></div><div><div class="card-nation-name">REPUBLIK ISLAM WINERIASIA</div><div style="font-size:13px;color:var(--gold);">Coach: Patrick Kluivert</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div><div><div class="card-nation-name">VEROLIA</div><div style="font-size:13px;color:var(--gold);">Coach: Wilfried Nancy</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859049132-7a600a73-ecc6-4a1a-b931-a90054d608e5.jpeg"></div><div><div class="card-nation-name">TAZBEKISTAN</div><div style="font-size:13px;color:var(--gold);">Coach: Gierna Botrivko</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859654478-afdc8fdb-99ae-4c4c-add9-47520c2c5e76.jpeg"></div><div><div class="card-nation-name">BIKINI BOTTOM</div><div style="font-size:13px;color:var(--gold);">Coach: Winston Niuket</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')"><img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859973034-ee169fba-db7f-496b-a636-d88142dcb1a4.webp"></div><div><div class="card-nation-name">MALAYSIA</div><div style="font-size:13px;color:var(--gold);">Coach: Peter Cklamovski</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776946688929-2b1fb4b2-a2b1-4698-bb5c-3b0d22a7056b.jpeg"></div><div><div class="card-nation-name">NORTH ERLASKA</div><div style="font-size:13px;color:var(--gold);">Coach: Michael Trebonach</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947055866-eb67c5c7-8fb5-4818-bbfc-ba0c5f4ef364.jpeg"></div><div><div class="card-nation-name">SERVESILA</div><div style="font-size:13px;color:var(--gold);">Coach: Kosim Veneza</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947660303-eaae69be-31ec-4990-823c-93723c8ffec2.jpeg"></div><div><div class="card-nation-name">TRENHOA</div><div style="font-size:13px;color:var(--gold);">Coach: Kolo Toure</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948117365-fe069dc9-e7b4-4c7e-ba13-afdb6bb81524.jpeg"></div><div><div class="card-nation-name">GLADIOLREP</div><div style="font-size:13px;color:var(--gold);">Coach: Stephen Jensen</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948547437-fb580a5f-1b8f-4faf-80b2-2e3f95fdab4f.jpeg"></div><div><div class="card-nation-name">CABANGBUNGIN RAYA</div><div style="font-size:13px;color:var(--gold);">Coach: Virkam Sigh</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776949763269-211fde65-05e1-48ec-992f-0138b5198707.jpeg"></div><div><div class="card-nation-name">SOPOZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Vladimir Petkovic</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776950348420-cfdc0b6c-b7e6-4660-8975-7218fc15119e.jpg"></div><div><div class="card-nation-name">ISLAMNEZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Shin Tae-yong</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776951247056-5b106133-3b60-45fe-897b-d536c2e3a0be.jpeg"></div><div><div class="card-nation-name">THALORIA B</div><div style="font-size:13px;color:var(--gold);">Coach: Vyktor Draxen</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952400740-4f83d19b-deb4-4fc5-b5df-3097d15feec8.jpeg"></div><div><div class="card-nation-name">KING US GERNAZ</div><div style="font-size:13px;color:var(--gold);">Coach: Gilgeous Alexander</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png')"><img src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952817370-c367a129-1a0e-4976-b270-8782dd41ba88.jpg"></div><div><div class="card-nation-name">JERMAN</div><div style="font-size:13px;color:var(--gold);">Coach: Julian Nagelsmann</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776953754703-5b3b184a-cf30-45b2-ba99-eea8be4fdc9c.jpg"></div><div><div class="card-nation-name">LICHTENBURG</div><div style="font-size:13px;color:var(--gold);">Coach: Toni Kroos</div></div></div></div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1052,125 +451,59 @@
     <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Grup Banner">
     <div class="page-header-overlay"><h1>GRUP IFFA AHMAD CUP</h1></div>
   </div>
-
   <section class="grup-section">
     <div class="grup-intro">
       <p class="label">Fase Grup</p>
       <h2>PEMBAGIAN GRUP 2026</h2>
       <p>16 tim dari seluruh negara fiksi bersaing dalam 4 grup. 2 tim teratas dari setiap grup akan melaju ke babak gugur.</p>
     </div>
-
     <div class="grup-grid">
       <!-- GROUP A -->
       <div class="grup-card">
-        <div class="grup-card-header">
-          <div class="grup-letter">A</div>
-          <div class="grup-header-text">
-            <div class="grup-label-small">Group</div>
-            <div class="grup-name">GROUP A</div>
-          </div>
-        </div>
-        <div class="grup-table-wrap"><table class="grup-table">
-          <thead><tr>
-            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-          </tr></thead>
-          <tbody>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span class="team-name-text">Wineriasia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span class="team-name-text">Servesila</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"><span class="team-name-text">Tazbekistan</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"><span class="team-name-text">King US Gernaz</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-          </tbody>
-        </table></div>
-        <div class="grup-legend">
-          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
-          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
-        </div>
+        <div class="grup-card-header"><div class="grup-letter">A</div><div class="grup-header-text"><div class="grup-label-small">Group</div><div class="grup-name">GROUP A</div></div></div>
+        <div class="grup-table-wrap"><table class="grup-table"><thead><tr><th colspan="2" style="text-align:left;padding-left:20px;">Tim</th><th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th></tr></thead><tbody>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span class="team-name-text">Wineriasia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span class="team-name-text">Servesila</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"><span class="team-name-text">Tazbekistan</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"><span class="team-name-text">King US Gernaz</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+        </tbody></table></div>
+        <div class="grup-legend"><div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div><div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div></div>
       </div>
-
       <!-- GROUP B -->
       <div class="grup-card">
-        <div class="grup-card-header">
-          <div class="grup-letter">B</div>
-          <div class="grup-header-text">
-            <div class="grup-label-small">Group</div>
-            <div class="grup-name">GROUP B</div>
-          </div>
-        </div>
-        <div class="grup-table-wrap"><table class="grup-table">
-          <thead><tr>
-            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-          </tr></thead>
-          <tbody>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span class="team-name-text">Cabangbungin Raya</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span class="team-name-text">Lichtenburg</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"><span class="team-name-text">Jerman</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"><span class="team-name-text">Thaloria B</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-          </tbody>
-        </table></div>
-        <div class="grup-legend">
-          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
-          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
-        </div>
+        <div class="grup-card-header"><div class="grup-letter">B</div><div class="grup-header-text"><div class="grup-label-small">Group</div><div class="grup-name">GROUP B</div></div></div>
+        <div class="grup-table-wrap"><table class="grup-table"><thead><tr><th colspan="2" style="text-align:left;padding-left:20px;">Tim</th><th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th></tr></thead><tbody>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span class="team-name-text">Cabangbungin Raya</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span class="team-name-text">Lichtenburg</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"><span class="team-name-text">Jerman</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"><span class="team-name-text">Thaloria B</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+        </tbody></table></div>
+        <div class="grup-legend"><div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div><div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div></div>
       </div>
-
       <!-- GROUP C -->
       <div class="grup-card">
-        <div class="grup-card-header">
-          <div class="grup-letter">C</div>
-          <div class="grup-header-text">
-            <div class="grup-label-small">Group</div>
-            <div class="grup-name">GROUP C</div>
-          </div>
-        </div>
-        <div class="grup-table-wrap"><table class="grup-table">
-          <thead><tr>
-            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-          </tr></thead>
-          <tbody>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span class="team-name-text">Sopozia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span class="team-name-text">Islamnezia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"><span class="team-name-text">Trenhoa</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"><span class="team-name-text">Verolia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-          </tbody>
-        </table></div>
-        <div class="grup-legend">
-          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
-          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
-        </div>
+        <div class="grup-card-header"><div class="grup-letter">C</div><div class="grup-header-text"><div class="grup-label-small">Group</div><div class="grup-name">GROUP C</div></div></div>
+        <div class="grup-table-wrap"><table class="grup-table"><thead><tr><th colspan="2" style="text-align:left;padding-left:20px;">Tim</th><th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th></tr></thead><tbody>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span class="team-name-text">Sopozia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span class="team-name-text">Islamnezia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"><span class="team-name-text">Trenhoa</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"><span class="team-name-text">Verolia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+        </tbody></table></div>
+        <div class="grup-legend"><div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div><div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div></div>
       </div>
-
       <!-- GROUP D -->
       <div class="grup-card">
-        <div class="grup-card-header">
-          <div class="grup-letter">D</div>
-          <div class="grup-header-text">
-            <div class="grup-label-small">Group</div>
-            <div class="grup-name">GROUP D</div>
-          </div>
-        </div>
-        <div class="grup-table-wrap"><table class="grup-table">
-          <thead><tr>
-            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-          </tr></thead>
-          <tbody>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span class="team-name-text">North Erlaska</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span class="team-name-text">Gladiolrep</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"><span class="team-name-text">Bikini Bottom</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"><span class="team-name-text">Malaysia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
-          </tbody>
-        </table></div>
-        <div class="grup-legend">
-          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
-          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
-        </div>
+        <div class="grup-card-header"><div class="grup-letter">D</div><div class="grup-header-text"><div class="grup-label-small">Group</div><div class="grup-name">GROUP D</div></div></div>
+        <div class="grup-table-wrap"><table class="grup-table"><thead><tr><th colspan="2" style="text-align:left;padding-left:20px;">Tim</th><th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th></tr></thead><tbody>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span class="team-name-text">North Erlaska</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span class="team-name-text">Gladiolrep</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"><span class="team-name-text">Bikini Bottom</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+          <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"><span class="team-name-text">Malaysia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+        </tbody></table></div>
+        <div class="grup-legend"><div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div><div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div></div>
       </div>
     </div>
   </section>
-
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1181,12 +514,10 @@
 <!-- ===== JADWAL ===== -->
 <div id="page-jadwal" class="page">
   <div class="page-header">
-    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Jadwal Pertandingan Banner">
+    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Jadwal Banner">
     <div class="page-header-overlay"><h1>JADWAL PERTANDINGAN</h1></div>
   </div>
-  <div style="padding: 60px 20px; text-align: center; color: var(--gray);">
-    Jadwal akan segera diumumkan.
-  </div>
+  <div style="padding:60px 20px;text-align:center;color:var(--gray);">Jadwal akan segera diumumkan.</div>
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1200,7 +531,6 @@
     <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Berita Banner">
     <div class="page-header-overlay"><h1>BERITA TERKINI</h1></div>
   </div>
-
   <div class="berita-section">
     <div class="berita-top">
       <div class="berita-top-title">
@@ -1209,16 +539,13 @@
       </div>
       <button class="btn-tulis-berita" onclick="bukaFormBerita()">✏️ TULIS BERITA</button>
     </div>
-
     <div class="storage-info">
-      💾 <strong>INFO:</strong>&nbsp; Berita disimpan otomatis di browser ini. Berita akan tetap tersimpan saat kamu kembali ke halaman ini.
+      🌐 <strong>INFO:</strong>&nbsp; Berita disimpan di server online — bisa dilihat semua orang di seluruh dunia!
     </div>
-
     <div class="berita-grid" id="beritaGrid">
       <div class="berita-loading">⏳ &nbsp; Memuat berita...</div>
     </div>
   </div>
-
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1243,13 +570,11 @@
         <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
       </div>
       <div class="form-group">
-        <label class="form-label">Foto Berita (opsional, maks 1MB)</label>
-        <div class="form-img-placeholder" id="imgPlaceholder" onclick="document.getElementById('inputGambar').click()">
-          <span>📷</span>
-          <p>Ketuk untuk pilih foto dari galeri</p>
+        <label class="form-label">URL Foto Berita (opsional)</label>
+        <input class="form-input" id="inputGambarUrl" type="url" placeholder="https://link-gambar.com/foto.jpg">
+        <div id="imgUrlPreviewWrap" style="margin-top:8px;display:none;">
+          <img id="imgUrlPreview" style="width:100%;height:180px;object-fit:cover;border-radius:5px;border:1px solid #333;" alt="Preview">
         </div>
-        <img class="form-img-preview" id="imgPreview" alt="Preview">
-        <input class="form-img-input" type="file" id="inputGambar" accept="image/*" onchange="previewGambar(this)">
       </div>
       <div class="form-group">
         <label class="form-label">Isi Berita *</label>
@@ -1274,30 +599,15 @@
   </div>
 </div>
 
-<!-- ===== YOUTUBE PLAYER (hidden) ===== -->
+<!-- YouTube Player -->
 <div id="ytPlayer" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
   <iframe id="ytIframe" style="width:1px;height:1px;border:none;" allow="autoplay"></iframe>
 </div>
 
-<!-- ===== MUSIC PLAYER UI ===== -->
-<div id="musicPlayer" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  background: rgba(10,10,10,0.92);
-  border: 1px solid #C9991A;
-  border-radius: 12px;
-  width: 280px;
-  font-family: 'Barlow Condensed', sans-serif;
-  box-shadow: 0 4px 24px rgba(201,153,26,0.18);
-  overflow: hidden;
-">
+<!-- Music Player -->
+<div id="musicPlayer" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:rgba(10,10,10,0.92);border:1px solid #C9991A;border-radius:12px;width:280px;font-family:'Barlow Condensed',sans-serif;box-shadow:0 4px 24px rgba(201,153,26,0.18);overflow:hidden;">
   <div style="background:#C9991A;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;" onclick="togglePlayerPanel()">
-    <div style="display:flex;align-items:center;gap:8px;">
-      <span id="playerIcon">🎵</span>
-      <span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#000;">OFFICIAL SOUNDTRACK</span>
-    </div>
+    <div style="display:flex;align-items:center;gap:8px;"><span id="playerIcon">🎵</span><span style="font-weight:700;font-size:13px;letter-spacing:2px;color:#000;">OFFICIAL SOUNDTRACK</span></div>
     <span id="toggleArrow" style="color:#000;font-size:16px;font-weight:700;">▲</span>
   </div>
   <div id="playerPanel">
@@ -1325,9 +635,25 @@
 </div>
 
 <script>
-// ===========================
-// UTILITY
-// ===========================
+// ===== CONFIG SUPABASE =====
+const SUPABASE_URL = 'https://imexqgicnkikdrdcjkmt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZXhxZ2ljbmtpa2RyZGNqa210Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NDYzOTksImV4cCI6MjA5MzEyMjM5OX0.EANfZgocppJQiicjH4IAKOchsD7qtwcvp7JHmawWY2o';
+
+async function supabaseFetch(path, options = {}) {
+  const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
+    ...options,
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': options.prefer || '',
+      ...(options.headers || {})
+    }
+  });
+  return res;
+}
+
+// ===== UTILITY =====
 function zoomImage(imgSrc) {
   document.getElementById('fullImage').src = imgSrc;
   document.getElementById('imageModal').classList.add('active');
@@ -1346,7 +672,7 @@ function showPage(pageId) {
 }
 
 const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu   = document.getElementById('mobileMenu');
+const mobileMenu = document.getElementById('mobileMenu');
 hamburgerBtn.addEventListener('click', () => {
   hamburgerBtn.classList.toggle('open');
   mobileMenu.classList.toggle('active');
@@ -1356,33 +682,29 @@ function closeMenu() {
   mobileMenu.classList.remove('active');
 }
 
-// ===========================
-// COUNTDOWN
-// ===========================
+// ===== COUNTDOWN =====
 function updateCountdown() {
   const target = new Date('2026-05-23T00:00:00').getTime();
-  const now    = Date.now();
-  const diff   = target - now;
+  const now = Date.now();
+  const diff = target - now;
   if (diff <= 0) {
     document.getElementById('cd-finished').style.display = 'block';
     document.querySelector('.countdown-boxes').style.display = 'none';
     return;
   }
-  const days    = Math.floor(diff / 86400000);
-  const hours   = Math.floor((diff % 86400000) / 3600000);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
   const minutes = Math.floor((diff % 3600000) / 60000);
   const seconds = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-days').textContent    = String(days).padStart(2,'0');
-  document.getElementById('cd-hours').textContent   = String(hours).padStart(2,'0');
-  document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
-  document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+  document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ===========================
-// SLIDER
-// ===========================
+// ===== SLIDER =====
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const sliderDots = document.querySelectorAll('.dot');
@@ -1396,25 +718,23 @@ function goSlide(n) {
 function moveSlide(dir) { goSlide(currentSlide + dir); }
 setInterval(() => moveSlide(1), 5000);
 
-// ===========================
-// MUSIC PLAYER
-// ===========================
+// ===== MUSIC PLAYER =====
 const songList = [
-  { title: "Sea of Problem",    id: "gtpCl_QWaLg" },
-  { title: "Stereo Love",       id: "p-Z3YrHJ1sU" },
-  { title: "Hate Me",           id: "UZwi9SHgzGY" },
-  { title: "Night Call",        id: "MV_3Dpw-BRY" },
+  { title: "Sea of Problem", id: "gtpCl_QWaLg" },
+  { title: "Stereo Love", id: "p-Z3YrHJ1sU" },
+  { title: "Hate Me", id: "UZwi9SHgzGY" },
+  { title: "Night Call", id: "MV_3Dpw-BRY" },
   { title: "Beauty And A Beat", id: "Ys7-6_t7OEQ" },
-  { title: "Wavin Flag",        id: "WTJSt4wP2ME" },
+  { title: "Wavin Flag", id: "WTJSt4wP2ME" },
 ];
 let currentIndex = 0, isPlaying = false, started = false, panelOpen = true;
-const iframe       = document.getElementById('ytIframe');
-const nowPlaying   = document.getElementById('nowPlayingName');
+const iframe = document.getElementById('ytIframe');
+const nowPlaying = document.getElementById('nowPlayingName');
 const playPauseBtn = document.getElementById('playPauseBtn');
-const playerBars   = document.getElementById('playerBars');
-const playlistEl   = document.getElementById('playlist');
-const toggleArrow  = document.getElementById('toggleArrow');
-const playerPanel  = document.getElementById('playerPanel');
+const playerBars = document.getElementById('playerBars');
+const playlistEl = document.getElementById('playlist');
+const toggleArrow = document.getElementById('toggleArrow');
+const playerPanel = document.getElementById('playerPanel');
 
 songList.forEach((track, i) => {
   const item = document.createElement('div');
@@ -1459,58 +779,12 @@ document.addEventListener('touchstart', startOnFirstClick, { once: true });
 nowPlaying.textContent = songList[0].title;
 playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
 
-// ===========================
-// BERITA — localStorage SYSTEM
-// ===========================
+// ===== BERITA — SUPABASE =====
 
-const STORAGE_KEY_INDEX = 'iffa2026_berita_index';
-const STORAGE_KEY_PREFIX = 'iffa2026_berita_';
-const STORAGE_KEY_IMG    = 'iffa2026_img_';
-let beritaImageBase64 = null;
-
-// Ambil index berita dari localStorage
-function getBeritaIndex() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_INDEX);
-    return raw ? JSON.parse(raw) : [];
-  } catch(e) { return []; }
-}
-
-// Simpan index berita ke localStorage
-function setBeritaIndex(index) {
-  try {
-    localStorage.setItem(STORAGE_KEY_INDEX, JSON.stringify(index));
-    return true;
-  } catch(e) { return false; }
-}
-
-// Ambil artikel dari localStorage
-function getArtikel(id) {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY_PREFIX + id);
-    return raw ? JSON.parse(raw) : null;
-  } catch(e) { return null; }
-}
-
-// Simpan artikel ke localStorage
-function setArtikel(id, data) {
-  try {
-    localStorage.setItem(STORAGE_KEY_PREFIX + id, JSON.stringify(data));
-    return true;
-  } catch(e) { return false; }
-}
-
-// Simpan gambar terpisah (karena base64 besar)
-function getGambar(id) {
-  try {
-    return localStorage.getItem(STORAGE_KEY_IMG + id) || null;
-  } catch(e) { return null; }
-}
-function setGambar(id, base64) {
-  try {
-    localStorage.setItem(STORAGE_KEY_IMG + id, base64);
-    return true;
-  } catch(e) { return false; }
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.appendChild(document.createTextNode(str || ''));
+  return d.innerHTML;
 }
 
 function bukaFormBerita() {
@@ -1524,37 +798,32 @@ function tutupFormBerita() {
   document.getElementById('inputJudul').value = '';
   document.getElementById('inputPenulis').value = '';
   document.getElementById('inputIsi').value = '';
-  document.getElementById('imgPreview').style.display = 'none';
-  document.getElementById('imgPlaceholder').style.display = 'flex';
-  document.getElementById('inputGambar').value = '';
-  beritaImageBase64 = null;
+  document.getElementById('inputGambarUrl').value = '';
+  document.getElementById('imgUrlPreviewWrap').style.display = 'none';
 }
 
-function previewGambar(input) {
-  if (!input.files || !input.files[0]) return;
-  const file = input.files[0];
-  if (file.size > 1 * 1024 * 1024) {
-    alert('Ukuran foto terlalu besar! Maksimal 1MB agar tersimpan dengan baik.');
-    input.value = '';
-    return;
+// Preview gambar dari URL
+document.getElementById('inputGambarUrl').addEventListener('input', function() {
+  const url = this.value.trim();
+  const wrap = document.getElementById('imgUrlPreviewWrap');
+  const img = document.getElementById('imgUrlPreview');
+  if (url) {
+    img.src = url;
+    wrap.style.display = 'block';
+    img.onerror = () => { wrap.style.display = 'none'; };
+    img.onload = () => { wrap.style.display = 'block'; };
+  } else {
+    wrap.style.display = 'none';
   }
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    beritaImageBase64 = e.target.result;
-    const preview = document.getElementById('imgPreview');
-    preview.src = beritaImageBase64;
-    preview.style.display = 'block';
-    document.getElementById('imgPlaceholder').style.display = 'none';
-  };
-  reader.readAsDataURL(file);
-}
+});
 
-function publishBerita() {
-  const judul   = document.getElementById('inputJudul').value.trim();
+async function publishBerita() {
+  const judul = document.getElementById('inputJudul').value.trim();
   const penulis = document.getElementById('inputPenulis').value.trim();
-  const isi     = document.getElementById('inputIsi').value.trim();
-  const status  = document.getElementById('publishStatus');
-  const btn     = document.getElementById('btnPublish');
+  const isi = document.getElementById('inputIsi').value.trim();
+  const gambar_url = document.getElementById('inputGambarUrl').value.trim() || null;
+  const status = document.getElementById('publishStatus');
+  const btn = document.getElementById('btnPublish');
 
   if (!judul || !penulis || !isi) {
     status.className = 'publish-status error';
@@ -1563,117 +832,104 @@ function publishBerita() {
   }
 
   btn.disabled = true;
-  btn.textContent = '⏳ Menyimpan...';
+  btn.textContent = '⏳ Mempublikasikan...';
   status.className = 'publish-status';
 
   try {
-    const id  = 'b' + Date.now();
     const now = new Date();
-    const tgl = now.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
-    const jam = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
-    const tanggal = tgl + ' · ' + jam;
+    const tanggal = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
+      + ' · ' + now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
 
-    // Simpan gambar terpisah jika ada
-    let hasImg = false;
-    if (beritaImageBase64) {
-      const imgOk = setGambar(id, beritaImageBase64);
-      if (imgOk) hasImg = true;
+    const res = await supabaseFetch('berita', {
+      method: 'POST',
+      prefer: 'return=minimal',
+      body: JSON.stringify({ judul, penulis, isi, tanggal, gambar_url })
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(err);
     }
-
-    // Simpan artikel (tanpa gambar agar hemat)
-    const artikel = { id, judul, penulis, isi, tanggal, hasImg };
-    const artOk = setArtikel(id, artikel);
-
-    if (!artOk) {
-      throw new Error('localStorage penuh atau tidak tersedia');
-    }
-
-    // Update index
-    let index = getBeritaIndex();
-    index.unshift({ id, judul, penulis, tanggal });
-    if (index.length > 50) index = index.slice(0, 50);
-    setBeritaIndex(index);
 
     status.className = 'publish-status success';
-    status.textContent = '✅ Berita berhasil dipublikasikan dan tersimpan!';
+    status.textContent = '✅ Berita berhasil dipublikasikan! Semua orang bisa melihatnya.';
     btn.textContent = '✅ BERHASIL!';
 
-    renderBeritaGrid();
+    await renderBeritaGrid();
 
     setTimeout(() => {
       tutupFormBerita();
       btn.disabled = false;
       btn.textContent = '🚀 PUBLIKASIKAN BERITA';
-    }, 1800);
+    }, 2000);
 
-  } catch(err) {
+  } catch (err) {
     console.error('publishBerita error:', err);
     status.className = 'publish-status error';
-    status.textContent = '❌ Gagal menyimpan: ' + (err.message || 'Coba lagi.');
+    status.textContent = '❌ Gagal mempublikasikan: ' + (err.message || 'Coba lagi.');
     btn.disabled = false;
     btn.textContent = '🚀 PUBLIKASIKAN BERITA';
   }
 }
 
-function renderBeritaGrid() {
+async function renderBeritaGrid() {
   const grid = document.getElementById('beritaGrid');
   if (!grid) return;
 
-  const index = getBeritaIndex();
+  grid.innerHTML = '<div class="berita-loading">⏳ &nbsp; Memuat berita...</div>';
 
-  if (index.length === 0) {
-    grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
-    return;
-  }
+  try {
+    const res = await supabaseFetch('berita?select=*&order=created_at.desc&limit=50');
+    if (!res.ok) throw new Error('Gagal mengambil data');
+    const data = await res.json();
 
-  grid.innerHTML = '';
+    if (!data || data.length === 0) {
+      grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
+      return;
+    }
 
-  index.forEach(item => {
-    const artikel = getArtikel(item.id);
-    if (!artikel) return;
-
-    const imgSrc = artikel.hasImg ? getGambar(item.id) : null;
-    const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
-
-    const card = document.createElement('div');
-    card.className = 'berita-card';
-    card.innerHTML = `
-      ${imgSrc
-        ? `<img class="berita-card-img" src="${imgSrc}" alt="${escapeHtml(artikel.judul)}" loading="lazy">`
-        : `<div class="berita-card-img-placeholder">📰</div>`
-      }
-      <div class="berita-card-body">
-        <div class="berita-card-meta">
-          ${escapeHtml(artikel.penulis)} <span>·</span> ${escapeHtml(artikel.tanggal)}
+    grid.innerHTML = '';
+    data.forEach(artikel => {
+      const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
+      const card = document.createElement('div');
+      card.className = 'berita-card';
+      card.innerHTML = `
+        ${artikel.gambar_url
+          ? `<img class="berita-card-img" src="${escapeHtml(artikel.gambar_url)}" alt="${escapeHtml(artikel.judul)}" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="berita-card-img-placeholder">📰</div>`
+        }
+        <div class="berita-card-body">
+          <div class="berita-card-meta">
+            ${escapeHtml(artikel.penulis)} <span>·</span> ${escapeHtml(artikel.tanggal)}
+          </div>
+          <div class="berita-card-title">${escapeHtml(artikel.judul)}</div>
+          <div class="berita-card-excerpt">${escapeHtml(excerpt)}</div>
         </div>
-        <div class="berita-card-title">${escapeHtml(artikel.judul)}</div>
-        <div class="berita-card-excerpt">${escapeHtml(excerpt)}</div>
-      </div>
-    `;
-    card.onclick = () => bukaDetailBerita(artikel, imgSrc);
-    grid.appendChild(card);
-  });
+      `;
+      card.onclick = () => bukaDetailBerita(artikel);
+      grid.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error('renderBeritaGrid error:', err);
+    grid.innerHTML = `<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.<br>Periksa koneksi internet kamu.</div>`;
+  }
 }
 
-function escapeHtml(str) {
-  const d = document.createElement('div');
-  d.appendChild(document.createTextNode(str || ''));
-  return d.innerHTML;
-}
-
-function bukaDetailBerita(artikel, imgSrc) {
+function bukaDetailBerita(artikel) {
   const overlay = document.getElementById('beritaDetailOverlay');
   const img = document.getElementById('detailImg');
-  if (imgSrc) {
-    img.src = imgSrc;
+  if (artikel.gambar_url) {
+    img.src = artikel.gambar_url;
     img.style.display = 'block';
+    img.onerror = () => { img.style.display = 'none'; };
   } else {
     img.style.display = 'none';
   }
   document.getElementById('detailMeta').innerHTML =
     `<strong>${escapeHtml(artikel.penulis)}</strong> <span>·</span> ${escapeHtml(artikel.tanggal)}`;
   document.getElementById('detailJudul').textContent = artikel.judul;
-  document.getElementById('detailIsi').textContent   = artikel.isi;
+  document.getElementById('detailIsi').textContent = artikel.isi;
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -1686,7 +942,7 @@ function tutupDetailBeritaBtn() {
   document.body.style.overflow = '';
 }
 
-// Render berita saat pertama kali halaman dimuat (jika tab berita aktif)
+// Load berita jika halaman berita aktif pertama kali
 if (document.getElementById('page-berita').classList.contains('active')) {
   renderBeritaGrid();
 }
