@@ -389,9 +389,26 @@
     line-height: 1.1;
   }
 
+  /* TABLE SCROLL WRAPPER */
+  .grup-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .grup-table-wrap::-webkit-scrollbar {
+    height: 4px;
+  }
+  .grup-table-wrap::-webkit-scrollbar-track {
+    background: #111;
+  }
+  .grup-table-wrap::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+    border-radius: 2px;
+  }
+
   /* TABLE */
   .grup-table {
     width: 100%;
+    min-width: 480px;
     border-collapse: collapse;
   }
   .grup-table thead tr {
@@ -915,7 +932,7 @@
   <section class="grup-section">
     <div class="grup-intro">
       <p class="label">Fase Grup</p>
-      <h2>PEMBAGIAN GRUP IFFA AHMAD CUP</h2>
+      <h2>PEMBAGIAN GRUP 2026</h2>
       <p>16 tim dari seluruh negara fiksi bersaing dalam 4 grup. 2 tim teratas dari setiap grup akan melaju ke babak gugur.</p>
     </div>
 
@@ -930,7 +947,7 @@
             <div class="grup-name">GROUP A</div>
           </div>
         </div>
-        <table class="grup-table">
+        <div class="grup-table-wrap"><table class="grup-table">
           <thead>
             <tr>
               <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
@@ -975,7 +992,7 @@
               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="grup-legend">
           <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
           <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
@@ -991,7 +1008,7 @@
             <div class="grup-name">GROUP B</div>
           </div>
         </div>
-        <table class="grup-table">
+        <div class="grup-table-wrap"><table class="grup-table">
           <thead>
             <tr>
               <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
@@ -1036,7 +1053,7 @@
               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="grup-legend">
           <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
           <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
@@ -1052,7 +1069,7 @@
             <div class="grup-name">GROUP C</div>
           </div>
         </div>
-        <table class="grup-table">
+        <div class="grup-table-wrap"><table class="grup-table">
           <thead>
             <tr>
               <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
@@ -1097,7 +1114,7 @@
               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="grup-legend">
           <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
           <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
@@ -1113,7 +1130,7 @@
             <div class="grup-name">GROUP D</div>
           </div>
         </div>
-        <table class="grup-table">
+        <div class="grup-table-wrap"><table class="grup-table">
           <thead>
             <tr>
               <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
@@ -1158,7 +1175,7 @@
               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <div class="grup-legend">
           <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
           <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
