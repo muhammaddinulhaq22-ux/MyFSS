@@ -523,6 +523,223 @@
   .grup-table tbody tr.row-lolos td:first-child {
     border-left: 3px solid var(--gold);
   }
+
+  /* ===== BERITA PAGE ===== */
+  .berita-section {
+    background: var(--dark);
+    padding: 50px 20px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .berita-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .berita-top-title .label-small {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .berita-top-title h2 {
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+  .btn-tulis-berita {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    font-family: 'Bebas Neue';
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 12px 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .btn-tulis-berita:hover { background: #e0aa20; transform: translateY(-1px); }
+
+  /* Cards grid */
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .berita-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .berita-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .berita-card-img {
+    width: 100%; height: 200px; object-fit: cover; display: block;
+  }
+  .berita-card-img-placeholder {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, #1a1a00 0%, #2a2200 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .berita-card-body { padding: 18px 20px; }
+  .berita-card-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700;
+    letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .berita-card-meta span { color: #555; }
+  .berita-card-title {
+    font-family: 'Bebas Neue'; font-size: 20px; color: var(--white);
+    letter-spacing: 1px; line-height: 1.2; margin-bottom: 10px;
+  }
+  .berita-card-excerpt {
+    font-family: 'Barlow Condensed'; font-size: 14px; color: #888;
+    line-height: 1.5; display: -webkit-box;
+    -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .berita-empty {
+    text-align: center; padding: 80px 20px;
+    font-family: 'Barlow Condensed'; font-size: 18px; color: #444;
+    letter-spacing: 1px;
+    grid-column: 1 / -1;
+  }
+  .berita-empty span { font-size: 48px; display: block; margin-bottom: 16px; }
+
+  /* ===== MODAL TULIS BERITA ===== */
+  .berita-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 3000;
+    background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .berita-modal-overlay.active { display: flex; }
+  .berita-modal {
+    background: #111; border: 1px solid var(--gold);
+    border-radius: 10px; width: 100%; max-width: 600px;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .berita-modal::-webkit-scrollbar { width: 4px; }
+  .berita-modal::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+  .berita-modal-header {
+    background: linear-gradient(135deg, #1a1400, #2a2000);
+    border-bottom: 3px solid var(--gold);
+    padding: 20px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .berita-modal-header h3 {
+    font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold);
+  }
+  .berita-modal-close {
+    background: none; border: none; color: #888; font-size: 24px;
+    cursor: pointer; line-height: 1; transition: color 0.2s;
+  }
+  .berita-modal-close:hover { color: var(--white); }
+  .berita-modal-body { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; color: var(--gold); text-transform: uppercase;
+  }
+  .form-input, .form-textarea {
+    background: #1a1a1a; border: 1px solid #333; border-radius: 5px;
+    color: var(--white); font-family: 'Rajdhani'; font-size: 15px;
+    padding: 10px 14px; outline: none; transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+  .form-img-preview {
+    width: 100%; height: 180px; object-fit: cover;
+    border-radius: 5px; display: none; margin-top: 8px; border: 1px solid #333;
+  }
+  .form-img-placeholder {
+    width: 100%; height: 120px;
+    background: #1a1a1a; border: 2px dashed #333; border-radius: 5px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; cursor: pointer; transition: border-color 0.2s; margin-top: 8px;
+  }
+  .form-img-placeholder:hover { border-color: var(--gold); }
+  .form-img-placeholder span { font-size: 28px; }
+  .form-img-placeholder p {
+    font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700;
+    letter-spacing: 1px; color: #555; text-transform: uppercase;
+  }
+  .form-img-input { display: none; }
+  .btn-publish {
+    background: var(--gold); color: #000; border: none;
+    font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px;
+    padding: 14px; border-radius: 5px; cursor: pointer; width: 100%;
+    transition: background 0.2s; margin-top: 4px;
+  }
+  .btn-publish:hover { background: #e0aa20; }
+  .btn-publish:disabled { background: #444; color: #666; cursor: not-allowed; }
+  .publish-status {
+    font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700;
+    letter-spacing: 1px; text-align: center; padding: 8px;
+    border-radius: 4px; display: none;
+  }
+  .publish-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
+  .publish-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
+
+  /* ===== MODAL DETAIL BERITA ===== */
+  .berita-detail-overlay {
+    display: none; position: fixed; inset: 0; z-index: 3000;
+    background: rgba(0,0,0,0.9); align-items: flex-start; justify-content: center;
+    padding: 20px; overflow-y: auto;
+  }
+  .berita-detail-overlay.active { display: flex; }
+  .berita-detail-modal {
+    background: #111; border: 1px solid #2a2a2a;
+    border-radius: 10px; width: 100%; max-width: 720px;
+    margin: auto;
+  }
+  .berita-detail-img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 10px 10px 0 0; display: block; }
+  .berita-detail-body { padding: 28px 30px 36px; }
+  .berita-detail-meta {
+    font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; color: var(--gold); text-transform: uppercase;
+    margin-bottom: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  }
+  .berita-detail-meta span { color: #444; }
+  .berita-detail-title {
+    font-family: 'Bebas Neue'; font-size: 34px; color: var(--white);
+    letter-spacing: 2px; line-height: 1.1; margin-bottom: 20px;
+    border-left: 4px solid var(--gold); padding-left: 16px;
+  }
+  .berita-detail-content {
+    font-family: 'Rajdhani'; font-size: 16px; color: #ccc;
+    line-height: 1.8; white-space: pre-wrap;
+  }
+  .berita-detail-close-btn {
+    display: block; margin: 24px auto 0;
+    background: none; border: 1px solid #444; color: #888;
+    font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: 0.2s;
+  }
+  .berita-detail-close-btn:hover { border-color: var(--gold); color: var(--white); }
+
+  /* Loading spinner */
+  .berita-loading {
+    text-align: center; padding: 60px 20px;
+    font-family: 'Barlow Condensed'; font-size: 15px; color: #555;
+    letter-spacing: 2px; text-transform: uppercase;
+    grid-column: 1 / -1;
+  }
+
 </style>
 </head>
 <body>
@@ -540,6 +757,7 @@
     <li><a onclick="showPage('peserta')" data-page="peserta">Peserta</a></li>
     <li><a onclick="showPage('grup')" data-page="grup">Grup</a></li>
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
+    <li><a onclick="showPage('berita')" data-page="berita">Berita</a></li>
   </ul>
   <button class="hamburger" id="hamburgerBtn">
     <span></span><span></span><span></span>
@@ -554,6 +772,7 @@
       <li><a onclick="showPage('peserta')">Peserta</a></li>
       <li><a onclick="showPage('grup')">Grup</a></li>
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
+      <li><a onclick="showPage('berita')">Berita</a></li>
     </ul>
   </div>
 </div>
@@ -932,7 +1151,7 @@
   <section class="grup-section">
     <div class="grup-intro">
       <p class="label">Fase Grup</p>
-      <h2>PEMBAGIAN GRUP IFFA AHMAD CUP</h2>
+      <h2>PEMBAGIAN GRUP 2026</h2>
       <p>16 tim dari seluruh negara fiksi bersaing dalam 4 grup. 2 tim teratas dari setiap grup akan melaju ke babak gugur.</p>
     </div>
 
@@ -1254,6 +1473,105 @@
   </footer>
 </div>
 
+
+<!-- ===== BERITA ===== -->
+<div id="page-berita" class="page">
+  <div class="page-header">
+    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Berita Banner">
+    <div class="page-header-overlay"><h1>BERITA TERKINI</h1></div>
+  </div>
+
+  <div class="berita-section">
+    <div class="berita-top">
+      <div class="berita-top-title">
+        <div class="label-small">IFFA Ahmad Cup 2026</div>
+        <h2>BERITA & INFORMASI</h2>
+      </div>
+      <button class="btn-tulis-berita" onclick="bukaFormBerita()">✏️ TULIS BERITA</button>
+    </div>
+    <div class="berita-grid" id="beritaGrid">
+      <div class="berita-loading">⏳ &nbsp; Memuat berita...</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
+    <p class="footer-hashtag">#UnitingFictionalNations</p>
+    <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
+    <div class="footer-partners">
+      <p class="footer-partners-title">Support &amp; Sponsorship</p>
+      <div class="partners-section">
+        <p class="partners-section-label">Sponsor</p>
+        <div class="partners-row">
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
+        </div>
+      </div>
+      <div class="partner-divider"></div>
+      <div class="partners-section">
+        <p class="partners-section-label">Support</p>
+        <div class="partners-row">
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== MODAL TULIS BERITA ===== -->
+<div class="berita-modal-overlay" id="beritaModalOverlay">
+  <div class="berita-modal">
+    <div class="berita-modal-header">
+      <h3>✏️ TULIS BERITA</h3>
+      <button class="berita-modal-close" onclick="tutupFormBerita()">✕</button>
+    </div>
+    <div class="berita-modal-body">
+      <div class="form-group">
+        <label class="form-label">Judul Berita *</label>
+        <input class="form-input" id="inputJudul" type="text" placeholder="Masukkan judul berita...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ditulis Oleh *</label>
+        <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Foto Berita (opsional)</label>
+        <div class="form-img-placeholder" id="imgPlaceholder" onclick="document.getElementById('inputGambar').click()">
+          <span>📷</span>
+          <p>Ketuk untuk pilih foto dari galeri</p>
+        </div>
+        <img class="form-img-preview" id="imgPreview" alt="Preview">
+        <input class="form-img-input" type="file" id="inputGambar" accept="image/*" onchange="previewGambar(this)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Isi Berita *</label>
+        <textarea class="form-textarea" id="inputIsi" placeholder="Tulis isi berita di sini..."></textarea>
+      </div>
+      <div class="publish-status" id="publishStatus"></div>
+      <button class="btn-publish" id="btnPublish" onclick="publishBerita()">🚀 PUBLIKASIKAN BERITA</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL DETAIL BERITA ===== -->
+<div class="berita-detail-overlay" id="beritaDetailOverlay" onclick="tutupDetailBerita(event)">
+  <div class="berita-detail-modal" id="beritaDetailModal">
+    <img class="berita-detail-img" id="detailImg" src="" alt="" style="display:none;">
+    <div class="berita-detail-body">
+      <div class="berita-detail-meta" id="detailMeta"></div>
+      <div class="berita-detail-title" id="detailJudul"></div>
+      <div class="berita-detail-content" id="detailIsi"></div>
+      <button class="berita-detail-close-btn" onclick="tutupDetailBeritaBtn()">✕ Tutup</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== YOUTUBE PLAYER (hidden) ===== -->
 <div id="ytPlayer" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
   <iframe id="ytIframe" style="width:1px;height:1px;border:none;" allow="autoplay"></iframe>
@@ -1321,6 +1639,7 @@
     });
     closeMenu();
     window.scrollTo(0,0);
+    if (pageId === 'berita') { renderBeritaGrid(); }
   }
 
   const btn = document.getElementById('hamburgerBtn');
@@ -1439,6 +1758,220 @@
   document.addEventListener('touchstart', startOnFirstClick, { once: true });
   nowPlaying.textContent = playlist[0].title;
   playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+
+  // ===== BERITA SYSTEM =====
+  let beritaImageBase64 = null;
+
+  function bukaFormBerita() {
+    document.getElementById('beritaModalOverlay').classList.add('active');
+    document.getElementById('publishStatus').className = 'publish-status';
+    document.getElementById('publishStatus').textContent = '';
+  }
+
+  function tutupFormBerita() {
+    document.getElementById('beritaModalOverlay').classList.remove('active');
+    document.getElementById('inputJudul').value = '';
+    document.getElementById('inputPenulis').value = '';
+    document.getElementById('inputIsi').value = '';
+    document.getElementById('imgPreview').style.display = 'none';
+    document.getElementById('imgPlaceholder').style.display = 'flex';
+    document.getElementById('inputGambar').value = '';
+    beritaImageBase64 = null;
+  }
+
+  function previewGambar(input) {
+    if (!input.files || !input.files[0]) return;
+    const file = input.files[0];
+
+    // Cek ukuran file maks 1.5MB untuk base64 agar muat di storage
+    if (file.size > 1.5 * 1024 * 1024) {
+      alert('Ukuran foto terlalu besar! Maksimal 1.5MB. Coba foto yang lebih kecil.');
+      input.value = '';
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      beritaImageBase64 = e.target.result;
+      const preview = document.getElementById('imgPreview');
+      preview.src = beritaImageBase64;
+      preview.style.display = 'block';
+      document.getElementById('imgPlaceholder').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  async function publishBerita() {
+    const judul   = document.getElementById('inputJudul').value.trim();
+    const penulis = document.getElementById('inputPenulis').value.trim();
+    const isi     = document.getElementById('inputIsi').value.trim();
+    const status  = document.getElementById('publishStatus');
+    const btn     = document.getElementById('btnPublish');
+
+    if (!judul || !penulis || !isi) {
+      status.className = 'publish-status error';
+      status.textContent = '⚠️ Judul, penulis, dan isi berita wajib diisi!';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Mempublikasikan...';
+    status.className = 'publish-status';
+
+    try {
+      // Load existing index
+      let index = [];
+      try {
+        const r = await window.storage.get('berita:index', true);
+        index = JSON.parse(r.value);
+      } catch(e) { index = []; }
+
+      const id = 'berita_' + Date.now();
+      const now = new Date();
+      const tgl = now.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
+      const jam = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
+
+      const artikel = {
+        id, judul, penulis, isi,
+        tanggal: tgl + ' · ' + jam,
+        gambar: beritaImageBase64 || null
+      };
+
+      // Save article (gambar disimpan terpisah jika ada agar index tidak terlalu besar)
+      if (artikel.gambar) {
+        await window.storage.set('berita:img:' + id, artikel.gambar, true);
+        artikel.gambar = 'stored'; // flag bahwa gambar tersimpan terpisah
+      }
+
+      await window.storage.set('berita:' + id, JSON.stringify({
+        id: artikel.id,
+        judul: artikel.judul,
+        penulis: artikel.penulis,
+        isi: artikel.isi,
+        tanggal: artikel.tanggal,
+        gambar: artikel.gambar
+      }), true);
+
+      // Update index
+      index.unshift({ id, judul, penulis, tanggal: artikel.tanggal });
+      if (index.length > 50) index = index.slice(0, 50); // maks 50 berita
+      await window.storage.set('berita:index', JSON.stringify(index), true);
+
+      status.className = 'publish-status success';
+      status.textContent = '✅ Berita berhasil dipublikasikan!';
+      btn.textContent = '✅ BERHASIL!';
+
+      // Refresh grid jika di halaman berita
+      renderBeritaGrid();
+
+      setTimeout(() => {
+        tutupFormBerita();
+        btn.disabled = false;
+        btn.textContent = '🚀 PUBLIKASIKAN BERITA';
+      }, 1800);
+
+    } catch(err) {
+      console.error(err);
+      status.className = 'publish-status error';
+      status.textContent = '❌ Gagal menyimpan. Coba lagi.';
+      btn.disabled = false;
+      btn.textContent = '🚀 PUBLIKASIKAN BERITA';
+    }
+  }
+
+  async function renderBeritaGrid() {
+    const grid = document.getElementById('beritaGrid');
+    if (!grid) return;
+
+    grid.innerHTML = '<div class="berita-loading">⏳ &nbsp; Memuat berita...</div>';
+
+    try {
+      let index = [];
+      try {
+        const r = await window.storage.get('berita:index', true);
+        index = JSON.parse(r.value);
+      } catch(e) { index = []; }
+
+      if (index.length === 0) {
+        grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
+        return;
+      }
+
+      grid.innerHTML = '';
+      for (const item of index) {
+        // Ambil artikel lengkap
+        let artikel = null;
+        try {
+          const r = await window.storage.get('berita:' + item.id, true);
+          artikel = JSON.parse(r.value);
+        } catch(e) { continue; }
+
+        // Ambil gambar jika ada
+        let imgSrc = null;
+        if (artikel.gambar === 'stored') {
+          try {
+            const r = await window.storage.get('berita:img:' + item.id, true);
+            imgSrc = r.value;
+          } catch(e) { imgSrc = null; }
+        }
+
+        const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
+
+        const card = document.createElement('div');
+        card.className = 'berita-card';
+        card.innerHTML = `
+          ${imgSrc
+            ? `<img class="berita-card-img" src="${imgSrc}" alt="${artikel.judul}" loading="lazy">`
+            : `<div class="berita-card-img-placeholder">📰</div>`
+          }
+          <div class="berita-card-body">
+            <div class="berita-card-meta">
+              ${artikel.penulis} <span>·</span> ${artikel.tanggal}
+            </div>
+            <div class="berita-card-title">${artikel.judul}</div>
+            <div class="berita-card-excerpt">${excerpt}</div>
+          </div>
+        `;
+        card.onclick = () => bukaDetailBerita(artikel, imgSrc);
+        grid.appendChild(card);
+      }
+
+    } catch(err) {
+      grid.innerHTML = '<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.</div>';
+    }
+  }
+
+  function bukaDetailBerita(artikel, imgSrc) {
+    const overlay = document.getElementById('beritaDetailOverlay');
+    const img = document.getElementById('detailImg');
+    if (imgSrc) {
+      img.src = imgSrc;
+      img.style.display = 'block';
+    } else {
+      img.style.display = 'none';
+    }
+    document.getElementById('detailMeta').innerHTML =
+      `<strong>${artikel.penulis}</strong> <span>·</span> ${artikel.tanggal}`;
+    document.getElementById('detailJudul').textContent = artikel.judul;
+    document.getElementById('detailIsi').textContent = artikel.isi;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function tutupDetailBerita(e) {
+    if (e.target === document.getElementById('beritaDetailOverlay')) {
+      tutupDetailBeritaBtn();
+    }
+  }
+  function tutupDetailBeritaBtn() {
+    document.getElementById('beritaDetailOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Load berita saat halaman berita dibuka
+  const _origShowPage = showPage;
+  // override showPage to also load berita
+
 </script>
 
 </body>
