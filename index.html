@@ -258,9 +258,6 @@
   .stadium-img-wrap { height: 200px; overflow: hidden; }
   .stadium-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
   .stadium-card:hover .stadium-img-wrap img { transform: scale(1.05); }
-  .stadium-placeholder { width: 100%; height: 200px; background: #222; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; border-bottom: 2px dashed #333; }
-  .stadium-placeholder span { font-size: 36px; }
-  .stadium-placeholder p { font-family: 'Barlow Condensed'; color: #555; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
   .stadium-info { padding: 16px 20px; }
   .stadium-name { font-family: 'Bebas Neue'; font-size: 20px; color: var(--white); margin-bottom: 4px; }
   .stadium-loc { font-family: 'Barlow Condensed'; font-size: 13px; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
@@ -389,31 +386,20 @@
     line-height: 1.1;
   }
 
-  /* TABLE SCROLL WRAPPER */
   .grup-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  .grup-table-wrap::-webkit-scrollbar {
-    height: 4px;
-  }
-  .grup-table-wrap::-webkit-scrollbar-track {
-    background: #111;
-  }
-  .grup-table-wrap::-webkit-scrollbar-thumb {
-    background: var(--gold-dark);
-    border-radius: 2px;
-  }
+  .grup-table-wrap::-webkit-scrollbar { height: 4px; }
+  .grup-table-wrap::-webkit-scrollbar-track { background: #111; }
+  .grup-table-wrap::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
 
-  /* TABLE */
   .grup-table {
     width: 100%;
     min-width: 480px;
     border-collapse: collapse;
   }
-  .grup-table thead tr {
-    background: #1a1a1a;
-  }
+  .grup-table thead tr { background: #1a1a1a; }
   .grup-table thead th {
     font-family: 'Barlow Condensed';
     font-size: 11px;
@@ -425,20 +411,10 @@
     text-align: center;
     border-bottom: 1px solid #2a2a2a;
   }
-  .grup-table thead th:first-child {
-    text-align: left;
-    padding-left: 20px;
-  }
-  .grup-table tbody tr {
-    border-bottom: 1px solid #1a1a1a;
-    transition: background 0.15s;
-  }
-  .grup-table tbody tr:hover {
-    background: #161616;
-  }
-  .grup-table tbody tr:last-child {
-    border-bottom: none;
-  }
+  .grup-table thead th:first-child { text-align: left; padding-left: 20px; }
+  .grup-table tbody tr { border-bottom: 1px solid #1a1a1a; transition: background 0.15s; }
+  .grup-table tbody tr:hover { background: #161616; }
+  .grup-table tbody tr:last-child { border-bottom: none; }
   .grup-table td {
     padding: 13px 12px;
     text-align: center;
@@ -447,82 +423,20 @@
     font-weight: 600;
     color: #ccc;
   }
-  .grup-table td:first-child {
-    text-align: left;
-    padding-left: 20px;
-  }
-  .grup-table .team-cell {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .team-flag {
-    width: 42px;
-    height: 28px;
-    border-radius: 3px;
-    object-fit: cover;
-    border: 1px solid #333;
-    flex-shrink: 0;
-  }
-  .team-rank {
-    font-family: 'Bebas Neue';
-    font-size: 18px;
-    color: #444;
-    width: 22px;
-    text-align: right;
-    flex-shrink: 0;
-  }
-  .team-name-text {
-    font-family: 'Barlow Condensed';
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-  }
-  .td-pts {
-    font-family: 'Bebas Neue';
-    font-size: 20px;
-    color: var(--gold) !important;
-  }
-  .grup-table thead th.th-pts {
-    color: var(--gold-dark);
-  }
+  .grup-table td:first-child { text-align: left; padding-left: 20px; }
+  .grup-table .team-cell { display: flex; align-items: center; gap: 12px; }
+  .team-flag { width: 42px; height: 28px; border-radius: 3px; object-fit: cover; border: 1px solid #333; flex-shrink: 0; }
+  .team-rank { font-family: 'Bebas Neue'; font-size: 18px; color: #444; width: 22px; text-align: right; flex-shrink: 0; }
+  .team-name-text { font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .td-pts { font-family: 'Bebas Neue'; font-size: 20px; color: var(--gold) !important; }
+  .grup-table thead th.th-pts { color: var(--gold-dark); }
 
-  /* Legend */
-  .grup-legend {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 14px 20px;
-    background: #0a0a0a;
-    border-top: 1px solid #1a1a1a;
-    flex-wrap: wrap;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-family: 'Barlow Condensed';
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #666;
-    text-transform: uppercase;
-  }
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
-  }
+  .grup-legend { display: flex; align-items: center; gap: 20px; padding: 14px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
   .dot-lolos { background: var(--gold); }
   .dot-gugur { background: #333; }
-
-  /* Lolos highlight on first 2 rows */
-  .grup-table tbody tr.row-lolos td:first-child {
-    border-left: 3px solid var(--gold);
-  }
+  .grup-table tbody tr.row-lolos td:first-child { border-left: 3px solid var(--gold); }
 
   /* ===== BERITA PAGE ===== */
   .berita-section {
@@ -570,7 +484,6 @@
   }
   .btn-tulis-berita:hover { background: #e0aa20; transform: translateY(-1px); }
 
-  /* Cards grid */
   .berita-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -585,9 +498,7 @@
     transition: border-color 0.3s, transform 0.3s;
   }
   .berita-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-  .berita-card-img {
-    width: 100%; height: 200px; object-fit: cover; display: block;
-  }
+  .berita-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
   .berita-card-img-placeholder {
     width: 100%; height: 200px;
     background: linear-gradient(135deg, #1a1a00 0%, #2a2200 100%);
@@ -638,6 +549,7 @@
     border-bottom: 3px solid var(--gold);
     padding: 20px 24px;
     display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 1;
   }
   .berita-modal-header h3 {
     font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold);
@@ -732,7 +644,7 @@
   }
   .berita-detail-close-btn:hover { border-color: var(--gold); color: var(--white); }
 
-  /* Loading spinner */
+  /* Loading */
   .berita-loading {
     text-align: center; padding: 60px 20px;
     font-family: 'Barlow Condensed'; font-size: 15px; color: #555;
@@ -740,6 +652,22 @@
     grid-column: 1 / -1;
   }
 
+  /* Storage info banner */
+  .storage-info {
+    background: #1a1400;
+    border: 1px solid #3a2f00;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    font-family: 'Barlow Condensed';
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .storage-info strong { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -1115,29 +1043,6 @@
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-    <div class="footer-partners">
-      <p class="footer-partners-title">Support &amp; Sponsorship</p>
-      <div class="partners-section">
-        <p class="partners-section-label">Sponsor</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
-        </div>
-      </div>
-      <div class="partner-divider"></div>
-      <div class="partners-section">
-        <p class="partners-section-label">Support</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
-        </div>
-      </div>
-    </div>
   </footer>
 </div>
 
@@ -1156,7 +1061,6 @@
     </div>
 
     <div class="grup-grid">
-
       <!-- GROUP A -->
       <div class="grup-card">
         <div class="grup-card-header">
@@ -1167,49 +1071,15 @@
           </div>
         </div>
         <div class="grup-table-wrap"><table class="grup-table">
-          <thead>
-            <tr>
-              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+          </tr></thead>
           <tbody>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">1</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Wineriasia</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">2</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Servesila</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">3</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Tazbekistan</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">4</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">King US Gernaz</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span class="team-name-text">Wineriasia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span class="team-name-text">Servesila</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"><span class="team-name-text">Tazbekistan</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"><span class="team-name-text">King US Gernaz</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
           </tbody>
         </table></div>
         <div class="grup-legend">
@@ -1228,49 +1098,15 @@
           </div>
         </div>
         <div class="grup-table-wrap"><table class="grup-table">
-          <thead>
-            <tr>
-              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+          </tr></thead>
           <tbody>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">1</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Cabangbungin Raya</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">2</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Lichtenburg</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">3</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Jerman</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">4</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Thaloria B</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span class="team-name-text">Cabangbungin Raya</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span class="team-name-text">Lichtenburg</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"><span class="team-name-text">Jerman</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"><span class="team-name-text">Thaloria B</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
           </tbody>
         </table></div>
         <div class="grup-legend">
@@ -1289,49 +1125,15 @@
           </div>
         </div>
         <div class="grup-table-wrap"><table class="grup-table">
-          <thead>
-            <tr>
-              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+          </tr></thead>
           <tbody>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">1</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Sopozia</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">2</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Islamnezia</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">3</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Trenhoa</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">4</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Verolia</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span class="team-name-text">Sopozia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span class="team-name-text">Islamnezia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"><span class="team-name-text">Trenhoa</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"><span class="team-name-text">Verolia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
           </tbody>
         </table></div>
         <div class="grup-legend">
@@ -1350,49 +1152,15 @@
           </div>
         </div>
         <div class="grup-table-wrap"><table class="grup-table">
-          <thead>
-            <tr>
-              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
-              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+            <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+          </tr></thead>
           <tbody>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">1</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">North Erlaska</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr class="row-lolos">
-              <td><div class="team-cell">
-                <span class="team-rank">2</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Gladiolrep</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">3</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Bikini Bottom</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
-            <tr>
-              <td><div class="team-cell">
-                <span class="team-rank">4</span>
-                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp" onerror="this.style.background='#333';this.removeAttribute('src')">
-                <span class="team-name-text">Malaysia</span>
-              </div></td>
-              <td></td>
-              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
-            </tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">1</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span class="team-name-text">North Erlaska</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr class="row-lolos"><td><div class="team-cell"><span class="team-rank">2</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span class="team-name-text">Gladiolrep</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">3</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"><span class="team-name-text">Bikini Bottom</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
+            <tr><td><div class="team-cell"><span class="team-rank">4</span><img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"><span class="team-name-text">Malaysia</span></div></td><td></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td></tr>
           </tbody>
         </table></div>
         <div class="grup-legend">
@@ -1400,37 +1168,13 @@
           <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
         </div>
       </div>
-
-    </div><!-- /grup-grid -->
+    </div>
   </section>
 
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-    <div class="footer-partners">
-      <p class="footer-partners-title">Support &amp; Sponsorship</p>
-      <div class="partners-section">
-        <p class="partners-section-label">Sponsor</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
-        </div>
-      </div>
-      <div class="partner-divider"></div>
-      <div class="partners-section">
-        <p class="partners-section-label">Support</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
-        </div>
-      </div>
-    </div>
   </footer>
 </div>
 
@@ -1447,32 +1191,8 @@
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-    <div class="footer-partners">
-      <p class="footer-partners-title">Support &amp; Sponsorship</p>
-      <div class="partners-section">
-        <p class="partners-section-label">Sponsor</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
-        </div>
-      </div>
-      <div class="partner-divider"></div>
-      <div class="partners-section">
-        <p class="partners-section-label">Support</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
-        </div>
-      </div>
-    </div>
   </footer>
 </div>
-
 
 <!-- ===== BERITA ===== -->
 <div id="page-berita" class="page">
@@ -1489,6 +1209,11 @@
       </div>
       <button class="btn-tulis-berita" onclick="bukaFormBerita()">✏️ TULIS BERITA</button>
     </div>
+
+    <div class="storage-info">
+      💾 <strong>INFO:</strong>&nbsp; Berita disimpan otomatis di browser ini. Berita akan tetap tersimpan saat kamu kembali ke halaman ini.
+    </div>
+
     <div class="berita-grid" id="beritaGrid">
       <div class="berita-loading">⏳ &nbsp; Memuat berita...</div>
     </div>
@@ -1498,29 +1223,6 @@
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-    <div class="footer-partners">
-      <p class="footer-partners-title">Support &amp; Sponsorship</p>
-      <div class="partners-section">
-        <p class="partners-section-label">Sponsor</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
-        </div>
-      </div>
-      <div class="partner-divider"></div>
-      <div class="partners-section">
-        <p class="partners-section-label">Support</p>
-        <div class="partners-row">
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
-          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
-        </div>
-      </div>
-    </div>
   </footer>
 </div>
 
@@ -1541,7 +1243,7 @@
         <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
       </div>
       <div class="form-group">
-        <label class="form-label">Foto Berita (opsional)</label>
+        <label class="form-label">Foto Berita (opsional, maks 1MB)</label>
         <div class="form-img-placeholder" id="imgPlaceholder" onclick="document.getElementById('inputGambar').click()">
           <span>📷</span>
           <p>Ketuk untuk pilih foto dari galeri</p>
@@ -1611,9 +1313,9 @@
       </div>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 14px;border-bottom:1px solid #222;">
-      <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Sebelumnya">⏮</button>
+      <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;">⏮</button>
       <button id="playPauseBtn" onclick="togglePlay()" style="background:#C9991A;border:none;color:#000;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
-      <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Berikutnya">⏭</button>
+      <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;">⏭</button>
     </div>
     <div style="padding:8px 0;">
       <div style="font-size:10px;letter-spacing:2px;color:#888;padding:0 14px 6px;">PLAYLIST</div>
@@ -1623,356 +1325,371 @@
 </div>
 
 <script>
-  function zoomImage(imgSrc) {
-    const modal = document.getElementById('imageModal');
-    const fullImg = document.getElementById('fullImage');
-    fullImg.src = imgSrc;
-    modal.classList.add('active');
-  }
+// ===========================
+// UTILITY
+// ===========================
+function zoomImage(imgSrc) {
+  document.getElementById('fullImage').src = imgSrc;
+  document.getElementById('imageModal').classList.add('active');
+}
 
-  function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + pageId).classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.remove('active');
-      if(a.getAttribute('data-page') === pageId) a.classList.add('active');
-    });
-    closeMenu();
-    window.scrollTo(0,0);
-    if (pageId === 'berita') { renderBeritaGrid(); }
-  }
-
-  const btn = document.getElementById('hamburgerBtn');
-  const menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('open');
-    menu.classList.toggle('active');
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('data-page') === pageId) a.classList.add('active');
   });
+  closeMenu();
+  window.scrollTo(0, 0);
+  if (pageId === 'berita') renderBeritaGrid();
+}
 
-  function closeMenu() {
-    btn.classList.remove('open');
-    menu.classList.remove('active');
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu   = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => {
+  hamburgerBtn.classList.toggle('open');
+  mobileMenu.classList.toggle('active');
+});
+function closeMenu() {
+  hamburgerBtn.classList.remove('open');
+  mobileMenu.classList.remove('active');
+}
+
+// ===========================
+// COUNTDOWN
+// ===========================
+function updateCountdown() {
+  const target = new Date('2026-05-23T00:00:00').getTime();
+  const now    = Date.now();
+  const diff   = target - now;
+  if (diff <= 0) {
+    document.getElementById('cd-finished').style.display = 'block';
+    document.querySelector('.countdown-boxes').style.display = 'none';
+    return;
+  }
+  const days    = Math.floor(diff / 86400000);
+  const hours   = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent    = String(days).padStart(2,'0');
+  document.getElementById('cd-hours').textContent   = String(hours).padStart(2,'0');
+  document.getElementById('cd-minutes').textContent = String(minutes).padStart(2,'0');
+  document.getElementById('cd-seconds').textContent = String(seconds).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===========================
+// SLIDER
+// ===========================
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const sliderDots = document.querySelectorAll('.dot');
+function goSlide(n) {
+  slides[currentSlide].classList.remove('active-slide');
+  sliderDots[currentSlide].classList.remove('active-dot');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active-slide');
+  sliderDots[currentSlide].classList.add('active-dot');
+}
+function moveSlide(dir) { goSlide(currentSlide + dir); }
+setInterval(() => moveSlide(1), 5000);
+
+// ===========================
+// MUSIC PLAYER
+// ===========================
+const songList = [
+  { title: "Sea of Problem",    id: "gtpCl_QWaLg" },
+  { title: "Stereo Love",       id: "p-Z3YrHJ1sU" },
+  { title: "Hate Me",           id: "UZwi9SHgzGY" },
+  { title: "Night Call",        id: "MV_3Dpw-BRY" },
+  { title: "Beauty And A Beat", id: "Ys7-6_t7OEQ" },
+  { title: "Wavin Flag",        id: "WTJSt4wP2ME" },
+];
+let currentIndex = 0, isPlaying = false, started = false, panelOpen = true;
+const iframe       = document.getElementById('ytIframe');
+const nowPlaying   = document.getElementById('nowPlayingName');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playerBars   = document.getElementById('playerBars');
+const playlistEl   = document.getElementById('playlist');
+const toggleArrow  = document.getElementById('toggleArrow');
+const playerPanel  = document.getElementById('playerPanel');
+
+songList.forEach((track, i) => {
+  const item = document.createElement('div');
+  item.className = 'playlist-item' + (i === 0 ? ' active' : '');
+  item.id = 'track-' + i;
+  item.innerHTML = `<span class="track-num">${i+1}</span><span>${track.title}</span>`;
+  item.onclick = () => playSong(i);
+  playlistEl.appendChild(item);
+});
+
+function loadSong(index, autoplay) {
+  currentIndex = index;
+  nowPlaying.textContent = songList[index].title;
+  document.querySelectorAll('.playlist-item').forEach((el, i) => el.classList.toggle('active', i === index));
+  iframe.src = `https://www.youtube.com/embed/${songList[index].id}?autoplay=${autoplay?1:0}&controls=0&loop=0&enablejsapi=1`;
+  if (autoplay) {
+    isPlaying = true;
+    playPauseBtn.textContent = '⏸';
+    playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'running');
+  }
+}
+function playSong(i) { started = true; loadSong(i, true); }
+function togglePlay() {
+  if (!started) { started = true; loadSong(currentIndex, true); return; }
+  if (isPlaying) {
+    iframe.src = `https://www.youtube.com/embed/${songList[currentIndex].id}?autoplay=0&controls=0&mute=1`;
+    isPlaying = false;
+    playPauseBtn.textContent = '▶';
+    playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+  } else { loadSong(currentIndex, true); }
+}
+function nextSong() { playSong((currentIndex + 1) % songList.length); }
+function prevSong() { playSong((currentIndex - 1 + songList.length) % songList.length); }
+function togglePlayerPanel() {
+  panelOpen = !panelOpen;
+  playerPanel.style.display = panelOpen ? 'block' : 'none';
+  toggleArrow.textContent = panelOpen ? '▲' : '▼';
+}
+function startOnFirstClick() { if (!started) { started = true; loadSong(0, true); } }
+document.addEventListener('click', startOnFirstClick, { once: true });
+document.addEventListener('touchstart', startOnFirstClick, { once: true });
+nowPlaying.textContent = songList[0].title;
+playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
+
+// ===========================
+// BERITA — localStorage SYSTEM
+// ===========================
+
+const STORAGE_KEY_INDEX = 'iffa2026_berita_index';
+const STORAGE_KEY_PREFIX = 'iffa2026_berita_';
+const STORAGE_KEY_IMG    = 'iffa2026_img_';
+let beritaImageBase64 = null;
+
+// Ambil index berita dari localStorage
+function getBeritaIndex() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_INDEX);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+// Simpan index berita ke localStorage
+function setBeritaIndex(index) {
+  try {
+    localStorage.setItem(STORAGE_KEY_INDEX, JSON.stringify(index));
+    return true;
+  } catch(e) { return false; }
+}
+
+// Ambil artikel dari localStorage
+function getArtikel(id) {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_PREFIX + id);
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
+
+// Simpan artikel ke localStorage
+function setArtikel(id, data) {
+  try {
+    localStorage.setItem(STORAGE_KEY_PREFIX + id, JSON.stringify(data));
+    return true;
+  } catch(e) { return false; }
+}
+
+// Simpan gambar terpisah (karena base64 besar)
+function getGambar(id) {
+  try {
+    return localStorage.getItem(STORAGE_KEY_IMG + id) || null;
+  } catch(e) { return null; }
+}
+function setGambar(id, base64) {
+  try {
+    localStorage.setItem(STORAGE_KEY_IMG + id, base64);
+    return true;
+  } catch(e) { return false; }
+}
+
+function bukaFormBerita() {
+  document.getElementById('beritaModalOverlay').classList.add('active');
+  document.getElementById('publishStatus').className = 'publish-status';
+  document.getElementById('publishStatus').textContent = '';
+}
+
+function tutupFormBerita() {
+  document.getElementById('beritaModalOverlay').classList.remove('active');
+  document.getElementById('inputJudul').value = '';
+  document.getElementById('inputPenulis').value = '';
+  document.getElementById('inputIsi').value = '';
+  document.getElementById('imgPreview').style.display = 'none';
+  document.getElementById('imgPlaceholder').style.display = 'flex';
+  document.getElementById('inputGambar').value = '';
+  beritaImageBase64 = null;
+}
+
+function previewGambar(input) {
+  if (!input.files || !input.files[0]) return;
+  const file = input.files[0];
+  if (file.size > 1 * 1024 * 1024) {
+    alert('Ukuran foto terlalu besar! Maksimal 1MB agar tersimpan dengan baik.');
+    input.value = '';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    beritaImageBase64 = e.target.result;
+    const preview = document.getElementById('imgPreview');
+    preview.src = beritaImageBase64;
+    preview.style.display = 'block';
+    document.getElementById('imgPlaceholder').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function publishBerita() {
+  const judul   = document.getElementById('inputJudul').value.trim();
+  const penulis = document.getElementById('inputPenulis').value.trim();
+  const isi     = document.getElementById('inputIsi').value.trim();
+  const status  = document.getElementById('publishStatus');
+  const btn     = document.getElementById('btnPublish');
+
+  if (!judul || !penulis || !isi) {
+    status.className = 'publish-status error';
+    status.textContent = '⚠️ Judul, penulis, dan isi berita wajib diisi!';
+    return;
   }
 
-  function updateCountdown() {
-    const target = new Date('2026-05-23T00:00:00').getTime();
-    const now = new Date().getTime();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd-finished').style.display = 'block';
-      document.querySelector('.countdown-boxes').style.display = 'none';
-      return;
+  btn.disabled = true;
+  btn.textContent = '⏳ Menyimpan...';
+  status.className = 'publish-status';
+
+  try {
+    const id  = 'b' + Date.now();
+    const now = new Date();
+    const tgl = now.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
+    const jam = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
+    const tanggal = tgl + ' · ' + jam;
+
+    // Simpan gambar terpisah jika ada
+    let hasImg = false;
+    if (beritaImageBase64) {
+      const imgOk = setGambar(id, beritaImageBase64);
+      if (imgOk) hasImg = true;
     }
-    const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById('cd-days').textContent    = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').textContent   = String(hours).padStart(2, '0');
-    document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
 
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  function goSlide(n) {
-    slides[currentSlide].classList.remove('active-slide');
-    dots[currentSlide].classList.remove('active-dot');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active-slide');
-    dots[currentSlide].classList.add('active-dot');
-  }
-  function moveSlide(dir) { goSlide(currentSlide + dir); }
-  setInterval(() => moveSlide(1), 5000);
+    // Simpan artikel (tanpa gambar agar hemat)
+    const artikel = { id, judul, penulis, isi, tanggal, hasImg };
+    const artOk = setArtikel(id, artikel);
 
-  const playlist = [
-    { title: "Sea of Problem",    id: "gtpCl_QWaLg" },
-    { title: "Stereo Love",       id: "p-Z3YrHJ1sU" },
-    { title: "Hate Me",           id: "UZwi9SHgzGY" },
-    { title: "Night Call",        id: "MV_3Dpw-BRY" },
-    { title: "Beauty And A Beat", id: "Ys7-6_t7OEQ" },
-    { title: "Wavin Flag",        id: "WTJSt4wP2ME" },
-  ];
-  let currentIndex = 0;
-  let isPlaying    = false;
-  let started      = false;
-  let panelOpen    = true;
-  const iframe        = document.getElementById('ytIframe');
-  const nowPlaying    = document.getElementById('nowPlayingName');
-  const playPauseBtn  = document.getElementById('playPauseBtn');
-  const playerBars    = document.getElementById('playerBars');
-  const playlistEl    = document.getElementById('playlist');
-  const toggleArrow   = document.getElementById('toggleArrow');
-  const playerPanel   = document.getElementById('playerPanel');
-
-  playlist.forEach((track, i) => {
-    const item = document.createElement('div');
-    item.className = 'playlist-item' + (i === 0 ? ' active' : '');
-    item.id = 'track-' + i;
-    item.innerHTML = `<span class="track-num">${i + 1}</span><span>${track.title}</span>`;
-    item.onclick = () => playSong(i);
-    playlistEl.appendChild(item);
-  });
-
-  function loadSong(index, autoplay) {
-    const track = playlist[index];
-    if (!track.id) return;
-    currentIndex = index;
-    nowPlaying.textContent = track.title;
-    document.querySelectorAll('.playlist-item').forEach((el, i) => {
-      el.classList.toggle('active', i === index);
-    });
-    iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=${autoplay ? 1 : 0}&controls=0&loop=0&enablejsapi=1`;
-    if (autoplay) {
-      isPlaying = true;
-      playPauseBtn.textContent = '⏸';
-      playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'running');
-    }
-  }
-
-  function playSong(index) { started = true; loadSong(index, true); }
-  function togglePlay() {
-    if (!started) { started = true; loadSong(currentIndex, true); return; }
-    if (isPlaying) {
-      const track = playlist[currentIndex];
-      iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=0&controls=0&mute=1`;
-      isPlaying = false;
-      playPauseBtn.textContent = '▶';
-      playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
-    } else { loadSong(currentIndex, true); }
-  }
-  function nextSong() { playSong((currentIndex + 1) % playlist.length); }
-  function prevSong() { playSong((currentIndex - 1 + playlist.length) % playlist.length); }
-  function togglePlayerPanel() {
-    panelOpen = !panelOpen;
-    playerPanel.style.display = panelOpen ? 'block' : 'none';
-    toggleArrow.textContent = panelOpen ? '▲' : '▼';
-  }
-  function startOnFirstClick() {
-    if (!started) { started = true; loadSong(0, true); }
-  }
-  document.addEventListener('click', startOnFirstClick, { once: true });
-  document.addEventListener('touchstart', startOnFirstClick, { once: true });
-  nowPlaying.textContent = playlist[0].title;
-  playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
-
-  // ===== BERITA SYSTEM =====
-  let beritaImageBase64 = null;
-
-  function bukaFormBerita() {
-    document.getElementById('beritaModalOverlay').classList.add('active');
-    document.getElementById('publishStatus').className = 'publish-status';
-    document.getElementById('publishStatus').textContent = '';
-  }
-
-  function tutupFormBerita() {
-    document.getElementById('beritaModalOverlay').classList.remove('active');
-    document.getElementById('inputJudul').value = '';
-    document.getElementById('inputPenulis').value = '';
-    document.getElementById('inputIsi').value = '';
-    document.getElementById('imgPreview').style.display = 'none';
-    document.getElementById('imgPlaceholder').style.display = 'flex';
-    document.getElementById('inputGambar').value = '';
-    beritaImageBase64 = null;
-  }
-
-  function previewGambar(input) {
-    if (!input.files || !input.files[0]) return;
-    const file = input.files[0];
-
-    // Cek ukuran file maks 1.5MB untuk base64 agar muat di storage
-    if (file.size > 1.5 * 1024 * 1024) {
-      alert('Ukuran foto terlalu besar! Maksimal 1.5MB. Coba foto yang lebih kecil.');
-      input.value = '';
-      return;
+    if (!artOk) {
+      throw new Error('localStorage penuh atau tidak tersedia');
     }
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      beritaImageBase64 = e.target.result;
-      const preview = document.getElementById('imgPreview');
-      preview.src = beritaImageBase64;
-      preview.style.display = 'block';
-      document.getElementById('imgPlaceholder').style.display = 'none';
-    };
-    reader.readAsDataURL(file);
-  }
+    // Update index
+    let index = getBeritaIndex();
+    index.unshift({ id, judul, penulis, tanggal });
+    if (index.length > 50) index = index.slice(0, 50);
+    setBeritaIndex(index);
 
-  async function publishBerita() {
-    const judul   = document.getElementById('inputJudul').value.trim();
-    const penulis = document.getElementById('inputPenulis').value.trim();
-    const isi     = document.getElementById('inputIsi').value.trim();
-    const status  = document.getElementById('publishStatus');
-    const btn     = document.getElementById('btnPublish');
+    status.className = 'publish-status success';
+    status.textContent = '✅ Berita berhasil dipublikasikan dan tersimpan!';
+    btn.textContent = '✅ BERHASIL!';
 
-    if (!judul || !penulis || !isi) {
-      status.className = 'publish-status error';
-      status.textContent = '⚠️ Judul, penulis, dan isi berita wajib diisi!';
-      return;
-    }
+    renderBeritaGrid();
 
-    btn.disabled = true;
-    btn.textContent = '⏳ Mempublikasikan...';
-    status.className = 'publish-status';
-
-    try {
-      // Load existing index
-      let index = [];
-      try {
-        const r = await window.storage.get('berita:index', true);
-        index = JSON.parse(r.value);
-      } catch(e) { index = []; }
-
-      const id = 'berita_' + Date.now();
-      const now = new Date();
-      const tgl = now.toLocaleDateString('id-ID', { day:'2-digit', month:'long', year:'numeric' });
-      const jam = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
-
-      const artikel = {
-        id, judul, penulis, isi,
-        tanggal: tgl + ' · ' + jam,
-        gambar: beritaImageBase64 || null
-      };
-
-      // Save article (gambar disimpan terpisah jika ada agar index tidak terlalu besar)
-      if (artikel.gambar) {
-        await window.storage.set('berita:img:' + id, artikel.gambar, true);
-        artikel.gambar = 'stored'; // flag bahwa gambar tersimpan terpisah
-      }
-
-      await window.storage.set('berita:' + id, JSON.stringify({
-        id: artikel.id,
-        judul: artikel.judul,
-        penulis: artikel.penulis,
-        isi: artikel.isi,
-        tanggal: artikel.tanggal,
-        gambar: artikel.gambar
-      }), true);
-
-      // Update index
-      index.unshift({ id, judul, penulis, tanggal: artikel.tanggal });
-      if (index.length > 50) index = index.slice(0, 50); // maks 50 berita
-      await window.storage.set('berita:index', JSON.stringify(index), true);
-
-      status.className = 'publish-status success';
-      status.textContent = '✅ Berita berhasil dipublikasikan!';
-      btn.textContent = '✅ BERHASIL!';
-
-      // Refresh grid jika di halaman berita
-      renderBeritaGrid();
-
-      setTimeout(() => {
-        tutupFormBerita();
-        btn.disabled = false;
-        btn.textContent = '🚀 PUBLIKASIKAN BERITA';
-      }, 1800);
-
-    } catch(err) {
-      console.error(err);
-      status.className = 'publish-status error';
-      status.textContent = '❌ Gagal menyimpan. Coba lagi.';
+    setTimeout(() => {
+      tutupFormBerita();
       btn.disabled = false;
       btn.textContent = '🚀 PUBLIKASIKAN BERITA';
-    }
+    }, 1800);
+
+  } catch(err) {
+    console.error('publishBerita error:', err);
+    status.className = 'publish-status error';
+    status.textContent = '❌ Gagal menyimpan: ' + (err.message || 'Coba lagi.');
+    btn.disabled = false;
+    btn.textContent = '🚀 PUBLIKASIKAN BERITA';
+  }
+}
+
+function renderBeritaGrid() {
+  const grid = document.getElementById('beritaGrid');
+  if (!grid) return;
+
+  const index = getBeritaIndex();
+
+  if (index.length === 0) {
+    grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
+    return;
   }
 
-  async function renderBeritaGrid() {
-    const grid = document.getElementById('beritaGrid');
-    if (!grid) return;
+  grid.innerHTML = '';
 
-    grid.innerHTML = '<div class="berita-loading">⏳ &nbsp; Memuat berita...</div>';
+  index.forEach(item => {
+    const artikel = getArtikel(item.id);
+    if (!artikel) return;
 
-    try {
-      let index = [];
-      try {
-        const r = await window.storage.get('berita:index', true);
-        index = JSON.parse(r.value);
-      } catch(e) { index = []; }
+    const imgSrc = artikel.hasImg ? getGambar(item.id) : null;
+    const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
 
-      if (index.length === 0) {
-        grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
-        return;
+    const card = document.createElement('div');
+    card.className = 'berita-card';
+    card.innerHTML = `
+      ${imgSrc
+        ? `<img class="berita-card-img" src="${imgSrc}" alt="${escapeHtml(artikel.judul)}" loading="lazy">`
+        : `<div class="berita-card-img-placeholder">📰</div>`
       }
+      <div class="berita-card-body">
+        <div class="berita-card-meta">
+          ${escapeHtml(artikel.penulis)} <span>·</span> ${escapeHtml(artikel.tanggal)}
+        </div>
+        <div class="berita-card-title">${escapeHtml(artikel.judul)}</div>
+        <div class="berita-card-excerpt">${escapeHtml(excerpt)}</div>
+      </div>
+    `;
+    card.onclick = () => bukaDetailBerita(artikel, imgSrc);
+    grid.appendChild(card);
+  });
+}
 
-      grid.innerHTML = '';
-      for (const item of index) {
-        // Ambil artikel lengkap
-        let artikel = null;
-        try {
-          const r = await window.storage.get('berita:' + item.id, true);
-          artikel = JSON.parse(r.value);
-        } catch(e) { continue; }
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.appendChild(document.createTextNode(str || ''));
+  return d.innerHTML;
+}
 
-        // Ambil gambar jika ada
-        let imgSrc = null;
-        if (artikel.gambar === 'stored') {
-          try {
-            const r = await window.storage.get('berita:img:' + item.id, true);
-            imgSrc = r.value;
-          } catch(e) { imgSrc = null; }
-        }
-
-        const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
-
-        const card = document.createElement('div');
-        card.className = 'berita-card';
-        card.innerHTML = `
-          ${imgSrc
-            ? `<img class="berita-card-img" src="${imgSrc}" alt="${artikel.judul}" loading="lazy">`
-            : `<div class="berita-card-img-placeholder">📰</div>`
-          }
-          <div class="berita-card-body">
-            <div class="berita-card-meta">
-              ${artikel.penulis} <span>·</span> ${artikel.tanggal}
-            </div>
-            <div class="berita-card-title">${artikel.judul}</div>
-            <div class="berita-card-excerpt">${excerpt}</div>
-          </div>
-        `;
-        card.onclick = () => bukaDetailBerita(artikel, imgSrc);
-        grid.appendChild(card);
-      }
-
-    } catch(err) {
-      grid.innerHTML = '<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.</div>';
-    }
+function bukaDetailBerita(artikel, imgSrc) {
+  const overlay = document.getElementById('beritaDetailOverlay');
+  const img = document.getElementById('detailImg');
+  if (imgSrc) {
+    img.src = imgSrc;
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
   }
+  document.getElementById('detailMeta').innerHTML =
+    `<strong>${escapeHtml(artikel.penulis)}</strong> <span>·</span> ${escapeHtml(artikel.tanggal)}`;
+  document.getElementById('detailJudul').textContent = artikel.judul;
+  document.getElementById('detailIsi').textContent   = artikel.isi;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
-  function bukaDetailBerita(artikel, imgSrc) {
-    const overlay = document.getElementById('beritaDetailOverlay');
-    const img = document.getElementById('detailImg');
-    if (imgSrc) {
-      img.src = imgSrc;
-      img.style.display = 'block';
-    } else {
-      img.style.display = 'none';
-    }
-    document.getElementById('detailMeta').innerHTML =
-      `<strong>${artikel.penulis}</strong> <span>·</span> ${artikel.tanggal}`;
-    document.getElementById('detailJudul').textContent = artikel.judul;
-    document.getElementById('detailIsi').textContent = artikel.isi;
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+function tutupDetailBerita(e) {
+  if (e.target === document.getElementById('beritaDetailOverlay')) tutupDetailBeritaBtn();
+}
+function tutupDetailBeritaBtn() {
+  document.getElementById('beritaDetailOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
 
-  function tutupDetailBerita(e) {
-    if (e.target === document.getElementById('beritaDetailOverlay')) {
-      tutupDetailBeritaBtn();
-    }
-  }
-  function tutupDetailBeritaBtn() {
-    document.getElementById('beritaDetailOverlay').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  // Load berita saat halaman berita dibuka
-  const _origShowPage = showPage;
-  // override showPage to also load berita
-
+// Render berita saat pertama kali halaman dimuat (jika tab berita aktif)
+if (document.getElementById('page-berita').classList.contains('active')) {
+  renderBeritaGrid();
+}
 </script>
-
 </body>
 </html>
