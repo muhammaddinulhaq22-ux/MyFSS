@@ -297,6 +297,215 @@
   .playlist-item.active { background: #1a1a1a; color: #C9991A; }
   .playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
   .playlist-item.active .track-num { color: #C9991A; }
+
+  /* ===== GRUP PAGE ===== */
+  .grup-section {
+    background: var(--dark);
+    padding: 60px 20px 80px;
+  }
+
+  .grup-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 56px;
+  }
+  .grup-intro .label {
+    font-family: 'Barlow Condensed';
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .grup-intro h2 {
+    font-family: 'Bebas Neue';
+    font-size: 48px;
+    color: var(--white);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .grup-intro p {
+    font-family: 'Barlow Condensed';
+    font-size: 16px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  .grup-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .grup-grid { grid-template-columns: 1fr; }
+  }
+
+  .grup-card {
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .grup-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .grup-card-header {
+    background: linear-gradient(135deg, #1a1400 0%, #2a2000 60%, #1a1400 100%);
+    border-bottom: 3px solid var(--gold);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .grup-letter {
+    font-family: 'Bebas Neue';
+    font-size: 52px;
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(201,153,26,0.4);
+  }
+  .grup-header-text {}
+  .grup-header-text .grup-label-small {
+    font-family: 'Barlow Condensed';
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #888;
+    text-transform: uppercase;
+  }
+  .grup-header-text .grup-name {
+    font-family: 'Bebas Neue';
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1.1;
+  }
+
+  /* TABLE */
+  .grup-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .grup-table thead tr {
+    background: #1a1a1a;
+  }
+  .grup-table thead th {
+    font-family: 'Barlow Condensed';
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #666;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .grup-table thead th:first-child {
+    text-align: left;
+    padding-left: 20px;
+  }
+  .grup-table tbody tr {
+    border-bottom: 1px solid #1a1a1a;
+    transition: background 0.15s;
+  }
+  .grup-table tbody tr:hover {
+    background: #161616;
+  }
+  .grup-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .grup-table td {
+    padding: 13px 12px;
+    text-align: center;
+    font-family: 'Barlow Condensed';
+    font-size: 15px;
+    font-weight: 600;
+    color: #ccc;
+  }
+  .grup-table td:first-child {
+    text-align: left;
+    padding-left: 20px;
+  }
+  .grup-table .team-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .team-flag {
+    width: 42px;
+    height: 28px;
+    border-radius: 3px;
+    object-fit: cover;
+    border: 1px solid #333;
+    flex-shrink: 0;
+  }
+  .team-rank {
+    font-family: 'Bebas Neue';
+    font-size: 18px;
+    color: #444;
+    width: 22px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .team-name-text {
+    font-family: 'Barlow Condensed';
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .td-pts {
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    color: var(--gold) !important;
+  }
+  .grup-table thead th.th-pts {
+    color: var(--gold-dark);
+  }
+
+  /* Legend */
+  .grup-legend {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    background: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Barlow Condensed';
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #666;
+    text-transform: uppercase;
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+  }
+  .dot-lolos { background: var(--gold); }
+  .dot-gugur { background: #333; }
+
+  /* Lolos highlight on first 2 rows */
+  .grup-table tbody tr.row-lolos td:first-child {
+    border-left: 3px solid var(--gold);
+  }
 </style>
 </head>
 <body>
@@ -312,6 +521,7 @@
   <ul class="nav-links">
     <li><a onclick="showPage('beranda')" class="active" data-page="beranda">Beranda</a></li>
     <li><a onclick="showPage('peserta')" data-page="peserta">Peserta</a></li>
+    <li><a onclick="showPage('grup')" data-page="grup">Grup</a></li>
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
   </ul>
   <button class="hamburger" id="hamburgerBtn">
@@ -325,6 +535,7 @@
     <ul class="mobile-menu-list">
       <li><a onclick="showPage('beranda')">Beranda</a></li>
       <li><a onclick="showPage('peserta')">Peserta</a></li>
+      <li><a onclick="showPage('grup')">Grup</a></li>
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
     </ul>
   </div>
@@ -434,9 +645,7 @@
   </section>
 
   <footer>
-    <div class="footer-logo">
-      <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
-    </div>
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
     <div class="footer-partners">
@@ -472,7 +681,6 @@
     <div class="page-header-overlay"><h1>DAFTAR PESERTA</h1></div>
   </div>
   <div class="participants-grid">
-    
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')">
         <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png">
@@ -485,7 +693,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg">
@@ -498,7 +705,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg">
@@ -511,7 +717,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg">
@@ -524,7 +729,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')">
         <img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp">
@@ -537,7 +741,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg">
@@ -550,7 +753,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg">
@@ -563,7 +765,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg">
@@ -576,7 +777,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg">
@@ -589,7 +789,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg">
@@ -602,7 +801,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg">
@@ -615,7 +813,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg">
@@ -628,7 +825,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg">
@@ -641,7 +837,6 @@
         </div>
       </div>
     </div>
-
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg">
@@ -654,7 +849,6 @@
         </div>
       </div>
     </div>
-    
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png')">
         <img src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png">
@@ -667,7 +861,6 @@
         </div>
       </div>
     </div>
-    
     <div class="participant-card">
       <div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')">
         <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg">
@@ -680,13 +873,303 @@
         </div>
       </div>
     </div>
-
   </div>
 
   <footer>
-    <div class="footer-logo">
-      <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
+    <p class="footer-hashtag">#UnitingFictionalNations</p>
+    <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
+    <div class="footer-partners">
+      <p class="footer-partners-title">Support &amp; Sponsorship</p>
+      <div class="partners-section">
+        <p class="partners-section-label">Sponsor</p>
+        <div class="partners-row">
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954377472-b5927a9c-eaad-43b1-a5ec-36745ab33b99.jpeg" alt="Super Eat"><span class="partner-name">Super Eat</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956632571-b658ff24-92eb-42c3-b7a4-70f216401b0e.png" alt="Adidas"><span class="partner-name">Adidas</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956699641-44cec435-7b5d-48dc-832b-52b2c72dcabe.png" alt="EA Sport"><span class="partner-name">EA Sport</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956931061-49aa6628-5581-4fc3-a38d-4c6824e6509e.jpeg" alt="CB CLOTHING"><span class="partner-name">CB CLOTHING</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029072105-ee1fedb4-1a34-4a0d-9a7e-b508f9b6e0ce.jpeg" alt="PIRATE BAY"><span class="partner-name">PIRATE BAY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777029140527-b4cd219c-7eaa-4df2-9903-60a6857406b9.jpeg" alt="HAMID COMPANY"><span class="partner-name">HAMID COMPANY</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1777030610266-e75a64c9-58c3-437d-8309-f2dd910e8386.jpeg" alt="ALEXA GROUP"><span class="partner-name">ALEXA GROUP</span></div>
+        </div>
+      </div>
+      <div class="partner-divider"></div>
+      <div class="partners-section">
+        <p class="partners-section-label">Support</p>
+        <div class="partners-row">
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776954835179-6459ea47-90a6-4780-85e0-f4eff398279d.jpeg" alt="IFFA"><span class="partner-name">IFFA</span></div>
+          <div class="partner-item"><img src="https://www.image2url.com/r2/default/images/1776956432647-69eaa607-cd95-4e10-af3f-7d8675b3bf0d.png" alt="FSS"><span class="partner-name">FSS</span></div>
+        </div>
+      </div>
     </div>
+  </footer>
+</div>
+
+<!-- ===== GRUP ===== -->
+<div id="page-grup" class="page">
+  <div class="page-header">
+    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Grup Banner">
+    <div class="page-header-overlay"><h1>GRUP IFFA AHMAD CUP</h1></div>
+  </div>
+
+  <section class="grup-section">
+    <div class="grup-intro">
+      <p class="label">Fase Grup</p>
+      <h2>PEMBAGIAN GRUP IFFA AHMAD CUP</h2>
+      <p>16 tim dari seluruh negara fiksi bersaing dalam 4 grup. 2 tim teratas dari setiap grup akan melaju ke babak gugur.</p>
+    </div>
+
+    <div class="grup-grid">
+
+      <!-- GROUP A -->
+      <div class="grup-card">
+        <div class="grup-card-header">
+          <div class="grup-letter">A</div>
+          <div class="grup-header-text">
+            <div class="grup-label-small">Group</div>
+            <div class="grup-name">GROUP A</div>
+          </div>
+        </div>
+        <table class="grup-table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">1</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Wineriasia</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">2</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Servesila</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">3</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Tazbekistan</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">4</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">King US Gernaz</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grup-legend">
+          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
+          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
+        </div>
+      </div>
+
+      <!-- GROUP B -->
+      <div class="grup-card">
+        <div class="grup-card-header">
+          <div class="grup-letter">B</div>
+          <div class="grup-header-text">
+            <div class="grup-label-small">Group</div>
+            <div class="grup-name">GROUP B</div>
+          </div>
+        </div>
+        <table class="grup-table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">1</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Cabangbungin Raya</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">2</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Lichtenburg</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">3</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Jerman</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">4</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Thaloria B</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grup-legend">
+          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
+          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
+        </div>
+      </div>
+
+      <!-- GROUP C -->
+      <div class="grup-card">
+        <div class="grup-card-header">
+          <div class="grup-letter">C</div>
+          <div class="grup-header-text">
+            <div class="grup-label-small">Group</div>
+            <div class="grup-name">GROUP C</div>
+          </div>
+        </div>
+        <table class="grup-table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">1</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Sopozia</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">2</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Islamnezia</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">3</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Trenhoa</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">4</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Verolia</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grup-legend">
+          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
+          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
+        </div>
+      </div>
+
+      <!-- GROUP D -->
+      <div class="grup-card">
+        <div class="grup-card-header">
+          <div class="grup-letter">D</div>
+          <div class="grup-header-text">
+            <div class="grup-label-small">Group</div>
+            <div class="grup-name">GROUP D</div>
+          </div>
+        </div>
+        <table class="grup-table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align:left;padding-left:20px;">Tim</th>
+              <th>M</th><th>M</th><th>S</th><th>K</th><th>SG</th><th class="th-pts">PTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">1</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">North Erlaska</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr class="row-lolos">
+              <td><div class="team-cell">
+                <span class="team-rank">2</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Gladiolrep</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">3</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Bikini Bottom</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+            <tr>
+              <td><div class="team-cell">
+                <span class="team-rank">4</span>
+                <img class="team-flag" src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp" onerror="this.style.background='#333';this.removeAttribute('src')">
+                <span class="team-name-text">Malaysia</span>
+              </div></td>
+              <td></td>
+              <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="td-pts">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="grup-legend">
+          <div class="legend-item"><span class="legend-dot dot-lolos"></span>Lolos Babak Gugur</div>
+          <div class="legend-item"><span class="legend-dot dot-gugur"></span>Tersingkir</div>
+        </div>
+      </div>
+
+    </div><!-- /grup-grid -->
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
     <div class="footer-partners">
@@ -724,11 +1207,8 @@
   <div style="padding: 60px 20px; text-align: center; color: var(--gray);">
     Jadwal akan segera diumumkan.
   </div>
-
   <footer>
-    <div class="footer-logo">
-      <img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png">
-    </div>
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
     <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
     <div class="footer-partners">
@@ -783,7 +1263,6 @@
     </div>
     <span id="toggleArrow" style="color:#000;font-size:16px;font-weight:700;">▲</span>
   </div>
-
   <div id="playerPanel">
     <div style="padding:12px 14px 8px;border-bottom:1px solid #222;">
       <div style="font-size:10px;letter-spacing:2px;color:#888;margin-bottom:4px;">NOW PLAYING</div>
@@ -796,13 +1275,11 @@
         <span class="bar" style="width:3px;background:#C9991A;border-radius:2px;animation:barAnim 0.6s ease 0.3s infinite alternate;height:7px;"></span>
       </div>
     </div>
-
     <div style="display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 14px;border-bottom:1px solid #222;">
       <button onclick="prevSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Sebelumnya">⏮</button>
       <button id="playPauseBtn" onclick="togglePlay()" style="background:#C9991A;border:none;color:#000;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">▶</button>
       <button onclick="nextSong()" style="background:none;border:none;color:#C9991A;font-size:20px;cursor:pointer;" title="Berikutnya">⏭</button>
     </div>
-
     <div style="padding:8px 0;">
       <div style="font-size:10px;letter-spacing:2px;color:#888;padding:0 14px 6px;">PLAYLIST</div>
       <div id="playlist"></div>
@@ -811,7 +1288,6 @@
 </div>
 
 <script>
-  // ===== NAVIGATION =====
   function zoomImage(imgSrc) {
     const modal = document.getElementById('imageModal');
     const fullImg = document.getElementById('fullImage');
@@ -842,23 +1318,19 @@
     menu.classList.remove('active');
   }
 
-  // ===== COUNTDOWN =====
   function updateCountdown() {
     const target = new Date('2026-05-23T00:00:00').getTime();
     const now = new Date().getTime();
     const diff = target - now;
-
     if (diff <= 0) {
       document.getElementById('cd-finished').style.display = 'block';
       document.querySelector('.countdown-boxes').style.display = 'none';
       return;
     }
-
     const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
     document.getElementById('cd-days').textContent    = String(days).padStart(2, '0');
     document.getElementById('cd-hours').textContent   = String(hours).padStart(2, '0');
     document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
@@ -867,11 +1339,9 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ===== SLIDER =====
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dot');
-
   function goSlide(n) {
     slides[currentSlide].classList.remove('active-slide');
     dots[currentSlide].classList.remove('active-dot');
@@ -879,11 +1349,9 @@
     slides[currentSlide].classList.add('active-slide');
     dots[currentSlide].classList.add('active-dot');
   }
-
   function moveSlide(dir) { goSlide(currentSlide + dir); }
   setInterval(() => moveSlide(1), 5000);
 
-  // ===== MUSIC PLAYER =====
   const playlist = [
     { title: "Sea of Problem",    id: "gtpCl_QWaLg" },
     { title: "Stereo Love",       id: "p-Z3YrHJ1sU" },
@@ -892,12 +1360,10 @@
     { title: "Beauty And A Beat", id: "Ys7-6_t7OEQ" },
     { title: "Wavin Flag",        id: "WTJSt4wP2ME" },
   ];
-
   let currentIndex = 0;
   let isPlaying    = false;
   let started      = false;
   let panelOpen    = true;
-
   const iframe        = document.getElementById('ytIframe');
   const nowPlaying    = document.getElementById('nowPlayingName');
   const playPauseBtn  = document.getElementById('playPauseBtn');
@@ -906,15 +1372,11 @@
   const toggleArrow   = document.getElementById('toggleArrow');
   const playerPanel   = document.getElementById('playerPanel');
 
-  // Build playlist UI
   playlist.forEach((track, i) => {
     const item = document.createElement('div');
     item.className = 'playlist-item' + (i === 0 ? ' active' : '');
     item.id = 'track-' + i;
-    item.innerHTML = `
-      <span class="track-num">${i + 1}</span>
-      <span>${track.title}</span>
-    `;
+    item.innerHTML = `<span class="track-num">${i + 1}</span><span>${track.title}</span>`;
     item.onclick = () => playSong(i);
     playlistEl.appendChild(item);
   });
@@ -924,13 +1386,10 @@
     if (!track.id) return;
     currentIndex = index;
     nowPlaying.textContent = track.title;
-
     document.querySelectorAll('.playlist-item').forEach((el, i) => {
       el.classList.toggle('active', i === index);
     });
-
     iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=${autoplay ? 1 : 0}&controls=0&loop=0&enablejsapi=1`;
-
     if (autoplay) {
       isPlaying = true;
       playPauseBtn.textContent = '⏸';
@@ -938,55 +1397,29 @@
     }
   }
 
-  function playSong(index) {
-    started = true;
-    loadSong(index, true);
-  }
-
+  function playSong(index) { started = true; loadSong(index, true); }
   function togglePlay() {
-    if (!started) {
-      started = true;
-      loadSong(currentIndex, true);
-      return;
-    }
+    if (!started) { started = true; loadSong(currentIndex, true); return; }
     if (isPlaying) {
       const track = playlist[currentIndex];
       iframe.src = `https://www.youtube.com/embed/${track.id}?autoplay=0&controls=0&mute=1`;
       isPlaying = false;
       playPauseBtn.textContent = '▶';
       playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
-    } else {
-      loadSong(currentIndex, true);
-    }
+    } else { loadSong(currentIndex, true); }
   }
-
-  function nextSong() {
-    let next = (currentIndex + 1) % playlist.length;
-    playSong(next);
-  }
-
-  function prevSong() {
-    let prev = (currentIndex - 1 + playlist.length) % playlist.length;
-    playSong(prev);
-  }
-
+  function nextSong() { playSong((currentIndex + 1) % playlist.length); }
+  function prevSong() { playSong((currentIndex - 1 + playlist.length) % playlist.length); }
   function togglePlayerPanel() {
     panelOpen = !panelOpen;
     playerPanel.style.display = panelOpen ? 'block' : 'none';
     toggleArrow.textContent = panelOpen ? '▲' : '▼';
   }
-
-  // Auto-start on first click anywhere
   function startOnFirstClick() {
-    if (!started) {
-      started = true;
-      loadSong(0, true);
-    }
+    if (!started) { started = true; loadSong(0, true); }
   }
   document.addEventListener('click', startOnFirstClick, { once: true });
   document.addEventListener('touchstart', startOnFirstClick, { once: true });
-
-  // Init display
   nowPlaying.textContent = playlist[0].title;
   playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
 </script>
