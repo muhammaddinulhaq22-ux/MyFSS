@@ -226,7 +226,6 @@
   .berita-empty span { font-size: 48px; display: block; margin-bottom: 16px; }
   .berita-loading { text-align: center; padding: 60px 20px; font-family: 'Barlow Condensed'; font-size: 15px; color: #555; letter-spacing: 2px; text-transform: uppercase; grid-column: 1 / -1; }
 
-  /* Info banner Supabase */
   .storage-info { background: #0d1a00; border: 1px solid #1a3a00; border-radius: 6px; padding: 10px 16px; margin-bottom: 20px; font-family: 'Barlow Condensed'; font-size: 13px; color: #888; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px; }
   .storage-info strong { color: var(--gold); }
 
@@ -246,11 +245,6 @@
   .form-input, .form-textarea { background: #1a1a1a; border: 1px solid #333; border-radius: 5px; color: var(--white); font-family: 'Rajdhani'; font-size: 15px; padding: 10px 14px; outline: none; transition: border-color 0.2s; width: 100%; }
   .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
   .form-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
-  .form-img-preview { width: 100%; height: 180px; object-fit: cover; border-radius: 5px; display: none; margin-top: 8px; border: 1px solid #333; }
-  .form-img-placeholder { width: 100%; height: 120px; background: #1a1a1a; border: 2px dashed #333; border-radius: 5px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; transition: border-color 0.2s; margin-top: 8px; }
-  .form-img-placeholder:hover { border-color: var(--gold); }
-  .form-img-placeholder span { font-size: 28px; }
-  .form-img-placeholder p { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #555; text-transform: uppercase; }
   .form-img-input { display: none; }
   .btn-publish { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px; padding: 14px; border-radius: 5px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 4px; }
   .btn-publish:hover { background: #e0aa20; }
@@ -258,6 +252,157 @@
   .publish-status { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-align: center; padding: 8px; border-radius: 4px; display: none; }
   .publish-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
   .publish-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
+
+  /* ===== FOTO UPLOAD AREA (BARU) ===== */
+  .foto-upload-area {
+    position: relative;
+    width: 100%;
+    border: 2px dashed #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    background: #1a1a1a;
+  }
+  .foto-upload-area:hover { border-color: var(--gold); background: #1f1f00; }
+  .foto-upload-area.has-image { border-style: solid; border-color: var(--gold); }
+  .foto-upload-area.dragover { border-color: var(--gold); background: #1f1f00; }
+
+  .foto-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .foto-placeholder-icon { font-size: 40px; }
+  .foto-placeholder-title {
+    font-family: 'Bebas Neue';
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .foto-placeholder-sub {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #555;
+    text-transform: uppercase;
+  }
+  .foto-placeholder-or {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    color: #444;
+    margin: 4px 0;
+  }
+  .foto-placeholder-btn {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    font-family: 'Bebas Neue';
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    pointer-events: none;
+  }
+
+  .foto-preview-wrap {
+    display: none;
+    position: relative;
+  }
+  .foto-preview-wrap img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .foto-preview-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .foto-btn-change, .foto-btn-remove {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+  }
+  .foto-btn-change { background: var(--gold); color: #000; }
+  .foto-btn-change:hover { background: #e0aa20; }
+  .foto-btn-remove { background: rgba(0,0,0,0.7); color: #f44336; border: 1px solid #f44336; }
+  .foto-btn-remove:hover { background: #f44336; color: #fff; }
+
+  /* Upload progress */
+  .foto-upload-progress {
+    display: none;
+    padding: 16px 20px;
+    background: #1a1a1a;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .foto-upload-progress.active { display: flex; }
+  .foto-progress-label {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+  }
+  .foto-progress-bar-wrap {
+    width: 100%;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .foto-progress-bar {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+
+  /* URL fallback tab */
+  .foto-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid #222;
+  }
+  .foto-tab {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    cursor: pointer;
+    color: #555;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: 0.2s;
+  }
+  .foto-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .foto-tab-panel { display: none; margin-top: 10px; }
+  .foto-tab-panel.active { display: block; }
 
   /* ===== MODAL DETAIL BERITA ===== */
   .berita-detail-overlay { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0,0,0,0.9); align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
@@ -569,13 +714,58 @@
         <label class="form-label">Ditulis Oleh *</label>
         <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
       </div>
+
+      <!-- ===== FOTO SECTION (BARU) ===== -->
       <div class="form-group">
-        <label class="form-label">URL Foto Berita (opsional)</label>
-        <input class="form-input" id="inputGambarUrl" type="url" placeholder="https://link-gambar.com/foto.jpg">
-        <div id="imgUrlPreviewWrap" style="margin-top:8px;display:none;">
-          <img id="imgUrlPreview" style="width:100%;height:180px;object-fit:cover;border-radius:5px;border:1px solid #333;" alt="Preview">
+        <label class="form-label">Foto Berita (Opsional)</label>
+
+        <!-- Tab switcher -->
+        <div class="foto-tabs">
+          <button class="foto-tab active" id="tabGaleri" onclick="switchFotoTab('galeri')">📷 Upload dari Galeri</button>
+          <button class="foto-tab" id="tabUrl" onclick="switchFotoTab('url')">🔗 Gunakan URL</button>
+        </div>
+
+        <!-- Tab: Galeri -->
+        <div class="foto-tab-panel active" id="panelGaleri">
+          <!-- Hidden file input -->
+          <input type="file" id="inputFileGambar" class="form-img-input" accept="image/*">
+
+          <!-- Upload area -->
+          <div class="foto-upload-area" id="fotoUploadArea" onclick="triggerFileInput()">
+            <!-- Placeholder (saat belum ada gambar) -->
+            <div class="foto-placeholder" id="fotoPlaceholder">
+              <span class="foto-placeholder-icon">🖼️</span>
+              <div class="foto-placeholder-title">Pilih Foto dari Galeri</div>
+              <div class="foto-placeholder-sub">JPG, PNG, WEBP · Maks 5MB</div>
+              <div class="foto-placeholder-or">atau</div>
+              <div class="foto-placeholder-btn">BROWSE FILE</div>
+            </div>
+            <!-- Upload progress -->
+            <div class="foto-upload-progress" id="fotoProgress">
+              <div class="foto-progress-label" id="fotoProgressLabel">Mengupload foto...</div>
+              <div class="foto-progress-bar-wrap"><div class="foto-progress-bar" id="fotoProgressBar"></div></div>
+            </div>
+            <!-- Preview setelah dipilih / uploaded -->
+            <div class="foto-preview-wrap" id="fotoPreviewWrap">
+              <img id="fotoPreviewImg" src="" alt="Preview foto">
+              <div class="foto-preview-actions">
+                <button class="foto-btn-change" onclick="gantiGambar(event)">🔄 Ganti</button>
+                <button class="foto-btn-remove" onclick="hapusGambar(event)">✕</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab: URL -->
+        <div class="foto-tab-panel" id="panelUrl">
+          <input class="form-input" id="inputGambarUrl" type="url" placeholder="https://link-gambar.com/foto.jpg" style="margin-top:4px;">
+          <div id="imgUrlPreviewWrap" style="margin-top:8px;display:none;">
+            <img id="imgUrlPreview" style="width:100%;height:180px;object-fit:cover;border-radius:5px;border:1px solid #333;" alt="Preview">
+          </div>
         </div>
       </div>
+      <!-- ===== END FOTO SECTION ===== -->
+
       <div class="form-group">
         <label class="form-label">Isi Berita *</label>
         <textarea class="form-textarea" id="inputIsi" placeholder="Tulis isi berita di sini..."></textarea>
@@ -638,6 +828,8 @@
 // ===== CONFIG SUPABASE =====
 const SUPABASE_URL = 'https://imexqgicnkikdrdcjkmt.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZXhxZ2ljbmtpa2RyZGNqa210Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NDYzOTksImV4cCI6MjA5MzEyMjM5OX0.EANfZgocppJQiicjH4IAKOchsD7qtwcvp7JHmawWY2o';
+// Nama bucket Supabase Storage untuk foto berita
+const STORAGE_BUCKET = 'berita-images';
 
 async function supabaseFetch(path, options = {}) {
   const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
@@ -651,6 +843,33 @@ async function supabaseFetch(path, options = {}) {
     }
   });
   return res;
+}
+
+// ===== Upload file ke Supabase Storage =====
+async function uploadImageToSupabase(file) {
+  // Buat nama file unik
+  const ext = file.name.split('.').pop().toLowerCase();
+  const fileName = `berita_${Date.now()}_${Math.random().toString(36).substr(2, 8)}.${ext}`;
+  const filePath = fileName;
+
+  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${STORAGE_BUCKET}/${filePath}`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Content-Type': file.type,
+      'x-upsert': 'true'
+    },
+    body: file
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error('Upload gagal: ' + err);
+  }
+
+  // Return public URL
+  return `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}/${filePath}`;
 }
 
 // ===== UTILITY =====
@@ -779,8 +998,161 @@ document.addEventListener('touchstart', startOnFirstClick, { once: true });
 nowPlaying.textContent = songList[0].title;
 playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
 
-// ===== BERITA — SUPABASE =====
+// ===== FOTO UPLOAD LOGIC =====
+let uploadedImageUrl = null; // URL hasil upload ke Supabase Storage
 
+function switchFotoTab(tab) {
+  document.getElementById('tabGaleri').classList.toggle('active', tab === 'galeri');
+  document.getElementById('tabUrl').classList.toggle('active', tab === 'url');
+  document.getElementById('panelGaleri').classList.toggle('active', tab === 'galeri');
+  document.getElementById('panelUrl').classList.toggle('active', tab === 'url');
+}
+
+function triggerFileInput() {
+  // Hanya trigger jika tidak sedang upload dan belum ada preview
+  const previewWrap = document.getElementById('fotoPreviewWrap');
+  if (previewWrap.style.display === 'block') return;
+  document.getElementById('inputFileGambar').click();
+}
+
+function gantiGambar(e) {
+  e.stopPropagation();
+  uploadedImageUrl = null;
+  document.getElementById('inputFileGambar').click();
+}
+
+function hapusGambar(e) {
+  e.stopPropagation();
+  uploadedImageUrl = null;
+  resetFotoPreview();
+}
+
+function resetFotoPreview() {
+  document.getElementById('fotoPlaceholder').style.display = 'flex';
+  document.getElementById('fotoPreviewWrap').style.display = 'none';
+  document.getElementById('fotoProgress').classList.remove('active');
+  document.getElementById('fotoUploadArea').classList.remove('has-image');
+  document.getElementById('inputFileGambar').value = '';
+  document.getElementById('fotoPreviewImg').src = '';
+}
+
+function setFotoProgress(pct, label) {
+  document.getElementById('fotoPlaceholder').style.display = 'none';
+  document.getElementById('fotoPreviewWrap').style.display = 'none';
+  const prog = document.getElementById('fotoProgress');
+  prog.classList.add('active');
+  document.getElementById('fotoProgressBar').style.width = pct + '%';
+  document.getElementById('fotoProgressLabel').textContent = label;
+}
+
+function showFotoPreview(url) {
+  document.getElementById('fotoPlaceholder').style.display = 'none';
+  document.getElementById('fotoProgress').classList.remove('active');
+  document.getElementById('fotoPreviewImg').src = url;
+  document.getElementById('fotoPreviewWrap').style.display = 'block';
+  document.getElementById('fotoUploadArea').classList.add('has-image');
+}
+
+// File input change handler
+document.getElementById('inputFileGambar').addEventListener('change', async function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  // Validasi tipe file
+  if (!file.type.startsWith('image/')) {
+    alert('File harus berupa gambar (JPG, PNG, WEBP, dll.)');
+    this.value = '';
+    return;
+  }
+
+  // Validasi ukuran file (maks 5MB)
+  if (file.size > 5 * 1024 * 1024) {
+    alert('Ukuran gambar tidak boleh lebih dari 5MB!');
+    this.value = '';
+    return;
+  }
+
+  // Tampilkan preview lokal dulu
+  const localUrl = URL.createObjectURL(file);
+  showFotoPreview(localUrl);
+
+  // Upload ke Supabase Storage
+  try {
+    setFotoProgress(30, '⏳ Mengupload foto ke server...');
+    const publicUrl = await uploadImageToSupabase(file);
+    uploadedImageUrl = publicUrl;
+    setFotoProgress(100, '✅ Upload berhasil!');
+    setTimeout(() => {
+      showFotoPreview(publicUrl);
+    }, 600);
+  } catch (err) {
+    console.error('Upload error:', err);
+    // Jika upload ke storage gagal, pakai base64 sebagai fallback
+    uploadedImageUrl = null;
+    // Coba simpan sebagai base64 jika file kecil
+    if (file.size <= 1 * 1024 * 1024) {
+      try {
+        const base64 = await fileToBase64(file);
+        uploadedImageUrl = base64;
+        showFotoPreview(base64);
+        document.getElementById('fotoProgress').classList.remove('active');
+      } catch {
+        alert('Gagal mengupload gambar. Coba gunakan tab URL saja.');
+        resetFotoPreview();
+      }
+    } else {
+      alert('Upload ke server gagal. Coba gunakan tab "Gunakan URL" sebagai alternatif, atau coba lagi.');
+      resetFotoPreview();
+    }
+  }
+});
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+// Drag and drop support
+const fotoUploadArea = document.getElementById('fotoUploadArea');
+fotoUploadArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  fotoUploadArea.classList.add('dragover');
+});
+fotoUploadArea.addEventListener('dragleave', () => {
+  fotoUploadArea.classList.remove('dragover');
+});
+fotoUploadArea.addEventListener('drop', (e) => {
+  e.preventDefault();
+  fotoUploadArea.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) {
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    document.getElementById('inputFileGambar').files = dt.files;
+    document.getElementById('inputFileGambar').dispatchEvent(new Event('change'));
+  }
+});
+
+// Preview URL
+document.getElementById('inputGambarUrl').addEventListener('input', function() {
+  const url = this.value.trim();
+  const wrap = document.getElementById('imgUrlPreviewWrap');
+  const img = document.getElementById('imgUrlPreview');
+  if (url) {
+    img.src = url;
+    wrap.style.display = 'block';
+    img.onerror = () => { wrap.style.display = 'none'; };
+    img.onload = () => { wrap.style.display = 'block'; };
+  } else {
+    wrap.style.display = 'none';
+  }
+});
+
+// ===== BERITA — SUPABASE =====
 function escapeHtml(str) {
   const d = document.createElement('div');
   d.appendChild(document.createTextNode(str || ''));
@@ -800,30 +1172,26 @@ function tutupFormBerita() {
   document.getElementById('inputIsi').value = '';
   document.getElementById('inputGambarUrl').value = '';
   document.getElementById('imgUrlPreviewWrap').style.display = 'none';
+  uploadedImageUrl = null;
+  resetFotoPreview();
+  switchFotoTab('galeri');
 }
-
-// Preview gambar dari URL
-document.getElementById('inputGambarUrl').addEventListener('input', function() {
-  const url = this.value.trim();
-  const wrap = document.getElementById('imgUrlPreviewWrap');
-  const img = document.getElementById('imgUrlPreview');
-  if (url) {
-    img.src = url;
-    wrap.style.display = 'block';
-    img.onerror = () => { wrap.style.display = 'none'; };
-    img.onload = () => { wrap.style.display = 'block'; };
-  } else {
-    wrap.style.display = 'none';
-  }
-});
 
 async function publishBerita() {
   const judul = document.getElementById('inputJudul').value.trim();
   const penulis = document.getElementById('inputPenulis').value.trim();
   const isi = document.getElementById('inputIsi').value.trim();
-  const gambar_url = document.getElementById('inputGambarUrl').value.trim() || null;
   const status = document.getElementById('publishStatus');
   const btn = document.getElementById('btnPublish');
+
+  // Tentukan sumber gambar: upload (galeri) atau URL
+  const activeTab = document.getElementById('tabGaleri').classList.contains('active') ? 'galeri' : 'url';
+  let gambar_url = null;
+  if (activeTab === 'galeri') {
+    gambar_url = uploadedImageUrl || null;
+  } else {
+    gambar_url = document.getElementById('inputGambarUrl').value.trim() || null;
+  }
 
   if (!judul || !penulis || !isi) {
     status.className = 'publish-status error';
@@ -942,7 +1310,6 @@ function tutupDetailBeritaBtn() {
   document.body.style.overflow = '';
 }
 
-// Load berita jika halaman berita aktif pertama kali
 if (document.getElementById('page-berita').classList.contains('active')) {
   renderBeritaGrid();
 }
