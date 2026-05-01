@@ -416,6 +416,125 @@
   .berita-detail-content { font-family: 'Rajdhani'; font-size: 16px; color: #ccc; line-height: 1.8; white-space: pre-wrap; }
   .berita-detail-close-btn { display: block; margin: 24px auto 0; background: none; border: 1px solid #444; color: #888; font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
   .berita-detail-close-btn:hover { border-color: var(--gold); color: var(--white); }
+
+  /* ===== POPUP IKLAN ===== */
+  #adPopupOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.82);
+    align-items: center;
+    justify-content: center;
+    animation: fadeInOverlay 0.4s ease;
+  }
+  #adPopupOverlay.active { display: flex; }
+
+  @keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  #adPopupBox {
+    position: relative;
+    max-width: 480px;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 60px rgba(201,153,26,0.35), 0 8px 40px rgba(0,0,0,0.7);
+    animation: popupSlideIn 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  @keyframes popupSlideIn {
+    from { transform: scale(0.75) translateY(30px); opacity: 0; }
+    to   { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  #adPopupBox img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Label iklan */
+  #adPopupLabel {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(201,153,26,0.5);
+    color: var(--gold);
+    font-family: 'Barlow Condensed';
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  /* Tombol tutup */
+  #adCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #000;
+    border: none;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    transition: background 0.2s, transform 0.15s;
+    z-index: 10;
+  }
+  #adCloseBtn:hover { background: #e0aa20; transform: scale(1.1); }
+  #adCloseBtn.visible { display: flex; }
+
+  /* Countdown ring */
+  #adCountdownWrap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    z-index: 10;
+  }
+  #adCountdownWrap svg {
+    transform: rotate(-90deg);
+  }
+  #adCountdownCircle {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 3;
+    stroke-dasharray: 88;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+  }
+  #adCountdownBg {
+    fill: rgba(0,0,0,0.6);
+    stroke: rgba(201,153,26,0.3);
+    stroke-width: 1;
+  }
+  #adCountdownNum {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue';
+    font-size: 15px;
+    color: var(--gold);
+    line-height: 1;
+  }
 </style>
 </head>
 <body>
@@ -786,6 +905,24 @@
       <div class="berita-detail-content" id="detailIsi"></div>
       <button class="berita-detail-close-btn" onclick="tutupDetailBeritaBtn()">✕ Tutup</button>
     </div>
+  </div>
+</div>
+
+<!-- ===== POPUP IKLAN ===== -->
+<div id="adPopupOverlay" class="active">
+  <div id="adPopupBox">
+    <span id="adPopupLabel">IKLAN / ADVERTISEMENT</span>
+    <img src="https://www.image2url.com/r2/default/images/1777602495479-ed464d75-d3d8-4faf-852d-e25a12852b18.jpeg" alt="Iklan IFFA Ahmad Cup 2026">
+    <!-- Countdown ring -->
+    <div id="adCountdownWrap">
+      <svg width="36" height="36" viewBox="0 0 36 36">
+        <circle id="adCountdownBg" cx="18" cy="18" r="14"></circle>
+        <circle id="adCountdownCircle" cx="18" cy="18" r="14"></circle>
+      </svg>
+      <div id="adCountdownNum">10</div>
+    </div>
+    <!-- Tombol tutup (muncul setelah 10 detik) -->
+    <button id="adCloseBtn" onclick="tutupAdPopup()">✕</button>
   </div>
 </div>
 
@@ -1313,6 +1450,51 @@ function tutupDetailBeritaBtn() {
 if (document.getElementById('page-berita').classList.contains('active')) {
   renderBeritaGrid();
 }
+
+// ===== POPUP IKLAN =====
+(function() {
+  const COUNTDOWN = 10; // detik
+  const circumference = 2 * Math.PI * 14; // r=14 → ≈ 87.96
+
+  const overlay   = document.getElementById('adPopupOverlay');
+  const closeBtn  = document.getElementById('adCloseBtn');
+  const countWrap = document.getElementById('adCountdownWrap');
+  const circle    = document.getElementById('adCountdownCircle');
+  const numEl     = document.getElementById('adCountdownNum');
+
+  circle.style.strokeDasharray  = circumference;
+  circle.style.strokeDashoffset = 0;
+
+  let remaining = COUNTDOWN;
+  let timer = null;
+
+  function tick() {
+    remaining--;
+    numEl.textContent = remaining;
+    // Animasi ring mengecil
+    const offset = circumference * (1 - remaining / COUNTDOWN);
+    circle.style.strokeDashoffset = offset;
+
+    if (remaining <= 0) {
+      clearInterval(timer);
+      countWrap.style.display = 'none';
+      closeBtn.classList.add('visible');
+    }
+  }
+
+  function startCountdown() {
+    timer = setInterval(tick, 1000);
+  }
+
+  window.tutupAdPopup = function() {
+    overlay.style.animation = 'fadeInOverlay 0.3s ease reverse forwards';
+    setTimeout(() => { overlay.classList.remove('active'); overlay.style.display = 'none'; }, 280);
+    if (timer) clearInterval(timer);
+  };
+
+  // Mulai countdown segera saat halaman load
+  startCountdown();
+})();
 </script>
 </body>
 </html>
