@@ -417,6 +417,69 @@
   .berita-detail-close-btn { display: block; margin: 24px auto 0; background: none; border: 1px solid #444; color: #888; font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 28px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
   .berita-detail-close-btn:hover { border-color: var(--gold); color: var(--white); }
 
+  /* ===== JADWAL PAGE ===== */
+  .jadwal-section { background: var(--dark); padding: 50px 20px 80px; max-width: 900px; margin: 0 auto; }
+  .jadwal-intro { text-align: center; margin-bottom: 50px; }
+  .jadwal-label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+  .jadwal-title { font-family: 'Bebas Neue'; font-size: 46px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 10px; }
+  .jadwal-sub { font-family: 'Barlow Condensed'; font-size: 15px; color: #777; letter-spacing: 1px; }
+
+  .jadwal-grup-block { margin-bottom: 44px; }
+  .jadwal-grup-header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #1e1e00; }
+  .jadwal-grup-letter { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.3); }
+  .jadwal-grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 3px; }
+
+  .jadwal-cards { display: flex; flex-direction: column; gap: 16px; }
+
+  .jadwal-card { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
+  .jadwal-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+
+  .jadwal-card-top { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 1px solid #2a2000; flex-wrap: wrap; }
+  .jadwal-date-badge { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #ccc; text-transform: uppercase; }
+  .jadwal-time-badge { font-family: 'Bebas Neue'; font-size: 18px; color: var(--gold); letter-spacing: 2px; margin-left: auto; }
+
+  .jadwal-matchup { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; }
+
+  .jadwal-team { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; text-align: center; }
+  .jadwal-team img { width: 72px; height: 48px; object-fit: cover; border-radius: 5px; border: 2px solid #333; }
+  .jadwal-team span { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+
+  .jadwal-vs { font-family: 'Bebas Neue'; font-size: 32px; color: var(--gold); letter-spacing: 3px; flex-shrink: 0; text-shadow: 0 0 15px rgba(201,153,26,0.4); }
+
+  .jadwal-card-bottom { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; flex-wrap: wrap; gap: 8px; }
+  .jadwal-stadium { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #777; text-transform: uppercase; }
+
+  /* ===== WIN PERCENTAGE BAR ===== */
+  .jadwal-winbar-wrap { padding: 14px 24px 4px; background: #0a0a0a; }
+  .jadwal-winbar-labels { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+  .winbar-team-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .winbar-team-label.left { color: var(--gold); }
+  .winbar-team-label.right { color: #aaa; text-align: right; }
+  .winbar-pct-label { font-family: 'Bebas Neue'; font-size: 20px; letter-spacing: 1px; }
+  .winbar-pct-label.left { color: var(--gold); }
+  .winbar-pct-label.right { color: #aaa; }
+  .winbar-track { width: 100%; height: 8px; background: #222; border-radius: 99px; overflow: hidden; margin-bottom: 4px; }
+  .winbar-fill-wrap { display: flex; width: 100%; height: 100%; }
+  .winbar-fill-left { height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold)); border-radius: 99px 0 0 99px; width: 0%; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+  .winbar-fill-right { height: 100%; background: linear-gradient(90deg, #555, #888); border-radius: 0 99px 99px 0; width: 0%; transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+  .jadwal-status { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .jadwal-status.upcoming { color: #C9991A; }
+  .jadwal-status.live { color: #4caf50; animation: pulse 1.2s ease infinite; }
+  .jadwal-status.selesai { color: #555; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  .jadwal-tba { background: #0f0f0f; border: 1px dashed #2a2a2a; border-radius: 10px; padding: 36px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .jadwal-tba span { font-size: 36px; }
+  .jadwal-tba p { font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; color: #444; text-transform: uppercase; }
+
+  @media (max-width: 600px) {
+    .jadwal-matchup { padding: 16px 14px; gap: 10px; }
+    .jadwal-team img { width: 54px; height: 36px; }
+    .jadwal-team span { font-size: 11px; }
+    .jadwal-vs { font-size: 24px; }
+    .jadwal-time-badge { font-size: 15px; }
+  }
+
   /* ===== POPUP IKLAN ===== */
   #adPopupOverlay {
     display: none;
@@ -781,7 +844,177 @@
     <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Jadwal Banner">
     <div class="page-header-overlay"><h1>JADWAL PERTANDINGAN</h1></div>
   </div>
-  <div style="padding:60px 20px;text-align:center;color:var(--gray);">Jadwal akan segera diumumkan.</div>
+  <section class="jadwal-section">
+    <div class="jadwal-intro">
+      <p class="jadwal-label">Fase Grup</p>
+      <h2 class="jadwal-title">JADWAL PERTANDINGAN</h2>
+      <p class="jadwal-sub">Semua waktu menggunakan zona waktu <strong style="color:var(--gold);">WITA (UTC+8)</strong></p>
+    </div>
+
+    <!-- GRUP A -->
+    <div class="jadwal-grup-block">
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">A</span>
+        <span class="jadwal-grup-name">GROUP A</span>
+      </div>
+      <div class="jadwal-cards">
+        <div class="jadwal-card">
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕓 16.00 WITA</span>
+          </div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" alt="Wineriasia">
+              <span>Republik Islam Wineriasia</span>
+            </div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" alt="Servesila">
+              <span>Servesila</span>
+            </div>
+          </div>
+          <div class="jadwal-winbar-wrap" data-left="56" data-right="44">
+            <div class="jadwal-winbar-labels">
+              <div>
+                <div class="winbar-team-label left">Wineriasia</div>
+                <div class="winbar-pct-label left" id="pct-a-left">0%</div>
+              </div>
+              <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Servesila</div>
+                <div class="winbar-pct-label right" id="pct-a-right">0%</div>
+              </div>
+            </div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-a-left"></div>
+                <div class="winbar-fill-right" id="bar-a-right"></div>
+              </div>
+            </div>
+          </div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP B -->
+    <div class="jadwal-grup-block">
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">B</span>
+        <span class="jadwal-grup-name">GROUP B</span>
+      </div>
+      <div class="jadwal-cards">
+        <div class="jadwal-card">
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕗 20.00 WITA</span>
+          </div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" alt="Cabangbungin Raya">
+              <span>Cabangbungin Raya</span>
+            </div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" alt="Lichtenburg">
+              <span>Lichtenburg</span>
+            </div>
+          </div>
+          <div class="jadwal-winbar-wrap" data-left="34" data-right="66">
+            <div class="jadwal-winbar-labels">
+              <div>
+                <div class="winbar-team-label left">Cabangbungin</div>
+                <div class="winbar-pct-label left" id="pct-b-left">0%</div>
+              </div>
+              <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Lichtenburg</div>
+                <div class="winbar-pct-label right" id="pct-b-right">0%</div>
+              </div>
+            </div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-b-left"></div>
+                <div class="winbar-fill-right" id="bar-b-right"></div>
+              </div>
+            </div>
+          </div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP C -->
+    <div class="jadwal-grup-block">
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">C</span>
+        <span class="jadwal-grup-name">GROUP C</span>
+      </div>
+      <div class="jadwal-cards">
+        <div class="jadwal-card">
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕙 22.00 WITA</span>
+          </div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" alt="Sopozia">
+              <span>Sopozia</span>
+            </div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" alt="Islamnezia">
+              <span>Islamnezia</span>
+            </div>
+          </div>
+          <div class="jadwal-winbar-wrap" data-left="40" data-right="60">
+            <div class="jadwal-winbar-labels">
+              <div>
+                <div class="winbar-team-label left">Sopozia</div>
+                <div class="winbar-pct-label left" id="pct-c-left">0%</div>
+              </div>
+              <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Islamnezia</div>
+                <div class="winbar-pct-label right" id="pct-c-right">0%</div>
+              </div>
+            </div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-c-left"></div>
+                <div class="winbar-fill-right" id="bar-c-right"></div>
+              </div>
+            </div>
+          </div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP D — belum ada jadwal -->
+    <div class="jadwal-grup-block">
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">D</span>
+        <span class="jadwal-grup-name">GROUP D</span>
+      </div>
+      <div class="jadwal-tba">
+        <span>📋</span>
+        <p>Jadwal Grup D akan segera diumumkan</p>
+      </div>
+    </div>
+
+  </section>
+
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1452,6 +1685,81 @@ function tutupDetailBeritaBtn() {
 if (document.getElementById('page-berita').classList.contains('active')) {
   renderBeritaGrid();
 }
+
+// ===== ANIMASI PERSENTASE KEMENANGAN (SCROLL TRIGGER) =====
+const winBarData = [
+  { leftId: 'bar-a-left', rightId: 'bar-a-right', pctLeftId: 'pct-a-left', pctRightId: 'pct-a-right', left: 56, right: 44 },
+  { leftId: 'bar-b-left', rightId: 'bar-b-right', pctLeftId: 'pct-b-left', pctRightId: 'pct-b-right', left: 34, right: 66 },
+  { leftId: 'bar-c-left', rightId: 'bar-c-right', pctLeftId: 'pct-c-left', pctRightId: 'pct-c-right', left: 40, right: 60 },
+];
+
+function animateSingleBar(m) {
+  const barL = document.getElementById(m.leftId);
+  const barR = document.getElementById(m.rightId);
+  const pctL = document.getElementById(m.pctLeftId);
+  const pctR = document.getElementById(m.pctRightId);
+  if (!barL || !barR) return;
+
+  barL.style.width = m.left + '%';
+  barR.style.width = m.right + '%';
+
+  let current = 0;
+  const steps = 60;
+  const interval = 1400 / steps;
+  const ticker = setInterval(() => {
+    current++;
+    if (pctL) pctL.textContent = Math.round((m.left * current) / steps) + '%';
+    if (pctR) pctR.textContent = Math.round((m.right * current) / steps) + '%';
+    if (current >= steps) {
+      clearInterval(ticker);
+      if (pctL) pctL.textContent = m.left + '%';
+      if (pctR) pctR.textContent = m.right + '%';
+    }
+  }, interval);
+}
+
+function resetWinBars() {
+  winBarData.forEach(m => {
+    const bl = document.getElementById(m.leftId);
+    const br = document.getElementById(m.rightId);
+    const pl = document.getElementById(m.pctLeftId);
+    const pr = document.getElementById(m.pctRightId);
+    if (bl) { bl.style.transition = 'none'; bl.style.width = '0%'; setTimeout(() => bl.style.transition = '', 50); }
+    if (br) { br.style.transition = 'none'; br.style.width = '0%'; setTimeout(() => br.style.transition = '', 50); }
+    if (pl) pl.textContent = '0%';
+    if (pr) pr.textContent = '0%';
+  });
+  // Reset animated flag on wrap elements
+  document.querySelectorAll('.jadwal-winbar-wrap').forEach(el => el.dataset.animated = '');
+}
+
+function setupWinBarObserver() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = '1';
+        const idx = parseInt(entry.target.dataset.idx);
+        animateSingleBar(winBarData[idx]);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.jadwal-winbar-wrap').forEach((el, i) => {
+    el.dataset.idx = i;
+    el.dataset.animated = '';
+    observer.observe(el);
+  });
+}
+
+// Pasang observer saat halaman jadwal dibuka, reset saat keluar
+const _origShowPage = showPage;
+window.showPage = function(pageId) {
+  _origShowPage(pageId);
+  if (pageId === 'jadwal') {
+    resetWinBars();
+    setTimeout(setupWinBarObserver, 300);
+  }
+};
 
 // ===== POPUP IKLAN =====
 (function() {
