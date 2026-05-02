@@ -253,153 +253,32 @@
   .publish-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
   .publish-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
 
-  /* ===== FOTO UPLOAD AREA (BARU) ===== */
-  .foto-upload-area {
-    position: relative;
-    width: 100%;
-    border: 2px dashed #333;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: border-color 0.2s, background 0.2s;
-    cursor: pointer;
-    background: #1a1a1a;
-  }
+  /* ===== FOTO UPLOAD AREA ===== */
+  .foto-upload-area { position: relative; width: 100%; border: 2px dashed #333; border-radius: 8px; overflow: hidden; transition: border-color 0.2s, background 0.2s; cursor: pointer; background: #1a1a1a; }
   .foto-upload-area:hover { border-color: var(--gold); background: #1f1f00; }
   .foto-upload-area.has-image { border-style: solid; border-color: var(--gold); }
   .foto-upload-area.dragover { border-color: var(--gold); background: #1f1f00; }
-
-  .foto-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 28px 20px;
-    text-align: center;
-  }
+  .foto-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 28px 20px; text-align: center; }
   .foto-placeholder-icon { font-size: 40px; }
-  .foto-placeholder-title {
-    font-family: 'Bebas Neue';
-    font-size: 18px;
-    color: var(--white);
-    letter-spacing: 2px;
-  }
-  .foto-placeholder-sub {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #555;
-    text-transform: uppercase;
-  }
-  .foto-placeholder-or {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    color: #444;
-    margin: 4px 0;
-  }
-  .foto-placeholder-btn {
-    background: var(--gold);
-    color: #000;
-    border: none;
-    font-family: 'Bebas Neue';
-    font-size: 14px;
-    letter-spacing: 2px;
-    padding: 8px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
-    pointer-events: none;
-  }
-
-  .foto-preview-wrap {
-    display: none;
-    position: relative;
-  }
-  .foto-preview-wrap img {
-    width: 100%;
-    max-height: 240px;
-    object-fit: cover;
-    display: block;
-  }
-  .foto-preview-actions {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 8px;
-  }
-  .foto-btn-change, .foto-btn-remove {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-    transition: 0.2s;
-  }
+  .foto-placeholder-title { font-family: 'Bebas Neue'; font-size: 18px; color: var(--white); letter-spacing: 2px; }
+  .foto-placeholder-sub { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #555; text-transform: uppercase; }
+  .foto-placeholder-or { font-family: 'Barlow Condensed'; font-size: 12px; color: #444; margin: 4px 0; }
+  .foto-placeholder-btn { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 14px; letter-spacing: 2px; padding: 8px 20px; border-radius: 4px; cursor: pointer; transition: background 0.2s; pointer-events: none; }
+  .foto-preview-wrap { display: none; position: relative; }
+  .foto-preview-wrap img { width: 100%; max-height: 240px; object-fit: cover; display: block; }
+  .foto-preview-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; }
+  .foto-btn-change, .foto-btn-remove { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px; cursor: pointer; border: none; transition: 0.2s; }
   .foto-btn-change { background: var(--gold); color: #000; }
   .foto-btn-change:hover { background: #e0aa20; }
   .foto-btn-remove { background: rgba(0,0,0,0.7); color: #f44336; border: 1px solid #f44336; }
   .foto-btn-remove:hover { background: #f44336; color: #fff; }
-
-  /* Upload progress */
-  .foto-upload-progress {
-    display: none;
-    padding: 16px 20px;
-    background: #1a1a1a;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .foto-upload-progress { display: none; padding: 16px 20px; background: #1a1a1a; flex-direction: column; gap: 8px; }
   .foto-upload-progress.active { display: flex; }
-  .foto-progress-label {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: #888;
-    text-transform: uppercase;
-  }
-  .foto-progress-bar-wrap {
-    width: 100%;
-    height: 4px;
-    background: #333;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .foto-progress-bar {
-    height: 100%;
-    background: var(--gold);
-    border-radius: 2px;
-    transition: width 0.3s;
-    width: 0%;
-  }
-
-  /* URL fallback tab */
-  .foto-tabs {
-    display: flex;
-    gap: 0;
-    margin-bottom: 0;
-    border-bottom: 2px solid #222;
-  }
-  .foto-tab {
-    font-family: 'Barlow Condensed';
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    cursor: pointer;
-    color: #555;
-    border: none;
-    background: none;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: 0.2s;
-  }
+  .foto-progress-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #888; text-transform: uppercase; }
+  .foto-progress-bar-wrap { width: 100%; height: 4px; background: #333; border-radius: 2px; overflow: hidden; }
+  .foto-progress-bar { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.3s; width: 0%; }
+  .foto-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 2px solid #222; }
+  .foto-tab { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 18px; cursor: pointer; color: #555; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: 0.2s; }
   .foto-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
   .foto-tab-panel { display: none; margin-top: 10px; }
   .foto-tab-panel.active { display: block; }
@@ -421,8 +300,6 @@
   .komentar-section { border-top: 2px solid #1e1e00; margin-top: 28px; padding-top: 24px; }
   .komentar-title { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
   .komentar-count { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; background: var(--gold); color: #000; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px; }
-
-  /* Form komentar */
   .komentar-form { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; }
   .komentar-form-row { display: flex; gap: 10px; }
   .komentar-input-nama { background: #111; border: 1px solid #333; border-radius: 5px; color: var(--white); font-family: 'Rajdhani'; font-size: 14px; padding: 9px 12px; outline: none; transition: border-color 0.2s; flex: 1; }
@@ -432,8 +309,6 @@
   .btn-kirim-komentar { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 15px; letter-spacing: 2px; padding: 10px 24px; border-radius: 5px; cursor: pointer; align-self: flex-end; transition: background 0.2s; }
   .btn-kirim-komentar:hover { background: #e0aa20; }
   .btn-kirim-komentar:disabled { background: #444; color: #666; cursor: not-allowed; }
-
-  /* List komentar */
   .komentar-list { display: flex; flex-direction: column; gap: 14px; }
   .komentar-item { background: #161616; border: 1px solid #222; border-radius: 8px; padding: 14px 16px; animation: fadeInKomentar 0.3s ease; }
   @keyframes fadeInKomentar { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
@@ -454,33 +329,23 @@
   .jadwal-label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
   .jadwal-title { font-family: 'Bebas Neue'; font-size: 46px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 10px; }
   .jadwal-sub { font-family: 'Barlow Condensed'; font-size: 15px; color: #777; letter-spacing: 1px; }
-
   .jadwal-grup-block { margin-bottom: 44px; }
   .jadwal-grup-header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #1e1e00; }
   .jadwal-grup-letter { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.3); }
   .jadwal-grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 3px; }
-
   .jadwal-cards { display: flex; flex-direction: column; gap: 16px; }
-
   .jadwal-card { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
   .jadwal-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-
   .jadwal-card-top { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 1px solid #2a2000; flex-wrap: wrap; }
   .jadwal-date-badge { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #ccc; text-transform: uppercase; }
   .jadwal-time-badge { font-family: 'Bebas Neue'; font-size: 18px; color: var(--gold); letter-spacing: 2px; margin-left: auto; }
-
   .jadwal-matchup { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; }
-
   .jadwal-team { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; text-align: center; }
   .jadwal-team img { width: 72px; height: 48px; object-fit: cover; border-radius: 5px; border: 2px solid #333; }
   .jadwal-team span { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
-
   .jadwal-vs { font-family: 'Bebas Neue'; font-size: 32px; color: var(--gold); letter-spacing: 3px; flex-shrink: 0; text-shadow: 0 0 15px rgba(201,153,26,0.4); }
-
   .jadwal-card-bottom { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; flex-wrap: wrap; gap: 8px; }
   .jadwal-stadium { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #777; text-transform: uppercase; }
-
-  /* ===== WIN PERCENTAGE BAR ===== */
   .jadwal-winbar-wrap { padding: 14px 24px 4px; background: #0a0a0a; }
   .jadwal-winbar-labels { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
   .winbar-team-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
@@ -498,7 +363,6 @@
   .jadwal-status.live { color: #4caf50; animation: pulse 1.2s ease infinite; }
   .jadwal-status.selesai { color: #555; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-
   .jadwal-tba { background: #0f0f0f; border: 1px dashed #2a2a2a; border-radius: 10px; padding: 36px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .jadwal-tba span { font-size: 36px; }
   .jadwal-tba p { font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; color: #444; text-transform: uppercase; }
@@ -512,123 +376,21 @@
   }
 
   /* ===== POPUP IKLAN ===== */
-  #adPopupOverlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: rgba(0, 0, 0, 0.82);
-    align-items: center;
-    justify-content: center;
-    animation: fadeInOverlay 0.4s ease;
-  }
+  #adPopupOverlay { display: none; position: fixed; inset: 0; z-index: 99999; background: rgba(0,0,0,0.82); align-items: center; justify-content: center; animation: fadeInOverlay 0.4s ease; }
   #adPopupOverlay.active { display: flex; }
-
-  @keyframes fadeInOverlay {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  #adPopupBox {
-    position: relative;
-    max-width: 480px;
-    width: 90%;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 3px solid var(--gold);
-    box-shadow: 0 0 60px rgba(201,153,26,0.35), 0 8px 40px rgba(0,0,0,0.7);
-    animation: popupSlideIn 0.45s cubic-bezier(0.34,1.56,0.64,1);
-  }
-
-  @keyframes popupSlideIn {
-    from { transform: scale(0.75) translateY(30px); opacity: 0; }
-    to   { transform: scale(1) translateY(0); opacity: 1; }
-  }
-
-  #adPopupBox img {
-    width: 100%;
-    display: block;
-  }
-
-  /* Label iklan */
-  #adPopupLabel {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: rgba(0,0,0,0.65);
-    border: 1px solid rgba(201,153,26,0.5);
-    color: var(--gold);
-    font-family: 'Barlow Condensed';
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 3px;
-  }
-
-  /* Tombol tutup */
-  #adCloseBtn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--gold);
-    color: #000;
-    border: none;
-    font-size: 16px;
-    font-weight: 900;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    transition: background 0.2s, transform 0.15s;
-    z-index: 10;
-  }
+  @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
+  #adPopupBox { position: relative; max-width: 480px; width: 90%; border-radius: 10px; overflow: hidden; border: 3px solid var(--gold); box-shadow: 0 0 60px rgba(201,153,26,0.35), 0 8px 40px rgba(0,0,0,0.7); animation: popupSlideIn 0.45s cubic-bezier(0.34,1.56,0.64,1); }
+  @keyframes popupSlideIn { from { transform: scale(0.75) translateY(30px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+  #adPopupBox img { width: 100%; display: block; }
+  #adPopupLabel { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.65); border: 1px solid rgba(201,153,26,0.5); color: var(--gold); font-family: 'Barlow Condensed'; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
+  #adCloseBtn { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: #000; border: none; font-size: 16px; font-weight: 900; cursor: pointer; display: none; align-items: center; justify-content: center; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,0.5); transition: background 0.2s, transform 0.15s; z-index: 10; }
   #adCloseBtn:hover { background: #e0aa20; transform: scale(1.1); }
   #adCloseBtn.visible { display: flex; }
-
-  /* Countdown ring */
-  #adCountdownWrap {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 36px;
-    height: 36px;
-    z-index: 10;
-  }
-  #adCountdownWrap svg {
-    transform: rotate(-90deg);
-  }
-  #adCountdownCircle {
-    fill: none;
-    stroke: var(--gold);
-    stroke-width: 3;
-    stroke-dasharray: 88;
-    stroke-dashoffset: 0;
-    stroke-linecap: round;
-    transition: stroke-dashoffset 1s linear;
-  }
-  #adCountdownBg {
-    fill: rgba(0,0,0,0.6);
-    stroke: rgba(201,153,26,0.3);
-    stroke-width: 1;
-  }
-  #adCountdownNum {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Bebas Neue';
-    font-size: 15px;
-    color: var(--gold);
-    line-height: 1;
-  }
+  #adCountdownWrap { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; z-index: 10; }
+  #adCountdownWrap svg { transform: rotate(-90deg); }
+  #adCountdownCircle { fill: none; stroke: var(--gold); stroke-width: 3; stroke-dasharray: 88; stroke-dashoffset: 0; stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
+  #adCountdownBg { fill: rgba(0,0,0,0.6); stroke: rgba(201,153,26,0.3); stroke-width: 1; }
+  #adCountdownNum { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue'; font-size: 15px; color: var(--gold); line-height: 1; }
 </style>
 </head>
 <body>
@@ -739,6 +501,10 @@
         <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777030348699-924121c8-ec47-4362-a268-bb8f0187eb47.webp" alt="Al Jamasyia Stadium"></div>
         <div class="stadium-info"><p class="stadium-name">Al Jamasyia Stadium</p><p class="stadium-loc">Venue Ketiga</p></div>
       </div>
+      <div class="stadium-card">
+        <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777688767067-bd7c6b3b-5408-4768-8ebd-23a845d298bb.webp" alt="Al Walsyia Stadium"></div>
+        <div class="stadium-info"><p class="stadium-name">Al Walsyia Stadium</p><p class="stadium-loc">Venue Keempat</p></div>
+      </div>
     </div>
   </section>
 
@@ -812,7 +578,7 @@
   <section class="grup-section">
     <div class="grup-intro">
       <p class="label">Fase Grup</p>
-      <h2>PEMBAGIAN GRUP IFFA AHMAD CUP</h2>
+      <h2>PEMBAGIAN GRUP 2026</h2>
       <p>16 tim dari seluruh negara fiksi bersaing dalam 4 grup. 2 tim teratas dari setiap grup akan melaju ke babak gugur.</p>
     </div>
     <div class="grup-grid">
@@ -881,171 +647,99 @@
       <h2 class="jadwal-title">JADWAL PERTANDINGAN</h2>
       <p class="jadwal-sub">Semua waktu menggunakan zona waktu <strong style="color:var(--gold);">WITA (UTC+8)</strong></p>
     </div>
-
     <!-- GRUP A -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header">
-        <span class="jadwal-grup-letter">A</span>
-        <span class="jadwal-grup-name">GROUP A</span>
-      </div>
+      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">A</span><span class="jadwal-grup-name">GROUP A</span></div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top">
-            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
-            <span class="jadwal-time-badge">🕓 16.00 WITA</span>
-          </div>
+          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕓 16.00 WITA</span></div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team">
-              <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" alt="Wineriasia">
-              <span>Republik Islam Wineriasia</span>
-            </div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" alt="Wineriasia"><span>Republik Islam Wineriasia</span></div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right">
-              <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" alt="Servesila">
-              <span>Servesila</span>
-            </div>
+            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" alt="Servesila"><span>Servesila</span></div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="56" data-right="44">
             <div class="jadwal-winbar-labels">
-              <div>
-                <div class="winbar-team-label left">Wineriasia</div>
-                <div class="winbar-pct-label left" id="pct-a-left">0%</div>
-              </div>
+              <div><div class="winbar-team-label left">Wineriasia</div><div class="winbar-pct-label left" id="pct-a-left">0%</div></div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;">
-                <div class="winbar-team-label right">Servesila</div>
-                <div class="winbar-pct-label right" id="pct-a-right">0%</div>
-              </div>
+              <div style="text-align:right;"><div class="winbar-team-label right">Servesila</div><div class="winbar-pct-label right" id="pct-a-right">0%</div></div>
             </div>
-            <div class="winbar-track">
-              <div class="winbar-fill-wrap">
-                <div class="winbar-fill-left" id="bar-a-left"></div>
-                <div class="winbar-fill-right" id="bar-a-right"></div>
-              </div>
-            </div>
+            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-a-left"></div><div class="winbar-fill-right" id="bar-a-right"></div></div></div>
           </div>
-          <div class="jadwal-card-bottom">
-            <span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span>
-            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
-          </div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
         </div>
       </div>
     </div>
-
     <!-- GRUP B -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header">
-        <span class="jadwal-grup-letter">B</span>
-        <span class="jadwal-grup-name">GROUP B</span>
-      </div>
+      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">B</span><span class="jadwal-grup-name">GROUP B</span></div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top">
-            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
-            <span class="jadwal-time-badge">🕗 20.00 WITA</span>
-          </div>
+          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕗 20.00 WITA</span></div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team">
-              <img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" alt="Cabangbungin Raya">
-              <span>Cabangbungin Raya</span>
-            </div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" alt="Cabangbungin Raya"><span>Cabangbungin Raya</span></div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right">
-              <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" alt="Lichtenburg">
-              <span>Lichtenburg</span>
-            </div>
+            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" alt="Lichtenburg"><span>Lichtenburg</span></div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="34" data-right="66">
             <div class="jadwal-winbar-labels">
-              <div>
-                <div class="winbar-team-label left">Cabangbungin</div>
-                <div class="winbar-pct-label left" id="pct-b-left">0%</div>
-              </div>
+              <div><div class="winbar-team-label left">Cabangbungin</div><div class="winbar-pct-label left" id="pct-b-left">0%</div></div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;">
-                <div class="winbar-team-label right">Lichtenburg</div>
-                <div class="winbar-pct-label right" id="pct-b-right">0%</div>
-              </div>
+              <div style="text-align:right;"><div class="winbar-team-label right">Lichtenburg</div><div class="winbar-pct-label right" id="pct-b-right">0%</div></div>
             </div>
-            <div class="winbar-track">
-              <div class="winbar-fill-wrap">
-                <div class="winbar-fill-left" id="bar-b-left"></div>
-                <div class="winbar-fill-right" id="bar-b-right"></div>
-              </div>
-            </div>
+            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-b-left"></div><div class="winbar-fill-right" id="bar-b-right"></div></div></div>
           </div>
-          <div class="jadwal-card-bottom">
-            <span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span>
-            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
-          </div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
         </div>
       </div>
     </div>
-
     <!-- GRUP C -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header">
-        <span class="jadwal-grup-letter">C</span>
-        <span class="jadwal-grup-name">GROUP C</span>
-      </div>
+      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">C</span><span class="jadwal-grup-name">GROUP C</span></div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top">
-            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
-            <span class="jadwal-time-badge">🕙 22.00 WITA</span>
-          </div>
+          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕙 22.00 WITA</span></div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team">
-              <img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" alt="Sopozia">
-              <span>Sopozia</span>
-            </div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" alt="Sopozia"><span>Sopozia</span></div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right">
-              <img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" alt="Islamnezia">
-              <span>Islamnezia</span>
-            </div>
+            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" alt="Islamnezia"><span>Islamnezia</span></div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="40" data-right="60">
             <div class="jadwal-winbar-labels">
-              <div>
-                <div class="winbar-team-label left">Sopozia</div>
-                <div class="winbar-pct-label left" id="pct-c-left">0%</div>
-              </div>
+              <div><div class="winbar-team-label left">Sopozia</div><div class="winbar-pct-label left" id="pct-c-left">0%</div></div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;">
-                <div class="winbar-team-label right">Islamnezia</div>
-                <div class="winbar-pct-label right" id="pct-c-right">0%</div>
-              </div>
+              <div style="text-align:right;"><div class="winbar-team-label right">Islamnezia</div><div class="winbar-pct-label right" id="pct-c-right">0%</div></div>
             </div>
-            <div class="winbar-track">
-              <div class="winbar-fill-wrap">
-                <div class="winbar-fill-left" id="bar-c-left"></div>
-                <div class="winbar-fill-right" id="bar-c-right"></div>
-              </div>
-            </div>
+            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-c-left"></div><div class="winbar-fill-right" id="bar-c-right"></div></div></div>
           </div>
-          <div class="jadwal-card-bottom">
-            <span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span>
-            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
-          </div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
         </div>
       </div>
     </div>
-
-    <!-- GRUP D — belum ada jadwal -->
+    <!-- GRUP D -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header">
-        <span class="jadwal-grup-letter">D</span>
-        <span class="jadwal-grup-name">GROUP D</span>
-      </div>
-      <div class="jadwal-tba">
-        <span>📋</span>
-        <p>Jadwal Grup D akan segera diumumkan</p>
+      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">D</span><span class="jadwal-grup-name">GROUP D</span></div>
+      <div class="jadwal-cards">
+        <div class="jadwal-card">
+          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕚 23.00 WITA</span></div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg" alt="North Erlaska"><span>North Erlaska</span></div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg" alt="Gladiolrep"><span>Gladiolrep</span></div>
+          </div>
+          <div class="jadwal-winbar-wrap" data-left="30" data-right="70">
+            <div class="jadwal-winbar-labels">
+              <div><div class="winbar-team-label left">North Erlaska</div><div class="winbar-pct-label left" id="pct-d-left">0%</div></div>
+              <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
+              <div style="text-align:right;"><div class="winbar-team-label right">Gladiolrep</div><div class="winbar-pct-label right" id="pct-d-right">0%</div></div>
+            </div>
+            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-d-left"></div><div class="winbar-fill-right" id="bar-d-right"></div></div></div>
+          </div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Walsyia Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
+        </div>
       </div>
     </div>
-
   </section>
-
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -1097,25 +791,15 @@
         <label class="form-label">Ditulis Oleh *</label>
         <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
       </div>
-
-      <!-- ===== FOTO SECTION (BARU) ===== -->
       <div class="form-group">
         <label class="form-label">Foto Berita (Opsional)</label>
-
-        <!-- Tab switcher -->
         <div class="foto-tabs">
           <button class="foto-tab active" id="tabGaleri" onclick="switchFotoTab('galeri')">📷 Upload dari Galeri</button>
           <button class="foto-tab" id="tabUrl" onclick="switchFotoTab('url')">🔗 Gunakan URL</button>
         </div>
-
-        <!-- Tab: Galeri -->
         <div class="foto-tab-panel active" id="panelGaleri">
-          <!-- Hidden file input -->
           <input type="file" id="inputFileGambar" class="form-img-input" accept="image/*">
-
-          <!-- Upload area -->
           <div class="foto-upload-area" id="fotoUploadArea" onclick="triggerFileInput()">
-            <!-- Placeholder (saat belum ada gambar) -->
             <div class="foto-placeholder" id="fotoPlaceholder">
               <span class="foto-placeholder-icon">🖼️</span>
               <div class="foto-placeholder-title">Pilih Foto dari Galeri</div>
@@ -1123,12 +807,10 @@
               <div class="foto-placeholder-or">atau</div>
               <div class="foto-placeholder-btn">BROWSE FILE</div>
             </div>
-            <!-- Upload progress -->
             <div class="foto-upload-progress" id="fotoProgress">
               <div class="foto-progress-label" id="fotoProgressLabel">Mengupload foto...</div>
               <div class="foto-progress-bar-wrap"><div class="foto-progress-bar" id="fotoProgressBar"></div></div>
             </div>
-            <!-- Preview setelah dipilih / uploaded -->
             <div class="foto-preview-wrap" id="fotoPreviewWrap">
               <img id="fotoPreviewImg" src="" alt="Preview foto">
               <div class="foto-preview-actions">
@@ -1138,8 +820,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Tab: URL -->
         <div class="foto-tab-panel" id="panelUrl">
           <input class="form-input" id="inputGambarUrl" type="url" placeholder="https://link-gambar.com/foto.jpg" style="margin-top:4px;">
           <div id="imgUrlPreviewWrap" style="margin-top:8px;display:none;">
@@ -1147,8 +827,6 @@
           </div>
         </div>
       </div>
-      <!-- ===== END FOTO SECTION ===== -->
-
       <div class="form-group">
         <label class="form-label">Isi Berita *</label>
         <textarea class="form-textarea" id="inputIsi" placeholder="Tulis isi berita di sini..."></textarea>
@@ -1167,15 +845,8 @@
       <div class="berita-detail-meta" id="detailMeta"></div>
       <div class="berita-detail-title" id="detailJudul"></div>
       <div class="berita-detail-content" id="detailIsi"></div>
-
-      <!-- ===== KOMENTAR ===== -->
       <div class="komentar-section">
-        <div class="komentar-title">
-          💬 KOMENTAR
-          <span class="komentar-count" id="komentarCount">0</span>
-        </div>
-
-        <!-- Form tulis komentar -->
+        <div class="komentar-title">💬 KOMENTAR<span class="komentar-count" id="komentarCount">0</span></div>
         <div class="komentar-form">
           <div class="komentar-form-row">
             <input class="komentar-input-nama" id="inputKomentarNama" type="text" placeholder="Nama kamu...">
@@ -1184,13 +855,10 @@
           <div id="komentarStatus" style="display:none;"></div>
           <button class="btn-kirim-komentar" id="btnKirimKomentar" onclick="kirimKomentar()">💬 KIRIM KOMENTAR</button>
         </div>
-
-        <!-- List komentar -->
         <div class="komentar-list" id="komentarList">
           <div class="komentar-loading">⏳ &nbsp; Memuat komentar...</div>
         </div>
       </div>
-
       <button class="berita-detail-close-btn" onclick="tutupDetailBeritaBtn()">✕ Tutup</button>
     </div>
   </div>
@@ -1201,7 +869,6 @@
   <div id="adPopupBox">
     <span id="adPopupLabel">IKLAN / ADVERTISEMENT</span>
     <img src="https://www.image2url.com/r2/default/images/1777602495479-ed464d75-d3d8-4faf-852d-e25a12852b18.jpeg" alt="Iklan IFFA Ahmad Cup 2026">
-    <!-- Countdown ring -->
     <div id="adCountdownWrap">
       <svg width="36" height="36" viewBox="0 0 36 36">
         <circle id="adCountdownBg" cx="18" cy="18" r="14"></circle>
@@ -1209,7 +876,6 @@
       </svg>
       <div id="adCountdownNum">10</div>
     </div>
-    <!-- Tombol tutup (muncul setelah 10 detik) -->
     <button id="adCloseBtn" onclick="tutupAdPopup()">✕</button>
   </div>
 </div>
@@ -1253,31 +919,31 @@
 // ===== CONFIG SUPABASE =====
 const SUPABASE_URL = 'https://imexqgicnkikdrdcjkmt.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZXhxZ2ljbmtpa2RyZGNqa210Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NDYzOTksImV4cCI6MjA5MzEyMjM5OX0.EANfZgocppJQiicjH4IAKOchsD7qtwcvp7JHmawWY2o';
-// Nama bucket Supabase Storage untuk foto berita
 const STORAGE_BUCKET = 'berita-images';
 
+// ===== FUNGSI SUPABASE (SUDAH DIPERBAIKI) =====
 async function supabaseFetch(path, options = {}) {
+  const headers = {
+    'apikey': SUPABASE_ANON_KEY,
+    'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+    'Content-Type': 'application/json',
+  };
+  if (options.prefer) {
+    headers['Prefer'] = options.prefer;
+  }
   const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
-    ...options,
-    headers: {
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-      'Content-Type': 'application/json',
-      'Prefer': options.prefer || '',
-      ...(options.headers || {})
-    }
+    method: options.method || 'GET',
+    headers: headers,
+    body: options.body || undefined
   });
   return res;
 }
 
 // ===== Upload file ke Supabase Storage =====
 async function uploadImageToSupabase(file) {
-  // Buat nama file unik
   const ext = file.name.split('.').pop().toLowerCase();
-  const fileName = `berita_${Date.now()}_${Math.random().toString(36).substr(2, 8)}.${ext}`;
-  const filePath = fileName;
-
-  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${STORAGE_BUCKET}/${filePath}`, {
+  const fileName = 'berita_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8) + '.' + ext;
+  const res = await fetch(SUPABASE_URL + '/storage/v1/object/' + STORAGE_BUCKET + '/' + fileName, {
     method: 'POST',
     headers: {
       'apikey': SUPABASE_ANON_KEY,
@@ -1287,14 +953,11 @@ async function uploadImageToSupabase(file) {
     },
     body: file
   });
-
   if (!res.ok) {
     const err = await res.text();
     throw new Error('Upload gagal: ' + err);
   }
-
-  // Return public URL
-  return `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}/${filePath}`;
+  return SUPABASE_URL + '/storage/v1/object/public/' + STORAGE_BUCKET + '/' + fileName;
 }
 
 // ===== UTILITY =====
@@ -1313,6 +976,10 @@ function showPage(pageId) {
   closeMenu();
   window.scrollTo(0, 0);
   if (pageId === 'berita') renderBeritaGrid();
+  if (pageId === 'jadwal') {
+    resetWinBars();
+    setTimeout(setupWinBarObserver, 300);
+  }
 }
 
 const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -1386,7 +1053,7 @@ songList.forEach((track, i) => {
   const item = document.createElement('div');
   item.className = 'playlist-item' + (i === 0 ? ' active' : '');
   item.id = 'track-' + i;
-  item.innerHTML = `<span class="track-num">${i+1}</span><span>${track.title}</span>`;
+  item.innerHTML = '<span class="track-num">' + (i+1) + '</span><span>' + track.title + '</span>';
   item.onclick = () => playSong(i);
   playlistEl.appendChild(item);
 });
@@ -1395,7 +1062,7 @@ function loadSong(index, autoplay) {
   currentIndex = index;
   nowPlaying.textContent = songList[index].title;
   document.querySelectorAll('.playlist-item').forEach((el, i) => el.classList.toggle('active', i === index));
-  iframe.src = `https://www.youtube.com/embed/${songList[index].id}?autoplay=${autoplay?1:0}&controls=0&loop=0&enablejsapi=1`;
+  iframe.src = 'https://www.youtube.com/embed/' + songList[index].id + '?autoplay=' + (autoplay?1:0) + '&controls=0&loop=0&enablejsapi=1';
   if (autoplay) {
     isPlaying = true;
     playPauseBtn.textContent = '⏸';
@@ -1406,7 +1073,7 @@ function playSong(i) { started = true; loadSong(i, true); }
 function togglePlay() {
   if (!started) { started = true; loadSong(currentIndex, true); return; }
   if (isPlaying) {
-    iframe.src = `https://www.youtube.com/embed/${songList[currentIndex].id}?autoplay=0&controls=0&mute=1`;
+    iframe.src = 'https://www.youtube.com/embed/' + songList[currentIndex].id + '?autoplay=0&controls=0&mute=1';
     isPlaying = false;
     playPauseBtn.textContent = '▶';
     playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
@@ -1426,7 +1093,7 @@ nowPlaying.textContent = songList[0].title;
 playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
 
 // ===== FOTO UPLOAD LOGIC =====
-let uploadedImageUrl = null; // URL hasil upload ke Supabase Storage
+let uploadedImageUrl = null;
 
 function switchFotoTab(tab) {
   document.getElementById('tabGaleri').classList.toggle('active', tab === 'galeri');
@@ -1436,7 +1103,6 @@ function switchFotoTab(tab) {
 }
 
 function triggerFileInput() {
-  // Hanya trigger jika tidak sedang upload dan belum ada preview
   const previewWrap = document.getElementById('fotoPreviewWrap');
   if (previewWrap.style.display === 'block') return;
   document.getElementById('inputFileGambar').click();
@@ -1480,55 +1146,31 @@ function showFotoPreview(url) {
   document.getElementById('fotoUploadArea').classList.add('has-image');
 }
 
-// File input change handler
 document.getElementById('inputFileGambar').addEventListener('change', async function(e) {
   const file = e.target.files[0];
   if (!file) return;
-
-  // Validasi tipe file
-  if (!file.type.startsWith('image/')) {
-    alert('File harus berupa gambar (JPG, PNG, WEBP, dll.)');
-    this.value = '';
-    return;
-  }
-
-  // Validasi ukuran file (maks 5MB)
-  if (file.size > 5 * 1024 * 1024) {
-    alert('Ukuran gambar tidak boleh lebih dari 5MB!');
-    this.value = '';
-    return;
-  }
-
-  // Tampilkan preview lokal dulu
+  if (!file.type.startsWith('image/')) { alert('File harus berupa gambar!'); this.value = ''; return; }
+  if (file.size > 5 * 1024 * 1024) { alert('Ukuran gambar tidak boleh lebih dari 5MB!'); this.value = ''; return; }
   const localUrl = URL.createObjectURL(file);
   showFotoPreview(localUrl);
-
-  // Upload ke Supabase Storage
   try {
     setFotoProgress(30, '⏳ Mengupload foto ke server...');
     const publicUrl = await uploadImageToSupabase(file);
     uploadedImageUrl = publicUrl;
     setFotoProgress(100, '✅ Upload berhasil!');
-    setTimeout(() => {
-      showFotoPreview(publicUrl);
-    }, 600);
+    setTimeout(() => { showFotoPreview(publicUrl); }, 600);
   } catch (err) {
     console.error('Upload error:', err);
-    // Jika upload ke storage gagal, pakai base64 sebagai fallback
     uploadedImageUrl = null;
-    // Coba simpan sebagai base64 jika file kecil
     if (file.size <= 1 * 1024 * 1024) {
       try {
         const base64 = await fileToBase64(file);
         uploadedImageUrl = base64;
         showFotoPreview(base64);
         document.getElementById('fotoProgress').classList.remove('active');
-      } catch {
-        alert('Gagal mengupload gambar. Coba gunakan tab URL saja.');
-        resetFotoPreview();
-      }
+      } catch { alert('Gagal mengupload gambar. Coba gunakan tab URL.'); resetFotoPreview(); }
     } else {
-      alert('Upload ke server gagal. Coba gunakan tab "Gunakan URL" sebagai alternatif, atau coba lagi.');
+      alert('Upload ke server gagal. Coba gunakan tab "Gunakan URL".');
       resetFotoPreview();
     }
   }
@@ -1543,15 +1185,9 @@ function fileToBase64(file) {
   });
 }
 
-// Drag and drop support
 const fotoUploadArea = document.getElementById('fotoUploadArea');
-fotoUploadArea.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  fotoUploadArea.classList.add('dragover');
-});
-fotoUploadArea.addEventListener('dragleave', () => {
-  fotoUploadArea.classList.remove('dragover');
-});
+fotoUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); fotoUploadArea.classList.add('dragover'); });
+fotoUploadArea.addEventListener('dragleave', () => { fotoUploadArea.classList.remove('dragover'); });
 fotoUploadArea.addEventListener('drop', (e) => {
   e.preventDefault();
   fotoUploadArea.classList.remove('dragover');
@@ -1564,7 +1200,6 @@ fotoUploadArea.addEventListener('drop', (e) => {
   }
 });
 
-// Preview URL
 document.getElementById('inputGambarUrl').addEventListener('input', function() {
   const url = this.value.trim();
   const wrap = document.getElementById('imgUrlPreviewWrap');
@@ -1579,7 +1214,7 @@ document.getElementById('inputGambarUrl').addEventListener('input', function() {
   }
 });
 
-// ===== BERITA — SUPABASE =====
+// ===== BERITA =====
 function escapeHtml(str) {
   const d = document.createElement('div');
   d.appendChild(document.createTextNode(str || ''));
@@ -1610,8 +1245,6 @@ async function publishBerita() {
   const isi = document.getElementById('inputIsi').value.trim();
   const status = document.getElementById('publishStatus');
   const btn = document.getElementById('btnPublish');
-
-  // Tentukan sumber gambar: upload (galeri) atau URL
   const activeTab = document.getElementById('tabGaleri').classList.contains('active') ? 'galeri' : 'url';
   let gambar_url = null;
   if (activeTab === 'galeri') {
@@ -1619,49 +1252,33 @@ async function publishBerita() {
   } else {
     gambar_url = document.getElementById('inputGambarUrl').value.trim() || null;
   }
-
   if (!judul || !penulis || !isi) {
     status.className = 'publish-status error';
     status.textContent = '⚠️ Judul, penulis, dan isi berita wajib diisi!';
     return;
   }
-
   btn.disabled = true;
   btn.textContent = '⏳ Mempublikasikan...';
   status.className = 'publish-status';
-
   try {
     const now = new Date();
     const tanggal = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
       + ' · ' + now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-
     const res = await supabaseFetch('berita', {
       method: 'POST',
       prefer: 'return=minimal',
       body: JSON.stringify({ judul, penulis, isi, tanggal, gambar_url })
     });
-
-    if (!res.ok) {
-      const err = await res.text();
-      throw new Error(err);
-    }
-
+    if (!res.ok) { const err = await res.text(); throw new Error(err); }
     status.className = 'publish-status success';
-    status.textContent = '✅ Berita berhasil dipublikasikan! Semua orang bisa melihatnya.';
+    status.textContent = '✅ Berita berhasil dipublikasikan!';
     btn.textContent = '✅ BERHASIL!';
-
     await renderBeritaGrid();
-
-    setTimeout(() => {
-      tutupFormBerita();
-      btn.disabled = false;
-      btn.textContent = '🚀 PUBLIKASIKAN BERITA';
-    }, 2000);
-
+    setTimeout(() => { tutupFormBerita(); btn.disabled = false; btn.textContent = '🚀 PUBLIKASIKAN BERITA'; }, 2000);
   } catch (err) {
     console.error('publishBerita error:', err);
     status.className = 'publish-status error';
-    status.textContent = '❌ Gagal mempublikasikan: ' + (err.message || 'Coba lagi.');
+    status.textContent = '❌ Gagal: ' + (err.message || 'Coba lagi.');
     btn.disabled = false;
     btn.textContent = '🚀 PUBLIKASIKAN BERITA';
   }
@@ -1670,44 +1287,35 @@ async function publishBerita() {
 async function renderBeritaGrid() {
   const grid = document.getElementById('beritaGrid');
   if (!grid) return;
-
   grid.innerHTML = '<div class="berita-loading">⏳ &nbsp; Memuat berita...</div>';
-
   try {
     const res = await supabaseFetch('berita?select=*&order=created_at.desc&limit=50');
     if (!res.ok) throw new Error('Gagal mengambil data');
     const data = await res.json();
-
     if (!data || data.length === 0) {
-      grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
+      grid.innerHTML = '<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>';
       return;
     }
-
     grid.innerHTML = '';
     data.forEach(artikel => {
       const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
       const card = document.createElement('div');
       card.className = 'berita-card';
-      card.innerHTML = `
-        ${artikel.gambar_url
-          ? `<img class="berita-card-img" src="${escapeHtml(artikel.gambar_url)}" alt="${escapeHtml(artikel.judul)}" loading="lazy" onerror="this.style.display='none'">`
-          : `<div class="berita-card-img-placeholder">📰</div>`
-        }
-        <div class="berita-card-body">
-          <div class="berita-card-meta">
-            ${escapeHtml(artikel.penulis)} <span>·</span> ${escapeHtml(artikel.tanggal)}
-          </div>
-          <div class="berita-card-title">${escapeHtml(artikel.judul)}</div>
-          <div class="berita-card-excerpt">${escapeHtml(excerpt)}</div>
-        </div>
-      `;
+      card.innerHTML =
+        (artikel.gambar_url
+          ? '<img class="berita-card-img" src="' + escapeHtml(artikel.gambar_url) + '" alt="' + escapeHtml(artikel.judul) + '" loading="lazy" onerror="this.style.display=\'none\'">'
+          : '<div class="berita-card-img-placeholder">📰</div>')
+        + '<div class="berita-card-body">'
+        + '<div class="berita-card-meta">' + escapeHtml(artikel.penulis) + ' <span>·</span> ' + escapeHtml(artikel.tanggal) + '</div>'
+        + '<div class="berita-card-title">' + escapeHtml(artikel.judul) + '</div>'
+        + '<div class="berita-card-excerpt">' + escapeHtml(excerpt) + '</div>'
+        + '</div>';
       card.onclick = () => bukaDetailBerita(artikel);
       grid.appendChild(card);
     });
-
   } catch (err) {
     console.error('renderBeritaGrid error:', err);
-    grid.innerHTML = `<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.<br>Periksa koneksi internet kamu.</div>`;
+    grid.innerHTML = '<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.</div>';
   }
 }
 
@@ -1722,13 +1330,11 @@ function bukaDetailBerita(artikel) {
     img.style.display = 'none';
   }
   document.getElementById('detailMeta').innerHTML =
-    `<strong>${escapeHtml(artikel.penulis)}</strong> <span>·</span> ${escapeHtml(artikel.tanggal)}`;
+    '<strong>' + escapeHtml(artikel.penulis) + '</strong> <span>·</span> ' + escapeHtml(artikel.tanggal);
   document.getElementById('detailJudul').textContent = artikel.judul;
   document.getElementById('detailIsi').textContent = artikel.isi;
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
-
-  // Reset & load komentar
   currentArtikelId = artikel.id;
   document.getElementById('inputKomentarNama').value = '';
   document.getElementById('inputKomentarIsi').value = '';
@@ -1758,30 +1364,25 @@ async function renderKomentar(artikelId) {
   const countEl = document.getElementById('komentarCount');
   if (!list) return;
   list.innerHTML = '<div class="komentar-loading">⏳ &nbsp; Memuat komentar...</div>';
-
   try {
-    const res = await supabaseFetch(`komentar?berita_id=eq.${artikelId}&order=created_at.asc&select=*`);
+    const res = await supabaseFetch('komentar?berita_id=eq.' + artikelId + '&order=created_at.asc&select=*');
     if (!res.ok) throw new Error('Gagal');
     const data = await res.json();
-
     if (countEl) countEl.textContent = data.length;
-
     if (!data || data.length === 0) {
       list.innerHTML = '<div class="komentar-empty">💬 Belum ada komentar. Jadilah yang pertama!</div>';
       return;
     }
-
     list.innerHTML = '';
     data.forEach(k => {
       const item = document.createElement('div');
       item.className = 'komentar-item';
-      item.innerHTML = `
-        <div class="komentar-item-header">
-          <span class="komentar-nama">${escapeHtml(k.nama)}</span>
-          <span class="komentar-waktu">${escapeHtml(k.tanggal)}</span>
-        </div>
-        <div class="komentar-isi">${escapeHtml(k.isi)}</div>
-      `;
+      item.innerHTML =
+        '<div class="komentar-item-header">'
+        + '<span class="komentar-nama">' + escapeHtml(k.nama) + '</span>'
+        + '<span class="komentar-waktu">' + escapeHtml(k.tanggal) + '</span>'
+        + '</div>'
+        + '<div class="komentar-isi">' + escapeHtml(k.isi) + '</div>';
       list.appendChild(item);
     });
   } catch (err) {
@@ -1815,10 +1416,18 @@ async function kirimKomentar() {
     const res = await supabaseFetch('komentar', {
       method: 'POST',
       prefer: 'return=minimal',
-      body: JSON.stringify({ berita_id: currentArtikelId, nama, isi, tanggal })
+      body: JSON.stringify({
+        berita_id: currentArtikelId,
+        nama: nama,
+        isi: isi,
+        tanggal: tanggal
+      })
     });
 
-    if (!res.ok) throw new Error(await res.text());
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(errText);
+    }
 
     document.getElementById('inputKomentarNama').value = '';
     document.getElementById('inputKomentarIsi').value = '';
@@ -1826,11 +1435,11 @@ async function kirimKomentar() {
     statusEl.textContent = '✅ Komentar berhasil dikirim!';
     statusEl.style.display = 'block';
     setTimeout(() => { statusEl.style.display = 'none'; }, 2500);
-
     await renderKomentar(currentArtikelId);
   } catch (err) {
+    console.error('kirimKomentar error:', err);
     statusEl.className = 'komentar-status error';
-    statusEl.textContent = '❌ Gagal mengirim komentar. Coba lagi.';
+    statusEl.textContent = '❌ Gagal mengirim: ' + (err.message || 'Coba lagi.');
     statusEl.style.display = 'block';
   } finally {
     btn.disabled = false;
@@ -1838,11 +1447,12 @@ async function kirimKomentar() {
   }
 }
 
-// ===== ANIMASI PERSENTASE KEMENANGAN (SCROLL TRIGGER) =====
+// ===== WIN BAR =====
 const winBarData = [
   { leftId: 'bar-a-left', rightId: 'bar-a-right', pctLeftId: 'pct-a-left', pctRightId: 'pct-a-right', left: 56, right: 44 },
   { leftId: 'bar-b-left', rightId: 'bar-b-right', pctLeftId: 'pct-b-left', pctRightId: 'pct-b-right', left: 34, right: 66 },
   { leftId: 'bar-c-left', rightId: 'bar-c-right', pctLeftId: 'pct-c-left', pctRightId: 'pct-c-right', left: 40, right: 60 },
+  { leftId: 'bar-d-left', rightId: 'bar-d-right', pctLeftId: 'pct-d-left', pctRightId: 'pct-d-right', left: 30, right: 70 },
 ];
 
 function animateSingleBar(m) {
@@ -1851,10 +1461,8 @@ function animateSingleBar(m) {
   const pctL = document.getElementById(m.pctLeftId);
   const pctR = document.getElementById(m.pctRightId);
   if (!barL || !barR) return;
-
   barL.style.width = m.left + '%';
   barR.style.width = m.right + '%';
-
   let current = 0;
   const steps = 60;
   const interval = 1400 / steps;
@@ -1881,7 +1489,6 @@ function resetWinBars() {
     if (pl) pl.textContent = '0%';
     if (pr) pr.textContent = '0%';
   });
-  // Reset animated flag on wrap elements
   document.querySelectorAll('.jadwal-winbar-wrap').forEach(el => el.dataset.animated = '');
 }
 
@@ -1895,7 +1502,6 @@ function setupWinBarObserver() {
       }
     });
   }, { threshold: 0.6 });
-
   document.querySelectorAll('.jadwal-winbar-wrap').forEach((el, i) => {
     el.dataset.idx = i;
     el.dataset.animated = '';
@@ -1903,58 +1509,36 @@ function setupWinBarObserver() {
   });
 }
 
-// Pasang observer saat halaman jadwal dibuka, reset saat keluar
-const _origShowPage = showPage;
-window.showPage = function(pageId) {
-  _origShowPage(pageId);
-  if (pageId === 'jadwal') {
-    resetWinBars();
-    setTimeout(setupWinBarObserver, 300);
-  }
-};
-
 // ===== POPUP IKLAN =====
 (function() {
-  const COUNTDOWN = 10; // detik
-  const circumference = 2 * Math.PI * 14; // r=14 → ≈ 87.96
-
-  const overlay   = document.getElementById('adPopupOverlay');
-  const closeBtn  = document.getElementById('adCloseBtn');
+  const COUNTDOWN = 10;
+  const circumference = 2 * Math.PI * 14;
+  const overlay = document.getElementById('adPopupOverlay');
+  const closeBtn = document.getElementById('adCloseBtn');
   const countWrap = document.getElementById('adCountdownWrap');
-  const circle    = document.getElementById('adCountdownCircle');
-  const numEl     = document.getElementById('adCountdownNum');
-
-  circle.style.strokeDasharray  = circumference;
+  const circle = document.getElementById('adCountdownCircle');
+  const numEl = document.getElementById('adCountdownNum');
+  circle.style.strokeDasharray = circumference;
   circle.style.strokeDashoffset = 0;
-
   let remaining = COUNTDOWN;
   let timer = null;
-
   function tick() {
     remaining--;
     numEl.textContent = remaining;
-    // Animasi ring mengecil
     const offset = circumference * (1 - remaining / COUNTDOWN);
     circle.style.strokeDashoffset = offset;
-
     if (remaining <= 0) {
       clearInterval(timer);
       countWrap.style.display = 'none';
       closeBtn.classList.add('visible');
     }
   }
-
-  function startCountdown() {
-    timer = setInterval(tick, 1000);
-  }
-
+  function startCountdown() { timer = setInterval(tick, 1000); }
   window.tutupAdPopup = function() {
     overlay.style.animation = 'fadeInOverlay 0.3s ease reverse forwards';
     setTimeout(() => { overlay.classList.remove('active'); overlay.style.display = 'none'; }, 280);
     if (timer) clearInterval(timer);
   };
-
-  // Mulai countdown segera saat halaman load
   startCountdown();
 })();
 </script>
