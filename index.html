@@ -391,6 +391,60 @@
   #adCountdownCircle { fill: none; stroke: var(--gold); stroke-width: 3; stroke-dasharray: 88; stroke-dashoffset: 0; stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
   #adCountdownBg { fill: rgba(0,0,0,0.6); stroke: rgba(201,153,26,0.3); stroke-width: 1; }
   #adCountdownNum { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue'; font-size: 15px; color: var(--gold); line-height: 1; }
+
+  /* ===== TIKET PAGE ===== */
+  .tiket-section { background: var(--dark); padding: 50px 20px 80px; max-width: 1100px; margin: 0 auto; }
+  .tiket-intro { text-align: center; margin-bottom: 50px; }
+  .tiket-intro .label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+  .tiket-intro h2 { font-family: 'Bebas Neue'; font-size: 48px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 12px; }
+  .tiket-intro p { font-family: 'Barlow Condensed'; font-size: 16px; color: #888; letter-spacing: 1px; }
+  .tiket-grup-block { margin-bottom: 44px; }
+  .tiket-grup-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #1e1e00; }
+  .tiket-grup-letter { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.3); }
+  .tiket-grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 3px; }
+  .tiket-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .tiket-card { background: linear-gradient(135deg, #0f0f0f 0%, #1a1400 100%); border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
+  .tiket-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,153,26,0.15); }
+  .tiket-card-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 2px solid var(--gold); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+  .tiket-card-grup { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+  .tiket-card-date { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: #888; letter-spacing: 1px; }
+  .tiket-matchup { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 18px; }
+  .tiket-team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; text-align: center; }
+  .tiket-team img { width: 60px; height: 40px; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
+  .tiket-team span { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
+  .tiket-vs { font-family: 'Bebas Neue'; font-size: 22px; color: var(--gold); letter-spacing: 2px; flex-shrink: 0; }
+  .tiket-card-footer { padding: 12px 18px; background: #0a0a0a; border-top: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .tiket-stadium { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; color: #666; letter-spacing: 1px; text-transform: uppercase; }
+  .tiket-time { font-family: 'Bebas Neue'; font-size: 16px; color: var(--gold); letter-spacing: 1px; }
+  .btn-beli-tiket { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 14px; letter-spacing: 2px; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: calc(100% - 36px); margin: 0 18px 16px; display: block; transition: background 0.2s, transform 0.1s; }
+  .btn-beli-tiket:hover { background: #e0aa20; transform: scale(1.02); }
+  /* Modal Beli Tiket */
+  .tiket-modal-overlay { display: none; position: fixed; inset: 0; z-index: 4000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; }
+  .tiket-modal-overlay.active { display: flex; }
+  .tiket-modal { background: #111; border: 2px solid var(--gold); border-radius: 14px; width: 100%; max-width: 480px; overflow: hidden; }
+  .tiket-modal-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 3px solid var(--gold); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .tiket-modal-header h3 { font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold); }
+  .tiket-modal-close { background: none; border: none; color: #888; font-size: 24px; cursor: pointer; transition: color 0.2s; line-height: 1; }
+  .tiket-modal-close:hover { color: var(--white); }
+  .tiket-modal-body { padding: 28px 24px; }
+  .tiket-modal-match { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; margin-bottom: 24px; text-align: center; }
+  .tiket-modal-match-teams { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 2px; margin-bottom: 6px; }
+  .tiket-modal-match-info { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+  .tiket-form-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
+  .tiket-input-nama { background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: var(--white); font-family: 'Rajdhani'; font-size: 16px; padding: 12px 16px; outline: none; transition: border-color 0.2s; width: 100%; margin-bottom: 20px; }
+  .tiket-input-nama:focus { border-color: var(--gold); }
+  .tiket-seat-section { margin-bottom: 24px; }
+  .tiket-seat-options { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tiket-seat-btn { flex: 1; min-width: 80px; padding: 10px 6px; border-radius: 6px; border: 2px solid #333; background: #1a1a1a; color: #888; font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: 0.2s; text-align: center; }
+  .tiket-seat-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .tiket-seat-btn.selected { border-color: var(--gold); background: #1a1400; color: var(--gold); }
+  .btn-download-tiket { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px; padding: 14px; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.2s; }
+  .btn-download-tiket:hover { background: #e0aa20; }
+  .btn-download-tiket:disabled { background: #333; color: #666; cursor: not-allowed; }
+  .tiket-modal-status { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-align: center; padding: 8px; border-radius: 4px; margin-top: 12px; display: none; }
+  .tiket-modal-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
+  .tiket-modal-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
+  #tiketCanvas { display: none; }
 </style>
 </head>
 <body>
@@ -409,6 +463,7 @@
     <li><a onclick="showPage('grup')" data-page="grup">Grup</a></li>
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
     <li><a onclick="showPage('berita')" data-page="berita">Berita</a></li>
+    <li><a onclick="showPage('tiket')" data-page="tiket">Tiket</a></li>
   </ul>
   <button class="hamburger" id="hamburgerBtn">
     <span></span><span></span><span></span>
@@ -424,6 +479,7 @@
       <li><a onclick="showPage('grup')">Grup</a></li>
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
       <li><a onclick="showPage('berita')">Berita</a></li>
+      <li><a onclick="showPage('tiket')">Tiket</a></li>
     </ul>
   </div>
 </div>
@@ -914,6 +970,127 @@
     </div>
   </div>
 </div>
+
+<!-- ===== TIKET ===== -->
+<div id="page-tiket" class="page">
+  <div class="page-header">
+    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Tiket Banner">
+    <div class="page-header-overlay"><h1>BELI TIKET</h1></div>
+  </div>
+  <div class="tiket-section">
+    <div class="tiket-intro">
+      <p class="label">IFFA Ahmad Cup 2026</p>
+      <h2>PILIH PERTANDINGAN</h2>
+      <p>Pilih pertandingan yang ingin kamu saksikan, isi namamu, dan tiket langsung terdownload!</p>
+    </div>
+
+    <!-- GRUP A -->
+    <div class="tiket-grup-block">
+      <div class="tiket-grup-header"><span class="tiket-grup-letter">A</span><span class="tiket-grup-name">GROUP A</span></div>
+      <div class="tiket-cards">
+        <div class="tiket-card">
+          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP A · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
+          <div class="tiket-matchup">
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span>Wineriasia</span></div>
+            <div class="tiket-vs">VS</div>
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span>Servesila</span></div>
+          </div>
+          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Ahmad Internasional Stadium</span><span class="tiket-time">16.00 WITA</span></div>
+          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'A',match:'MATCH 1',team1:'Wineriasia',team2:'Servesila',date:'23 Mei 2026',time:'16.00 WITA',stadium:'Ahmad Internasional Stadium',flag1:'https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png',flag2:'https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg'})">🎟️ BELI TIKET</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP B -->
+    <div class="tiket-grup-block">
+      <div class="tiket-grup-header"><span class="tiket-grup-letter">B</span><span class="tiket-grup-name">GROUP B</span></div>
+      <div class="tiket-cards">
+        <div class="tiket-card">
+          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP B · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
+          <div class="tiket-matchup">
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span>Cabangbungin Raya</span></div>
+            <div class="tiket-vs">VS</div>
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span>Lichtenburg</span></div>
+          </div>
+          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Wineriasia Center Stadium</span><span class="tiket-time">20.00 WITA</span></div>
+          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'B',match:'MATCH 1',team1:'Cabangbungin Raya',team2:'Lichtenburg',date:'23 Mei 2026',time:'20.00 WITA',stadium:'Wineriasia Center Stadium',flag1:'https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg'})">🎟️ BELI TIKET</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP C -->
+    <div class="tiket-grup-block">
+      <div class="tiket-grup-header"><span class="tiket-grup-letter">C</span><span class="tiket-grup-name">GROUP C</span></div>
+      <div class="tiket-cards">
+        <div class="tiket-card">
+          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP C · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
+          <div class="tiket-matchup">
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span>Sopozia</span></div>
+            <div class="tiket-vs">VS</div>
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span>Islamnezia</span></div>
+          </div>
+          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Al Jamasyia Stadium</span><span class="tiket-time">22.00 WITA</span></div>
+          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'C',match:'MATCH 1',team1:'Sopozia',team2:'Islamnezia',date:'23 Mei 2026',time:'22.00 WITA',stadium:'Al Jamasyia Stadium',flag1:'https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg'})">🎟️ BELI TIKET</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRUP D -->
+    <div class="tiket-grup-block">
+      <div class="tiket-grup-header"><span class="tiket-grup-letter">D</span><span class="tiket-grup-name">GROUP D</span></div>
+      <div class="tiket-cards">
+        <div class="tiket-card">
+          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP D · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
+          <div class="tiket-matchup">
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span>North Erlaska</span></div>
+            <div class="tiket-vs">VS</div>
+            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span>Gladiolrep</span></div>
+          </div>
+          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Al Walsyia Stadium</span><span class="tiket-time">23.00 WITA</span></div>
+          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'D',match:'MATCH 1',team1:'North Erlaska',team2:'Gladiolrep',date:'23 Mei 2026',time:'23.00 WITA',stadium:'Al Walsyia Stadium',flag1:'https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg'})">🎟️ BELI TIKET</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer>
+    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
+    <p class="footer-hashtag">#UnitingFictionalNations</p>
+    <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
+  </footer>
+</div>
+
+<!-- ===== MODAL BELI TIKET ===== -->
+<div class="tiket-modal-overlay" id="tiketModalOverlay">
+  <div class="tiket-modal">
+    <div class="tiket-modal-header">
+      <h3>🎟️ BELI TIKET</h3>
+      <button class="tiket-modal-close" onclick="tutupBeli()">✕</button>
+    </div>
+    <div class="tiket-modal-body">
+      <div class="tiket-modal-match">
+        <div class="tiket-modal-match-teams" id="modalMatchTeams">—</div>
+        <div class="tiket-modal-match-info" id="modalMatchInfo">—</div>
+      </div>
+      <label class="tiket-form-label">Nama Pemegang Tiket *</label>
+      <input class="tiket-input-nama" id="inputNamaTiket" type="text" placeholder="Masukkan nama lengkap kamu...">
+      <div class="tiket-seat-section">
+        <label class="tiket-form-label">Pilih Kategori Kursi</label>
+        <div class="tiket-seat-options">
+          <div class="tiket-seat-btn selected" onclick="pilihKursi(this,'Tribun Utara')">🟦 Tribun Utara</div>
+          <div class="tiket-seat-btn" onclick="pilihKursi(this,'Tribun Selatan')">🟩 Tribun Selatan</div>
+          <div class="tiket-seat-btn" onclick="pilihKursi(this,'VIP')">⭐ VIP</div>
+          <div class="tiket-seat-btn" onclick="pilihKursi(this,'VVIP')">👑 VVIP</div>
+        </div>
+      </div>
+      <button class="btn-download-tiket" id="btnDownloadTiket" onclick="downloadTiket()">⬇️ DOWNLOAD TIKET</button>
+      <div class="tiket-modal-status" id="tiketModalStatus"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Canvas untuk generate tiket -->
+<canvas id="tiketCanvas" width="900" height="380"></canvas>
 
 <script>
 // ===== CONFIG SUPABASE =====
@@ -1541,6 +1718,245 @@ function setupWinBarObserver() {
   };
   startCountdown();
 })();
+
+// ===== TIKET =====
+let currentMatchData = null;
+let selectedKursi = 'Tribun Utara';
+
+function bukaBeli(data) {
+  currentMatchData = data;
+  selectedKursi = 'Tribun Utara';
+  document.querySelectorAll('.tiket-seat-btn').forEach((b, i) => b.classList.toggle('selected', i === 0));
+  document.getElementById('modalMatchTeams').textContent = data.team1 + ' VS ' + data.team2;
+  document.getElementById('modalMatchInfo').textContent = 'GROUP ' + data.grup + ' · ' + data.date + ' · ' + data.time + ' · ' + data.stadium;
+  document.getElementById('inputNamaTiket').value = '';
+  document.getElementById('tiketModalStatus').className = 'tiket-modal-status';
+  document.getElementById('tiketModalStatus').textContent = '';
+  document.getElementById('tiketModalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function tutupBeli() {
+  document.getElementById('tiketModalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function pilihKursi(el, kursi) {
+  selectedKursi = kursi;
+  document.querySelectorAll('.tiket-seat-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function generateTicketNumber() {
+  return 'IAC-' + Math.random().toString(36).substr(2,4).toUpperCase() + '-' + Date.now().toString().slice(-5);
+}
+
+async function loadImg(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = url;
+  });
+}
+
+async function downloadTiket() {
+  const nama = document.getElementById('inputNamaTiket').value.trim();
+  const statusEl = document.getElementById('tiketModalStatus');
+  if (!nama) {
+    statusEl.className = 'tiket-modal-status error';
+    statusEl.textContent = '⚠️ Nama wajib diisi!';
+    return;
+  }
+
+  const btn = document.getElementById('btnDownloadTiket');
+  btn.disabled = true;
+  btn.textContent = '⏳ Membuat tiket...';
+  statusEl.className = 'tiket-modal-status';
+
+  const d = currentMatchData;
+  const ticketNo = generateTicketNumber();
+  const canvas = document.getElementById('tiketCanvas');
+  const ctx = canvas.getContext('2d');
+  const W = 900, H = 380;
+  canvas.width = W; canvas.height = H;
+
+  // ---- Background gradient gelap ----
+  const bg = ctx.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#0a0a0a');
+  bg.addColorStop(0.5, '#111100');
+  bg.addColorStop(1, '#0a0a0a');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // ---- Gold border ----
+  ctx.strokeStyle = '#C9991A';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(4, 4, W-8, H-8);
+
+  // ---- Inner border ----
+  ctx.strokeStyle = '#A67C12';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(14, 14, W-28, H-28);
+
+  // ---- Left gold bar ----
+  const leftBar = ctx.createLinearGradient(0, 0, 0, H);
+  leftBar.addColorStop(0, '#C9991A');
+  leftBar.addColorStop(0.5, '#e0aa20');
+  leftBar.addColorStop(1, '#A67C12');
+  ctx.fillStyle = leftBar;
+  ctx.fillRect(20, 20, 10, H-40);
+
+  // ---- Torn edge (garis putus tengah) ----
+  ctx.save();
+  ctx.setLineDash([8, 6]);
+  ctx.strokeStyle = '#333';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(620, 20);
+  ctx.lineTo(620, H-20);
+  ctx.stroke();
+  ctx.restore();
+
+  // ---- Circle cutout kiri ----
+  ctx.fillStyle = '#0a0a0a';
+  ctx.beginPath(); ctx.arc(620, 0, 18, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(620, H, 18, 0, Math.PI*2); ctx.fill();
+
+  // ---- LOGO text kiri ----
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 13px Arial';
+  ctx.letterSpacing = '4px';
+  ctx.fillText('IFFA AHMAD CUP 2026', 42, 52);
+
+  ctx.fillStyle = '#555';
+  ctx.font = '10px Arial';
+  ctx.fillText('OFFICIAL MATCH TICKET', 42, 68);
+
+  // ---- Garis dekorasi ----
+  ctx.fillStyle = '#C9991A';
+  ctx.fillRect(42, 76, 200, 2);
+
+  // ---- GROUP badge ----
+  ctx.fillStyle = '#1a1400';
+  ctx.beginPath();
+  ctx.roundRect(42, 88, 100, 28, 4);
+  ctx.fill();
+  ctx.strokeStyle = '#C9991A';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 12px Arial';
+  ctx.fillText('GROUP ' + d.grup + ' · ' + d.match, 52, 107);
+
+  // ---- Teams ----
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 30px Arial';
+  ctx.fillText(d.team1, 42, 160);
+
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 22px Arial';
+  ctx.fillText('VS', 42, 195);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 30px Arial';
+  ctx.fillText(d.team2, 42, 235);
+
+  // ---- Load & draw flags ----
+  const [flag1, flag2] = await Promise.all([loadImg(d.flag1), loadImg(d.flag2)]);
+  if (flag1) { ctx.save(); ctx.beginPath(); ctx.roundRect(370, 130, 90, 60, 5); ctx.clip(); ctx.drawImage(flag1, 370, 130, 90, 60); ctx.restore(); }
+  if (flag2) { ctx.save(); ctx.beginPath(); ctx.roundRect(500, 130, 90, 60, 5); ctx.clip(); ctx.drawImage(flag2, 500, 130, 90, 60); ctx.restore(); }
+
+  // ---- Info grid kiri bawah ----
+  const infos = [
+    { label: 'TANGGAL', val: d.date },
+    { label: 'WAKTU', val: d.time },
+    { label: 'STADION', val: d.stadium },
+  ];
+  let infoY = 275;
+  infos.forEach(info => {
+    ctx.fillStyle = '#888';
+    ctx.font = '10px Arial';
+    ctx.fillText(info.label, 42, infoY);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 13px Arial';
+    ctx.fillText(info.val, 42, infoY + 16);
+    infoY += 38;
+  });
+
+  // ---- Stub kanan (area setelah garis putus) ----
+  // Kursi kategori
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText('KATEGORI', 640, 55);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 22px Arial';
+  ctx.fillText(selectedKursi, 640, 82);
+
+  // Garis pemisah
+  ctx.fillStyle = '#333';
+  ctx.fillRect(635, 100, 240, 1);
+
+  // Nama pemegang
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText('NAMA PEMEGANG TIKET', 640, 125);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 18px Arial';
+  // Truncate nama if too long
+  const namaDisplay = nama.length > 18 ? nama.substring(0, 18) + '…' : nama;
+  ctx.fillText(namaDisplay.toUpperCase(), 640, 150);
+
+  ctx.fillStyle = '#333';
+  ctx.fillRect(635, 168, 240, 1);
+
+  // No Tiket
+  ctx.fillStyle = '#C9991A';
+  ctx.font = 'bold 11px Arial';
+  ctx.fillText('NO. TIKET', 640, 192);
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 15px Arial';
+  ctx.fillText(ticketNo, 640, 213);
+
+  ctx.fillStyle = '#333';
+  ctx.fillRect(635, 228, 240, 1);
+
+  // QR placeholder (kotak dekoratif)
+  ctx.fillStyle = '#1a1a1a';
+  ctx.beginPath(); ctx.roundRect(640, 240, 80, 80, 6); ctx.fill();
+  ctx.strokeStyle = '#C9991A'; ctx.lineWidth = 1.5; ctx.stroke();
+  // Mini QR pattern
+  const qrSize = 6;
+  const qrPattern = [[1,1,1,1,1,1,1],[1,0,0,0,0,0,1],[1,0,1,1,1,0,1],[1,0,1,0,1,0,1],[1,0,1,1,1,0,1],[1,0,0,0,0,0,1],[1,1,1,1,1,1,1]];
+  qrPattern.forEach((row, ri) => row.forEach((cell, ci) => {
+    ctx.fillStyle = cell ? '#C9991A' : '#1a1a1a';
+    ctx.fillRect(648 + ci*qrSize, 248 + ri*qrSize, qrSize-1, qrSize-1);
+  }));
+  ctx.fillStyle = '#555';
+  ctx.font = '9px Arial';
+  ctx.fillText('SCAN TO VERIFY', 640, 338);
+
+  // ---- Bottom watermark ----
+  ctx.fillStyle = '#222';
+  ctx.font = 'bold 9px Arial';
+  ctx.fillText('IFFA AHMAD CUP 2026 · #UnitingFictionalNations · TIKET RESMI', 42, H-24);
+
+  // ---- Download ----
+  const link = document.createElement('a');
+  link.download = 'Tiket_IAC2026_' + d.team1.replace(/\s/g,'') + 'vs' + d.team2.replace(/\s/g,'') + '_' + nama.replace(/\s/g,'') + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  btn.disabled = false;
+  btn.textContent = '⬇️ DOWNLOAD TIKET';
+  statusEl.className = 'tiket-modal-status success';
+  statusEl.textContent = '✅ Tiket berhasil didownload!';
+  setTimeout(() => {
+    statusEl.className = 'tiket-modal-status';
+    tutupBeli();
+  }, 2000);
+}
 </script>
 </body>
 </html>
