@@ -253,32 +253,153 @@
   .publish-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
   .publish-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
 
-  /* ===== FOTO UPLOAD AREA ===== */
-  .foto-upload-area { position: relative; width: 100%; border: 2px dashed #333; border-radius: 8px; overflow: hidden; transition: border-color 0.2s, background 0.2s; cursor: pointer; background: #1a1a1a; }
+  /* ===== FOTO UPLOAD AREA (BARU) ===== */
+  .foto-upload-area {
+    position: relative;
+    width: 100%;
+    border: 2px dashed #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    background: #1a1a1a;
+  }
   .foto-upload-area:hover { border-color: var(--gold); background: #1f1f00; }
   .foto-upload-area.has-image { border-style: solid; border-color: var(--gold); }
   .foto-upload-area.dragover { border-color: var(--gold); background: #1f1f00; }
-  .foto-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 28px 20px; text-align: center; }
+
+  .foto-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 20px;
+    text-align: center;
+  }
   .foto-placeholder-icon { font-size: 40px; }
-  .foto-placeholder-title { font-family: 'Bebas Neue'; font-size: 18px; color: var(--white); letter-spacing: 2px; }
-  .foto-placeholder-sub { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #555; text-transform: uppercase; }
-  .foto-placeholder-or { font-family: 'Barlow Condensed'; font-size: 12px; color: #444; margin: 4px 0; }
-  .foto-placeholder-btn { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 14px; letter-spacing: 2px; padding: 8px 20px; border-radius: 4px; cursor: pointer; transition: background 0.2s; pointer-events: none; }
-  .foto-preview-wrap { display: none; position: relative; }
-  .foto-preview-wrap img { width: 100%; max-height: 240px; object-fit: cover; display: block; }
-  .foto-preview-actions { position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; }
-  .foto-btn-change, .foto-btn-remove { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 14px; border-radius: 4px; cursor: pointer; border: none; transition: 0.2s; }
+  .foto-placeholder-title {
+    font-family: 'Bebas Neue';
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 2px;
+  }
+  .foto-placeholder-sub {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #555;
+    text-transform: uppercase;
+  }
+  .foto-placeholder-or {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    color: #444;
+    margin: 4px 0;
+  }
+  .foto-placeholder-btn {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    font-family: 'Bebas Neue';
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    pointer-events: none;
+  }
+
+  .foto-preview-wrap {
+    display: none;
+    position: relative;
+  }
+  .foto-preview-wrap img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+  .foto-preview-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .foto-btn-change, .foto-btn-remove {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+  }
   .foto-btn-change { background: var(--gold); color: #000; }
   .foto-btn-change:hover { background: #e0aa20; }
   .foto-btn-remove { background: rgba(0,0,0,0.7); color: #f44336; border: 1px solid #f44336; }
   .foto-btn-remove:hover { background: #f44336; color: #fff; }
-  .foto-upload-progress { display: none; padding: 16px 20px; background: #1a1a1a; flex-direction: column; gap: 8px; }
+
+  /* Upload progress */
+  .foto-upload-progress {
+    display: none;
+    padding: 16px 20px;
+    background: #1a1a1a;
+    flex-direction: column;
+    gap: 8px;
+  }
   .foto-upload-progress.active { display: flex; }
-  .foto-progress-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #888; text-transform: uppercase; }
-  .foto-progress-bar-wrap { width: 100%; height: 4px; background: #333; border-radius: 2px; overflow: hidden; }
-  .foto-progress-bar { height: 100%; background: var(--gold); border-radius: 2px; transition: width 0.3s; width: 0%; }
-  .foto-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 2px solid #222; }
-  .foto-tab { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 18px; cursor: pointer; color: #555; border: none; background: none; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: 0.2s; }
+  .foto-progress-label {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+  }
+  .foto-progress-bar-wrap {
+    width: 100%;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .foto-progress-bar {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+
+  /* URL fallback tab */
+  .foto-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    border-bottom: 2px solid #222;
+  }
+  .foto-tab {
+    font-family: 'Barlow Condensed';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    cursor: pointer;
+    color: #555;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: 0.2s;
+  }
   .foto-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
   .foto-tab-panel { display: none; margin-top: 10px; }
   .foto-tab-panel.active { display: block; }
@@ -300,6 +421,8 @@
   .komentar-section { border-top: 2px solid #1e1e00; margin-top: 28px; padding-top: 24px; }
   .komentar-title { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 2px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
   .komentar-count { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; background: var(--gold); color: #000; padding: 2px 10px; border-radius: 99px; letter-spacing: 1px; }
+
+  /* Form komentar */
   .komentar-form { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; }
   .komentar-form-row { display: flex; gap: 10px; }
   .komentar-input-nama { background: #111; border: 1px solid #333; border-radius: 5px; color: var(--white); font-family: 'Rajdhani'; font-size: 14px; padding: 9px 12px; outline: none; transition: border-color 0.2s; flex: 1; }
@@ -309,6 +432,8 @@
   .btn-kirim-komentar { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 15px; letter-spacing: 2px; padding: 10px 24px; border-radius: 5px; cursor: pointer; align-self: flex-end; transition: background 0.2s; }
   .btn-kirim-komentar:hover { background: #e0aa20; }
   .btn-kirim-komentar:disabled { background: #444; color: #666; cursor: not-allowed; }
+
+  /* List komentar */
   .komentar-list { display: flex; flex-direction: column; gap: 14px; }
   .komentar-item { background: #161616; border: 1px solid #222; border-radius: 8px; padding: 14px 16px; animation: fadeInKomentar 0.3s ease; }
   @keyframes fadeInKomentar { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
@@ -329,23 +454,33 @@
   .jadwal-label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
   .jadwal-title { font-family: 'Bebas Neue'; font-size: 46px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 10px; }
   .jadwal-sub { font-family: 'Barlow Condensed'; font-size: 15px; color: #777; letter-spacing: 1px; }
+
   .jadwal-grup-block { margin-bottom: 44px; }
   .jadwal-grup-header { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #1e1e00; }
   .jadwal-grup-letter { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.3); }
   .jadwal-grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 3px; }
+
   .jadwal-cards { display: flex; flex-direction: column; gap: 16px; }
+
   .jadwal-card { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 10px; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
   .jadwal-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+
   .jadwal-card-top { display: flex; align-items: center; gap: 12px; padding: 12px 20px; background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 1px solid #2a2000; flex-wrap: wrap; }
   .jadwal-date-badge { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #ccc; text-transform: uppercase; }
   .jadwal-time-badge { font-family: 'Bebas Neue'; font-size: 18px; color: var(--gold); letter-spacing: 2px; margin-left: auto; }
+
   .jadwal-matchup { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; }
+
   .jadwal-team { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; text-align: center; }
   .jadwal-team img { width: 72px; height: 48px; object-fit: cover; border-radius: 5px; border: 2px solid #333; }
   .jadwal-team span { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+
   .jadwal-vs { font-family: 'Bebas Neue'; font-size: 32px; color: var(--gold); letter-spacing: 3px; flex-shrink: 0; text-shadow: 0 0 15px rgba(201,153,26,0.4); }
+
   .jadwal-card-bottom { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #0a0a0a; border-top: 1px solid #1a1a1a; flex-wrap: wrap; gap: 8px; }
   .jadwal-stadium { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #777; text-transform: uppercase; }
+
+  /* ===== WIN PERCENTAGE BAR ===== */
   .jadwal-winbar-wrap { padding: 14px 24px 4px; background: #0a0a0a; }
   .jadwal-winbar-labels { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
   .winbar-team-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
@@ -363,6 +498,7 @@
   .jadwal-status.live { color: #4caf50; animation: pulse 1.2s ease infinite; }
   .jadwal-status.selesai { color: #555; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
   .jadwal-tba { background: #0f0f0f; border: 1px dashed #2a2a2a; border-radius: 10px; padding: 36px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .jadwal-tba span { font-size: 36px; }
   .jadwal-tba p { font-family: 'Barlow Condensed'; font-size: 15px; font-weight: 700; letter-spacing: 1.5px; color: #444; text-transform: uppercase; }
@@ -375,76 +511,197 @@
     .jadwal-time-badge { font-size: 15px; }
   }
 
-  /* ===== POPUP IKLAN ===== */
-  #adPopupOverlay { display: none; position: fixed; inset: 0; z-index: 99999; background: rgba(0,0,0,0.82); align-items: center; justify-content: center; animation: fadeInOverlay 0.4s ease; }
+  /* ===== SQUAD HINT ===== */
+  .card-flag-banner { position: relative; cursor: pointer; }
+  .squad-flag-hint { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(201,153,26,0.92), transparent); color: #000; font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-align: center; padding: 10px 8px 6px; opacity: 0; transition: opacity 0.25s; }
+  .card-flag-banner:hover .squad-flag-hint { opacity: 1; }
+
+  /* ===== MODAL SQUAD ===== */
+  .squad-overlay { display: none; position: fixed; inset: 0; z-index: 4000; background: rgba(0,0,0,0.92); align-items: flex-start; justify-content: center; padding: 20px; overflow-y: auto; }
+  .squad-overlay.active { display: flex; }
+  .squad-modal { background: #0f0f0f; border: 2px solid var(--gold); border-radius: 12px; width: 100%; max-width: 800px; margin: auto; overflow: hidden; }
+
+  .squad-modal-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 3px solid var(--gold); padding: 20px 28px; display: flex; align-items: center; gap: 16px; }
+  .squad-modal-flag { width: 64px; height: 42px; object-fit: cover; border-radius: 4px; border: 2px solid var(--gold); }
+  .squad-modal-title { font-family: 'Bebas Neue'; font-size: 28px; color: var(--white); letter-spacing: 3px; flex: 1; }
+  .squad-modal-close { background: none; border: 1px solid #444; color: #888; font-size: 20px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+  .squad-modal-close:hover { border-color: var(--gold); color: var(--white); }
+
+  .squad-modal-body { padding: 24px 28px 32px; }
+  .btn-upload-squad { background: none; border: 1px solid var(--gold); color: var(--gold); font-family: 'Bebas Neue'; font-size: 14px; letter-spacing: 2px; padding: 8px 20px; border-radius: 4px; cursor: pointer; transition: 0.2s; margin-bottom: 24px; }
+  .btn-upload-squad:hover { background: var(--gold); color: #000; }
+
+  /* Squad rows per posisi */
+  .squad-position-row { margin-bottom: 28px; }
+  .squad-position-label { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 14px; }
+  .squad-players-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  .squad-player-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 8px; width: 110px; text-align: center; padding: 12px 8px 10px; transition: border-color 0.2s, transform 0.2s; }
+  .squad-player-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .squad-player-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid #333; margin: 0 auto 8px; display: block; background: #222; }
+  .squad-player-num { font-family: 'Bebas Neue'; font-size: 18px; color: var(--gold); line-height: 1; }
+  .squad-player-name { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; margin-top: 2px; }
+  .squad-player-pos { font-family: 'Barlow Condensed'; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .squad-empty { text-align: center; padding: 50px 20px; font-family: 'Barlow Condensed'; font-size: 16px; color: #444; letter-spacing: 1px; }
+  .squad-empty span { font-size: 42px; display: block; margin-bottom: 12px; }
+  .squad-loading { text-align: center; padding: 40px; font-family: 'Barlow Condensed'; font-size: 13px; color: #555; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* ===== MODAL PASSWORD + UPLOAD SQUAD ===== */
+  .squad-upload-overlay { display: none; position: fixed; inset: 0; z-index: 5000; background: rgba(0,0,0,0.88); align-items: center; justify-content: center; padding: 20px; }
+  .squad-upload-overlay.active { display: flex; }
+  .squad-upload-modal { background: #111; border: 1px solid var(--gold); border-radius: 10px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+  .squad-upload-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 3px solid var(--gold); padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1; }
+  .squad-upload-header h3 { font-family: 'Bebas Neue'; font-size: 22px; letter-spacing: 2px; color: var(--gold); }
+  .squad-upload-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+
+  /* Password step */
+  .squad-pass-step { display: flex; flex-direction: column; gap: 12px; }
+  .squad-pass-title { font-family: 'Barlow Condensed'; font-size: 14px; font-weight: 700; color: #aaa; letter-spacing: 1px; text-align: center; }
+  .squad-pass-input { background: #1a1a1a; border: 1px solid #333; border-radius: 5px; color: var(--white); font-family: 'Rajdhani'; font-size: 16px; padding: 12px 14px; outline: none; transition: border-color 0.2s; width: 100%; text-align: center; letter-spacing: 4px; }
+  .squad-pass-input:focus { border-color: var(--gold); }
+  .btn-cek-password { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 16px; letter-spacing: 2px; padding: 12px; border-radius: 5px; cursor: pointer; width: 100%; transition: background 0.2s; }
+  .btn-cek-password:hover { background: #e0aa20; }
+  .squad-pass-error { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; color: #f44336; text-align: center; letter-spacing: 1px; display: none; }
+
+  /* Upload form step */
+  .squad-form-step { display: none; flex-direction: column; gap: 14px; }
+  .squad-form-step.active { display: flex; }
+  .squad-form-section-label { font-family: 'Bebas Neue'; font-size: 16px; color: var(--gold); letter-spacing: 2px; border-bottom: 1px solid #222; padding-bottom: 8px; margin-top: 4px; }
+  .squad-player-row { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 6px; padding: 12px; display: grid; grid-template-columns: 50px 1fr 1fr 80px; gap: 8px; align-items: center; }
+  .squad-player-row input { background: #111; border: 1px solid #333; border-radius: 4px; color: var(--white); font-family: 'Rajdhani'; font-size: 13px; padding: 7px 8px; outline: none; transition: border-color 0.2s; width: 100%; }
+  .squad-player-row input:focus { border-color: var(--gold); }
+  .squad-player-row input::placeholder { color: #444; font-size: 12px; }
+  .squad-row-label { font-family: 'Barlow Condensed'; font-size: 10px; font-weight: 700; color: #555; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
+  .btn-simpan-squad { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 17px; letter-spacing: 2px; padding: 14px; border-radius: 5px; cursor: pointer; width: 100%; transition: background 0.2s; margin-top: 6px; }
+  .btn-simpan-squad:hover { background: #e0aa20; }
+  .btn-simpan-squad:disabled { background: #444; color: #666; cursor: not-allowed; }
+  .squad-save-status { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-align: center; padding: 8px; border-radius: 4px; display: none; }
+  .squad-save-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
+  .squad-save-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
+
+  @media (max-width: 600px) {
+    .squad-player-row { grid-template-columns: 40px 1fr; }
+    .squad-players-row { gap: 10px; }
+    .squad-player-card { width: 90px; }
+  }
+  #adPopupOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.82);
+    align-items: center;
+    justify-content: center;
+    animation: fadeInOverlay 0.4s ease;
+  }
   #adPopupOverlay.active { display: flex; }
-  @keyframes fadeInOverlay { from { opacity: 0; } to { opacity: 1; } }
-  #adPopupBox { position: relative; max-width: 480px; width: 90%; border-radius: 10px; overflow: hidden; border: 3px solid var(--gold); box-shadow: 0 0 60px rgba(201,153,26,0.35), 0 8px 40px rgba(0,0,0,0.7); animation: popupSlideIn 0.45s cubic-bezier(0.34,1.56,0.64,1); }
-  @keyframes popupSlideIn { from { transform: scale(0.75) translateY(30px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
-  #adPopupBox img { width: 100%; display: block; }
-  #adPopupLabel { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.65); border: 1px solid rgba(201,153,26,0.5); color: var(--gold); font-family: 'Barlow Condensed'; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
-  #adCloseBtn { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: #000; border: none; font-size: 16px; font-weight: 900; cursor: pointer; display: none; align-items: center; justify-content: center; line-height: 1; box-shadow: 0 2px 10px rgba(0,0,0,0.5); transition: background 0.2s, transform 0.15s; z-index: 10; }
+
+  @keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  #adPopupBox {
+    position: relative;
+    max-width: 480px;
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 60px rgba(201,153,26,0.35), 0 8px 40px rgba(0,0,0,0.7);
+    animation: popupSlideIn 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  @keyframes popupSlideIn {
+    from { transform: scale(0.75) translateY(30px); opacity: 0; }
+    to   { transform: scale(1) translateY(0); opacity: 1; }
+  }
+
+  #adPopupBox img {
+    width: 100%;
+    display: block;
+  }
+
+  /* Label iklan */
+  #adPopupLabel {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid rgba(201,153,26,0.5);
+    color: var(--gold);
+    font-family: 'Barlow Condensed';
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  /* Tombol tutup */
+  #adCloseBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #000;
+    border: none;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    transition: background 0.2s, transform 0.15s;
+    z-index: 10;
+  }
   #adCloseBtn:hover { background: #e0aa20; transform: scale(1.1); }
   #adCloseBtn.visible { display: flex; }
-  #adCountdownWrap { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; z-index: 10; }
-  #adCountdownWrap svg { transform: rotate(-90deg); }
-  #adCountdownCircle { fill: none; stroke: var(--gold); stroke-width: 3; stroke-dasharray: 88; stroke-dashoffset: 0; stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
-  #adCountdownBg { fill: rgba(0,0,0,0.6); stroke: rgba(201,153,26,0.3); stroke-width: 1; }
-  #adCountdownNum { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue'; font-size: 15px; color: var(--gold); line-height: 1; }
 
-  /* ===== TIKET PAGE ===== */
-  .tiket-section { background: var(--dark); padding: 50px 20px 80px; max-width: 1100px; margin: 0 auto; }
-  .tiket-intro { text-align: center; margin-bottom: 50px; }
-  .tiket-intro .label { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-  .tiket-intro h2 { font-family: 'Bebas Neue'; font-size: 48px; color: var(--white); letter-spacing: 3px; line-height: 1; margin-bottom: 12px; }
-  .tiket-intro p { font-family: 'Barlow Condensed'; font-size: 16px; color: #888; letter-spacing: 1px; }
-  .tiket-grup-block { margin-bottom: 44px; }
-  .tiket-grup-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #1e1e00; }
-  .tiket-grup-letter { font-family: 'Bebas Neue'; font-size: 48px; color: var(--gold); line-height: 1; text-shadow: 0 0 20px rgba(201,153,26,0.3); }
-  .tiket-grup-name { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 3px; }
-  .tiket-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .tiket-card { background: linear-gradient(135deg, #0f0f0f 0%, #1a1400 100%); border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; transition: border-color 0.3s, transform 0.2s; }
-  .tiket-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,153,26,0.15); }
-  .tiket-card-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 2px solid var(--gold); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-  .tiket-card-grup { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
-  .tiket-card-date { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: #888; letter-spacing: 1px; }
-  .tiket-matchup { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 18px; }
-  .tiket-team { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; text-align: center; }
-  .tiket-team img { width: 60px; height: 40px; object-fit: cover; border-radius: 4px; border: 2px solid #333; }
-  .tiket-team span { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2; }
-  .tiket-vs { font-family: 'Bebas Neue'; font-size: 22px; color: var(--gold); letter-spacing: 2px; flex-shrink: 0; }
-  .tiket-card-footer { padding: 12px 18px; background: #0a0a0a; border-top: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  .tiket-stadium { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; color: #666; letter-spacing: 1px; text-transform: uppercase; }
-  .tiket-time { font-family: 'Bebas Neue'; font-size: 16px; color: var(--gold); letter-spacing: 1px; }
-  .btn-beli-tiket { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 14px; letter-spacing: 2px; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: calc(100% - 36px); margin: 0 18px 16px; display: block; transition: background 0.2s, transform 0.1s; }
-  .btn-beli-tiket:hover { background: #e0aa20; transform: scale(1.02); }
-  /* Modal Beli Tiket */
-  .tiket-modal-overlay { display: none; position: fixed; inset: 0; z-index: 4000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; }
-  .tiket-modal-overlay.active { display: flex; }
-  .tiket-modal { background: #111; border: 2px solid var(--gold); border-radius: 14px; width: 100%; max-width: 480px; overflow: hidden; }
-  .tiket-modal-header { background: linear-gradient(135deg, #1a1400, #2a2000); border-bottom: 3px solid var(--gold); padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; }
-  .tiket-modal-header h3 { font-family: 'Bebas Neue'; font-size: 24px; letter-spacing: 2px; color: var(--gold); }
-  .tiket-modal-close { background: none; border: none; color: #888; font-size: 24px; cursor: pointer; transition: color 0.2s; line-height: 1; }
-  .tiket-modal-close:hover { color: var(--white); }
-  .tiket-modal-body { padding: 28px 24px; }
-  .tiket-modal-match { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; margin-bottom: 24px; text-align: center; }
-  .tiket-modal-match-teams { font-family: 'Bebas Neue'; font-size: 22px; color: var(--white); letter-spacing: 2px; margin-bottom: 6px; }
-  .tiket-modal-match-info { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
-  .tiket-form-label { font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; display: block; }
-  .tiket-input-nama { background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: var(--white); font-family: 'Rajdhani'; font-size: 16px; padding: 12px 16px; outline: none; transition: border-color 0.2s; width: 100%; margin-bottom: 20px; }
-  .tiket-input-nama:focus { border-color: var(--gold); }
-  .tiket-seat-section { margin-bottom: 24px; }
-  .tiket-seat-options { display: flex; gap: 10px; flex-wrap: wrap; }
-  .tiket-seat-btn { flex: 1; min-width: 80px; padding: 10px 6px; border-radius: 6px; border: 2px solid #333; background: #1a1a1a; color: #888; font-family: 'Barlow Condensed'; font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; transition: 0.2s; text-align: center; }
-  .tiket-seat-btn:hover { border-color: var(--gold); color: var(--gold); }
-  .tiket-seat-btn.selected { border-color: var(--gold); background: #1a1400; color: var(--gold); }
-  .btn-download-tiket { background: var(--gold); color: #000; border: none; font-family: 'Bebas Neue'; font-size: 18px; letter-spacing: 2px; padding: 14px; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.2s; }
-  .btn-download-tiket:hover { background: #e0aa20; }
-  .btn-download-tiket:disabled { background: #333; color: #666; cursor: not-allowed; }
-  .tiket-modal-status { font-family: 'Barlow Condensed'; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-align: center; padding: 8px; border-radius: 4px; margin-top: 12px; display: none; }
-  .tiket-modal-status.success { background: #0a2a0a; color: #4caf50; border: 1px solid #4caf50; display: block; }
-  .tiket-modal-status.error { background: #2a0a0a; color: #f44336; border: 1px solid #f44336; display: block; }
-  #tiketCanvas { display: none; }
+  /* Countdown ring */
+  #adCountdownWrap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    z-index: 10;
+  }
+  #adCountdownWrap svg {
+    transform: rotate(-90deg);
+  }
+  #adCountdownCircle {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 3;
+    stroke-dasharray: 88;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+  }
+  #adCountdownBg {
+    fill: rgba(0,0,0,0.6);
+    stroke: rgba(201,153,26,0.3);
+    stroke-width: 1;
+  }
+  #adCountdownNum {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue';
+    font-size: 15px;
+    color: var(--gold);
+    line-height: 1;
+  }
 </style>
 </head>
 <body>
@@ -463,7 +720,6 @@
     <li><a onclick="showPage('grup')" data-page="grup">Grup</a></li>
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
     <li><a onclick="showPage('berita')" data-page="berita">Berita</a></li>
-    <li><a onclick="showPage('tiket')" data-page="tiket">Tiket</a></li>
   </ul>
   <button class="hamburger" id="hamburgerBtn">
     <span></span><span></span><span></span>
@@ -479,7 +735,6 @@
       <li><a onclick="showPage('grup')">Grup</a></li>
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
       <li><a onclick="showPage('berita')">Berita</a></li>
-      <li><a onclick="showPage('tiket')">Tiket</a></li>
     </ul>
   </div>
 </div>
@@ -557,10 +812,6 @@
         <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777030348699-924121c8-ec47-4362-a268-bb8f0187eb47.webp" alt="Al Jamasyia Stadium"></div>
         <div class="stadium-info"><p class="stadium-name">Al Jamasyia Stadium</p><p class="stadium-loc">Venue Ketiga</p></div>
       </div>
-      <div class="stadium-card">
-        <div class="stadium-img-wrap"><img src="https://www.image2url.com/r2/default/images/1777688767067-bd7c6b3b-5408-4768-8ebd-23a845d298bb.webp" alt="Al Walsyia Stadium"></div>
-        <div class="stadium-info"><p class="stadium-name">Al Walsyia Stadium</p><p class="stadium-loc">Venue Keempat</p></div>
-      </div>
     </div>
   </section>
 
@@ -601,22 +852,22 @@
     <div class="page-header-overlay"><h1>DAFTAR PESERTA</h1></div>
   </div>
   <div class="participants-grid">
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776836552996-a992fc36-f2d6-4f80-af42-c2437e6fd050.jpg"></div><div><div class="card-nation-name">REPUBLIK ISLAM WINERIASIA</div><div style="font-size:13px;color:var(--gold);">Coach: Patrick Kluivert</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div><div><div class="card-nation-name">VEROLIA</div><div style="font-size:13px;color:var(--gold);">Coach: Wilfried Nancy</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859049132-7a600a73-ecc6-4a1a-b931-a90054d608e5.jpeg"></div><div><div class="card-nation-name">TAZBEKISTAN</div><div style="font-size:13px;color:var(--gold);">Coach: Gierna Botrivko</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859654478-afdc8fdb-99ae-4c4c-add9-47520c2c5e76.jpeg"></div><div><div class="card-nation-name">BIKINI BOTTOM</div><div style="font-size:13px;color:var(--gold);">Coach: Winston Niuket</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')"><img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859973034-ee169fba-db7f-496b-a636-d88142dcb1a4.webp"></div><div><div class="card-nation-name">MALAYSIA</div><div style="font-size:13px;color:var(--gold);">Coach: Peter Cklamovski</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776946688929-2b1fb4b2-a2b1-4698-bb5c-3b0d22a7056b.jpeg"></div><div><div class="card-nation-name">NORTH ERLASKA</div><div style="font-size:13px;color:var(--gold);">Coach: Michael Trebonach</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947055866-eb67c5c7-8fb5-4818-bbfc-ba0c5f4ef364.jpeg"></div><div><div class="card-nation-name">SERVESILA</div><div style="font-size:13px;color:var(--gold);">Coach: Kosim Veneza</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947660303-eaae69be-31ec-4990-823c-93723c8ffec2.jpeg"></div><div><div class="card-nation-name">TRENHOA</div><div style="font-size:13px;color:var(--gold);">Coach: Kolo Toure</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948117365-fe069dc9-e7b4-4c7e-ba13-afdb6bb81524.jpeg"></div><div><div class="card-nation-name">GLADIOLREP</div><div style="font-size:13px;color:var(--gold);">Coach: Stephen Jensen</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948547437-fb580a5f-1b8f-4faf-80b2-2e3f95fdab4f.jpeg"></div><div><div class="card-nation-name">CABANGBUNGIN RAYA</div><div style="font-size:13px;color:var(--gold);">Coach: Virkam Sigh</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776949763269-211fde65-05e1-48ec-992f-0138b5198707.jpeg"></div><div><div class="card-nation-name">SOPOZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Vladimir Petkovic</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776950348420-cfdc0b6c-b7e6-4660-8975-7218fc15119e.jpg"></div><div><div class="card-nation-name">ISLAMNEZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Shin Tae-yong</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776951247056-5b106133-3b60-45fe-897b-d536c2e3a0be.jpeg"></div><div><div class="card-nation-name">THALORIA B</div><div style="font-size:13px;color:var(--gold);">Coach: Vyktor Draxen</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952400740-4f83d19b-deb4-4fc5-b5df-3097d15feec8.jpeg"></div><div><div class="card-nation-name">KING US GERNAZ</div><div style="font-size:13px;color:var(--gold);">Coach: Gilgeous Alexander</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png')"><img src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952817370-c367a129-1a0e-4976-b270-8782dd41ba88.jpg"></div><div><div class="card-nation-name">JERMAN</div><div style="font-size:13px;color:var(--gold);">Coach: Julian Nagelsmann</div></div></div></div>
-    <div class="participant-card"><div class="card-flag-banner" onclick="zoomImage('https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776953754703-5b3b184a-cf30-45b2-ba99-eea8be4fdc9c.jpg"></div><div><div class="card-nation-name">LICHTENBURG</div><div style="font-size:13px;color:var(--gold);">Coach: Toni Kroos</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('wineriasia','REPUBLIK ISLAM WINERIASIA','https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png')"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776836552996-a992fc36-f2d6-4f80-af42-c2437e6fd050.jpg"></div><div><div class="card-nation-name">REPUBLIK ISLAM WINERIASIA</div><div style="font-size:13px;color:var(--gold);">Coach: Patrick Kluivert</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('verolia','VEROLIA','https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776857830976-8ff1ef1d-2eff-42e1-8eb5-2517bbee3859.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776858132590-9f9ca631-711d-4f87-bedb-98ed99e6e855.jpeg"></div><div><div class="card-nation-name">VEROLIA</div><div style="font-size:13px;color:var(--gold);">Coach: Wilfried Nancy</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('tazbekistan','TAZBEKISTAN','https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776858881940-a3a7a198-2592-4d4c-93be-1c3ada052729.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859049132-7a600a73-ecc6-4a1a-b931-a90054d608e5.jpeg"></div><div><div class="card-nation-name">TAZBEKISTAN</div><div style="font-size:13px;color:var(--gold);">Coach: Gierna Botrivko</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('bikinibottom','BIKINI BOTTOM','https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776859536169-204f99cb-8147-46d7-b0f4-3a0a1441902f.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859654478-afdc8fdb-99ae-4c4c-add9-47520c2c5e76.jpeg"></div><div><div class="card-nation-name">BIKINI BOTTOM</div><div style="font-size:13px;color:var(--gold);">Coach: Winston Niuket</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('malaysia','MALAYSIA','https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp')"><img src="https://www.image2url.com/r2/default/images/1776859843037-b063a118-5d78-4576-9bc6-56cba9fc3efc.webp"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776859973034-ee169fba-db7f-496b-a636-d88142dcb1a4.webp"></div><div><div class="card-nation-name">MALAYSIA</div><div style="font-size:13px;color:var(--gold);">Coach: Peter Cklamovski</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('northerlaska','NORTH ERLASKA','https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776946688929-2b1fb4b2-a2b1-4698-bb5c-3b0d22a7056b.jpeg"></div><div><div class="card-nation-name">NORTH ERLASKA</div><div style="font-size:13px;color:var(--gold);">Coach: Michael Trebonach</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('servesila','SERVESILA','https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947055866-eb67c5c7-8fb5-4818-bbfc-ba0c5f4ef364.jpeg"></div><div><div class="card-nation-name">SERVESILA</div><div style="font-size:13px;color:var(--gold);">Coach: Kosim Veneza</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('trenhoa','TRENHOA','https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776947455634-66bd85c7-818f-430c-96e4-e430a85fc82b.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776947660303-eaae69be-31ec-4990-823c-93723c8ffec2.jpeg"></div><div><div class="card-nation-name">TRENHOA</div><div style="font-size:13px;color:var(--gold);">Coach: Kolo Toure</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('gladiolrep','GLADIOLREP','https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948117365-fe069dc9-e7b4-4c7e-ba13-afdb6bb81524.jpeg"></div><div><div class="card-nation-name">GLADIOLREP</div><div style="font-size:13px;color:var(--gold);">Coach: Stephen Jensen</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('cabangbungin','CABANGBUNGIN RAYA','https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776948547437-fb580a5f-1b8f-4faf-80b2-2e3f95fdab4f.jpeg"></div><div><div class="card-nation-name">CABANGBUNGIN RAYA</div><div style="font-size:13px;color:var(--gold);">Coach: Virkam Sigh</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('sopozia','SOPOZIA','https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776949763269-211fde65-05e1-48ec-992f-0138b5198707.jpeg"></div><div><div class="card-nation-name">SOPOZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Vladimir Petkovic</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('islamnezia','ISLAMNEZIA','https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776950348420-cfdc0b6c-b7e6-4660-8975-7218fc15119e.jpg"></div><div><div class="card-nation-name">ISLAMNEZIA</div><div style="font-size:13px;color:var(--gold);">Coach: Shin Tae-yong</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('thaloriab','THALORIA B','https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776951133278-c4eb6920-88d5-42e9-8e24-632a78e6ec4d.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776951247056-5b106133-3b60-45fe-897b-d536c2e3a0be.jpeg"></div><div><div class="card-nation-name">THALORIA B</div><div style="font-size:13px;color:var(--gold);">Coach: Vyktor Draxen</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('kinggernaz','KING US GERNAZ','https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776952312692-3ce003f9-483d-458d-900e-9953b733dd74.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952400740-4f83d19b-deb4-4fc5-b5df-3097d15feec8.jpeg"></div><div><div class="card-nation-name">KING US GERNAZ</div><div style="font-size:13px;color:var(--gold);">Coach: Gilgeous Alexander</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('jerman','JERMAN','https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png')"><img src="https://www.image2url.com/r2/default/images/1776952953777-ee798e76-f991-4077-b908-0e0096ba35d4.png"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776952817370-c367a129-1a0e-4976-b270-8782dd41ba88.jpg"></div><div><div class="card-nation-name">JERMAN</div><div style="font-size:13px;color:var(--gold);">Coach: Julian Nagelsmann</div></div></div></div>
+    <div class="participant-card"><div class="card-flag-banner" onclick="bukaSquad('lichtenburg','LICHTENBURG','https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg')"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><div class="squad-flag-hint">👆 Klik untuk lihat Squad</div></div><div class="card-body"><div class="coach-photo-wrap"><img src="https://www.image2url.com/r2/default/images/1776953754703-5b3b184a-cf30-45b2-ba99-eea8be4fdc9c.jpg"></div><div><div class="card-nation-name">LICHTENBURG</div><div style="font-size:13px;color:var(--gold);">Coach: Toni Kroos</div></div></div></div>
   </div>
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
@@ -703,99 +954,171 @@
       <h2 class="jadwal-title">JADWAL PERTANDINGAN</h2>
       <p class="jadwal-sub">Semua waktu menggunakan zona waktu <strong style="color:var(--gold);">WITA (UTC+8)</strong></p>
     </div>
+
     <!-- GRUP A -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">A</span><span class="jadwal-grup-name">GROUP A</span></div>
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">A</span>
+        <span class="jadwal-grup-name">GROUP A</span>
+      </div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕓 16.00 WITA</span></div>
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕓 16.00 WITA</span>
+          </div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" alt="Wineriasia"><span>Republik Islam Wineriasia</span></div>
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" alt="Wineriasia">
+              <span>Republik Islam Wineriasia</span>
+            </div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" alt="Servesila"><span>Servesila</span></div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" alt="Servesila">
+              <span>Servesila</span>
+            </div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="56" data-right="44">
             <div class="jadwal-winbar-labels">
-              <div><div class="winbar-team-label left">Wineriasia</div><div class="winbar-pct-label left" id="pct-a-left">0%</div></div>
+              <div>
+                <div class="winbar-team-label left">Wineriasia</div>
+                <div class="winbar-pct-label left" id="pct-a-left">0%</div>
+              </div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;"><div class="winbar-team-label right">Servesila</div><div class="winbar-pct-label right" id="pct-a-right">0%</div></div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Servesila</div>
+                <div class="winbar-pct-label right" id="pct-a-right">0%</div>
+              </div>
             </div>
-            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-a-left"></div><div class="winbar-fill-right" id="bar-a-right"></div></div></div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-a-left"></div>
+                <div class="winbar-fill-right" id="bar-a-right"></div>
+              </div>
+            </div>
           </div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
         </div>
       </div>
     </div>
+
     <!-- GRUP B -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">B</span><span class="jadwal-grup-name">GROUP B</span></div>
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">B</span>
+        <span class="jadwal-grup-name">GROUP B</span>
+      </div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕗 20.00 WITA</span></div>
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕗 20.00 WITA</span>
+          </div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" alt="Cabangbungin Raya"><span>Cabangbungin Raya</span></div>
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" alt="Cabangbungin Raya">
+              <span>Cabangbungin Raya</span>
+            </div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" alt="Lichtenburg"><span>Lichtenburg</span></div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" alt="Lichtenburg">
+              <span>Lichtenburg</span>
+            </div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="34" data-right="66">
             <div class="jadwal-winbar-labels">
-              <div><div class="winbar-team-label left">Cabangbungin</div><div class="winbar-pct-label left" id="pct-b-left">0%</div></div>
+              <div>
+                <div class="winbar-team-label left">Cabangbungin</div>
+                <div class="winbar-pct-label left" id="pct-b-left">0%</div>
+              </div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;"><div class="winbar-team-label right">Lichtenburg</div><div class="winbar-pct-label right" id="pct-b-right">0%</div></div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Lichtenburg</div>
+                <div class="winbar-pct-label right" id="pct-b-right">0%</div>
+              </div>
             </div>
-            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-b-left"></div><div class="winbar-fill-right" id="bar-b-right"></div></div></div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-b-left"></div>
+                <div class="winbar-fill-right" id="bar-b-right"></div>
+              </div>
+            </div>
           </div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
         </div>
       </div>
     </div>
+
     <!-- GRUP C -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">C</span><span class="jadwal-grup-name">GROUP C</span></div>
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">C</span>
+        <span class="jadwal-grup-name">GROUP C</span>
+      </div>
       <div class="jadwal-cards">
         <div class="jadwal-card">
-          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕙 22.00 WITA</span></div>
+          <div class="jadwal-card-top">
+            <span class="jadwal-date-badge">📅 23 MEI 2026</span>
+            <span class="jadwal-time-badge">🕙 22.00 WITA</span>
+          </div>
           <div class="jadwal-matchup">
-            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" alt="Sopozia"><span>Sopozia</span></div>
+            <div class="jadwal-team">
+              <img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" alt="Sopozia">
+              <span>Sopozia</span>
+            </div>
             <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" alt="Islamnezia"><span>Islamnezia</span></div>
+            <div class="jadwal-team jadwal-team-right">
+              <img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" alt="Islamnezia">
+              <span>Islamnezia</span>
+            </div>
           </div>
           <div class="jadwal-winbar-wrap" data-left="40" data-right="60">
             <div class="jadwal-winbar-labels">
-              <div><div class="winbar-team-label left">Sopozia</div><div class="winbar-pct-label left" id="pct-c-left">0%</div></div>
+              <div>
+                <div class="winbar-team-label left">Sopozia</div>
+                <div class="winbar-pct-label left" id="pct-c-left">0%</div>
+              </div>
               <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;"><div class="winbar-team-label right">Islamnezia</div><div class="winbar-pct-label right" id="pct-c-right">0%</div></div>
+              <div style="text-align:right;">
+                <div class="winbar-team-label right">Islamnezia</div>
+                <div class="winbar-pct-label right" id="pct-c-right">0%</div>
+              </div>
             </div>
-            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-c-left"></div><div class="winbar-fill-right" id="bar-c-right"></div></div></div>
+            <div class="winbar-track">
+              <div class="winbar-fill-wrap">
+                <div class="winbar-fill-left" id="bar-c-left"></div>
+                <div class="winbar-fill-right" id="bar-c-right"></div>
+              </div>
+            </div>
           </div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
+          <div class="jadwal-card-bottom">
+            <span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span>
+            <span class="jadwal-status upcoming">🟡 AKAN DATANG</span>
+          </div>
         </div>
       </div>
     </div>
-    <!-- GRUP D -->
+
+    <!-- GRUP D — belum ada jadwal -->
     <div class="jadwal-grup-block">
-      <div class="jadwal-grup-header"><span class="jadwal-grup-letter">D</span><span class="jadwal-grup-name">GROUP D</span></div>
-      <div class="jadwal-cards">
-        <div class="jadwal-card">
-          <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕚 23.00 WITA</span></div>
-          <div class="jadwal-matchup">
-            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg" alt="North Erlaska"><span>North Erlaska</span></div>
-            <div class="jadwal-vs">VS</div>
-            <div class="jadwal-team jadwal-team-right"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg" alt="Gladiolrep"><span>Gladiolrep</span></div>
-          </div>
-          <div class="jadwal-winbar-wrap" data-left="30" data-right="70">
-            <div class="jadwal-winbar-labels">
-              <div><div class="winbar-team-label left">North Erlaska</div><div class="winbar-pct-label left" id="pct-d-left">0%</div></div>
-              <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div>
-              <div style="text-align:right;"><div class="winbar-team-label right">Gladiolrep</div><div class="winbar-pct-label right" id="pct-d-right">0%</div></div>
-            </div>
-            <div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-d-left"></div><div class="winbar-fill-right" id="bar-d-right"></div></div></div>
-          </div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Walsyia Stadium</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div>
-        </div>
+      <div class="jadwal-grup-header">
+        <span class="jadwal-grup-letter">D</span>
+        <span class="jadwal-grup-name">GROUP D</span>
+      </div>
+      <div class="jadwal-tba">
+        <span>📋</span>
+        <p>Jadwal Grup D akan segera diumumkan</p>
       </div>
     </div>
+
   </section>
+
   <footer>
     <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
     <p class="footer-hashtag">#UnitingFictionalNations</p>
@@ -847,15 +1170,25 @@
         <label class="form-label">Ditulis Oleh *</label>
         <input class="form-input" id="inputPenulis" type="text" placeholder="Nama penulis / sumber...">
       </div>
+
+      <!-- ===== FOTO SECTION (BARU) ===== -->
       <div class="form-group">
         <label class="form-label">Foto Berita (Opsional)</label>
+
+        <!-- Tab switcher -->
         <div class="foto-tabs">
           <button class="foto-tab active" id="tabGaleri" onclick="switchFotoTab('galeri')">📷 Upload dari Galeri</button>
           <button class="foto-tab" id="tabUrl" onclick="switchFotoTab('url')">🔗 Gunakan URL</button>
         </div>
+
+        <!-- Tab: Galeri -->
         <div class="foto-tab-panel active" id="panelGaleri">
+          <!-- Hidden file input -->
           <input type="file" id="inputFileGambar" class="form-img-input" accept="image/*">
+
+          <!-- Upload area -->
           <div class="foto-upload-area" id="fotoUploadArea" onclick="triggerFileInput()">
+            <!-- Placeholder (saat belum ada gambar) -->
             <div class="foto-placeholder" id="fotoPlaceholder">
               <span class="foto-placeholder-icon">🖼️</span>
               <div class="foto-placeholder-title">Pilih Foto dari Galeri</div>
@@ -863,10 +1196,12 @@
               <div class="foto-placeholder-or">atau</div>
               <div class="foto-placeholder-btn">BROWSE FILE</div>
             </div>
+            <!-- Upload progress -->
             <div class="foto-upload-progress" id="fotoProgress">
               <div class="foto-progress-label" id="fotoProgressLabel">Mengupload foto...</div>
               <div class="foto-progress-bar-wrap"><div class="foto-progress-bar" id="fotoProgressBar"></div></div>
             </div>
+            <!-- Preview setelah dipilih / uploaded -->
             <div class="foto-preview-wrap" id="fotoPreviewWrap">
               <img id="fotoPreviewImg" src="" alt="Preview foto">
               <div class="foto-preview-actions">
@@ -876,6 +1211,8 @@
             </div>
           </div>
         </div>
+
+        <!-- Tab: URL -->
         <div class="foto-tab-panel" id="panelUrl">
           <input class="form-input" id="inputGambarUrl" type="url" placeholder="https://link-gambar.com/foto.jpg" style="margin-top:4px;">
           <div id="imgUrlPreviewWrap" style="margin-top:8px;display:none;">
@@ -883,6 +1220,8 @@
           </div>
         </div>
       </div>
+      <!-- ===== END FOTO SECTION ===== -->
+
       <div class="form-group">
         <label class="form-label">Isi Berita *</label>
         <textarea class="form-textarea" id="inputIsi" placeholder="Tulis isi berita di sini..."></textarea>
@@ -901,8 +1240,15 @@
       <div class="berita-detail-meta" id="detailMeta"></div>
       <div class="berita-detail-title" id="detailJudul"></div>
       <div class="berita-detail-content" id="detailIsi"></div>
+
+      <!-- ===== KOMENTAR ===== -->
       <div class="komentar-section">
-        <div class="komentar-title">💬 KOMENTAR<span class="komentar-count" id="komentarCount">0</span></div>
+        <div class="komentar-title">
+          💬 KOMENTAR
+          <span class="komentar-count" id="komentarCount">0</span>
+        </div>
+
+        <!-- Form tulis komentar -->
         <div class="komentar-form">
           <div class="komentar-form-row">
             <input class="komentar-input-nama" id="inputKomentarNama" type="text" placeholder="Nama kamu...">
@@ -911,11 +1257,64 @@
           <div id="komentarStatus" style="display:none;"></div>
           <button class="btn-kirim-komentar" id="btnKirimKomentar" onclick="kirimKomentar()">💬 KIRIM KOMENTAR</button>
         </div>
+
+        <!-- List komentar -->
         <div class="komentar-list" id="komentarList">
           <div class="komentar-loading">⏳ &nbsp; Memuat komentar...</div>
         </div>
       </div>
+
       <button class="berita-detail-close-btn" onclick="tutupDetailBeritaBtn()">✕ Tutup</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL SQUAD ===== -->
+<div class="squad-overlay" id="squadOverlay" onclick="tutupSquadModal(event)">
+  <div class="squad-modal" id="squadModal">
+    <div class="squad-modal-header">
+      <img class="squad-modal-flag" id="squadModalFlag" src="" alt="">
+      <div class="squad-modal-title" id="squadModalTitle">SQUAD</div>
+      <button class="squad-modal-close" onclick="tutupSquad()">✕</button>
+    </div>
+    <div class="squad-modal-body">
+      <button class="btn-upload-squad" onclick="bukaUploadSquad()">⚙️ UPLOAD / EDIT SQUAD</button>
+      <div id="squadContent"><div class="squad-loading">⏳ Memuat squad...</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL UPLOAD SQUAD ===== -->
+<div class="squad-upload-overlay" id="squadUploadOverlay">
+  <div class="squad-upload-modal">
+    <div class="squad-upload-header">
+      <h3>⚙️ UPLOAD SQUAD</h3>
+      <button class="berita-modal-close" onclick="tutupUploadSquad()">✕</button>
+    </div>
+    <div class="squad-upload-body">
+
+      <!-- Step 1: Password -->
+      <div class="squad-pass-step" id="squadPassStep">
+        <p class="squad-pass-title">🔒 Masukkan password untuk mengedit squad</p>
+        <input class="squad-pass-input" id="squadPassInput" type="password" placeholder="••••••••" maxlength="20">
+        <div class="squad-pass-error" id="squadPassError">❌ Password salah! Coba lagi.</div>
+        <button class="btn-cek-password" onclick="cekPassword()">🔓 MASUK</button>
+      </div>
+
+      <!-- Step 2: Form Upload -->
+      <div class="squad-form-step" id="squadFormStep">
+        <div class="squad-form-section-label">🥅 PENJAGA GAWANG (GK)</div>
+        <div id="rowsGK"></div>
+        <div class="squad-form-section-label">🛡️ PERTAHANAN (DEF)</div>
+        <div id="rowsDEF"></div>
+        <div class="squad-form-section-label">⚙️ GELANDANG (MID)</div>
+        <div id="rowsMID"></div>
+        <div class="squad-form-section-label">⚡ PENYERANG (FWD)</div>
+        <div id="rowsFWD"></div>
+        <div class="squad-save-status" id="squadSaveStatus"></div>
+        <button class="btn-simpan-squad" id="btnSimpanSquad" onclick="simpanSquad()">💾 SIMPAN SQUAD</button>
+      </div>
+
     </div>
   </div>
 </div>
@@ -925,6 +1324,7 @@
   <div id="adPopupBox">
     <span id="adPopupLabel">IKLAN / ADVERTISEMENT</span>
     <img src="https://www.image2url.com/r2/default/images/1777602495479-ed464d75-d3d8-4faf-852d-e25a12852b18.jpeg" alt="Iklan IFFA Ahmad Cup 2026">
+    <!-- Countdown ring -->
     <div id="adCountdownWrap">
       <svg width="36" height="36" viewBox="0 0 36 36">
         <circle id="adCountdownBg" cx="18" cy="18" r="14"></circle>
@@ -932,6 +1332,7 @@
       </svg>
       <div id="adCountdownNum">10</div>
     </div>
+    <!-- Tombol tutup (muncul setelah 10 detik) -->
     <button id="adCloseBtn" onclick="tutupAdPopup()">✕</button>
   </div>
 </div>
@@ -971,156 +1372,35 @@
   </div>
 </div>
 
-<!-- ===== TIKET ===== -->
-<div id="page-tiket" class="page">
-  <div class="page-header">
-    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png" alt="Tiket Banner">
-    <div class="page-header-overlay"><h1>BELI TIKET</h1></div>
-  </div>
-  <div class="tiket-section">
-    <div class="tiket-intro">
-      <p class="label">IFFA Ahmad Cup 2026</p>
-      <h2>PILIH PERTANDINGAN</h2>
-      <p>Pilih pertandingan yang ingin kamu saksikan, isi namamu, dan tiket langsung terdownload!</p>
-    </div>
-
-    <!-- GRUP A -->
-    <div class="tiket-grup-block">
-      <div class="tiket-grup-header"><span class="tiket-grup-letter">A</span><span class="tiket-grup-name">GROUP A</span></div>
-      <div class="tiket-cards">
-        <div class="tiket-card">
-          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP A · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
-          <div class="tiket-matchup">
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span>Wineriasia</span></div>
-            <div class="tiket-vs">VS</div>
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span>Servesila</span></div>
-          </div>
-          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Ahmad Internasional Stadium</span><span class="tiket-time">16.00 WITA</span></div>
-          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'A',match:'MATCH 1',team1:'Wineriasia',team2:'Servesila',date:'23 Mei 2026',time:'16.00 WITA',stadium:'Ahmad Internasional Stadium',flag1:'https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png',flag2:'https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg'})">🎟️ BELI TIKET</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- GRUP B -->
-    <div class="tiket-grup-block">
-      <div class="tiket-grup-header"><span class="tiket-grup-letter">B</span><span class="tiket-grup-name">GROUP B</span></div>
-      <div class="tiket-cards">
-        <div class="tiket-card">
-          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP B · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
-          <div class="tiket-matchup">
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span>Cabangbungin Raya</span></div>
-            <div class="tiket-vs">VS</div>
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span>Lichtenburg</span></div>
-          </div>
-          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Wineriasia Center Stadium</span><span class="tiket-time">20.00 WITA</span></div>
-          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'B',match:'MATCH 1',team1:'Cabangbungin Raya',team2:'Lichtenburg',date:'23 Mei 2026',time:'20.00 WITA',stadium:'Wineriasia Center Stadium',flag1:'https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg'})">🎟️ BELI TIKET</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- GRUP C -->
-    <div class="tiket-grup-block">
-      <div class="tiket-grup-header"><span class="tiket-grup-letter">C</span><span class="tiket-grup-name">GROUP C</span></div>
-      <div class="tiket-cards">
-        <div class="tiket-card">
-          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP C · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
-          <div class="tiket-matchup">
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span>Sopozia</span></div>
-            <div class="tiket-vs">VS</div>
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span>Islamnezia</span></div>
-          </div>
-          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Al Jamasyia Stadium</span><span class="tiket-time">22.00 WITA</span></div>
-          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'C',match:'MATCH 1',team1:'Sopozia',team2:'Islamnezia',date:'23 Mei 2026',time:'22.00 WITA',stadium:'Al Jamasyia Stadium',flag1:'https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg'})">🎟️ BELI TIKET</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- GRUP D -->
-    <div class="tiket-grup-block">
-      <div class="tiket-grup-header"><span class="tiket-grup-letter">D</span><span class="tiket-grup-name">GROUP D</span></div>
-      <div class="tiket-cards">
-        <div class="tiket-card">
-          <div class="tiket-card-header"><span class="tiket-card-grup">⚽ GROUP D · MATCH 1</span><span class="tiket-card-date">23 MEI 2026</span></div>
-          <div class="tiket-matchup">
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span>North Erlaska</span></div>
-            <div class="tiket-vs">VS</div>
-            <div class="tiket-team"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span>Gladiolrep</span></div>
-          </div>
-          <div class="tiket-card-footer"><span class="tiket-stadium">🏟️ Al Walsyia Stadium</span><span class="tiket-time">23.00 WITA</span></div>
-          <button class="btn-beli-tiket" onclick="bukaBeli({grup:'D',match:'MATCH 1',team1:'North Erlaska',team2:'Gladiolrep',date:'23 Mei 2026',time:'23.00 WITA',stadium:'Al Walsyia Stadium',flag1:'https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg',flag2:'https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg'})">🎟️ BELI TIKET</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <footer>
-    <div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div>
-    <p class="footer-hashtag">#UnitingFictionalNations</p>
-    <p class="footer-copy">&copy; 2026 IFFA AHMAD CUP. Semua hak cipta dilindungi.</p>
-  </footer>
-</div>
-
-<!-- ===== MODAL BELI TIKET ===== -->
-<div class="tiket-modal-overlay" id="tiketModalOverlay">
-  <div class="tiket-modal">
-    <div class="tiket-modal-header">
-      <h3>🎟️ BELI TIKET</h3>
-      <button class="tiket-modal-close" onclick="tutupBeli()">✕</button>
-    </div>
-    <div class="tiket-modal-body">
-      <div class="tiket-modal-match">
-        <div class="tiket-modal-match-teams" id="modalMatchTeams">—</div>
-        <div class="tiket-modal-match-info" id="modalMatchInfo">—</div>
-      </div>
-      <label class="tiket-form-label">Nama Pemegang Tiket *</label>
-      <input class="tiket-input-nama" id="inputNamaTiket" type="text" placeholder="Masukkan nama lengkap kamu...">
-      <div class="tiket-seat-section">
-        <label class="tiket-form-label">Pilih Kategori Kursi</label>
-        <div class="tiket-seat-options">
-          <div class="tiket-seat-btn selected" onclick="pilihKursi(this,'Tribun Utara')">🟦 Tribun Utara</div>
-          <div class="tiket-seat-btn" onclick="pilihKursi(this,'Tribun Selatan')">🟩 Tribun Selatan</div>
-          <div class="tiket-seat-btn" onclick="pilihKursi(this,'VIP')">⭐ VIP</div>
-          <div class="tiket-seat-btn" onclick="pilihKursi(this,'VVIP')">👑 VVIP</div>
-        </div>
-      </div>
-      <button class="btn-download-tiket" id="btnDownloadTiket" onclick="downloadTiket()">⬇️ DOWNLOAD TIKET</button>
-      <div class="tiket-modal-status" id="tiketModalStatus"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Canvas untuk generate tiket -->
-<canvas id="tiketCanvas" width="900" height="380"></canvas>
-
 <script>
 // ===== CONFIG SUPABASE =====
 const SUPABASE_URL = 'https://imexqgicnkikdrdcjkmt.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltZXhxZ2ljbmtpa2RyZGNqa210Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NDYzOTksImV4cCI6MjA5MzEyMjM5OX0.EANfZgocppJQiicjH4IAKOchsD7qtwcvp7JHmawWY2o';
+// Nama bucket Supabase Storage untuk foto berita
 const STORAGE_BUCKET = 'berita-images';
 
-// ===== FUNGSI SUPABASE (SUDAH DIPERBAIKI) =====
 async function supabaseFetch(path, options = {}) {
-  const headers = {
-    'apikey': SUPABASE_ANON_KEY,
-    'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-    'Content-Type': 'application/json',
-  };
-  if (options.prefer) {
-    headers['Prefer'] = options.prefer;
-  }
   const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
-    method: options.method || 'GET',
-    headers: headers,
-    body: options.body || undefined
+    ...options,
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': options.prefer || '',
+      ...(options.headers || {})
+    }
   });
   return res;
 }
 
 // ===== Upload file ke Supabase Storage =====
 async function uploadImageToSupabase(file) {
+  // Buat nama file unik
   const ext = file.name.split('.').pop().toLowerCase();
-  const fileName = 'berita_' + Date.now() + '_' + Math.random().toString(36).substr(2, 8) + '.' + ext;
-  const res = await fetch(SUPABASE_URL + '/storage/v1/object/' + STORAGE_BUCKET + '/' + fileName, {
+  const fileName = `berita_${Date.now()}_${Math.random().toString(36).substr(2, 8)}.${ext}`;
+  const filePath = fileName;
+
+  const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${STORAGE_BUCKET}/${filePath}`, {
     method: 'POST',
     headers: {
       'apikey': SUPABASE_ANON_KEY,
@@ -1130,11 +1410,14 @@ async function uploadImageToSupabase(file) {
     },
     body: file
   });
+
   if (!res.ok) {
     const err = await res.text();
     throw new Error('Upload gagal: ' + err);
   }
-  return SUPABASE_URL + '/storage/v1/object/public/' + STORAGE_BUCKET + '/' + fileName;
+
+  // Return public URL
+  return `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}/${filePath}`;
 }
 
 // ===== UTILITY =====
@@ -1153,10 +1436,6 @@ function showPage(pageId) {
   closeMenu();
   window.scrollTo(0, 0);
   if (pageId === 'berita') renderBeritaGrid();
-  if (pageId === 'jadwal') {
-    resetWinBars();
-    setTimeout(setupWinBarObserver, 300);
-  }
 }
 
 const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -1230,7 +1509,7 @@ songList.forEach((track, i) => {
   const item = document.createElement('div');
   item.className = 'playlist-item' + (i === 0 ? ' active' : '');
   item.id = 'track-' + i;
-  item.innerHTML = '<span class="track-num">' + (i+1) + '</span><span>' + track.title + '</span>';
+  item.innerHTML = `<span class="track-num">${i+1}</span><span>${track.title}</span>`;
   item.onclick = () => playSong(i);
   playlistEl.appendChild(item);
 });
@@ -1239,7 +1518,7 @@ function loadSong(index, autoplay) {
   currentIndex = index;
   nowPlaying.textContent = songList[index].title;
   document.querySelectorAll('.playlist-item').forEach((el, i) => el.classList.toggle('active', i === index));
-  iframe.src = 'https://www.youtube.com/embed/' + songList[index].id + '?autoplay=' + (autoplay?1:0) + '&controls=0&loop=0&enablejsapi=1';
+  iframe.src = `https://www.youtube.com/embed/${songList[index].id}?autoplay=${autoplay?1:0}&controls=0&loop=0&enablejsapi=1`;
   if (autoplay) {
     isPlaying = true;
     playPauseBtn.textContent = '⏸';
@@ -1250,7 +1529,7 @@ function playSong(i) { started = true; loadSong(i, true); }
 function togglePlay() {
   if (!started) { started = true; loadSong(currentIndex, true); return; }
   if (isPlaying) {
-    iframe.src = 'https://www.youtube.com/embed/' + songList[currentIndex].id + '?autoplay=0&controls=0&mute=1';
+    iframe.src = `https://www.youtube.com/embed/${songList[currentIndex].id}?autoplay=0&controls=0&mute=1`;
     isPlaying = false;
     playPauseBtn.textContent = '▶';
     playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
@@ -1270,7 +1549,7 @@ nowPlaying.textContent = songList[0].title;
 playerBars.querySelectorAll('.bar').forEach(b => b.style.animationPlayState = 'paused');
 
 // ===== FOTO UPLOAD LOGIC =====
-let uploadedImageUrl = null;
+let uploadedImageUrl = null; // URL hasil upload ke Supabase Storage
 
 function switchFotoTab(tab) {
   document.getElementById('tabGaleri').classList.toggle('active', tab === 'galeri');
@@ -1280,6 +1559,7 @@ function switchFotoTab(tab) {
 }
 
 function triggerFileInput() {
+  // Hanya trigger jika tidak sedang upload dan belum ada preview
   const previewWrap = document.getElementById('fotoPreviewWrap');
   if (previewWrap.style.display === 'block') return;
   document.getElementById('inputFileGambar').click();
@@ -1323,31 +1603,55 @@ function showFotoPreview(url) {
   document.getElementById('fotoUploadArea').classList.add('has-image');
 }
 
+// File input change handler
 document.getElementById('inputFileGambar').addEventListener('change', async function(e) {
   const file = e.target.files[0];
   if (!file) return;
-  if (!file.type.startsWith('image/')) { alert('File harus berupa gambar!'); this.value = ''; return; }
-  if (file.size > 5 * 1024 * 1024) { alert('Ukuran gambar tidak boleh lebih dari 5MB!'); this.value = ''; return; }
+
+  // Validasi tipe file
+  if (!file.type.startsWith('image/')) {
+    alert('File harus berupa gambar (JPG, PNG, WEBP, dll.)');
+    this.value = '';
+    return;
+  }
+
+  // Validasi ukuran file (maks 5MB)
+  if (file.size > 5 * 1024 * 1024) {
+    alert('Ukuran gambar tidak boleh lebih dari 5MB!');
+    this.value = '';
+    return;
+  }
+
+  // Tampilkan preview lokal dulu
   const localUrl = URL.createObjectURL(file);
   showFotoPreview(localUrl);
+
+  // Upload ke Supabase Storage
   try {
     setFotoProgress(30, '⏳ Mengupload foto ke server...');
     const publicUrl = await uploadImageToSupabase(file);
     uploadedImageUrl = publicUrl;
     setFotoProgress(100, '✅ Upload berhasil!');
-    setTimeout(() => { showFotoPreview(publicUrl); }, 600);
+    setTimeout(() => {
+      showFotoPreview(publicUrl);
+    }, 600);
   } catch (err) {
     console.error('Upload error:', err);
+    // Jika upload ke storage gagal, pakai base64 sebagai fallback
     uploadedImageUrl = null;
+    // Coba simpan sebagai base64 jika file kecil
     if (file.size <= 1 * 1024 * 1024) {
       try {
         const base64 = await fileToBase64(file);
         uploadedImageUrl = base64;
         showFotoPreview(base64);
         document.getElementById('fotoProgress').classList.remove('active');
-      } catch { alert('Gagal mengupload gambar. Coba gunakan tab URL.'); resetFotoPreview(); }
+      } catch {
+        alert('Gagal mengupload gambar. Coba gunakan tab URL saja.');
+        resetFotoPreview();
+      }
     } else {
-      alert('Upload ke server gagal. Coba gunakan tab "Gunakan URL".');
+      alert('Upload ke server gagal. Coba gunakan tab "Gunakan URL" sebagai alternatif, atau coba lagi.');
       resetFotoPreview();
     }
   }
@@ -1362,9 +1666,15 @@ function fileToBase64(file) {
   });
 }
 
+// Drag and drop support
 const fotoUploadArea = document.getElementById('fotoUploadArea');
-fotoUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); fotoUploadArea.classList.add('dragover'); });
-fotoUploadArea.addEventListener('dragleave', () => { fotoUploadArea.classList.remove('dragover'); });
+fotoUploadArea.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  fotoUploadArea.classList.add('dragover');
+});
+fotoUploadArea.addEventListener('dragleave', () => {
+  fotoUploadArea.classList.remove('dragover');
+});
 fotoUploadArea.addEventListener('drop', (e) => {
   e.preventDefault();
   fotoUploadArea.classList.remove('dragover');
@@ -1377,6 +1687,7 @@ fotoUploadArea.addEventListener('drop', (e) => {
   }
 });
 
+// Preview URL
 document.getElementById('inputGambarUrl').addEventListener('input', function() {
   const url = this.value.trim();
   const wrap = document.getElementById('imgUrlPreviewWrap');
@@ -1391,7 +1702,7 @@ document.getElementById('inputGambarUrl').addEventListener('input', function() {
   }
 });
 
-// ===== BERITA =====
+// ===== BERITA — SUPABASE =====
 function escapeHtml(str) {
   const d = document.createElement('div');
   d.appendChild(document.createTextNode(str || ''));
@@ -1422,6 +1733,8 @@ async function publishBerita() {
   const isi = document.getElementById('inputIsi').value.trim();
   const status = document.getElementById('publishStatus');
   const btn = document.getElementById('btnPublish');
+
+  // Tentukan sumber gambar: upload (galeri) atau URL
   const activeTab = document.getElementById('tabGaleri').classList.contains('active') ? 'galeri' : 'url';
   let gambar_url = null;
   if (activeTab === 'galeri') {
@@ -1429,33 +1742,49 @@ async function publishBerita() {
   } else {
     gambar_url = document.getElementById('inputGambarUrl').value.trim() || null;
   }
+
   if (!judul || !penulis || !isi) {
     status.className = 'publish-status error';
     status.textContent = '⚠️ Judul, penulis, dan isi berita wajib diisi!';
     return;
   }
+
   btn.disabled = true;
   btn.textContent = '⏳ Mempublikasikan...';
   status.className = 'publish-status';
+
   try {
     const now = new Date();
     const tanggal = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })
       + ' · ' + now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
     const res = await supabaseFetch('berita', {
       method: 'POST',
       prefer: 'return=minimal',
       body: JSON.stringify({ judul, penulis, isi, tanggal, gambar_url })
     });
-    if (!res.ok) { const err = await res.text(); throw new Error(err); }
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(err);
+    }
+
     status.className = 'publish-status success';
-    status.textContent = '✅ Berita berhasil dipublikasikan!';
+    status.textContent = '✅ Berita berhasil dipublikasikan! Semua orang bisa melihatnya.';
     btn.textContent = '✅ BERHASIL!';
+
     await renderBeritaGrid();
-    setTimeout(() => { tutupFormBerita(); btn.disabled = false; btn.textContent = '🚀 PUBLIKASIKAN BERITA'; }, 2000);
+
+    setTimeout(() => {
+      tutupFormBerita();
+      btn.disabled = false;
+      btn.textContent = '🚀 PUBLIKASIKAN BERITA';
+    }, 2000);
+
   } catch (err) {
     console.error('publishBerita error:', err);
     status.className = 'publish-status error';
-    status.textContent = '❌ Gagal: ' + (err.message || 'Coba lagi.');
+    status.textContent = '❌ Gagal mempublikasikan: ' + (err.message || 'Coba lagi.');
     btn.disabled = false;
     btn.textContent = '🚀 PUBLIKASIKAN BERITA';
   }
@@ -1464,35 +1793,44 @@ async function publishBerita() {
 async function renderBeritaGrid() {
   const grid = document.getElementById('beritaGrid');
   if (!grid) return;
+
   grid.innerHTML = '<div class="berita-loading">⏳ &nbsp; Memuat berita...</div>';
+
   try {
     const res = await supabaseFetch('berita?select=*&order=created_at.desc&limit=50');
     if (!res.ok) throw new Error('Gagal mengambil data');
     const data = await res.json();
+
     if (!data || data.length === 0) {
-      grid.innerHTML = '<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>';
+      grid.innerHTML = `<div class="berita-empty"><span>📰</span>Belum ada berita.<br>Jadilah yang pertama menulis!</div>`;
       return;
     }
+
     grid.innerHTML = '';
     data.forEach(artikel => {
       const excerpt = artikel.isi.length > 120 ? artikel.isi.substring(0, 120) + '…' : artikel.isi;
       const card = document.createElement('div');
       card.className = 'berita-card';
-      card.innerHTML =
-        (artikel.gambar_url
-          ? '<img class="berita-card-img" src="' + escapeHtml(artikel.gambar_url) + '" alt="' + escapeHtml(artikel.judul) + '" loading="lazy" onerror="this.style.display=\'none\'">'
-          : '<div class="berita-card-img-placeholder">📰</div>')
-        + '<div class="berita-card-body">'
-        + '<div class="berita-card-meta">' + escapeHtml(artikel.penulis) + ' <span>·</span> ' + escapeHtml(artikel.tanggal) + '</div>'
-        + '<div class="berita-card-title">' + escapeHtml(artikel.judul) + '</div>'
-        + '<div class="berita-card-excerpt">' + escapeHtml(excerpt) + '</div>'
-        + '</div>';
+      card.innerHTML = `
+        ${artikel.gambar_url
+          ? `<img class="berita-card-img" src="${escapeHtml(artikel.gambar_url)}" alt="${escapeHtml(artikel.judul)}" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="berita-card-img-placeholder">📰</div>`
+        }
+        <div class="berita-card-body">
+          <div class="berita-card-meta">
+            ${escapeHtml(artikel.penulis)} <span>·</span> ${escapeHtml(artikel.tanggal)}
+          </div>
+          <div class="berita-card-title">${escapeHtml(artikel.judul)}</div>
+          <div class="berita-card-excerpt">${escapeHtml(excerpt)}</div>
+        </div>
+      `;
       card.onclick = () => bukaDetailBerita(artikel);
       grid.appendChild(card);
     });
+
   } catch (err) {
     console.error('renderBeritaGrid error:', err);
-    grid.innerHTML = '<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.</div>';
+    grid.innerHTML = `<div class="berita-empty"><span>⚠️</span>Gagal memuat berita.<br>Periksa koneksi internet kamu.</div>`;
   }
 }
 
@@ -1507,11 +1845,13 @@ function bukaDetailBerita(artikel) {
     img.style.display = 'none';
   }
   document.getElementById('detailMeta').innerHTML =
-    '<strong>' + escapeHtml(artikel.penulis) + '</strong> <span>·</span> ' + escapeHtml(artikel.tanggal);
+    `<strong>${escapeHtml(artikel.penulis)}</strong> <span>·</span> ${escapeHtml(artikel.tanggal)}`;
   document.getElementById('detailJudul').textContent = artikel.judul;
   document.getElementById('detailIsi').textContent = artikel.isi;
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  // Reset & load komentar
   currentArtikelId = artikel.id;
   document.getElementById('inputKomentarNama').value = '';
   document.getElementById('inputKomentarIsi').value = '';
@@ -1541,25 +1881,30 @@ async function renderKomentar(artikelId) {
   const countEl = document.getElementById('komentarCount');
   if (!list) return;
   list.innerHTML = '<div class="komentar-loading">⏳ &nbsp; Memuat komentar...</div>';
+
   try {
-    const res = await supabaseFetch('komentar?berita_id=eq.' + artikelId + '&order=created_at.asc&select=*');
+    const res = await supabaseFetch(`komentar?berita_id=eq.${artikelId}&order=created_at.asc&select=*`);
     if (!res.ok) throw new Error('Gagal');
     const data = await res.json();
+
     if (countEl) countEl.textContent = data.length;
+
     if (!data || data.length === 0) {
       list.innerHTML = '<div class="komentar-empty">💬 Belum ada komentar. Jadilah yang pertama!</div>';
       return;
     }
+
     list.innerHTML = '';
     data.forEach(k => {
       const item = document.createElement('div');
       item.className = 'komentar-item';
-      item.innerHTML =
-        '<div class="komentar-item-header">'
-        + '<span class="komentar-nama">' + escapeHtml(k.nama) + '</span>'
-        + '<span class="komentar-waktu">' + escapeHtml(k.tanggal) + '</span>'
-        + '</div>'
-        + '<div class="komentar-isi">' + escapeHtml(k.isi) + '</div>';
+      item.innerHTML = `
+        <div class="komentar-item-header">
+          <span class="komentar-nama">${escapeHtml(k.nama)}</span>
+          <span class="komentar-waktu">${escapeHtml(k.tanggal)}</span>
+        </div>
+        <div class="komentar-isi">${escapeHtml(k.isi)}</div>
+      `;
       list.appendChild(item);
     });
   } catch (err) {
@@ -1593,18 +1938,10 @@ async function kirimKomentar() {
     const res = await supabaseFetch('komentar', {
       method: 'POST',
       prefer: 'return=minimal',
-      body: JSON.stringify({
-        berita_id: currentArtikelId,
-        nama: nama,
-        isi: isi,
-        tanggal: tanggal
-      })
+      body: JSON.stringify({ berita_id: currentArtikelId, nama, isi, tanggal })
     });
 
-    if (!res.ok) {
-      const errText = await res.text();
-      throw new Error(errText);
-    }
+    if (!res.ok) throw new Error(await res.text());
 
     document.getElementById('inputKomentarNama').value = '';
     document.getElementById('inputKomentarIsi').value = '';
@@ -1612,11 +1949,11 @@ async function kirimKomentar() {
     statusEl.textContent = '✅ Komentar berhasil dikirim!';
     statusEl.style.display = 'block';
     setTimeout(() => { statusEl.style.display = 'none'; }, 2500);
+
     await renderKomentar(currentArtikelId);
   } catch (err) {
-    console.error('kirimKomentar error:', err);
     statusEl.className = 'komentar-status error';
-    statusEl.textContent = '❌ Gagal mengirim: ' + (err.message || 'Coba lagi.');
+    statusEl.textContent = '❌ Gagal mengirim komentar. Coba lagi.';
     statusEl.style.display = 'block';
   } finally {
     btn.disabled = false;
@@ -1624,12 +1961,207 @@ async function kirimKomentar() {
   }
 }
 
-// ===== WIN BAR =====
+// ===== SQUAD =====
+const SQUAD_PASSWORD = 'iffa2026';
+const POSISI_CONFIG = { GK: 1, DEF: 4, MID: 4, FWD: 3 };
+let currentSquadTim = null;
+let currentSquadNama = null;
+let currentSquadFlag = null;
+
+async function bukaSquad(timId, timNama, flagUrl) {
+  currentSquadTim = timId;
+  currentSquadNama = timNama;
+  currentSquadFlag = flagUrl;
+  document.getElementById('squadModalFlag').src = flagUrl;
+  document.getElementById('squadModalTitle').textContent = timNama;
+  document.getElementById('squadContent').innerHTML = '<div class="squad-loading">⏳ Memuat squad...</div>';
+  document.getElementById('squadOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  await renderSquad(timId);
+}
+
+async function renderSquad(timId) {
+  const content = document.getElementById('squadContent');
+  try {
+    const res = await supabaseFetch(`squad?tim_id=eq.${timId}&order=posisi.asc,nomor.asc&select=*`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+
+    if (!data || data.length === 0) {
+      content.innerHTML = `<div class="squad-empty"><span>👕</span>Squad belum diupload.<br>Klik "Upload / Edit Squad" untuk menambahkan.</div>`;
+      return;
+    }
+
+    const byPos = { GK: [], DEF: [], MID: [], FWD: [] };
+    data.forEach(p => { if (byPos[p.posisi]) byPos[p.posisi].push(p); });
+
+    const posLabels = { GK: '🥅 Penjaga Gawang', DEF: '🛡️ Pertahanan', MID: '⚙️ Gelandang', FWD: '⚡ Penyerang' };
+    let html = '';
+    ['GK','DEF','MID','FWD'].forEach(pos => {
+      if (byPos[pos].length === 0) return;
+      html += `<div class="squad-position-row">
+        <div class="squad-position-label">${posLabels[pos]}</div>
+        <div class="squad-players-row">`;
+      byPos[pos].forEach(p => {
+        const foto = p.foto_url
+          ? `<img class="squad-player-photo" src="${escapeHtml(p.foto_url)}" alt="${escapeHtml(p.nama)}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><circle cx=%2232%22 cy=%2232%22 r=%2232%22 fill=%22%23222%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-size=%2228%22>👤</text></svg>'">`
+          : `<div class="squad-player-photo" style="display:flex;align-items:center;justify-content:center;font-size:28px;">👤</div>`;
+        html += `<div class="squad-player-card">
+          ${foto}
+          <div class="squad-player-num">#${escapeHtml(String(p.nomor))}</div>
+          <div class="squad-player-name">${escapeHtml(p.nama)}</div>
+          <div class="squad-player-pos">${escapeHtml(p.posisi)}</div>
+        </div>`;
+      });
+      html += `</div></div>`;
+    });
+    content.innerHTML = html;
+  } catch {
+    content.innerHTML = `<div class="squad-empty"><span>⚠️</span>Gagal memuat squad.</div>`;
+  }
+}
+
+function tutupSquadModal(e) { if (e.target === document.getElementById('squadOverlay')) tutupSquad(); }
+function tutupSquad() {
+  document.getElementById('squadOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function bukaUploadSquad() {
+  // Reset password step
+  document.getElementById('squadPassInput').value = '';
+  document.getElementById('squadPassError').style.display = 'none';
+  document.getElementById('squadPassStep').style.display = 'flex';
+  document.getElementById('squadFormStep').classList.remove('active');
+  document.getElementById('squadUploadOverlay').classList.add('active');
+}
+
+function tutupUploadSquad() {
+  document.getElementById('squadUploadOverlay').classList.remove('active');
+}
+
+function cekPassword() {
+  const val = document.getElementById('squadPassInput').value;
+  if (val === SQUAD_PASSWORD) {
+    document.getElementById('squadPassError').style.display = 'none';
+    document.getElementById('squadPassStep').style.display = 'none';
+    buatFormSquad();
+    document.getElementById('squadFormStep').classList.add('active');
+  } else {
+    document.getElementById('squadPassError').style.display = 'block';
+    document.getElementById('squadPassInput').value = '';
+  }
+}
+
+async function buatFormSquad() {
+  // Load existing squad data
+  let existing = {};
+  try {
+    const res = await supabaseFetch(`squad?tim_id=eq.${currentSquadTim}&select=*`);
+    if (res.ok) {
+      const data = await res.json();
+      data.forEach(p => { existing[`${p.posisi}_${p.slot}`] = p; });
+    }
+  } catch {}
+
+  ['GK','DEF','MID','FWD'].forEach(pos => {
+    const container = document.getElementById('rows' + pos);
+    container.innerHTML = '';
+    const count = POSISI_CONFIG[pos];
+    for (let i = 0; i < count; i++) {
+      const key = `${pos}_${i}`;
+      const ex = existing[key] || {};
+      const row = document.createElement('div');
+      row.className = 'squad-player-row';
+      row.innerHTML = `
+        <div>
+          <div class="squad-row-label">#</div>
+          <input type="number" min="1" max="99" placeholder="No" value="${ex.nomor||''}" id="sq_${pos}_${i}_num" style="text-align:center;">
+        </div>
+        <div>
+          <div class="squad-row-label">Nama Pemain</div>
+          <input type="text" placeholder="Nama pemain..." value="${escapeHtml(ex.nama||'')}" id="sq_${pos}_${i}_nama">
+        </div>
+        <div>
+          <div class="squad-row-label">URL Foto (opsional)</div>
+          <input type="url" placeholder="https://..." value="${escapeHtml(ex.foto_url||'')}" id="sq_${pos}_${i}_foto">
+        </div>
+        <div style="text-align:center;">
+          <div class="squad-row-label">Posisi</div>
+          <div style="font-family:'Bebas Neue';font-size:16px;color:var(--gold);padding-top:6px;">${pos}</div>
+        </div>
+      `;
+      container.appendChild(row);
+    }
+  });
+  document.getElementById('squadSaveStatus').className = 'squad-save-status';
+  document.getElementById('squadSaveStatus').style.display = 'none';
+}
+
+async function simpanSquad() {
+  const btn = document.getElementById('btnSimpanSquad');
+  const statusEl = document.getElementById('squadSaveStatus');
+  btn.disabled = true;
+  btn.textContent = '⏳ Menyimpan...';
+  statusEl.className = 'squad-save-status';
+  statusEl.style.display = 'none';
+
+  try {
+    // Hapus squad lama tim ini
+    await supabaseFetch(`squad?tim_id=eq.${currentSquadTim}`, { method: 'DELETE', prefer: 'return=minimal' });
+
+    // Siapkan data baru
+    const players = [];
+    ['GK','DEF','MID','FWD'].forEach(pos => {
+      const count = POSISI_CONFIG[pos];
+      for (let i = 0; i < count; i++) {
+        const nama = document.getElementById(`sq_${pos}_${i}_nama`).value.trim();
+        const nomor = document.getElementById(`sq_${pos}_${i}_num`).value.trim();
+        const foto_url = document.getElementById(`sq_${pos}_${i}_foto`).value.trim() || null;
+        if (nama) {
+          players.push({ tim_id: currentSquadTim, nama, nomor: parseInt(nomor)||0, posisi: pos, slot: i, foto_url });
+        }
+      }
+    });
+
+    if (players.length > 0) {
+      const res = await supabaseFetch('squad', {
+        method: 'POST',
+        prefer: 'return=minimal',
+        body: JSON.stringify(players)
+      });
+      if (!res.ok) throw new Error(await res.text());
+    }
+
+    statusEl.className = 'squad-save-status success';
+    statusEl.textContent = '✅ Squad berhasil disimpan!';
+    statusEl.style.display = 'block';
+    btn.textContent = '✅ TERSIMPAN!';
+
+    // Refresh squad modal
+    await renderSquad(currentSquadTim);
+
+    setTimeout(() => {
+      tutupUploadSquad();
+      btn.disabled = false;
+      btn.textContent = '💾 SIMPAN SQUAD';
+    }, 1800);
+
+  } catch (err) {
+    statusEl.className = 'squad-save-status error';
+    statusEl.textContent = '❌ Gagal menyimpan. Coba lagi.';
+    statusEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = '💾 SIMPAN SQUAD';
+  }
+}
+
+// Enter key untuk password
+document.getElementById('squadPassInput').addEventListener('keydown', e => { if (e.key === 'Enter') cekPassword(); });
 const winBarData = [
   { leftId: 'bar-a-left', rightId: 'bar-a-right', pctLeftId: 'pct-a-left', pctRightId: 'pct-a-right', left: 56, right: 44 },
   { leftId: 'bar-b-left', rightId: 'bar-b-right', pctLeftId: 'pct-b-left', pctRightId: 'pct-b-right', left: 34, right: 66 },
   { leftId: 'bar-c-left', rightId: 'bar-c-right', pctLeftId: 'pct-c-left', pctRightId: 'pct-c-right', left: 40, right: 60 },
-  { leftId: 'bar-d-left', rightId: 'bar-d-right', pctLeftId: 'pct-d-left', pctRightId: 'pct-d-right', left: 30, right: 70 },
 ];
 
 function animateSingleBar(m) {
@@ -1638,8 +2170,10 @@ function animateSingleBar(m) {
   const pctL = document.getElementById(m.pctLeftId);
   const pctR = document.getElementById(m.pctRightId);
   if (!barL || !barR) return;
+
   barL.style.width = m.left + '%';
   barR.style.width = m.right + '%';
+
   let current = 0;
   const steps = 60;
   const interval = 1400 / steps;
@@ -1666,6 +2200,7 @@ function resetWinBars() {
     if (pl) pl.textContent = '0%';
     if (pr) pr.textContent = '0%';
   });
+  // Reset animated flag on wrap elements
   document.querySelectorAll('.jadwal-winbar-wrap').forEach(el => el.dataset.animated = '');
 }
 
@@ -1679,6 +2214,7 @@ function setupWinBarObserver() {
       }
     });
   }, { threshold: 0.6 });
+
   document.querySelectorAll('.jadwal-winbar-wrap').forEach((el, i) => {
     el.dataset.idx = i;
     el.dataset.animated = '';
@@ -1686,277 +2222,60 @@ function setupWinBarObserver() {
   });
 }
 
+// Pasang observer saat halaman jadwal dibuka, reset saat keluar
+const _origShowPage = showPage;
+window.showPage = function(pageId) {
+  _origShowPage(pageId);
+  if (pageId === 'jadwal') {
+    resetWinBars();
+    setTimeout(setupWinBarObserver, 300);
+  }
+};
+
 // ===== POPUP IKLAN =====
 (function() {
-  const COUNTDOWN = 10;
-  const circumference = 2 * Math.PI * 14;
-  const overlay = document.getElementById('adPopupOverlay');
-  const closeBtn = document.getElementById('adCloseBtn');
+  const COUNTDOWN = 10; // detik
+  const circumference = 2 * Math.PI * 14; // r=14 → ≈ 87.96
+
+  const overlay   = document.getElementById('adPopupOverlay');
+  const closeBtn  = document.getElementById('adCloseBtn');
   const countWrap = document.getElementById('adCountdownWrap');
-  const circle = document.getElementById('adCountdownCircle');
-  const numEl = document.getElementById('adCountdownNum');
-  circle.style.strokeDasharray = circumference;
+  const circle    = document.getElementById('adCountdownCircle');
+  const numEl     = document.getElementById('adCountdownNum');
+
+  circle.style.strokeDasharray  = circumference;
   circle.style.strokeDashoffset = 0;
+
   let remaining = COUNTDOWN;
   let timer = null;
+
   function tick() {
     remaining--;
     numEl.textContent = remaining;
+    // Animasi ring mengecil
     const offset = circumference * (1 - remaining / COUNTDOWN);
     circle.style.strokeDashoffset = offset;
+
     if (remaining <= 0) {
       clearInterval(timer);
       countWrap.style.display = 'none';
       closeBtn.classList.add('visible');
     }
   }
-  function startCountdown() { timer = setInterval(tick, 1000); }
+
+  function startCountdown() {
+    timer = setInterval(tick, 1000);
+  }
+
   window.tutupAdPopup = function() {
     overlay.style.animation = 'fadeInOverlay 0.3s ease reverse forwards';
     setTimeout(() => { overlay.classList.remove('active'); overlay.style.display = 'none'; }, 280);
     if (timer) clearInterval(timer);
   };
+
+  // Mulai countdown segera saat halaman load
   startCountdown();
 })();
-
-// ===== TIKET =====
-let currentMatchData = null;
-let selectedKursi = 'Tribun Utara';
-
-function bukaBeli(data) {
-  currentMatchData = data;
-  selectedKursi = 'Tribun Utara';
-  document.querySelectorAll('.tiket-seat-btn').forEach((b, i) => b.classList.toggle('selected', i === 0));
-  document.getElementById('modalMatchTeams').textContent = data.team1 + ' VS ' + data.team2;
-  document.getElementById('modalMatchInfo').textContent = 'GROUP ' + data.grup + ' · ' + data.date + ' · ' + data.time + ' · ' + data.stadium;
-  document.getElementById('inputNamaTiket').value = '';
-  document.getElementById('tiketModalStatus').className = 'tiket-modal-status';
-  document.getElementById('tiketModalStatus').textContent = '';
-  document.getElementById('tiketModalOverlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function tutupBeli() {
-  document.getElementById('tiketModalOverlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-function pilihKursi(el, kursi) {
-  selectedKursi = kursi;
-  document.querySelectorAll('.tiket-seat-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-function generateTicketNumber() {
-  return 'IAC-' + Math.random().toString(36).substr(2,4).toUpperCase() + '-' + Date.now().toString().slice(-5);
-}
-
-async function loadImg(url) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => resolve(img);
-    img.onerror = () => resolve(null);
-    img.src = url;
-  });
-}
-
-async function downloadTiket() {
-  const nama = document.getElementById('inputNamaTiket').value.trim();
-  const statusEl = document.getElementById('tiketModalStatus');
-  if (!nama) {
-    statusEl.className = 'tiket-modal-status error';
-    statusEl.textContent = '⚠️ Nama wajib diisi!';
-    return;
-  }
-
-  const btn = document.getElementById('btnDownloadTiket');
-  btn.disabled = true;
-  btn.textContent = '⏳ Membuat tiket...';
-  statusEl.className = 'tiket-modal-status';
-
-  const d = currentMatchData;
-  const ticketNo = generateTicketNumber();
-  const canvas = document.getElementById('tiketCanvas');
-  const ctx = canvas.getContext('2d');
-  const W = 900, H = 380;
-  canvas.width = W; canvas.height = H;
-
-  // ---- Background gradient gelap ----
-  const bg = ctx.createLinearGradient(0, 0, W, H);
-  bg.addColorStop(0, '#0a0a0a');
-  bg.addColorStop(0.5, '#111100');
-  bg.addColorStop(1, '#0a0a0a');
-  ctx.fillStyle = bg;
-  ctx.fillRect(0, 0, W, H);
-
-  // ---- Gold border ----
-  ctx.strokeStyle = '#C9991A';
-  ctx.lineWidth = 4;
-  ctx.strokeRect(4, 4, W-8, H-8);
-
-  // ---- Inner border ----
-  ctx.strokeStyle = '#A67C12';
-  ctx.lineWidth = 1;
-  ctx.strokeRect(14, 14, W-28, H-28);
-
-  // ---- Left gold bar ----
-  const leftBar = ctx.createLinearGradient(0, 0, 0, H);
-  leftBar.addColorStop(0, '#C9991A');
-  leftBar.addColorStop(0.5, '#e0aa20');
-  leftBar.addColorStop(1, '#A67C12');
-  ctx.fillStyle = leftBar;
-  ctx.fillRect(20, 20, 10, H-40);
-
-  // ---- Torn edge (garis putus tengah) ----
-  ctx.save();
-  ctx.setLineDash([8, 6]);
-  ctx.strokeStyle = '#333';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(620, 20);
-  ctx.lineTo(620, H-20);
-  ctx.stroke();
-  ctx.restore();
-
-  // ---- Circle cutout kiri ----
-  ctx.fillStyle = '#0a0a0a';
-  ctx.beginPath(); ctx.arc(620, 0, 18, 0, Math.PI*2); ctx.fill();
-  ctx.beginPath(); ctx.arc(620, H, 18, 0, Math.PI*2); ctx.fill();
-
-  // ---- LOGO text kiri ----
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 13px Arial';
-  ctx.letterSpacing = '4px';
-  ctx.fillText('IFFA AHMAD CUP 2026', 42, 52);
-
-  ctx.fillStyle = '#555';
-  ctx.font = '10px Arial';
-  ctx.fillText('OFFICIAL MATCH TICKET', 42, 68);
-
-  // ---- Garis dekorasi ----
-  ctx.fillStyle = '#C9991A';
-  ctx.fillRect(42, 76, 200, 2);
-
-  // ---- GROUP badge ----
-  ctx.fillStyle = '#1a1400';
-  ctx.beginPath();
-  ctx.roundRect(42, 88, 100, 28, 4);
-  ctx.fill();
-  ctx.strokeStyle = '#C9991A';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 12px Arial';
-  ctx.fillText('GROUP ' + d.grup + ' · ' + d.match, 52, 107);
-
-  // ---- Teams ----
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 30px Arial';
-  ctx.fillText(d.team1, 42, 160);
-
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 22px Arial';
-  ctx.fillText('VS', 42, 195);
-
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 30px Arial';
-  ctx.fillText(d.team2, 42, 235);
-
-  // ---- Load & draw flags ----
-  const [flag1, flag2] = await Promise.all([loadImg(d.flag1), loadImg(d.flag2)]);
-  if (flag1) { ctx.save(); ctx.beginPath(); ctx.roundRect(370, 130, 90, 60, 5); ctx.clip(); ctx.drawImage(flag1, 370, 130, 90, 60); ctx.restore(); }
-  if (flag2) { ctx.save(); ctx.beginPath(); ctx.roundRect(500, 130, 90, 60, 5); ctx.clip(); ctx.drawImage(flag2, 500, 130, 90, 60); ctx.restore(); }
-
-  // ---- Info grid kiri bawah ----
-  const infos = [
-    { label: 'TANGGAL', val: d.date },
-    { label: 'WAKTU', val: d.time },
-    { label: 'STADION', val: d.stadium },
-  ];
-  let infoY = 275;
-  infos.forEach(info => {
-    ctx.fillStyle = '#888';
-    ctx.font = '10px Arial';
-    ctx.fillText(info.label, 42, infoY);
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 13px Arial';
-    ctx.fillText(info.val, 42, infoY + 16);
-    infoY += 38;
-  });
-
-  // ---- Stub kanan (area setelah garis putus) ----
-  // Kursi kategori
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 11px Arial';
-  ctx.fillText('KATEGORI', 640, 55);
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 22px Arial';
-  ctx.fillText(selectedKursi, 640, 82);
-
-  // Garis pemisah
-  ctx.fillStyle = '#333';
-  ctx.fillRect(635, 100, 240, 1);
-
-  // Nama pemegang
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 11px Arial';
-  ctx.fillText('NAMA PEMEGANG TIKET', 640, 125);
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 18px Arial';
-  // Truncate nama if too long
-  const namaDisplay = nama.length > 18 ? nama.substring(0, 18) + '…' : nama;
-  ctx.fillText(namaDisplay.toUpperCase(), 640, 150);
-
-  ctx.fillStyle = '#333';
-  ctx.fillRect(635, 168, 240, 1);
-
-  // No Tiket
-  ctx.fillStyle = '#C9991A';
-  ctx.font = 'bold 11px Arial';
-  ctx.fillText('NO. TIKET', 640, 192);
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 15px Arial';
-  ctx.fillText(ticketNo, 640, 213);
-
-  ctx.fillStyle = '#333';
-  ctx.fillRect(635, 228, 240, 1);
-
-  // QR placeholder (kotak dekoratif)
-  ctx.fillStyle = '#1a1a1a';
-  ctx.beginPath(); ctx.roundRect(640, 240, 80, 80, 6); ctx.fill();
-  ctx.strokeStyle = '#C9991A'; ctx.lineWidth = 1.5; ctx.stroke();
-  // Mini QR pattern
-  const qrSize = 6;
-  const qrPattern = [[1,1,1,1,1,1,1],[1,0,0,0,0,0,1],[1,0,1,1,1,0,1],[1,0,1,0,1,0,1],[1,0,1,1,1,0,1],[1,0,0,0,0,0,1],[1,1,1,1,1,1,1]];
-  qrPattern.forEach((row, ri) => row.forEach((cell, ci) => {
-    ctx.fillStyle = cell ? '#C9991A' : '#1a1a1a';
-    ctx.fillRect(648 + ci*qrSize, 248 + ri*qrSize, qrSize-1, qrSize-1);
-  }));
-  ctx.fillStyle = '#555';
-  ctx.font = '9px Arial';
-  ctx.fillText('SCAN TO VERIFY', 640, 338);
-
-  // ---- Bottom watermark ----
-  ctx.fillStyle = '#222';
-  ctx.font = 'bold 9px Arial';
-  ctx.fillText('IFFA AHMAD CUP 2026 · #UnitingFictionalNations · TIKET RESMI', 42, H-24);
-
-  // ---- Download ----
-  const link = document.createElement('a');
-  link.download = 'Tiket_IAC2026_' + d.team1.replace(/\s/g,'') + 'vs' + d.team2.replace(/\s/g,'') + '_' + nama.replace(/\s/g,'') + '.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
-
-  btn.disabled = false;
-  btn.textContent = '⬇️ DOWNLOAD TIKET';
-  statusEl.className = 'tiket-modal-status success';
-  statusEl.textContent = '✅ Tiket berhasil didownload!';
-  setTimeout(() => {
-    statusEl.className = 'tiket-modal-status';
-    tutupBeli();
-  }, 2000);
-}
 </script>
 </body>
 </html>
