@@ -476,6 +476,7 @@
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
     <li><a onclick="showPage('berita')" data-page="berita">Berita</a></li>
     <li><a onclick="showPage('tiket')" data-page="tiket">Tiket</a></li>
+    <li><a onclick="showPage('game')" data-page="game" style="color:#C9991A;font-weight:900;">🎮 GAME</a></li>
   </ul>
   <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
 </nav>
@@ -490,6 +491,7 @@
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
       <li><a onclick="showPage('berita')">Berita</a></li>
       <li><a onclick="showPage('tiket')">Tiket</a></li>
+      <li><a onclick="showPage('game')" style="color:#C9991A;font-weight:900;">🎮 GAME</a></li>
     </ul>
   </div>
 </div>
@@ -605,9 +607,13 @@
       <div class="jadwal-cards">
         <div class="jadwal-card">
           <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕓 16.00 WITA</span></div>
-          <div class="jadwal-matchup"><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png"><span>Republik Islam Wineriasia</span></div><div class="jadwal-vs">VS</div><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg"><span>Servesila</span></div></div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" onclick="bukaSquad('Wineriasia vs Servesila','https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png','Wineriasia','Coach: Patrick Kluivert','squad-a1')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Wineriasia"><span>Republik Islam Wineriasia</span></div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" onclick="bukaSquad('Servesila Squad','https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg','Servesila','Coach: Kosim Veneza','squad-a1-serv')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Servesila"><span>Servesila</span></div>
+          </div>
           <div class="jadwal-winbar-wrap" data-left="56" data-right="44"><div class="jadwal-winbar-labels"><div><div class="winbar-team-label left">Wineriasia</div><div class="winbar-pct-label left" id="pct-a-left">0%</div></div><div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div><div style="text-align:right;"><div class="winbar-team-label right">Servesila</div><div class="winbar-pct-label right" id="pct-a-right">0%</div></div></div><div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-a-left"></div><div class="winbar-fill-right" id="bar-a-right"></div></div></div></div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span><div style="display:flex;align-items:center;gap:10px;"><button class="btn-lihat-squad" onclick="bukaSquad('Wineriasia vs Servesila','https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png','Wineriasia','Coach: Patrick Kluivert','squad-a1')">👥 SQUAD</button><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Ahmad Internasional Stadium</span><div style="display:flex;align-items:center;gap:8px;"><span style="font-family:'Barlow Condensed';font-size:11px;color:#555;letter-spacing:1px;">👆 Klik bendera untuk squad</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
         </div>
       </div>
     </div>
@@ -617,9 +623,13 @@
       <div class="jadwal-cards">
         <div class="jadwal-card">
           <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕗 20.00 WITA</span></div>
-          <div class="jadwal-matchup"><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg"><span>Cabangbungin Raya</span></div><div class="jadwal-vs">VS</div><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg"><span>Lichtenburg</span></div></div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg" onclick="bukaSquad('Cabangbungin Raya Squad','https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg','Cabangbungin Raya','Coach: Virkam Sigh','squad-b1')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Cabangbungin Raya"><span>Cabangbungin Raya</span></div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg" onclick="bukaSquad('Lichtenburg Squad','https://www.image2url.com/r2/default/images/1776953428316-6da0ab00-ada8-443f-9e45-f1a1edc9503b.jpeg','Lichtenburg','Coach: Toni Kroos','squad-b1-licht')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Lichtenburg"><span>Lichtenburg</span></div>
+          </div>
           <div class="jadwal-winbar-wrap" data-left="34" data-right="66"><div class="jadwal-winbar-labels"><div><div class="winbar-team-label left">Cabangbungin</div><div class="winbar-pct-label left" id="pct-b-left">0%</div></div><div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div><div style="text-align:right;"><div class="winbar-team-label right">Lichtenburg</div><div class="winbar-pct-label right" id="pct-b-right">0%</div></div></div><div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-b-left"></div><div class="winbar-fill-right" id="bar-b-right"></div></div></div></div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span><div style="display:flex;align-items:center;gap:10px;"><button class="btn-lihat-squad" onclick="bukaSquad('Cabangbungin vs Lichtenburg','https://www.image2url.com/r2/default/images/1776948422485-3c9ac0e3-586d-41cc-ab12-1d1af114fae5.jpeg','Cabangbungin Raya','Coach: Virkam Sigh','squad-b1')">👥 SQUAD</button><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Wineriasia Center Stadium</span><div style="display:flex;align-items:center;gap:8px;"><span style="font-family:'Barlow Condensed';font-size:11px;color:#555;letter-spacing:1px;">👆 Klik bendera untuk squad</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
         </div>
       </div>
     </div>
@@ -629,9 +639,13 @@
       <div class="jadwal-cards">
         <div class="jadwal-card">
           <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕙 22.00 WITA</span></div>
-          <div class="jadwal-matchup"><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg"><span>Sopozia</span></div><div class="jadwal-vs">VS</div><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg"><span>Islamnezia</span></div></div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg" onclick="bukaSquad('Sopozia Squad','https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg','Sopozia','Coach: Vladimir Petkovic','squad-c1')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Sopozia"><span>Sopozia</span></div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg" onclick="bukaSquad('Islamnezia Squad','https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg','Islamnezia','Coach: Shin Tae-yong','squad-c1-islam')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Islamnezia"><span>Islamnezia</span></div>
+          </div>
           <div class="jadwal-winbar-wrap" data-left="40" data-right="60"><div class="jadwal-winbar-labels"><div><div class="winbar-team-label left">Sopozia</div><div class="winbar-pct-label left" id="pct-c-left">0%</div></div><div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div><div style="text-align:right;"><div class="winbar-team-label right">Islamnezia</div><div class="winbar-pct-label right" id="pct-c-right">0%</div></div></div><div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-c-left"></div><div class="winbar-fill-right" id="bar-c-right"></div></div></div></div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span><div style="display:flex;align-items:center;gap:10px;"><button class="btn-lihat-squad" onclick="bukaSquad('Sopozia vs Islamnezia','https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg','Sopozia','Coach: Vladimir Petkovic','squad-c1')">👥 SQUAD</button><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Jamasyia Stadium</span><div style="display:flex;align-items:center;gap:8px;"><span style="font-family:'Barlow Condensed';font-size:11px;color:#555;letter-spacing:1px;">👆 Klik bendera untuk squad</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
         </div>
       </div>
     </div>
@@ -641,9 +655,13 @@
       <div class="jadwal-cards">
         <div class="jadwal-card">
           <div class="jadwal-card-top"><span class="jadwal-date-badge">📅 23 MEI 2026</span><span class="jadwal-time-badge">🕚 23.00 WITA</span></div>
-          <div class="jadwal-matchup"><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg"><span>North Erlaska</span></div><div class="jadwal-vs">VS</div><div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg"><span>Gladiolrep</span></div></div>
+          <div class="jadwal-matchup">
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg" onclick="bukaSquad('North Erlaska Squad','https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg','North Erlaska','Coach: Michael Trebonach','squad-d1')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad North Erlaska"><span>North Erlaska</span></div>
+            <div class="jadwal-vs">VS</div>
+            <div class="jadwal-team"><img src="https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg" onclick="bukaSquad('Gladiolrep Squad','https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg','Gladiolrep','Coach: Stephen Jensen','squad-d1-glad')" style="cursor:pointer;border-color:var(--gold);transition:transform 0.2s;box-shadow:0 0 8px rgba(201,153,26,0.5);" title="Klik untuk lihat squad Gladiolrep"><span>Gladiolrep</span></div>
+          </div>
           <div class="jadwal-winbar-wrap" data-left="30" data-right="70"><div class="jadwal-winbar-labels"><div><div class="winbar-team-label left">North Erlaska</div><div class="winbar-pct-label left" id="pct-d-left">0%</div></div><div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#444;text-transform:uppercase;">Peluang Menang</div><div style="text-align:right;"><div class="winbar-team-label right">Gladiolrep</div><div class="winbar-pct-label right" id="pct-d-right">0%</div></div></div><div class="winbar-track"><div class="winbar-fill-wrap"><div class="winbar-fill-left" id="bar-d-left"></div><div class="winbar-fill-right" id="bar-d-right"></div></div></div></div>
-          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Walsyia Stadium</span><div style="display:flex;align-items:center;gap:10px;"><button class="btn-lihat-squad" onclick="bukaSquad('North Erlaska vs Gladiolrep','https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg','North Erlaska','Coach: Michael Trebonach','squad-d1')">👥 SQUAD</button><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
+          <div class="jadwal-card-bottom"><span class="jadwal-stadium">🏟️ Al Walsyia Stadium</span><div style="display:flex;align-items:center;gap:8px;"><span style="font-family:'Barlow Condensed';font-size:11px;color:#555;letter-spacing:1px;">👆 Klik bendera untuk squad</span><span class="jadwal-status upcoming">🟡 AKAN DATANG</span></div></div>
         </div>
       </div>
     </div>
@@ -856,6 +874,60 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- GAME -->
+<div id="page-game" class="page">
+  <div class="page-header">
+    <img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png">
+    <div class="page-header-overlay"><h1>🎮 GAME PENALTI</h1></div>
+  </div>
+  <div style="background:var(--dark);padding:40px 20px 80px;max-width:700px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:30px;">
+      <p style="font-family:'Barlow Condensed';font-size:13px;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">IFFA Ahmad Cup 2026</p>
+      <h2 style="font-family:'Bebas Neue';font-size:44px;color:var(--white);letter-spacing:3px;margin-bottom:10px;">ADU PENALTI</h2>
+      <p style="font-family:'Barlow Condensed';font-size:15px;color:#888;letter-spacing:1px;">5 tendangan vs 5 tendangan bot. Kamu vs Kiper AI yang tangguh!</p>
+    </div>
+    <!-- GAME CANVAS AREA -->
+    <div style="position:relative;background:linear-gradient(180deg,#1a4a1a 0%,#0f3a0f 60%,#2a7a2a 100%);border-radius:12px;border:3px solid var(--gold);overflow:hidden;box-shadow:0 0 40px rgba(201,153,26,0.2);">
+      <canvas id="penaltiCanvas" width="660" height="420" style="display:block;width:100%;max-width:660px;margin:0 auto;cursor:crosshair;touch-action:none;"></canvas>
+    </div>
+    <!-- SCOREBOARD -->
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:20px;background:#111;border:1px solid #2a2a2a;border-radius:10px;padding:16px 20px;">
+      <div style="text-align:center;">
+        <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:4px;">KAMU</div>
+        <div style="font-family:'Bebas Neue';font-size:52px;color:var(--gold);line-height:1;" id="scorePlayer">0</div>
+        <div style="font-family:'Barlow Condensed';font-size:12px;color:#555;letter-spacing:1px;" id="shotsPlayer">0/5 tendangan</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue';font-size:28px;color:#444;letter-spacing:3px;">VS</div>
+        <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:#555;letter-spacing:2px;text-transform:uppercase;margin-top:4px;" id="gameRound">RONDE 1</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;letter-spacing:2px;color:#888;text-transform:uppercase;margin-bottom:4px;">BOT</div>
+        <div style="font-family:'Bebas Neue';font-size:52px;color:#f44336;line-height:1;" id="scoreBot">0</div>
+        <div style="font-family:'Barlow Condensed';font-size:12px;color:#555;letter-spacing:1px;" id="shotsBot">0/5 tendangan</div>
+      </div>
+    </div>
+    <!-- STATUS BAR -->
+    <div id="gameStatus" style="text-align:center;margin-top:16px;font-family:'Bebas Neue';font-size:22px;color:var(--gold);letter-spacing:2px;min-height:36px;">Klik area gawang untuk menendang!</div>
+    <!-- BUTTONS -->
+    <div style="display:flex;gap:12px;margin-top:16px;justify-content:center;flex-wrap:wrap;">
+      <button onclick="startGame()" id="btnStartGame" style="background:var(--gold);color:#000;border:none;font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;padding:14px 36px;border-radius:8px;cursor:pointer;transition:0.2s;">⚽ MULAI GAME</button>
+      <button onclick="restartGame()" id="btnRestart" style="display:none;background:#1a1a1a;color:var(--gold);border:2px solid var(--gold);font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;padding:14px 36px;border-radius:8px;cursor:pointer;transition:0.2s;">🔄 MAIN LAGI</button>
+    </div>
+    <!-- PANDUAN -->
+    <div style="margin-top:24px;background:#0f0f0f;border:1px solid #2a2a2a;border-radius:8px;padding:16px 20px;">
+      <div style="font-family:'Bebas Neue';font-size:16px;color:var(--gold);letter-spacing:2px;margin-bottom:10px;">📋 CARA MAIN</div>
+      <div style="font-family:'Barlow Condensed';font-size:13px;color:#888;letter-spacing:0.5px;line-height:1.8;">
+        🖱️ <strong style="color:#ccc;">Klik/tap</strong> di area gawang untuk menentukan arah tendangan<br>
+        ⚽ Kamu dan bot bergantian menendang — <strong style="color:#ccc;">5 tendangan</strong> masing-masing<br>
+        🧤 Kiper bot punya <strong style="color:#f44336;">refleks tinggi</strong> — susah dibobol!<br>
+        🏆 Siapa yang lebih banyak gol menang!
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div><p class="footer-hashtag">#UnitingFictionalNations</p><p class="footer-copy">&copy; 2026 IFFA AHMAD CUP.</p></footer>
 </div>
 
 <!-- POPUP IKLAN -->
@@ -1421,6 +1493,646 @@ async function downloadTiket(){
   btn.disabled=false;btn.textContent='⬇️ DOWNLOAD TIKET';statusEl.className='tiket-modal-status success';statusEl.textContent='✅ Tiket berhasil didownload!';
   setTimeout(()=>{statusEl.className='tiket-modal-status';tutupBeli();},2000);
 }
+
+// ===== GAME PENALTI =====
+(function() {
+  const MAX_SHOTS = 5;
+  // Game state
+  let gs = {
+    active: false,
+    phase: 'idle', // idle | player_aim | player_kick | bot_kick | result | end
+    playerScore: 0,
+    botScore: 0,
+    playerShots: 0,
+    botShots: 0,
+    round: 1,
+    ballX: 0, ballY: 0,
+    ballVX: 0, ballVY: 0,
+    ballMoving: false,
+    goalX: 0, goalY: 0, // target click
+    keeperX: 0, keeperY: 0,
+    keeperTargetX: 0,
+    keeperDive: false,
+    keeperDiveDir: 0,
+    animFrame: 0,
+    lastMsg: '',
+    shotResult: '', // 'goal' | 'saved' | 'miss'
+    resultTimer: 0,
+    aimX: 0, aimY: 0,
+    showAim: false,
+    botShotTimer: 0,
+  };
+
+  let canvas, ctx, W, H, raf;
+  let initialized = false;
+
+  // Gawang dimensi (proporsi canvas)
+  const GOAL = { xRatio: 0.18, yRatio: 0.12, wRatio: 0.64, hRatio: 0.32 };
+  // Bola awal
+  const BALL_START = { xRatio: 0.5, yRatio: 0.82 };
+
+  function initCanvas() {
+    canvas = document.getElementById('penaltiCanvas');
+    if (!canvas) return false;
+    ctx = canvas.getContext('2d');
+    W = canvas.width;
+    H = canvas.height;
+    // Event listeners
+    canvas.addEventListener('click', onCanvasClick);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('touchend', onTouch, { passive: false });
+    canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+    return true;
+  }
+
+  function getGoalRect() {
+    return {
+      x: W * GOAL.xRatio,
+      y: H * GOAL.yRatio,
+      w: W * GOAL.wRatio,
+      h: H * GOAL.hRatio
+    };
+  }
+
+  function resetBall() {
+    gs.ballX = W * BALL_START.xRatio;
+    gs.ballY = H * BALL_START.yRatio;
+    gs.ballVX = 0; gs.ballVY = 0;
+    gs.ballMoving = false;
+  }
+
+  function resetKeeper() {
+    const g = getGoalRect();
+    gs.keeperX = g.x + g.w / 2;
+    gs.keeperY = g.y + g.h * 0.55;
+    gs.keeperDive = false;
+    gs.keeperDiveDir = 0;
+    gs.keeperTargetX = gs.keeperX;
+  }
+
+  function resetRound() {
+    resetBall();
+    resetKeeper();
+    gs.phase = 'player_aim';
+    gs.shotResult = '';
+    gs.showAim = false;
+    gs.aimX = W / 2; gs.aimY = H * 0.22;
+    updateUI();
+  }
+
+  function startGame() {
+    if (!initialized) {
+      if (!initCanvas()) return;
+      initialized = true;
+    }
+    gs.active = true;
+    gs.playerScore = 0; gs.botScore = 0;
+    gs.playerShots = 0; gs.botShots = 0;
+    gs.round = 1;
+    document.getElementById('btnStartGame').style.display = 'none';
+    document.getElementById('btnRestart').style.display = 'none';
+    resetRound();
+    if (raf) cancelAnimationFrame(raf);
+    gameLoop();
+  }
+  window.startGame = startGame;
+
+  function restartGame() {
+    startGame();
+  }
+  window.restartGame = restartGame;
+
+  function updateUI() {
+    const el = id => document.getElementById(id);
+    if (!el('scorePlayer')) return;
+    el('scorePlayer').textContent = gs.playerScore;
+    el('scoreBot').textContent = gs.botScore;
+    el('shotsPlayer').textContent = gs.playerShots + '/' + MAX_SHOTS + ' tendangan';
+    el('shotsBot').textContent = gs.botShots + '/' + MAX_SHOTS + ' tendangan';
+    el('gameRound').textContent = 'RONDE ' + gs.round;
+  }
+
+  function setStatus(msg) {
+    const el = document.getElementById('gameStatus');
+    if (el) el.textContent = msg;
+  }
+
+  function onCanvasClick(e) {
+    if (!gs.active || gs.phase !== 'player_aim') return;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const cx = (e.clientX - rect.left) * scaleX;
+    const cy = (e.clientY - rect.top) * scaleY;
+    playerKick(cx, cy);
+  }
+
+  function onMouseMove(e) {
+    if (!gs.active || gs.phase !== 'player_aim') return;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    gs.aimX = (e.clientX - rect.left) * scaleX;
+    gs.aimY = (e.clientY - rect.top) * scaleY;
+    gs.showAim = true;
+  }
+
+  function onTouch(e) {
+    e.preventDefault();
+    if (!gs.active || gs.phase !== 'player_aim') return;
+    const t = e.changedTouches[0];
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    const cx = (t.clientX - rect.left) * scaleX;
+    const cy = (t.clientY - rect.top) * scaleY;
+    playerKick(cx, cy);
+  }
+
+  function onTouchMove(e) {
+    e.preventDefault();
+    if (!gs.active || gs.phase !== 'player_aim') return;
+    const t = e.touches[0];
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    const scaleY = H / rect.height;
+    gs.aimX = (t.clientX - rect.left) * scaleX;
+    gs.aimY = (t.clientY - rect.top) * scaleY;
+    gs.showAim = true;
+  }
+
+  function isInGoal(x, y) {
+    const g = getGoalRect();
+    return x >= g.x && x <= g.x + g.w && y >= g.y && y <= g.y + g.h;
+  }
+
+  function playerKick(targetX, targetY) {
+    // Kiper bot mulai bergerak ke prediksi posisi — SUSAH
+    gs.phase = 'player_kick';
+    gs.goalX = targetX;
+    gs.goalY = targetY;
+
+    // Hitung vektor bola
+    const dx = targetX - gs.ballX;
+    const dy = targetY - gs.ballY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    const speed = 18;
+    gs.ballVX = (dx / dist) * speed;
+    gs.ballVY = (dy / dist) * speed;
+    gs.ballMoving = true;
+
+    // Kiper bot: 80% chance menebak arah yang benar (susah!)
+    // Kalau kena area tengah, kiper lebih mudah menangkap
+    const g = getGoalRect();
+    const goalCenterX = g.x + g.w / 2;
+    const relX = (targetX - goalCenterX) / (g.w / 2); // -1 kiri, +1 kanan
+    const relY = (targetY - (g.y + g.h / 2)) / (g.h / 2);
+
+    // Apakah kiper menebak dengan benar?
+    const keeperAccuracy = 0.78; // 78% chance tepat
+    const guessCorrect = Math.random() < keeperAccuracy;
+
+    let keeperDiveX;
+    if (guessCorrect) {
+      // Kiper tebak benar - dive ke arah yang benar dengan slight offset
+      const offset = (Math.random() - 0.5) * g.w * 0.18;
+      keeperDiveX = targetX + offset;
+    } else {
+      // Kiper tebak salah - dive ke arah berlawanan
+      const wrongDir = -relX;
+      keeperDiveX = goalCenterX + wrongDir * g.w * 0.4 * (0.5 + Math.random() * 0.5);
+    }
+    keeperDiveX = Math.max(g.x + 20, Math.min(g.x + g.w - 20, keeperDiveX));
+    gs.keeperTargetX = keeperDiveX;
+    gs.keeperDive = true;
+    gs.keeperDiveDir = keeperDiveX > gs.keeperX ? 1 : -1;
+
+    setStatus('⚽ Tendangan!');
+  }
+
+  function botKickPhase() {
+    gs.phase = 'bot_kick';
+    gs.botShotTimer = 60; // delay sebelum bot tendang
+
+    // Bot pilih target di gawang — sering ke sudut (susah ditangkap oleh "kiper player")
+    const g = getGoalRect();
+    // Bot 70% sudut tajam, 30% tengah
+    let targetX, targetY;
+    const r = Math.random();
+    if (r < 0.35) { targetX = g.x + g.w * (0.05 + Math.random() * 0.15); } // sudut kiri
+    else if (r < 0.7) { targetX = g.x + g.w * (0.8 + Math.random() * 0.15); } // sudut kanan
+    else { targetX = g.x + g.w * (0.3 + Math.random() * 0.4); } // tengah
+    targetY = g.y + g.h * (0.15 + Math.random() * 0.7);
+    gs.botGoalX = targetX;
+    gs.botGoalY = targetY;
+    setStatus('🤖 Bot sedang bersiap menendang...');
+  }
+
+  function executeBotKick() {
+    resetBall();
+    resetKeeper();
+    // Balik lapangan — bola menuju ke bawah (gawang player)
+    // Kita simulasikan: bola ditendang bot, kiper player (representasi) mencoba
+    const g = getGoalRect();
+    const tx = gs.botGoalX;
+    const ty = gs.botGoalY;
+    const dx = tx - gs.ballX;
+    const dy = ty - gs.ballY;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    gs.ballVX = (dx / dist) * 16;
+    gs.ballVY = (dy / dist) * 16;
+    gs.ballMoving = true;
+    gs.phase = 'bot_kicking';
+    setStatus('⚽ Bot menendang!');
+  }
+
+  function checkBotShotResult() {
+    // Apakah bot gol? Bot skill 65% gol kalau sudut, 40% tengah
+    const g = getGoalRect();
+    const inGoal = isInGoal(gs.botGoalX, gs.botGoalY);
+    if (!inGoal) {
+      gs.shotResult = 'miss_bot';
+      return false;
+    }
+    // Kiper player menangkap? Player kiper 35% save rate
+    const saved = Math.random() < 0.35;
+    return !saved;
+  }
+
+  function nextPhase() {
+    // Setelah player tendang
+    if (gs.phase === 'player_kick' || gs.phase === 'show_player_result') {
+      gs.playerShots++;
+      updateUI();
+      if (gs.playerShots < MAX_SHOTS || gs.botShots < MAX_SHOTS) {
+        // Giliran bot
+        botKickPhase();
+      } else {
+        endGame();
+      }
+    } else if (gs.phase === 'show_bot_result') {
+      gs.botShots++;
+      gs.round++;
+      updateUI();
+      if (gs.playerShots >= MAX_SHOTS && gs.botShots >= MAX_SHOTS) {
+        endGame();
+      } else {
+        resetRound();
+      }
+    }
+  }
+
+  function endGame() {
+    gs.phase = 'end';
+    gs.active = false;
+    let msg;
+    if (gs.playerScore > gs.botScore) msg = '🏆 KAMU MENANG! Gol ' + gs.playerScore + '-' + gs.botScore;
+    else if (gs.botScore > gs.playerScore) msg = '😢 BOT MENANG ' + gs.botScore + '-' + gs.playerScore + '. Coba lagi!';
+    else msg = '🤝 SERI ' + gs.playerScore + '-' + gs.botScore + '! Adu penalti lagi?';
+    setStatus(msg);
+    document.getElementById('btnRestart').style.display = 'inline-block';
+  }
+
+  function gameLoop() {
+    raf = requestAnimationFrame(gameLoop);
+    gs.animFrame++;
+    update();
+    draw();
+  }
+
+  function update() {
+    // Animasi kiper bergerak
+    if (gs.keeperDive) {
+      const spd = 7;
+      const dx = gs.keeperTargetX - gs.keeperX;
+      if (Math.abs(dx) > spd) gs.keeperX += Math.sign(dx) * spd;
+      else gs.keeperX = gs.keeperTargetX;
+    }
+
+    if (gs.phase === 'player_kick') {
+      if (gs.ballMoving) {
+        gs.ballX += gs.ballVX;
+        gs.ballY += gs.ballVY;
+        // Cek apakah bola sudah sampai atau lewat gawang
+        if (gs.ballY <= H * 0.35) {
+          gs.ballMoving = false;
+          // Evaluasi hasil
+          const inGoal = isInGoal(gs.ballX, gs.ballY);
+          const keeperDist = Math.abs(gs.keeperX - gs.ballX);
+          const keeperReach = 38;
+          const g = getGoalRect();
+          const keeperYReach = Math.abs(gs.keeperY - gs.ballY) < g.h * 0.6;
+          const saved = inGoal && keeperDist < keeperReach && keeperYReach;
+
+          if (!inGoal) {
+            gs.shotResult = 'miss';
+            setStatus('😬 MELENCENG! Tendangan meleset!');
+          } else if (saved) {
+            gs.shotResult = 'saved';
+            setStatus('🧤 DITANGKAP! Kiper bot luar biasa!');
+          } else {
+            gs.shotResult = 'goal';
+            gs.playerScore++;
+            updateUI();
+            setStatus('⚽ GOOOAL! Luar biasa!');
+          }
+          gs.phase = 'show_player_result';
+          gs.resultTimer = 90;
+        }
+      }
+    } else if (gs.phase === 'show_player_result') {
+      gs.resultTimer--;
+      if (gs.resultTimer <= 0) nextPhase();
+    } else if (gs.phase === 'bot_kick') {
+      gs.botShotTimer--;
+      if (gs.botShotTimer <= 0) executeBotKick();
+    } else if (gs.phase === 'bot_kicking') {
+      if (gs.ballMoving) {
+        gs.ballX += gs.ballVX;
+        gs.ballY += gs.ballVY;
+        if (gs.ballY <= H * 0.35) {
+          gs.ballMoving = false;
+          const botGol = checkBotShotResult();
+          if (botGol) {
+            gs.botScore++;
+            updateUI();
+            setStatus('😱 BOT GOL! ' + gs.botScore + ' - ' + gs.playerScore);
+          } else {
+            setStatus('🧤 SELAMAT! Kiper kamu menyelamatkan!');
+          }
+          gs.phase = 'show_bot_result';
+          gs.resultTimer = 90;
+        }
+      }
+    } else if (gs.phase === 'show_bot_result') {
+      gs.resultTimer--;
+      if (gs.resultTimer <= 0) nextPhase();
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    drawField();
+    drawGoal();
+    drawKeeper();
+    drawBall();
+    if (gs.phase === 'player_aim' && gs.showAim) drawAimCursor();
+    if (gs.phase === 'player_aim') drawAimHint();
+    drawResultOverlay();
+  }
+
+  function drawField() {
+    // Lapangan hijau
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0, '#1a4a1a');
+    grad.addColorStop(0.5, '#1e5a1e');
+    grad.addColorStop(1, '#267026');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Garis lapangan
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.lineWidth = 1.5;
+    // Kotak penalti
+    ctx.strokeRect(W * 0.1, H * 0.05, W * 0.8, H * 0.45);
+    // Lingkaran penalty spot
+    ctx.beginPath();
+    ctx.arc(W * 0.5, H * 0.82, 5, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.fill();
+    // Titik tengah
+    ctx.beginPath();
+    ctx.arc(W * 0.5, H * 0.82, 2, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    // Arc
+    ctx.beginPath();
+    ctx.arc(W * 0.5, H * 0.82, W * 0.12, Math.PI + 0.4, Math.PI * 2 - 0.4);
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.stroke();
+  }
+
+  function drawGoal() {
+    const g = getGoalRect();
+    // Jaring belakang
+    ctx.fillStyle = 'rgba(0,0,0,0.35)';
+    ctx.fillRect(g.x, g.y, g.w, g.h);
+    // Grid jaring
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+    ctx.lineWidth = 0.8;
+    const cols = 8, rows = 4;
+    for (let i = 0; i <= cols; i++) {
+      ctx.beginPath();
+      ctx.moveTo(g.x + (g.w / cols) * i, g.y);
+      ctx.lineTo(g.x + (g.w / cols) * i, g.y + g.h);
+      ctx.stroke();
+    }
+    for (let i = 0; i <= rows; i++) {
+      ctx.beginPath();
+      ctx.moveTo(g.x, g.y + (g.h / rows) * i);
+      ctx.lineTo(g.x + g.w, g.y + (g.h / rows) * i);
+      ctx.stroke();
+    }
+    // Tiang kiri
+    ctx.strokeStyle = '#e0e0e0';
+    ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(g.x, g.y + g.h + 6); ctx.stroke();
+    // Tiang kanan
+    ctx.beginPath(); ctx.moveTo(g.x + g.w, g.y); ctx.lineTo(g.x + g.w, g.y + g.h + 6); ctx.stroke();
+    // Mistar
+    ctx.beginPath(); ctx.moveTo(g.x, g.y); ctx.lineTo(g.x + g.w, g.y); ctx.stroke();
+    // Shadow bawah
+    const shadowGrad = ctx.createLinearGradient(0, g.y + g.h, 0, g.y + g.h + 10);
+    shadowGrad.addColorStop(0, 'rgba(0,0,0,0.4)');
+    shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = shadowGrad;
+    ctx.fillRect(g.x, g.y + g.h, g.w, 10);
+  }
+
+  function drawKeeper() {
+    const kx = gs.keeperX, ky = gs.keeperY;
+    const bob = Math.sin(gs.animFrame * 0.08) * 3;
+    // Body kiper
+    ctx.save();
+    ctx.translate(kx, ky + bob);
+    // Jersey
+    ctx.fillStyle = '#C9991A';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 22, 28, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#A67C12';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Kepala
+    ctx.fillStyle = '#ffcc99';
+    ctx.beginPath();
+    ctx.arc(0, -32, 14, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#cc9966';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Mata
+    ctx.fillStyle = '#000';
+    ctx.beginPath(); ctx.arc(-5, -33, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(5, -33, 2.5, 0, Math.PI * 2); ctx.fill();
+    // Rambut
+    ctx.fillStyle = '#5a3300';
+    ctx.beginPath();
+    ctx.ellipse(0, -44, 14, 7, 0, Math.PI, Math.PI * 2);
+    ctx.fill();
+    // Tangan - dive animation
+    if (gs.keeperDive) {
+      const armAngle = gs.keeperDiveDir * Math.PI / 3;
+      ctx.strokeStyle = '#ffcc99';
+      ctx.lineWidth = 8;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(0, -8);
+      ctx.lineTo(Math.cos(armAngle) * 35, Math.sin(armAngle) * 35 - 8);
+      ctx.stroke();
+      // Sarung tangan
+      ctx.fillStyle = '#C9991A';
+      ctx.beginPath();
+      ctx.arc(Math.cos(armAngle) * 35, Math.sin(armAngle) * 35 - 8, 10, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      // Tangan idle
+      ctx.strokeStyle = '#ffcc99';
+      ctx.lineWidth = 7;
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(-18, -5); ctx.lineTo(-32, 10); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(18, -5); ctx.lineTo(32, 10); ctx.stroke();
+    }
+    // Kaki
+    ctx.fillStyle = '#333';
+    ctx.beginPath(); ctx.ellipse(-10, 28, 8, 14, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(10, 28, 8, 14, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+
+  function drawBall() {
+    const bx = gs.ballX, by = gs.ballY;
+    const r = 12;
+    // Shadow
+    ctx.fillStyle = 'rgba(0,0,0,0.25)';
+    ctx.beginPath();
+    ctx.ellipse(bx, by + r + 2, r * 1.1, r * 0.4, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // Bola
+    const ballGrad = ctx.createRadialGradient(bx - 3, by - 3, 2, bx, by, r);
+    ballGrad.addColorStop(0, '#ffffff');
+    ballGrad.addColorStop(0.4, '#eeeeee');
+    ballGrad.addColorStop(1, '#aaaaaa');
+    ctx.fillStyle = ballGrad;
+    ctx.beginPath();
+    ctx.arc(bx, by, r, 0, Math.PI * 2);
+    ctx.fill();
+    // Pola bola
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(bx, by, r, 0, Math.PI * 2);
+    ctx.stroke();
+    // Pentagon pattern
+    ctx.fillStyle = '#222';
+    const pents = [[0,-5],[4.7,1.5],[-4.7,1.5]];
+    pents.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(bx + p[0], by + p[1], 3, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawAimCursor() {
+    const ax = gs.aimX, ay = gs.aimY;
+    // Cross cursor
+    ctx.strokeStyle = 'rgba(201,153,26,0.8)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 3]);
+    // Line dari bola ke aim
+    ctx.beginPath();
+    ctx.moveTo(gs.ballX, gs.ballY);
+    ctx.lineTo(ax, ay);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // Cross
+    ctx.strokeStyle = '#C9991A';
+    ctx.lineWidth = 2.5;
+    const s = 12;
+    ctx.beginPath(); ctx.moveTo(ax - s, ay); ctx.lineTo(ax + s, ay); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ax, ay - s); ctx.lineTo(ax, ay + s); ctx.stroke();
+    // Circle
+    ctx.beginPath();
+    ctx.arc(ax, ay, 16, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(201,153,26,0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Pulse
+    const pulse = Math.sin(gs.animFrame * 0.15) * 0.5 + 0.5;
+    ctx.beginPath();
+    ctx.arc(ax, ay, 22 + pulse * 6, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(201,153,26,' + (0.2 * pulse) + ')';
+    ctx.stroke();
+  }
+
+  function drawAimHint() {
+    const g = getGoalRect();
+    // Highlight gawang
+    ctx.fillStyle = 'rgba(201,153,26,0.06)';
+    ctx.fillRect(g.x + 3, g.y + 2, g.w - 6, g.h - 2);
+    // Text hint
+    if (!gs.showAim) {
+      ctx.fillStyle = 'rgba(201,153,26,0.7)';
+      ctx.font = 'bold 14px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('👆 Klik / Tap di sini untuk menendang', W / 2, g.y + g.h + 22);
+      ctx.textAlign = 'left';
+    }
+  }
+
+  function drawResultOverlay() {
+    if (gs.phase !== 'show_player_result' && gs.phase !== 'show_bot_result') return;
+    const alpha = Math.min(1, gs.resultTimer / 20);
+    let color, text, emoji;
+    if (gs.phase === 'show_player_result') {
+      if (gs.shotResult === 'goal') { color = '#4caf50'; emoji = '⚽'; text = 'GOL!'; }
+      else if (gs.shotResult === 'saved') { color = '#f44336'; emoji = '🧤'; text = 'DITANGKAP!'; }
+      else { color = '#ff9800'; emoji = '😬'; text = 'MELENCENG!'; }
+    } else {
+      if (checkBotShotResult && gs.botScore > gs.playerScore) { color = '#f44336'; emoji = '😱'; text = 'BOT GOL!'; }
+      else { color = '#4caf50'; emoji = '🧤'; text = 'DISELAMATKAN!'; }
+    }
+    ctx.save();
+    ctx.globalAlpha = alpha * 0.85;
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, H * 0.35, W, H * 0.3);
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = color;
+    ctx.font = 'bold 52px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 20;
+    ctx.fillText(emoji + ' ' + text, W / 2, H * 0.5);
+    ctx.shadowBlur = 0;
+    ctx.restore();
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  // Init on page show
+  const origShowPage = window.showPage;
+  window.showPage = function(pageId) {
+    origShowPage(pageId);
+    if (pageId === 'game' && !initialized) {
+      setTimeout(() => {
+        if (initCanvas()) initialized = true;
+        // Draw idle state
+        if (ctx) { draw(); }
+      }, 100);
+    }
+  };
+})();
 </script>
 </body>
 </html>
