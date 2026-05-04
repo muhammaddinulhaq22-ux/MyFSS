@@ -1437,6 +1437,430 @@ async function downloadTiket(){
   btn.disabled=false;btn.textContent='⬇️ DOWNLOAD TIKET';statusEl.className='tiket-modal-status success';statusEl.textContent='✅ Tiket berhasil didownload!';
   setTimeout(()=>{statusEl.className='tiket-modal-status';tutupBeli();},2000);
 }
+
+// =============================================
+// =========== PENALTY GAME ENGINE =============
+// =============================================
+
+const TEAMS = [
+  { name: 'Wineriasia', flag: 'https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png' },
+  { name: 'Servesila', flag: 'https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg' },
+  { name: 'North Erlaska', flag: 'https://www.image2url.com/r2/default/images/1776946552643-7fc04f6f-5970-4e25-9c8e-126d695655ba.jpeg' },
+  { name: 'Gladiolrep', flag: 'https://www.image2url.com/r2/default/images/1776948045485-16b2add6-928d-4082-acda-ce4202ba64a0.jpeg' },
+  { name: 'Sopozia', flag: 'https://www.image2url.com/r2/default/images/1776948954590-e2f829bc-e51f-40e1-825f-bc4e4d3eafa8.jpeg' },
+  { name: 'Islamnezia', flag: 'https://www.image2url.com/r2/default/images/1776950142092-7e5ba2d1-c4a7-4d1b-90be-3436c5fe2528.jpeg' },
+];
+
+// Zone positions on SVG [cx%, cy%] within the SVG viewbox 760x280
+const ZONE_POSITIONS = {
+  TL: { x: '30%', y: '35%', gkBlock: ['TL','TM'], svgX: 230, svgY: 56 },
+  TM: { x: '50%', y: '30%', gkBlock: ['TM'], svgX: 380, svgY: 56 },
+  TR: { x: '70%', y: '35%', gkBlock: ['TR','TM'], svgX: 527, svgY: 56 },
+  ML: { x: '28%', y: '62%', gkBlock: ['ML','TL'], svgX: 230, svgY: 130 },
+  MC: { x: '50%', y: '62%', gkBlock: ['ML','MR','MC'], svgX: 380, svgY: 130 },
+  MR: { x: '72%', y: '62%', gkBlock: ['MR','TR'], svgX: 527, svgY: 130 },
+};
+
+// Goalkeeper x positions for each direction
+const GK_POS = {
+  TL: '25%', TM: '50%', TR: '75%',
+  ML: '25%', MC: '50%', MR: '75%',
+};
+
+// GK save difficulty: probability array [save if aimed here]
+// Higher = harder for player (GK more likely to guess right)
+// GK is "very hard" - high save rates
+const GK_SAVE_PROB = {
+  TL: 0.30,   // corners top are harder to save
+  TM: 0.75,   // centre top fairly easy for GK
+  TR: 0.30,
+  ML: 0.50,
+  MC: 0.85,   // dead centre = easy save
+  MR: 0.50,
+};
+
+// Bot shot zones with weighted probability (bot prefers tricky shots)
+const BOT_SHOT_WEIGHTS = {
+  TL: 0.20, TM: 0.10, TR: 0.20,
+  ML: 0.22, MC: 0.06, MR: 0.22,
+};
+// Bot's own GK save rate when bot shoots (harder for player GK to save bot)
+// Bot always hits with good power, player GK saves ~35-45% of bot shots
+const BOT_SAVE_CHANCE = 0.38; // chance player saves bot's shot
+
+// State
+let gameState = {
+  playerTeam: null,
+  playerScore: 0,
+  botScore: 0,
+  round: 0,        // 0-indexed, 0-4 = player's rounds, 5-9 = bot's rounds? No - interleaved
+  playerKicks: [],  // 'goal'|'miss' per kick
+  botKicks: [],
+  totalKicks: 5,   // each side gets 5
+  playerTurn: true,
+  selectedZone: null,
+  power: 50,
+  locked: false,
+  gameOver: false,
+  playerRoundsDone: 0,
+  botRoundsDone: 0,
+};
+
+function buildTeamSelect() {
+  const wrap = document.getElementById('teamSelectWrap');
+  wrap.innerHTML = '';
+  TEAMS.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'team-sel-card' + (i === 0 ? ' selected' : '');
+    card.innerHTML = `<span class="team-sel-label">Tim ${i+1}</span><img class="team-sel-flag" src="${t.flag}" onerror="this.src=''" alt="${t.name}"><div class="team-sel-name">${t.name}</div>`;
+    card.onclick = () => {
+      document.querySelectorAll('.team-sel-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      gameState.playerTeam = t;
+    };
+    wrap.appendChild(card);
+    if (i === 0) gameState.playerTeam = t;
+  });
+}
+
+function startGame() {
+  const selected = document.querySelector('.team-sel-card.selected');
+  if (!selected) return;
+  const idx = Array.from(document.querySelectorAll('.team-sel-card')).indexOf(selected);
+  gameState.playerTeam = TEAMS[idx];
+
+  // Reset state
+  gameState.playerScore = 0;
+  gameState.botScore = 0;
+  gameState.playerKicks = [];
+  gameState.botKicks = [];
+  gameState.playerRoundsDone = 0;
+  gameState.botRoundsDone = 0;
+  gameState.playerTurn = true;
+  gameState.selectedZone = null;
+  gameState.power = 50;
+  gameState.locked = false;
+  gameState.gameOver = false;
+
+  document.getElementById('gameSetupScreen').style.display = 'none';
+  document.getElementById('gameScreen').style.display = 'block';
+  document.getElementById('gameOverScreen').classList.remove('show');
+
+  document.getElementById('sbPlayerName').textContent = gameState.playerTeam.name.toUpperCase().substring(0, 10);
+  document.getElementById('goPlayerName').textContent = gameState.playerTeam.name.toUpperCase().substring(0, 10);
+  document.getElementById('sbPlayerScore').textContent = '0';
+  document.getElementById('sbBotScore').textContent = '0';
+
+  updateRoundDisplay();
+  buildKickDots();
+  resetBallAndGK();
+  setPlayerTurn();
+}
+
+function resetGame() {
+  document.getElementById('gameOverScreen').classList.remove('show');
+  document.getElementById('gameScreen').style.display = 'none';
+  document.getElementById('gameSetupScreen').style.display = 'block';
+  gameState = { playerTeam: null, playerScore: 0, botScore: 0, round: 0, playerKicks: [], botKicks: [], totalKicks: 5, playerTurn: true, selectedZone: null, power: 50, locked: false, gameOver: false, playerRoundsDone: 0, botRoundsDone: 0 };
+  buildTeamSelect();
+  updatePowerDisplay(50);
+}
+
+function buildKickDots() {
+  const n = gameState.totalKicks;
+  ['playerKickDots','botKickDots'].forEach(id => {
+    const el = document.getElementById(id);
+    el.innerHTML = '';
+    for (let i = 0; i < n; i++) {
+      const d = document.createElement('div');
+      d.className = 'kick-dot';
+      if (i === 0 && id === 'playerKickDots') d.classList.add('current');
+      el.appendChild(d);
+    }
+  });
+}
+
+function updateKickDots(isPlayer, result) {
+  const id = isPlayer ? 'playerKickDots' : 'botKickDots';
+  const kicks = isPlayer ? gameState.playerKicks : gameState.botKicks;
+  const dots = document.getElementById(id).querySelectorAll('.kick-dot');
+  const doneIdx = kicks.length - 1;
+  dots.forEach((d, i) => {
+    d.classList.remove('current','goal','miss');
+    if (i < kicks.length) d.classList.add(kicks[i]);
+    else if (i === kicks.length) d.classList.add('current');
+  });
+}
+
+function updateRoundDisplay() {
+  const pr = gameState.playerRoundsDone;
+  const br = gameState.botRoundsDone;
+  const total = gameState.totalKicks;
+  const current = Math.min(pr, br) + 1;
+  document.getElementById('sbRound').textContent = Math.min(current, total) + ' / ' + total;
+  document.getElementById('sbTurnLabel').textContent = gameState.playerTurn ? '⚽ GILIRANMU' : '🤖 GILIRAN BOT';
+}
+
+function resetBallAndGK() {
+  const ball = document.getElementById('penaltyBall');
+  const gk = document.getElementById('goalkeeper');
+  ball.style.transition = 'none';
+  ball.style.left = '50%';
+  ball.style.top = '85%';
+  setTimeout(() => ball.style.transition = '', 50);
+  gk.style.left = '50%';
+  // Reset zone highlight
+  document.querySelectorAll('.shot-zone-btn').forEach(b => b.style.borderColor = '');
+  gameState.selectedZone = null;
+  document.getElementById('btnKick').disabled = true;
+}
+
+function setPlayerTurn() {
+  gameState.playerTurn = true;
+  gameState.locked = false;
+  gameState.selectedZone = null;
+  updateRoundDisplay();
+  document.getElementById('ctrlPhaseLabel').textContent = '⚽ GILIRANMU MENENDANG';
+  document.getElementById('ctrlInstruction').textContent = 'Pilih zona tendangan & atur kekuatan';
+  document.getElementById('shotZoneGrid').style.opacity = '1';
+  document.querySelectorAll('.shot-zone-btn').forEach(b => { b.disabled = false; b.style.borderColor = ''; });
+  document.getElementById('btnKick').disabled = true;
+  document.getElementById('botKickIndicator').classList.remove('show');
+  resetBallAndGK();
+}
+
+function selectZone(zone) {
+  if (gameState.locked || !gameState.playerTurn || gameState.gameOver) return;
+  gameState.selectedZone = zone;
+  document.querySelectorAll('.shot-zone-btn').forEach(b => b.style.borderColor = '');
+  document.getElementById('zone' + zone).style.borderColor = '#C9991A';
+  document.getElementById('btnKick').disabled = false;
+  document.getElementById('ctrlInstruction').textContent = 'Zona dipilih! Klik TENDANG!';
+}
+
+// POWER METER
+const powerTrack = document.getElementById('powerTrack');
+let isDraggingPower = false;
+
+function updatePowerDisplay(val) {
+  gameState.power = val;
+  document.getElementById('powerVal').textContent = val + '%';
+  const fill = document.getElementById('powerFill');
+  fill.style.width = val + '%';
+  fill.className = 'power-fill ' + (val < 40 ? 'low' : val < 70 ? 'mid' : 'high');
+}
+
+function getPowerFromEvent(e, el) {
+  const rect = el.getBoundingClientRect();
+  const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+  return Math.round(ratio * 100);
+}
+
+powerTrack.addEventListener('mousedown', e => { isDraggingPower = true; updatePowerDisplay(getPowerFromEvent(e, powerTrack)); });
+powerTrack.addEventListener('touchstart', e => { isDraggingPower = true; updatePowerDisplay(getPowerFromEvent(e, powerTrack)); }, {passive:true});
+document.addEventListener('mousemove', e => { if (isDraggingPower) updatePowerDisplay(getPowerFromEvent(e, powerTrack)); });
+document.addEventListener('touchmove', e => { if (isDraggingPower) updatePowerDisplay(getPowerFromEvent(e, powerTrack)); }, {passive:true});
+document.addEventListener('mouseup', () => isDraggingPower = false);
+document.addEventListener('touchend', () => isDraggingPower = false);
+updatePowerDisplay(50);
+
+// ===== KICK EXECUTION =====
+function executeKick() {
+  if (!gameState.selectedZone || gameState.locked || !gameState.playerTurn || gameState.gameOver) return;
+  gameState.locked = true;
+  document.getElementById('btnKick').disabled = true;
+  document.querySelectorAll('.shot-zone-btn').forEach(b => b.disabled = true);
+
+  const zone = gameState.selectedZone;
+  const power = gameState.power;
+  const zoneData = ZONE_POSITIONS[zone];
+
+  // Animate ball to zone
+  const ball = document.getElementById('penaltyBall');
+  ball.style.transition = 'left 0.55s cubic-bezier(0.25,0.46,0.45,0.94), top 0.55s cubic-bezier(0.25,0.46,0.45,0.94)';
+  ball.style.left = zoneData.x;
+  ball.style.top = zoneData.y;
+
+  // GK decision: harder difficulty
+  // GK guesses with memory bias - slightly adjusts based on player pattern
+  const saveProb = computeGKSaveProb(zone, power);
+  const saved = Math.random() < saveProb;
+
+  // Move GK
+  const gk = document.getElementById('goalkeeper');
+  gk.style.left = GK_POS[zone];
+
+  setTimeout(() => {
+    showResultFlash(!saved ? 'GOAL! ⚽' : 'SAVED! 🧤', !saved ? 'goal' : 'saved');
+    if (!saved) {
+      gameState.playerScore++;
+      document.getElementById('sbPlayerScore').textContent = gameState.playerScore;
+      gameState.playerKicks.push('goal');
+    } else {
+      gameState.playerKicks.push('miss');
+    }
+    updateKickDots(true, !saved ? 'goal' : 'miss');
+    gameState.playerRoundsDone++;
+    setTimeout(() => {
+      resetBallAndGK();
+      // Now bot kicks
+      if (gameState.playerRoundsDone <= gameState.totalKicks && gameState.botRoundsDone < gameState.totalKicks) {
+        doBotKick();
+      } else {
+        checkGameOver();
+      }
+    }, 1200);
+  }, 650);
+}
+
+// Adaptive GK - gets harder if player shoots same zone multiple times
+function computeGKSaveProb(zone, power) {
+  let base = GK_SAVE_PROB[zone];
+  // GK adapts: if player shot this zone before, increased save chance
+  const prev = gameState.playerKicks;
+  const zonesHistory = gameState._zoneHistory || [];
+  const sameZoneCount = zonesHistory.filter(z => z === zone).length;
+  if (sameZoneCount >= 1) base = Math.min(0.90, base + 0.18 * sameZoneCount);
+  // Low power = easier to save
+  if (power < 30) base = Math.min(0.95, base + 0.25);
+  else if (power < 50) base = Math.min(0.92, base + 0.10);
+  else if (power >= 85) base = Math.max(0.15, base - 0.08);
+  if (!gameState._zoneHistory) gameState._zoneHistory = [];
+  gameState._zoneHistory.push(zone);
+  return base;
+}
+
+// ===== BOT KICK =====
+function doBotKick() {
+  gameState.playerTurn = false;
+  updateRoundDisplay();
+  document.getElementById('ctrlPhaseLabel').textContent = '🤖 GILIRAN BOT';
+  document.getElementById('ctrlInstruction').textContent = 'Bot sedang memilih zona...';
+  document.getElementById('botKickIndicator').classList.add('show');
+  document.getElementById('shotZoneGrid').style.opacity = '0.4';
+
+  // Bot picks zone
+  const zone = weightedRandom(BOT_SHOT_WEIGHTS);
+  const zoneData = ZONE_POSITIONS[zone];
+
+  setTimeout(() => {
+    document.getElementById('ctrlInstruction').textContent = 'Bot menendang ke ' + zoneDisplayName(zone) + '!';
+
+    // Animate ball
+    const ball = document.getElementById('penaltyBall');
+    ball.style.transition = 'left 0.48s cubic-bezier(0.25,0.46,0.45,0.94), top 0.48s cubic-bezier(0.25,0.46,0.45,0.94)';
+    ball.style.left = zoneData.x;
+    ball.style.top = zoneData.y;
+
+    // Player GK saves?
+    const playerSaves = Math.random() < BOT_SAVE_CHANCE;
+    // GK moves (player's GK is also smart but not perfect)
+    const gk = document.getElementById('goalkeeper');
+    // Player GK tries to guess - sometimes wrong
+    const gkMoveZone = playerSaves ? zone : pickRandomZoneExcept(zone);
+    gk.style.left = GK_POS[gkMoveZone];
+
+    setTimeout(() => {
+      const botScored = !playerSaves;
+      showResultFlash(botScored ? 'BOT GOL! 🤖' : 'BLOK! 🧤', botScored ? 'saved' : 'goal');
+      if (botScored) {
+        gameState.botScore++;
+        document.getElementById('sbBotScore').textContent = gameState.botScore;
+        gameState.botKicks.push('goal');
+      } else {
+        gameState.botKicks.push('miss');
+      }
+      updateKickDots(false, botScored ? 'goal' : 'miss');
+      gameState.botRoundsDone++;
+      document.getElementById('botKickIndicator').classList.remove('show');
+
+      setTimeout(() => {
+        if (gameState.playerRoundsDone < gameState.totalKicks || gameState.botRoundsDone < gameState.totalKicks) {
+          if (gameState.playerRoundsDone < gameState.totalKicks) {
+            setPlayerTurn();
+          } else {
+            // only bot left
+            if (gameState.botRoundsDone < gameState.totalKicks) {
+              doBotKick();
+            } else {
+              checkGameOver();
+            }
+          }
+        } else {
+          checkGameOver();
+        }
+      }, 1100);
+    }, 600);
+  }, 1000);
+}
+
+function pickRandomZoneExcept(zone) {
+  const zones = Object.keys(ZONE_POSITIONS).filter(z => z !== zone);
+  return zones[Math.floor(Math.random() * zones.length)];
+}
+
+function zoneDisplayName(zone) {
+  const names = { TL:'Pojok Kiri Atas', TM:'Atas Tengah', TR:'Pojok Kanan Atas', ML:'Kiri Tengah', MC:'Tengah', MR:'Kanan Tengah' };
+  return names[zone] || zone;
+}
+
+function weightedRandom(weights) {
+  const total = Object.values(weights).reduce((a,b) => a+b, 0);
+  let r = Math.random() * total;
+  for (const [k, v] of Object.entries(weights)) {
+    r -= v;
+    if (r <= 0) return k;
+  }
+  return Object.keys(weights)[0];
+}
+
+function showResultFlash(text, type) {
+  const flash = document.getElementById('resultFlash');
+  const txt = document.getElementById('resultFlashText');
+  flash.classList.remove('show');
+  txt.textContent = text;
+  txt.className = 'result-flash-text ' + type;
+  void flash.offsetWidth;
+  flash.classList.add('show');
+}
+
+function checkGameOver() {
+  if (gameState.playerRoundsDone >= gameState.totalKicks && gameState.botRoundsDone >= gameState.totalKicks) {
+    setTimeout(() => showGameOver(), 400);
+  }
+}
+
+function showGameOver() {
+  gameState.gameOver = true;
+  const ps = gameState.playerScore, bs = gameState.botScore;
+  document.getElementById('goPlayerScore').textContent = ps;
+  document.getElementById('goBotScore').textContent = bs;
+
+  let trophy = '🏆', title, subtitle, winner;
+  if (ps > bs) {
+    trophy = '🏆'; title = 'MENANG!'; subtitle = 'Kamu berhasil mengalahkan Bot FC!';
+    winner = '🎉 ' + gameState.playerTeam.name.toUpperCase() + ' MENANG!';
+    document.getElementById('goWinner').style.color = '#4caf50';
+  } else if (ps < bs) {
+    trophy = '😔'; title = 'KALAH!'; subtitle = 'Bot FC terlalu tangguh hari ini!';
+    winner = '🤖 BOT FC MENANG!';
+    document.getElementById('goWinner').style.color = '#f44336';
+  } else {
+    trophy = '🤝'; title = 'SERI!'; subtitle = 'Pertarungan yang seimbang!';
+    winner = '⚖️ HASILNYA SERI!';
+    document.getElementById('goWinner').style.color = '#C9991A';
+  }
+
+  document.getElementById('goTrophy').textContent = trophy;
+  document.getElementById('goTitle').textContent = title;
+  document.getElementById('goSubtitle').textContent = subtitle;
+  document.getElementById('goWinner').textContent = winner;
+  document.getElementById('gameOverScreen').classList.add('show');
+}
+
+// INIT
+buildTeamSelect();
 </script>
 </body>
 </html>
