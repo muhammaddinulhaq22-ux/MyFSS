@@ -3053,7 +3053,7 @@ async function downloadTiket(){
           <button class="admin-btn" style="margin-top:16px;" onclick="simpanStory()">💾 SIMPAN STORY</button>
         </div>
         <table class="admin-table">
-          <thead><tr><th>Gambar</th><th>Caption</th><th>Tanggal</th><th>Hapus</th></tr></thead>
+          <thead><tr><th>Gambar</th><th>Caption</th><th>Views</th><th>Tanggal</th><th>Hapus</th></tr></thead>
           <tbody id="tbody-stories"><tr><td colspan="4" style="text-align:center;color:#444;padding:24px;">Memuat data...</td></tr></tbody>
         </table>
       </div>
@@ -3332,6 +3332,7 @@ async function loadStoriesPublic() {
         <div class="story-ring-inner"><img src="${s.img_url}" onerror="this.src=''" alt="${s.caption||''}"></div>
       </div>
       <span class="story-caption">${s.caption||'Story'}</span>
+      <span style="font-family:'Barlow Condensed';font-size:10px;color:#555;letter-spacing:0.5px;">👁️ ${s.views||0}</span>
     </div>
   `).join('');
   track.innerHTML = html;
@@ -3389,6 +3390,21 @@ function scrollStories(dir) {
 function openStoryViewer(idx) {
   storyIndex = idx;
   document.getElementById('storyModal').classList.add('active');
+  // Tambah view count
+  const s = storyData[idx];
+  if (s && s.id) {
+    supa.from('stories').update({ views: (s.views || 0) + 1 }).eq('id', s.id).then(() => {
+      storyData[idx].views = (s.views || 0) + 1;
+      // Update tampilan view di ring
+      const items = document.querySelectorAll('.story-item');
+      // offset 1 karena ada tombol tambah di index 0
+      const itemEl = items[idx + 1];
+      if (itemEl) {
+        const viewEl = itemEl.querySelector('span:last-child');
+        if (viewEl) viewEl.textContent = '👁️ ' + storyData[idx].views;
+      }
+    });
+  }
   renderStoryViewer();
 }
 
@@ -3411,7 +3427,7 @@ function renderStoryViewer() {
   document.getElementById('storyMedia').src = s.img_url;
   document.getElementById('storyHeaderImg').src = s.img_url;
   document.getElementById('storyHeaderTitle').textContent = s.caption || 'IFFA AHMAD CUP';
-  document.getElementById('storyHeaderTime').textContent = s.created_at ? new Date(s.created_at).toLocaleDateString('id-ID', {day:'numeric',month:'short'}) : '';
+  document.getElementById('storyHeaderTime').textContent = (s.created_at ? new Date(s.created_at).toLocaleDateString('id-ID', {day:'numeric',month:'short'}) : '') + '  👁️ ' + (s.views||0) + ' views';
   document.getElementById('storyCaptionText').textContent = s.caption || '';
 
   // Progress bars
@@ -3496,6 +3512,7 @@ async function loadStoriesAdmin() {
   tbody.innerHTML = data.map(r => `<tr>
     <td><img src="${r.img_url}" style="width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid #333;" onerror="this.style.display='none'"></td>
     <td>${r.caption||'-'}</td>
+    <td style="color:var(--gold);font-weight:bold;">👁️ ${r.views||0}</td>
     <td>${r.created_at ? new Date(r.created_at).toLocaleDateString('id-ID') : '-'}</td>
     <td><button class="admin-del-btn" onclick="hapusStory('${r.id}')">HAPUS</button></td>
   </tr>`).join('');
