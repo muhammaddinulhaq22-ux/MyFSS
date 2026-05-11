@@ -579,6 +579,47 @@
   .playlist-item.active { background: #1a1a1a; color: #C9991A; }
   .playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
   .playlist-item.active .track-num { color: #C9991A; }
+
+  /* ===== STORIES ===== */
+  .stories-section { background: #0a0a0a; padding: 24px 20px 20px; border-bottom: 2px solid #1a1a1a; }
+  .stories-label { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; padding-left: 4px; }
+  .stories-track-wrap { position: relative; }
+  .stories-track { display: flex; gap: 16px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
+  .stories-track::-webkit-scrollbar { display: none; }
+  .story-item { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
+  .story-ring { width: 72px; height: 72px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--gold-dark), var(--gold), #fff8c0, var(--gold)); position: relative; flex-shrink: 0; transition: transform 0.2s; }
+  .story-ring:hover { transform: scale(1.08); }
+  .story-ring.seen { background: #333; }
+  .story-ring-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 2px solid #0a0a0a; background: #1a1a1a; }
+  .story-ring-inner img { width: 100%; height: 100%; object-fit: cover; }
+  .story-caption { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; max-width: 72px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .story-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid #333; color: var(--gold); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: 0.2s; }
+  .story-arrow:hover { background: var(--gold); color: #000; }
+  .story-arrow.left { left: -14px; }
+  .story-arrow.right { right: -14px; }
+
+  /* Story Viewer Modal */
+  .story-modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+  .story-modal.active { display: flex; }
+  .story-viewer { position: relative; width: 100%; max-width: 400px; height: 100vh; max-height: 700px; background: #111; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .story-progress-bar { display: flex; gap: 4px; padding: 12px 12px 0; position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
+  .story-prog-seg { flex: 1; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; }
+  .story-prog-fill { height: 100%; background: var(--white); width: 0%; transition: width linear; }
+  .story-prog-fill.done { width: 100%; transition: none; }
+  .story-header { position: absolute; top: 24px; left: 0; right: 0; z-index: 10; display: flex; align-items: center; gap: 10px; padding: 0 14px; }
+  .story-header-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0; }
+  .story-header-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .story-header-info { flex: 1; }
+  .story-header-title { font-family: 'Bebas Neue'; font-size: 15px; color: #fff; letter-spacing: 1px; }
+  .story-header-time { font-family: 'Barlow Condensed'; font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+  .story-close { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px; opacity: 0.8; }
+  .story-close:hover { opacity: 1; }
+  .story-media { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .story-caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 28px; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); }
+  .story-caption-text { font-family: 'Barlow Condensed'; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 1px; text-align: center; }
+  .story-nav-prev { position: absolute; left: 0; top: 0; width: 40%; height: 100%; z-index: 8; cursor: pointer; background: transparent; }
+  .story-nav-next { position: absolute; right: 0; top: 0; width: 40%; height: 100%; z-index: 8; cursor: pointer; background: transparent; }
+  @media (max-width: 480px) { .story-viewer { border-radius: 0; max-height: 100vh; } }
 </style>
 </head>
 <body>
@@ -628,6 +669,67 @@
 
 <!-- BERANDA -->
 <div id="page-beranda" class="page active" style="margin-top:80px;">
+
+  <!-- STORIES SECTION -->
+  <section class="stories-section">
+    <p class="stories-label">⚡ Stories</p>
+    <div class="stories-track-wrap">
+      <button class="story-arrow left" onclick="scrollStories(-1)" id="storyArrowL">&#8592;</button>
+      <div class="stories-track" id="storiesTrack">
+        <div style="font-family:'Barlow Condensed';color:#444;font-size:13px;letter-spacing:1px;padding:20px 10px;">Memuat stories...</div>
+      </div>
+      <button class="story-arrow right" onclick="scrollStories(1)" id="storyArrowR">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- STORY UPLOAD MODAL (untuk member) -->
+  <div id="storyUploadModal" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+    <div style="background:#111;border:1px solid #2a2a2a;border-radius:14px;padding:32px;width:90%;max-width:420px;position:relative;">
+      <button onclick="closeStoryUpload()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#888;font-size:20px;cursor:pointer;">✕</button>
+      <div style="font-family:'Bebas Neue';font-size:26px;color:var(--gold);letter-spacing:2px;margin-bottom:20px;">📸 TAMBAH STORY</div>
+      <div class="admin-alert" id="story-upload-alert"></div>
+      <div style="margin-bottom:14px;">
+        <label class="admin-label">Caption</label>
+        <input class="admin-input" id="su-caption" placeholder="Tulis caption...">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label class="admin-label">URL Gambar</label>
+        <input class="admin-input" id="su-url" placeholder="https://..." oninput="previewSUImg()">
+      </div>
+      <div style="margin-bottom:14px;">
+        <label class="admin-label">— ATAU Upload Gambar —</label>
+        <div class="kartu-foto-area" style="margin-top:6px;" onclick="document.getElementById('su-file').click()">
+          <span class="kartu-foto-icon">🖼️</span>
+          <span class="kartu-foto-text">Klik untuk upload</span>
+          <input type="file" id="su-file" accept="image/*" style="display:none" onchange="onSUFileChange(event)">
+        </div>
+        <img id="su-preview" style="display:none;max-height:120px;margin-top:10px;border-radius:8px;border:1px solid #333;width:100%;object-fit:cover;">
+      </div>
+      <button class="admin-btn" style="width:100%;" onclick="submitMemberStory()">🚀 POSTING STORY</button>
+    </div>
+  </div>
+
+  <!-- STORY VIEWER MODAL -->
+  <div class="story-modal" id="storyModal">
+    <div class="story-viewer" id="storyViewer">
+      <div class="story-progress-bar" id="storyProgressBar"></div>
+      <div class="story-header">
+        <div class="story-header-avatar"><img id="storyHeaderImg" src="" alt=""></div>
+        <div class="story-header-info">
+          <div class="story-header-title" id="storyHeaderTitle">—</div>
+          <div class="story-header-time" id="storyHeaderTime">—</div>
+        </div>
+        <button class="story-close" onclick="closeStoryViewer()">✕</button>
+      </div>
+      <img class="story-media" id="storyMedia" src="" alt="">
+      <div class="story-caption-overlay">
+        <div class="story-caption-text" id="storyCaptionText"></div>
+      </div>
+      <div class="story-nav-prev" onclick="storyNavPrev()"></div>
+      <div class="story-nav-next" onclick="storyNavNext()"></div>
+    </div>
+  </div>
+
   <div class="slider-wrap">
     <div class="slide active-slide"><img src="https://www.image2url.com/r2/default/images/1776997098177-a2e50c09-4998-4bfe-8b88-494f190d6ac0.webp"><div class="welcome-overlay"><div class="welcome-text-box"><p class="welcome-label">Selamat Datang di</p><h2 class="welcome-title">WEB IFFA AHMAD CUP</h2><p class="welcome-desc">Turnamen Non-Resmi yang diselenggarakan dalam Website</p></div></div></div>
     <div class="slide"><img src="https://www.image2url.com/r2/default/images/1776997334939-88853b35-db8e-4380-a184-b792761dd12a.webp"><div class="welcome-overlay"><div class="welcome-text-box"><p class="welcome-label">IFFA AHMAD CUP 2026</p><h2 class="welcome-title">TRANSFORMASI<br>SEPAK BOLA</h2><p class="welcome-desc">Menuju Transformasi Sepak Bola Negara Fiksi</p></div></div></div>
@@ -2838,6 +2940,7 @@ async function downloadTiket(){
         <button class="admin-tab" onclick="switchAdminTab('tim')">🏟️ Kelola Tim</button>
         <button class="admin-tab" onclick="switchAdminTab('pemain')">👕 Kelola Pemain</button>
         <button class="admin-tab" onclick="switchAdminTab('users')">👥 Data Users</button>
+        <button class="admin-tab" onclick="switchAdminTab('stories')">📸 Stories</button>
       </div>
 
       <!-- TAB HASIL -->
@@ -2923,11 +3026,41 @@ async function downloadTiket(){
         </table>
       </div>
 
+      <!-- TAB STORIES -->
+      <div class="admin-panel" id="tab-stories">
+        <div class="admin-form">
+          <div class="admin-form-title">📸 Tambah Stories</div>
+          <div class="admin-alert" id="stories-alert"></div>
+          <div class="admin-row">
+            <div>
+              <label class="admin-label">Judul / Caption</label>
+              <input class="admin-input" id="st-caption" placeholder="Judul stories...">
+            </div>
+            <div>
+              <label class="admin-label">URL Gambar (dari internet)</label>
+              <input class="admin-input" id="st-img-url" placeholder="https://..." oninput="previewStoryImg()">
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <label class="admin-label">— ATAU Upload Gambar —</label>
+            <div class="kartu-foto-area" style="margin-top:6px;" onclick="document.getElementById('st-img-file').click()">
+              <span class="kartu-foto-icon">🖼️</span>
+              <span class="kartu-foto-text">Klik untuk upload gambar</span>
+              <input type="file" id="st-img-file" accept="image/*" style="display:none" onchange="onStoryFileChange(event)">
+            </div>
+            <img id="st-img-preview" style="display:none;max-height:120px;margin-top:10px;border-radius:8px;border:1px solid #333;">
+          </div>
+          <button class="admin-btn" style="margin-top:16px;" onclick="simpanStory()">💾 SIMPAN STORY</button>
+        </div>
+        <table class="admin-table">
+          <thead><tr><th>Gambar</th><th>Caption</th><th>Tanggal</th><th>Hapus</th></tr></thead>
+          <tbody id="tbody-stories"><tr><td colspan="4" style="text-align:center;color:#444;padding:24px;">Memuat data...</td></tr></tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>
-
-<!-- ===== SUPABASE SDK + AUTH SCRIPT ===== -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ===== SUPABASE CONFIG =====
@@ -3163,6 +3296,239 @@ async function jadikanAdmin(id) {
   await supa.from('profiles').update({role:'admin'}).eq('id',id);
   loadUsers();
 }
+
+// ===== STORIES =====
+let storyData = [];
+let storyIndex = 0;
+let storyTimer = null;
+let storyDuration = 5000;
+let storyProgressStart = null;
+let storyProgressRAF = null;
+let storyImgBase64 = null;
+
+async function loadStoriesPublic() {
+  const { data } = await supa.from('stories').select('*').order('created_at', {ascending: false}).limit(10);
+  const track = document.getElementById('storiesTrack');
+  let html = '';
+
+  // Tombol tambah story untuk user yang login
+  if (currentUser) {
+    html += `<div class="story-item" onclick="openStoryUpload()">
+      <div class="story-ring" style="background:linear-gradient(135deg,#222,#333);">
+        <div class="story-ring-inner" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;">
+          <span style="font-size:28px;color:var(--gold);">＋</span>
+        </div>
+      </div>
+      <span class="story-caption">Tambah</span>
+    </div>`;
+  }
+
+  if (!data || !data.length) {
+    html += '<div style="font-family:\'Barlow Condensed\';color:#444;font-size:13px;letter-spacing:1px;padding:20px 10px;">Belum ada stories</div>';
+    track.innerHTML = html; return;
+  }
+  storyData = data;
+  html += data.map((s, i) => `
+    <div class="story-item" onclick="openStoryViewer(${i})">
+      <div class="story-ring" id="story-ring-${i}">
+        <div class="story-ring-inner"><img src="${s.img_url}" onerror="this.src=''" alt="${s.caption||''}"></div>
+      </div>
+      <span class="story-caption">${s.caption||'Story'}</span>
+    </div>
+  `).join('');
+  track.innerHTML = html;
+}
+
+// ===== MEMBER STORY UPLOAD =====
+let suImgBase64 = null;
+
+function openStoryUpload() {
+  if (!currentUser) { showPage('login'); return; }
+  const modal = document.getElementById('storyUploadModal');
+  modal.style.display = 'flex';
+}
+function closeStoryUpload() {
+  document.getElementById('storyUploadModal').style.display = 'none';
+  document.getElementById('su-caption').value = '';
+  document.getElementById('su-url').value = '';
+  document.getElementById('su-preview').style.display = 'none';
+  suImgBase64 = null;
+}
+function onSUFileChange(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    suImgBase64 = ev.target.result;
+    const prev = document.getElementById('su-preview');
+    prev.src = suImgBase64; prev.style.display = 'block';
+    document.getElementById('su-url').value = '';
+  };
+  reader.readAsDataURL(file);
+}
+function previewSUImg() {
+  const url = document.getElementById('su-url').value.trim();
+  const prev = document.getElementById('su-preview');
+  if (url) { prev.src = url; prev.style.display = 'block'; suImgBase64 = null; }
+  else { prev.style.display = 'none'; }
+}
+async function submitMemberStory() {
+  const caption = document.getElementById('su-caption').value.trim();
+  const urlInput = document.getElementById('su-url').value.trim();
+  const imgUrl = suImgBase64 || urlInput;
+  const alertEl = document.getElementById('story-upload-alert');
+  if (!imgUrl) { showAdminAlert('story-upload-alert', 'err', 'Pilih atau masukkan gambar dulu!'); return; }
+  const obj = { caption, img_url: imgUrl, created_at: new Date().toISOString() };
+  const { error } = await supa.from('stories').insert(obj);
+  if (error) { showAdminAlert('story-upload-alert', 'err', '❌ ' + error.message); return; }
+  showAdminAlert('story-upload-alert', 'ok', '✅ Story berhasil diposting!');
+  setTimeout(() => { closeStoryUpload(); loadStoriesPublic(); }, 1200);
+}
+
+function scrollStories(dir) {
+  const track = document.getElementById('storiesTrack');
+  track.scrollBy({ left: dir * 200, behavior: 'smooth' });
+}
+
+function openStoryViewer(idx) {
+  storyIndex = idx;
+  document.getElementById('storyModal').classList.add('active');
+  renderStoryViewer();
+}
+
+function closeStoryViewer() {
+  document.getElementById('storyModal').classList.remove('active');
+  clearTimeout(storyTimer);
+  cancelAnimationFrame(storyProgressRAF);
+}
+
+function renderStoryViewer() {
+  clearTimeout(storyTimer);
+  cancelAnimationFrame(storyProgressRAF);
+  const s = storyData[storyIndex];
+  if (!s) { closeStoryViewer(); return; }
+
+  // Mark ring as seen
+  const ring = document.getElementById('story-ring-' + storyIndex);
+  if (ring) ring.classList.add('seen');
+
+  document.getElementById('storyMedia').src = s.img_url;
+  document.getElementById('storyHeaderImg').src = s.img_url;
+  document.getElementById('storyHeaderTitle').textContent = s.caption || 'IFFA AHMAD CUP';
+  document.getElementById('storyHeaderTime').textContent = s.created_at ? new Date(s.created_at).toLocaleDateString('id-ID', {day:'numeric',month:'short'}) : '';
+  document.getElementById('storyCaptionText').textContent = s.caption || '';
+
+  // Progress bars
+  const bar = document.getElementById('storyProgressBar');
+  bar.innerHTML = storyData.map((_, i) => `<div class="story-prog-seg"><div class="story-prog-fill${i < storyIndex ? ' done' : ''}" id="spf-${i}"></div></div>`).join('');
+
+  // Animate current
+  const fill = document.getElementById('spf-' + storyIndex);
+  if (fill) {
+    storyProgressStart = null;
+    function animateProg(ts) {
+      if (!storyProgressStart) storyProgressStart = ts;
+      const elapsed = ts - storyProgressStart;
+      const pct = Math.min((elapsed / storyDuration) * 100, 100);
+      fill.style.width = pct + '%';
+      fill.style.transition = 'none';
+      if (pct < 100) storyProgressRAF = requestAnimationFrame(animateProg);
+    }
+    storyProgressRAF = requestAnimationFrame(animateProg);
+  }
+
+  storyTimer = setTimeout(() => storyNavNext(), storyDuration);
+}
+
+function storyNavNext() {
+  if (storyIndex < storyData.length - 1) { storyIndex++; renderStoryViewer(); }
+  else closeStoryViewer();
+}
+function storyNavPrev() {
+  if (storyIndex > 0) { storyIndex--; renderStoryViewer(); }
+}
+
+// Close modal on background click
+document.getElementById('storyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeStoryViewer();
+});
+
+// ===== ADMIN: STORIES =====
+function onStoryFileChange(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    storyImgBase64 = ev.target.result;
+    const prev = document.getElementById('st-img-preview');
+    prev.src = storyImgBase64;
+    prev.style.display = 'block';
+    document.getElementById('st-img-url').value = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewStoryImg() {
+  const url = document.getElementById('st-img-url').value.trim();
+  const prev = document.getElementById('st-img-preview');
+  if (url) { prev.src = url; prev.style.display = 'block'; storyImgBase64 = null; }
+  else { prev.style.display = 'none'; }
+}
+
+async function simpanStory() {
+  if (!currentUser) { alert('Kamu harus login dulu!'); return; }
+  const caption = document.getElementById('st-caption').value.trim();
+  const urlInput = document.getElementById('st-img-url').value.trim();
+  const imgUrl = storyImgBase64 || urlInput;
+  if (!imgUrl) { showAdminAlert('stories-alert', 'err', 'Pilih gambar terlebih dahulu!'); return; }
+  const obj = { caption, img_url: imgUrl, created_at: new Date().toISOString() };
+  const { error } = await supa.from('stories').insert(obj);
+  if (error) { showAdminAlert('stories-alert', 'err', '❌ ' + error.message); return; }
+  showAdminAlert('stories-alert', 'ok', '✅ Story berhasil disimpan!');
+  document.getElementById('st-caption').value = '';
+  document.getElementById('st-img-url').value = '';
+  document.getElementById('st-img-preview').style.display = 'none';
+  storyImgBase64 = null;
+  loadStoriesAdmin();
+  loadStoriesPublic();
+}
+
+async function loadStoriesAdmin() {
+  const { data } = await supa.from('stories').select('*').order('created_at', {ascending: false});
+  const tbody = document.getElementById('tbody-stories');
+  if (!data || !data.length) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#444;padding:24px;">Belum ada stories</td></tr>'; return; }
+  tbody.innerHTML = data.map(r => `<tr>
+    <td><img src="${r.img_url}" style="width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid #333;" onerror="this.style.display='none'"></td>
+    <td>${r.caption||'-'}</td>
+    <td>${r.created_at ? new Date(r.created_at).toLocaleDateString('id-ID') : '-'}</td>
+    <td><button class="admin-del-btn" onclick="hapusStory('${r.id}')">HAPUS</button></td>
+  </tr>`).join('');
+}
+
+async function hapusStory(id) {
+  if (!confirm('Hapus story ini?')) return;
+  await supa.from('stories').delete().eq('id', id);
+  loadStoriesAdmin();
+  loadStoriesPublic();
+}
+
+// Load stories saat beranda aktif
+const _origShowPageFinal = window.showPage;
+window.showPage = function(pageId) {
+  _origShowPageFinal(pageId);
+  if (pageId === 'beranda') loadStoriesPublic();
+  if (pageId === 'admin') { loadHasil(); setTimeout(loadStoriesPublic, 300); }
+};
+
+// Load stories tab saat switch tab admin
+const _origSwitchTab = window.switchAdminTab;
+window.switchAdminTab = function(tab) {
+  _origSwitchTab(tab);
+  if (tab === 'stories') loadStoriesAdmin();
+};
+
+// Init stories saat load halaman
+loadStoriesPublic();
 
 // Override showPage
 const _origShowPage = window.showPage;
