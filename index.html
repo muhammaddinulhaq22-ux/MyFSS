@@ -3311,9 +3311,8 @@ async function loadStoriesPublic() {
   const track = document.getElementById('storiesTrack');
   let html = '';
 
-  // Tombol tambah story untuk user yang login
-  if (currentUser) {
-    html += `<div class="story-item" onclick="openStoryUpload()">
+  // Tombol tambah story untuk SEMUA orang (tanpa perlu login)
+  html += `<div class="story-item" onclick="openStoryUpload()">
       <div class="story-ring" style="background:linear-gradient(135deg,#222,#333);">
         <div class="story-ring-inner" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;">
           <span style="font-size:28px;color:var(--gold);">＋</span>
@@ -3321,7 +3320,6 @@ async function loadStoriesPublic() {
       </div>
       <span class="story-caption">Tambah</span>
     </div>`;
-  }
 
   if (!data || !data.length) {
     html += '<div style="font-family:\'Barlow Condensed\';color:#444;font-size:13px;letter-spacing:1px;padding:20px 10px;">Belum ada stories</div>';
@@ -3343,7 +3341,6 @@ async function loadStoriesPublic() {
 let suImgBase64 = null;
 
 function openStoryUpload() {
-  if (!currentUser) { showPage('login'); return; }
   const modal = document.getElementById('storyUploadModal');
   modal.style.display = 'flex';
 }
@@ -3376,7 +3373,6 @@ async function submitMemberStory() {
   const caption = document.getElementById('su-caption').value.trim();
   const urlInput = document.getElementById('su-url').value.trim();
   const imgUrl = suImgBase64 || urlInput;
-  const alertEl = document.getElementById('story-upload-alert');
   if (!imgUrl) { showAdminAlert('story-upload-alert', 'err', 'Pilih atau masukkan gambar dulu!'); return; }
   const obj = { caption, img_url: imgUrl, created_at: new Date().toISOString() };
   const { error } = await supa.from('stories').insert(obj);
