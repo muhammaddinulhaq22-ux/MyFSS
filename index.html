@@ -579,47 +579,11 @@
   .playlist-item.active { background: #1a1a1a; color: #C9991A; }
   .playlist-item .track-num { color: #555; font-size: 11px; width: 16px; text-align: center; }
   .playlist-item.active .track-num { color: #C9991A; }
-
-  /* ===== STORIES ===== */
-  .stories-section { background: #0a0a0a; padding: 24px 20px 20px; border-bottom: 2px solid #1a1a1a; }
-  .stories-label { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; padding-left: 4px; }
-  .stories-track-wrap { position: relative; }
-  .stories-track { display: flex; gap: 16px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 8px; scrollbar-width: none; -ms-overflow-style: none; }
-  .stories-track::-webkit-scrollbar { display: none; }
-  .story-item { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
-  .story-ring { width: 72px; height: 72px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--gold-dark), var(--gold), #fff8c0, var(--gold)); position: relative; flex-shrink: 0; transition: transform 0.2s; }
-  .story-ring:hover { transform: scale(1.08); }
-  .story-ring.seen { background: #333; }
-  .story-ring-inner { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 2px solid #0a0a0a; background: #1a1a1a; }
-  .story-ring-inner img { width: 100%; height: 100%; object-fit: cover; }
-  .story-caption { font-family: 'Barlow Condensed'; font-size: 11px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; max-width: 72px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .story-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); border: 1px solid #333; color: var(--gold); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; z-index: 5; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: 0.2s; }
-  .story-arrow:hover { background: var(--gold); color: #000; }
-  .story-arrow.left { left: -14px; }
-  .story-arrow.right { right: -14px; }
-
-  /* Story Viewer Modal */
-  .story-modal { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
-  .story-modal.active { display: flex; }
-  .story-viewer { position: relative; width: 100%; max-width: 400px; height: 100vh; max-height: 700px; background: #111; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-  .story-progress-bar { display: flex; gap: 4px; padding: 12px 12px 0; position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
-  .story-prog-seg { flex: 1; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; }
-  .story-prog-fill { height: 100%; background: var(--white); width: 0%; transition: width linear; }
-  .story-prog-fill.done { width: 100%; transition: none; }
-  .story-header { position: absolute; top: 24px; left: 0; right: 0; z-index: 10; display: flex; align-items: center; gap: 10px; padding: 0 14px; }
-  .story-header-avatar { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0; }
-  .story-header-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .story-header-info { flex: 1; }
-  .story-header-title { font-family: 'Bebas Neue'; font-size: 15px; color: #fff; letter-spacing: 1px; }
-  .story-header-time { font-family: 'Barlow Condensed'; font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
-  .story-close { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; padding: 4px; opacity: 0.8; }
-  .story-close:hover { opacity: 1; }
-  .story-media { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .story-caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 40px 20px 28px; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%); }
-  .story-caption-text { font-family: 'Barlow Condensed'; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 1px; text-align: center; }
-  .story-nav-prev { position: absolute; left: 0; top: 0; width: 40%; height: 100%; z-index: 8; cursor: pointer; background: transparent; }
-  .story-nav-next { position: absolute; right: 0; top: 0; width: 40%; height: 100%; z-index: 8; cursor: pointer; background: transparent; }
-  @media (max-width: 480px) { .story-viewer { border-radius: 0; max-height: 100vh; } }
+  @keyframes blinkDot { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+  @keyframes goalPop { from{transform:translateX(-50%) scale(0.7);opacity:0;} to{transform:translateX(-50%) scale(1);opacity:1;} }
+  @keyframes goalSlideIn { from{transform:translateX(-20px);opacity:0;} to{transform:translateX(0);opacity:1;} }
+  @keyframes scorePop { 0%{transform:scale(1);} 30%{transform:scale(1.4);color:#fff;} 100%{transform:scale(1);} }
+  .score-pop { animation: scorePop 0.5s ease; }
 </style>
 </head>
 <body>
@@ -634,6 +598,7 @@
     <li><a onclick="showPage('peserta')" data-page="peserta">Peserta</a></li>
     <li><a onclick="showPage('grup')" data-page="grup">Grup</a></li>
     <li><a onclick="showPage('jadwal')" data-page="jadwal">Jadwal</a></li>
+    <li><a onclick="showPage('liveskor')" data-page="liveskor" style="color:#e55;font-weight:900;">🔴 LIVE SKOR</a></li>
     <li><a onclick="showPage('berita')" data-page="berita">Berita</a></li>
     <li><a onclick="showPage('tiket')" data-page="tiket">Tiket</a></li>
     <li><a onclick="showPage('game')" data-page="game" style="color:#C9991A;font-weight:900;">🎮 GAME</a></li>
@@ -652,6 +617,7 @@
       <li><a onclick="showPage('peserta')">Peserta</a></li>
       <li><a onclick="showPage('grup')">Grup</a></li>
       <li><a onclick="showPage('jadwal')">Jadwal</a></li>
+      <li><a onclick="showPage('liveskor');closeMenu();" style="color:#e55;font-weight:900;">🔴 LIVE SKOR</a></li>
       <li><a onclick="showPage('berita')">Berita</a></li>
       <li><a onclick="showPage('tiket')">Tiket</a></li>
       <li><a onclick="showPage('game')" style="color:#C9991A;font-weight:900;">🎮 GAME</a></li>
@@ -669,67 +635,6 @@
 
 <!-- BERANDA -->
 <div id="page-beranda" class="page active" style="margin-top:80px;">
-
-  <!-- STORIES SECTION -->
-  <section class="stories-section">
-    <p class="stories-label">⚡ Stories</p>
-    <div class="stories-track-wrap">
-      <button class="story-arrow left" onclick="scrollStories(-1)" id="storyArrowL">&#8592;</button>
-      <div class="stories-track" id="storiesTrack">
-        <div style="font-family:'Barlow Condensed';color:#444;font-size:13px;letter-spacing:1px;padding:20px 10px;">Memuat stories...</div>
-      </div>
-      <button class="story-arrow right" onclick="scrollStories(1)" id="storyArrowR">&#8594;</button>
-    </div>
-  </section>
-
-  <!-- STORY UPLOAD MODAL (untuk member) -->
-  <div id="storyUploadModal" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
-    <div style="background:#111;border:1px solid #2a2a2a;border-radius:14px;padding:32px;width:90%;max-width:420px;position:relative;">
-      <button onclick="closeStoryUpload()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#888;font-size:20px;cursor:pointer;">✕</button>
-      <div style="font-family:'Bebas Neue';font-size:26px;color:var(--gold);letter-spacing:2px;margin-bottom:20px;">📸 TAMBAH STORY</div>
-      <div class="admin-alert" id="story-upload-alert"></div>
-      <div style="margin-bottom:14px;">
-        <label class="admin-label">Caption</label>
-        <input class="admin-input" id="su-caption" placeholder="Tulis caption...">
-      </div>
-      <div style="margin-bottom:14px;">
-        <label class="admin-label">URL Gambar</label>
-        <input class="admin-input" id="su-url" placeholder="https://..." oninput="previewSUImg()">
-      </div>
-      <div style="margin-bottom:14px;">
-        <label class="admin-label">— ATAU Upload Gambar —</label>
-        <div class="kartu-foto-area" style="margin-top:6px;" onclick="document.getElementById('su-file').click()">
-          <span class="kartu-foto-icon">🖼️</span>
-          <span class="kartu-foto-text">Klik untuk upload</span>
-          <input type="file" id="su-file" accept="image/*" style="display:none" onchange="onSUFileChange(event)">
-        </div>
-        <img id="su-preview" style="display:none;max-height:120px;margin-top:10px;border-radius:8px;border:1px solid #333;width:100%;object-fit:cover;">
-      </div>
-      <button class="admin-btn" style="width:100%;" onclick="submitMemberStory()">🚀 POSTING STORY</button>
-    </div>
-  </div>
-
-  <!-- STORY VIEWER MODAL -->
-  <div class="story-modal" id="storyModal">
-    <div class="story-viewer" id="storyViewer">
-      <div class="story-progress-bar" id="storyProgressBar"></div>
-      <div class="story-header">
-        <div class="story-header-avatar"><img id="storyHeaderImg" src="" alt=""></div>
-        <div class="story-header-info">
-          <div class="story-header-title" id="storyHeaderTitle">—</div>
-          <div class="story-header-time" id="storyHeaderTime">—</div>
-        </div>
-        <button class="story-close" onclick="closeStoryViewer()">✕</button>
-      </div>
-      <img class="story-media" id="storyMedia" src="" alt="">
-      <div class="story-caption-overlay">
-        <div class="story-caption-text" id="storyCaptionText"></div>
-      </div>
-      <div class="story-nav-prev" onclick="storyNavPrev()"></div>
-      <div class="story-nav-next" onclick="storyNavNext()"></div>
-    </div>
-  </div>
-
   <div class="slider-wrap">
     <div class="slide active-slide"><img src="https://www.image2url.com/r2/default/images/1776997098177-a2e50c09-4998-4bfe-8b88-494f190d6ac0.webp"><div class="welcome-overlay"><div class="welcome-text-box"><p class="welcome-label">Selamat Datang di</p><h2 class="welcome-title">WEB IFFA AHMAD CUP</h2><p class="welcome-desc">Turnamen Non-Resmi yang diselenggarakan dalam Website</p></div></div></div>
     <div class="slide"><img src="https://www.image2url.com/r2/default/images/1776997334939-88853b35-db8e-4380-a184-b792761dd12a.webp"><div class="welcome-overlay"><div class="welcome-text-box"><p class="welcome-label">IFFA AHMAD CUP 2026</p><h2 class="welcome-title">TRANSFORMASI<br>SEPAK BOLA</h2><p class="welcome-desc">Menuju Transformasi Sepak Bola Negara Fiksi</p></div></div></div>
@@ -783,6 +688,93 @@
       </div>
     </div>
   </footer>
+</div>
+
+<!-- LIVE SKOR -->
+<div id="page-liveskor" class="page">
+  <div class="page-header" style="margin-top:80px;"><img src="https://www.image2url.com/r2/default/images/1777485640751-3590fd1b-1032-4f28-9669-939d40d04cd8.png"><div class="page-header-overlay"><h1>LIVE SKOR</h1></div></div>
+  <div style="background:var(--dark);padding:40px 20px 80px;max-width:900px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <p style="font-family:'Barlow Condensed';font-size:13px;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">IFFA AHMAD CUP 2026</p>
+      <h2 style="font-family:'Bebas Neue';font-size:42px;color:var(--white);letter-spacing:3px;">LIVE PERTANDINGAN</h2>
+      <p style="font-family:'Barlow Condensed';font-size:15px;color:#888;letter-spacing:1px;">Skor berjalan otomatis menit 0 – 90</p>
+    </div>
+
+    <!-- LIVE MATCH CARD -->
+    <div id="liveMatchCard" style="background:linear-gradient(135deg,#0f0f0f,#1a1a1a);border:2px solid #2a2a2a;border-radius:16px;overflow:hidden;margin-bottom:32px;box-shadow:0 0 40px rgba(201,153,26,0.15);">
+      <!-- STATUS BAR -->
+      <div id="liveStatusBar" style="background:linear-gradient(90deg,#c00,#a00);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span id="liveDot" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;animation:blinkDot 1s infinite;"></span>
+          <span id="liveStatusText" style="font-family:'Bebas Neue';font-size:18px;letter-spacing:3px;color:#fff;">LIVE</span>
+        </div>
+        <span style="font-family:'Barlow Condensed';font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:2px;">GROUP A · MATCH 1 · 23 MEI 2026</span>
+        <span style="font-family:'Barlow Condensed';font-size:13px;font-weight:700;color:rgba(255,255,255,0.8);">🏟️ Ahmad Internasional Stadium</span>
+      </div>
+
+      <!-- SCOREBOARD -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:32px 24px;gap:12px;">
+        <!-- TEAM 1: WINERIASIA -->
+        <div style="flex:1;text-align:center;">
+          <img src="https://www.image2url.com/r2/default/images/1776836458101-47bdaa57-f39e-493b-aa04-f74135c8d577.png" style="height:80px;object-fit:contain;margin-bottom:12px;filter:drop-shadow(0 2px 8px rgba(201,153,26,0.3));">
+          <div style="font-family:'Bebas Neue';font-size:22px;color:var(--white);letter-spacing:2px;line-height:1.2;">WINERIASIA</div>
+          <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:#666;letter-spacing:2px;text-transform:uppercase;margin-top:4px;">Republik Islam Wineriasia</div>
+        </div>
+
+        <!-- SCORE CENTER -->
+        <div style="text-align:center;min-width:160px;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
+            <span id="scoreTeam1" style="font-family:'Bebas Neue';font-size:72px;color:var(--gold);line-height:1;text-shadow:0 0 30px rgba(201,153,26,0.5);">0</span>
+            <span style="font-family:'Bebas Neue';font-size:40px;color:#444;line-height:1;">-</span>
+            <span id="scoreTeam2" style="font-family:'Bebas Neue';font-size:72px;color:var(--gold);line-height:1;text-shadow:0 0 30px rgba(201,153,26,0.5);">0</span>
+          </div>
+          <div id="matchMinute" style="font-family:'Bebas Neue';font-size:24px;color:#e55;letter-spacing:3px;margin-top:6px;">0'</div>
+          <div id="matchPhase" style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:#555;letter-spacing:2px;text-transform:uppercase;margin-top:4px;">BABAK 1</div>
+        </div>
+
+        <!-- TEAM 2: SERVESILA -->
+        <div style="flex:1;text-align:center;">
+          <img src="https://www.image2url.com/r2/default/images/1776946848534-2b814d63-daf2-424d-b525-44c929df05eb.jpeg" style="height:80px;object-fit:contain;margin-bottom:12px;filter:drop-shadow(0 2px 8px rgba(201,153,26,0.3));">
+          <div style="font-family:'Bebas Neue';font-size:22px;color:var(--white);letter-spacing:2px;line-height:1.2;">SERVESILA</div>
+          <div style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:#666;letter-spacing:2px;text-transform:uppercase;margin-top:4px;">FC Servesila</div>
+        </div>
+      </div>
+
+      <!-- PROGRESS BAR WAKTU -->
+      <div style="padding:0 24px 20px;">
+        <div style="background:#111;border-radius:4px;height:6px;overflow:hidden;position:relative;">
+          <div id="timeProgressBar" style="height:100%;background:linear-gradient(90deg,#e55,var(--gold));border-radius:4px;width:0%;transition:width 0.5s linear;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;">
+          <span style="font-family:'Barlow Condensed';font-size:11px;color:#444;font-weight:700;">0'</span>
+          <span style="font-family:'Barlow Condensed';font-size:11px;color:#444;font-weight:700;">45'</span>
+          <span style="font-family:'Barlow Condensed';font-size:11px;color:#444;font-weight:700;">90'</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KONTROL SIMULASI -->
+    <div style="display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+      <button id="btnStartLive" onclick="startLiveMatch()" style="background:linear-gradient(135deg,#c00,#a00);color:#fff;border:none;font-family:'Bebas Neue';font-size:18px;letter-spacing:3px;padding:14px 32px;border-radius:8px;cursor:pointer;transition:opacity 0.2s;">▶ MULAI PERTANDINGAN</button>
+      <button id="btnResetLive" onclick="resetLiveMatch()" style="background:none;border:2px solid #333;color:#666;font-family:'Bebas Neue';font-size:18px;letter-spacing:3px;padding:14px 32px;border-radius:8px;cursor:pointer;transition:0.2s;">↺ RESET</button>
+    </div>
+
+    <!-- GOAL NOTIFICATION POPUP -->
+    <div id="goalPopup" style="display:none;position:fixed;top:100px;left:50%;transform:translateX(-50%);z-index:9999;background:linear-gradient(135deg,#1a1400,#2a2000);border:3px solid var(--gold);border-radius:14px;padding:20px 36px;text-align:center;box-shadow:0 0 60px rgba(201,153,26,0.6);animation:goalPop 0.4s ease;">
+      <div style="font-size:40px;margin-bottom:6px;">⚽</div>
+      <div style="font-family:'Bebas Neue';font-size:36px;color:var(--gold);letter-spacing:4px;">GOOOOL!!!</div>
+      <div id="goalPopupText" style="font-family:'Barlow Condensed';font-size:16px;font-weight:700;color:#fff;letter-spacing:2px;margin-top:6px;"></div>
+    </div>
+
+    <!-- LOG GOL -->
+    <div style="background:#0f0f0f;border:1px solid #2a2a2a;border-radius:12px;padding:24px;">
+      <div style="font-family:'Bebas Neue';font-size:22px;color:var(--gold);letter-spacing:3px;margin-bottom:16px;border-bottom:1px solid #1e1e00;padding-bottom:10px;">⚽ CATATAN GOL</div>
+      <div id="goalLog" style="min-height:60px;">
+        <div style="font-family:'Barlow Condensed';font-size:14px;color:#444;letter-spacing:1px;text-align:center;padding:20px 0;">Belum ada gol — tekan MULAI PERTANDINGAN</div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-logo"><img src="https://www.image2url.com/r2/default/images/1776788907334-d84e95d6-8390-450b-b669-0efb3a45720f.png"></div><p class="footer-hashtag">#UnitingFictionalNations</p><p class="footer-copy">&copy; 2026 IFFA AHMAD CUP.</p></footer>
 </div>
 
 <!-- PESERTA -->
@@ -2940,7 +2932,6 @@ async function downloadTiket(){
         <button class="admin-tab" onclick="switchAdminTab('tim')">🏟️ Kelola Tim</button>
         <button class="admin-tab" onclick="switchAdminTab('pemain')">👕 Kelola Pemain</button>
         <button class="admin-tab" onclick="switchAdminTab('users')">👥 Data Users</button>
-        <button class="admin-tab" onclick="switchAdminTab('stories')">📸 Stories</button>
       </div>
 
       <!-- TAB HASIL -->
@@ -3026,41 +3017,11 @@ async function downloadTiket(){
         </table>
       </div>
 
-      <!-- TAB STORIES -->
-      <div class="admin-panel" id="tab-stories">
-        <div class="admin-form">
-          <div class="admin-form-title">📸 Tambah Stories</div>
-          <div class="admin-alert" id="stories-alert"></div>
-          <div class="admin-row">
-            <div>
-              <label class="admin-label">Judul / Caption</label>
-              <input class="admin-input" id="st-caption" placeholder="Judul stories...">
-            </div>
-            <div>
-              <label class="admin-label">URL Gambar (dari internet)</label>
-              <input class="admin-input" id="st-img-url" placeholder="https://..." oninput="previewStoryImg()">
-            </div>
-          </div>
-          <div style="margin-top:14px;">
-            <label class="admin-label">— ATAU Upload Gambar —</label>
-            <div class="kartu-foto-area" style="margin-top:6px;" onclick="document.getElementById('st-img-file').click()">
-              <span class="kartu-foto-icon">🖼️</span>
-              <span class="kartu-foto-text">Klik untuk upload gambar</span>
-              <input type="file" id="st-img-file" accept="image/*" style="display:none" onchange="onStoryFileChange(event)">
-            </div>
-            <img id="st-img-preview" style="display:none;max-height:120px;margin-top:10px;border-radius:8px;border:1px solid #333;">
-          </div>
-          <button class="admin-btn" style="margin-top:16px;" onclick="simpanStory()">💾 SIMPAN STORY</button>
-        </div>
-        <table class="admin-table">
-          <thead><tr><th>Gambar</th><th>Caption</th><th>Views</th><th>Tanggal</th><th>Hapus</th></tr></thead>
-          <tbody id="tbody-stories"><tr><td colspan="4" style="text-align:center;color:#444;padding:24px;">Memuat data...</td></tr></tbody>
-        </table>
-      </div>
-
     </div>
   </div>
 </div>
+
+<!-- ===== SUPABASE SDK + AUTH SCRIPT ===== -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ===== SUPABASE CONFIG =====
@@ -3297,252 +3258,6 @@ async function jadikanAdmin(id) {
   loadUsers();
 }
 
-// ===== STORIES =====
-let storyData = [];
-let storyIndex = 0;
-let storyTimer = null;
-let storyDuration = 5000;
-let storyProgressStart = null;
-let storyProgressRAF = null;
-let storyImgBase64 = null;
-
-async function loadStoriesPublic() {
-  const { data } = await supa.from('stories').select('*').order('created_at', {ascending: false}).limit(10);
-  const track = document.getElementById('storiesTrack');
-  let html = '';
-
-  // Tombol tambah story untuk SEMUA orang (tanpa perlu login)
-  html += `<div class="story-item" onclick="openStoryUpload()">
-      <div class="story-ring" style="background:linear-gradient(135deg,#222,#333);">
-        <div class="story-ring-inner" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;">
-          <span style="font-size:28px;color:var(--gold);">＋</span>
-        </div>
-      </div>
-      <span class="story-caption">Tambah</span>
-    </div>`;
-
-  if (!data || !data.length) {
-    html += '<div style="font-family:\'Barlow Condensed\';color:#444;font-size:13px;letter-spacing:1px;padding:20px 10px;">Belum ada stories</div>';
-    track.innerHTML = html; return;
-  }
-  storyData = data;
-  html += data.map((s, i) => `
-    <div class="story-item" onclick="openStoryViewer(${i})">
-      <div class="story-ring" id="story-ring-${i}">
-        <div class="story-ring-inner"><img src="${s.img_url}" onerror="this.src=''" alt="${s.caption||''}"></div>
-      </div>
-      <span class="story-caption">${s.caption||'Story'}</span>
-      <span style="font-family:'Barlow Condensed';font-size:10px;color:#555;letter-spacing:0.5px;">👁️ ${s.views||0}</span>
-    </div>
-  `).join('');
-  track.innerHTML = html;
-}
-
-// ===== MEMBER STORY UPLOAD =====
-let suImgBase64 = null;
-
-function openStoryUpload() {
-  const modal = document.getElementById('storyUploadModal');
-  modal.style.display = 'flex';
-}
-function closeStoryUpload() {
-  document.getElementById('storyUploadModal').style.display = 'none';
-  document.getElementById('su-caption').value = '';
-  document.getElementById('su-url').value = '';
-  document.getElementById('su-preview').style.display = 'none';
-  suImgBase64 = null;
-}
-function onSUFileChange(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    suImgBase64 = ev.target.result;
-    const prev = document.getElementById('su-preview');
-    prev.src = suImgBase64; prev.style.display = 'block';
-    document.getElementById('su-url').value = '';
-  };
-  reader.readAsDataURL(file);
-}
-function previewSUImg() {
-  const url = document.getElementById('su-url').value.trim();
-  const prev = document.getElementById('su-preview');
-  if (url) { prev.src = url; prev.style.display = 'block'; suImgBase64 = null; }
-  else { prev.style.display = 'none'; }
-}
-async function submitMemberStory() {
-  const caption = document.getElementById('su-caption').value.trim();
-  const urlInput = document.getElementById('su-url').value.trim();
-  const imgUrl = suImgBase64 || urlInput;
-  if (!imgUrl) { showAdminAlert('story-upload-alert', 'err', 'Pilih atau masukkan gambar dulu!'); return; }
-  const obj = { caption, img_url: imgUrl, created_at: new Date().toISOString() };
-  const { error } = await supa.from('stories').insert(obj);
-  if (error) { showAdminAlert('story-upload-alert', 'err', '❌ ' + error.message); return; }
-  showAdminAlert('story-upload-alert', 'ok', '✅ Story berhasil diposting!');
-  setTimeout(() => { closeStoryUpload(); loadStoriesPublic(); }, 1200);
-}
-
-function scrollStories(dir) {
-  const track = document.getElementById('storiesTrack');
-  track.scrollBy({ left: dir * 200, behavior: 'smooth' });
-}
-
-function openStoryViewer(idx) {
-  storyIndex = idx;
-  document.getElementById('storyModal').classList.add('active');
-  // Tambah view count
-  const s = storyData[idx];
-  if (s && s.id) {
-    supa.from('stories').update({ views: (s.views || 0) + 1 }).eq('id', s.id).then(() => {
-      storyData[idx].views = (s.views || 0) + 1;
-      // Update tampilan view di ring
-      const items = document.querySelectorAll('.story-item');
-      // offset 1 karena ada tombol tambah di index 0
-      const itemEl = items[idx + 1];
-      if (itemEl) {
-        const viewEl = itemEl.querySelector('span:last-child');
-        if (viewEl) viewEl.textContent = '👁️ ' + storyData[idx].views;
-      }
-    });
-  }
-  renderStoryViewer();
-}
-
-function closeStoryViewer() {
-  document.getElementById('storyModal').classList.remove('active');
-  clearTimeout(storyTimer);
-  cancelAnimationFrame(storyProgressRAF);
-}
-
-function renderStoryViewer() {
-  clearTimeout(storyTimer);
-  cancelAnimationFrame(storyProgressRAF);
-  const s = storyData[storyIndex];
-  if (!s) { closeStoryViewer(); return; }
-
-  // Mark ring as seen
-  const ring = document.getElementById('story-ring-' + storyIndex);
-  if (ring) ring.classList.add('seen');
-
-  document.getElementById('storyMedia').src = s.img_url;
-  document.getElementById('storyHeaderImg').src = s.img_url;
-  document.getElementById('storyHeaderTitle').textContent = s.caption || 'IFFA AHMAD CUP';
-  document.getElementById('storyHeaderTime').textContent = (s.created_at ? new Date(s.created_at).toLocaleDateString('id-ID', {day:'numeric',month:'short'}) : '') + '  👁️ ' + (s.views||0) + ' views';
-  document.getElementById('storyCaptionText').textContent = s.caption || '';
-
-  // Progress bars
-  const bar = document.getElementById('storyProgressBar');
-  bar.innerHTML = storyData.map((_, i) => `<div class="story-prog-seg"><div class="story-prog-fill${i < storyIndex ? ' done' : ''}" id="spf-${i}"></div></div>`).join('');
-
-  // Animate current
-  const fill = document.getElementById('spf-' + storyIndex);
-  if (fill) {
-    storyProgressStart = null;
-    function animateProg(ts) {
-      if (!storyProgressStart) storyProgressStart = ts;
-      const elapsed = ts - storyProgressStart;
-      const pct = Math.min((elapsed / storyDuration) * 100, 100);
-      fill.style.width = pct + '%';
-      fill.style.transition = 'none';
-      if (pct < 100) storyProgressRAF = requestAnimationFrame(animateProg);
-    }
-    storyProgressRAF = requestAnimationFrame(animateProg);
-  }
-
-  storyTimer = setTimeout(() => storyNavNext(), storyDuration);
-}
-
-function storyNavNext() {
-  if (storyIndex < storyData.length - 1) { storyIndex++; renderStoryViewer(); }
-  else closeStoryViewer();
-}
-function storyNavPrev() {
-  if (storyIndex > 0) { storyIndex--; renderStoryViewer(); }
-}
-
-// Close modal on background click
-document.getElementById('storyModal').addEventListener('click', function(e) {
-  if (e.target === this) closeStoryViewer();
-});
-
-// ===== ADMIN: STORIES =====
-function onStoryFileChange(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    storyImgBase64 = ev.target.result;
-    const prev = document.getElementById('st-img-preview');
-    prev.src = storyImgBase64;
-    prev.style.display = 'block';
-    document.getElementById('st-img-url').value = '';
-  };
-  reader.readAsDataURL(file);
-}
-
-function previewStoryImg() {
-  const url = document.getElementById('st-img-url').value.trim();
-  const prev = document.getElementById('st-img-preview');
-  if (url) { prev.src = url; prev.style.display = 'block'; storyImgBase64 = null; }
-  else { prev.style.display = 'none'; }
-}
-
-async function simpanStory() {
-  if (!currentUser) { alert('Kamu harus login dulu!'); return; }
-  const caption = document.getElementById('st-caption').value.trim();
-  const urlInput = document.getElementById('st-img-url').value.trim();
-  const imgUrl = storyImgBase64 || urlInput;
-  if (!imgUrl) { showAdminAlert('stories-alert', 'err', 'Pilih gambar terlebih dahulu!'); return; }
-  const obj = { caption, img_url: imgUrl, created_at: new Date().toISOString() };
-  const { error } = await supa.from('stories').insert(obj);
-  if (error) { showAdminAlert('stories-alert', 'err', '❌ ' + error.message); return; }
-  showAdminAlert('stories-alert', 'ok', '✅ Story berhasil disimpan!');
-  document.getElementById('st-caption').value = '';
-  document.getElementById('st-img-url').value = '';
-  document.getElementById('st-img-preview').style.display = 'none';
-  storyImgBase64 = null;
-  loadStoriesAdmin();
-  loadStoriesPublic();
-}
-
-async function loadStoriesAdmin() {
-  const { data } = await supa.from('stories').select('*').order('created_at', {ascending: false});
-  const tbody = document.getElementById('tbody-stories');
-  if (!data || !data.length) { tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#444;padding:24px;">Belum ada stories</td></tr>'; return; }
-  tbody.innerHTML = data.map(r => `<tr>
-    <td><img src="${r.img_url}" style="width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid #333;" onerror="this.style.display='none'"></td>
-    <td>${r.caption||'-'}</td>
-    <td style="color:var(--gold);font-weight:bold;">👁️ ${r.views||0}</td>
-    <td>${r.created_at ? new Date(r.created_at).toLocaleDateString('id-ID') : '-'}</td>
-    <td><button class="admin-del-btn" onclick="hapusStory('${r.id}')">HAPUS</button></td>
-  </tr>`).join('');
-}
-
-async function hapusStory(id) {
-  if (!confirm('Hapus story ini?')) return;
-  await supa.from('stories').delete().eq('id', id);
-  loadStoriesAdmin();
-  loadStoriesPublic();
-}
-
-// Load stories saat beranda aktif
-const _origShowPageFinal = window.showPage;
-window.showPage = function(pageId) {
-  _origShowPageFinal(pageId);
-  if (pageId === 'beranda') loadStoriesPublic();
-  if (pageId === 'admin') { loadHasil(); setTimeout(loadStoriesPublic, 300); }
-};
-
-// Load stories tab saat switch tab admin
-const _origSwitchTab = window.switchAdminTab;
-window.switchAdminTab = function(tab) {
-  _origSwitchTab(tab);
-  if (tab === 'stories') loadStoriesAdmin();
-};
-
-// Init stories saat load halaman
-loadStoriesPublic();
-
 // Override showPage
 const _origShowPage = window.showPage;
 window.showPage = function(pageId) {
@@ -3552,7 +3267,137 @@ window.showPage = function(pageId) {
   if (pageId==='admin') loadHasil();
 };
 
-// Init saat halaman load
+// ===== LIVE SKOR =====
+// Wineriasia vs Servesila: 1-2
+// Gol: Servesila menit 6, Wineriasia menit 61, Servesila menit 75
+const LIVE_GOALS = [
+  { minute: 6,  team: 'servesila', teamName: 'SERVESILA', scorer: 'Pemain Servesila', side: 'right' },
+  { minute: 61, team: 'wineriasia', teamName: 'WINERIASIA', scorer: 'Pemain Wineriasia', side: 'left' },
+  { minute: 75, team: 'servesila', teamName: 'SERVESILA', scorer: 'Pemain Servesila', side: 'right' },
+];
+let liveTimer = null;
+let liveMinute = 0;
+let liveScore1 = 0;
+let liveScore2 = 0;
+let liveGoalsLogged = [];
+let liveFinished = false;
+// Speed: 1 real second = 1 menit pertandingan (bisa ubah ke 2000 = 2 detik per menit)
+const MENIT_INTERVAL = 1000;
+
+function startLiveMatch() {
+  if (liveTimer) return;
+  if (liveFinished) { resetLiveMatch(); return; }
+  document.getElementById('btnStartLive').disabled = true;
+  document.getElementById('btnStartLive').textContent = '⏱ BERLANGSUNG...';
+  document.getElementById('goalLog').innerHTML = '';
+  liveTimer = setInterval(tickLive, MENIT_INTERVAL);
+}
+
+function tickLive() {
+  liveMinute++;
+  // Update tampilan menit
+  document.getElementById('matchMinute').textContent = liveMinute + "'";
+  // Update progress bar
+  document.getElementById('timeProgressBar').style.width = Math.min(liveMinute / 90 * 100, 100) + '%';
+  // Update fase babak
+  if (liveMinute === 45) {
+    document.getElementById('matchPhase').textContent = 'JEDA BABAK';
+    document.getElementById('matchMinute').textContent = "HT";
+    setTimeout(() => {
+      document.getElementById('matchPhase').textContent = 'BABAK 2';
+      document.getElementById('matchMinute').textContent = "46'";
+    }, 2000);
+  } else if (liveMinute < 45) {
+    document.getElementById('matchPhase').textContent = 'BABAK 1';
+  } else if (liveMinute > 45) {
+    document.getElementById('matchPhase').textContent = 'BABAK 2';
+  }
+  // Cek gol
+  LIVE_GOALS.forEach(g => {
+    if (g.minute === liveMinute && !liveGoalsLogged.includes(g.minute + '-' + g.team)) {
+      liveGoalsLogged.push(g.minute + '-' + g.team);
+      if (g.team === 'wineriasia') {
+        liveScore1++;
+        updateScore('scoreTeam1', liveScore1);
+      } else {
+        liveScore2++;
+        updateScore('scoreTeam2', liveScore2);
+      }
+      showGoalPopup(g.teamName, g.minute);
+      addGoalLog(g.teamName, g.minute, g.team);
+    }
+  });
+  // Selesai menit 90
+  if (liveMinute >= 90) {
+    clearInterval(liveTimer);
+    liveTimer = null;
+    liveFinished = true;
+    document.getElementById('matchMinute').textContent = "FT";
+    document.getElementById('matchPhase').textContent = 'FULL TIME';
+    document.getElementById('liveStatusBar').style.background = 'linear-gradient(90deg,#333,#222)';
+    document.getElementById('liveStatusText').textContent = 'SELESAI';
+    document.getElementById('liveDot').style.animation = 'none';
+    document.getElementById('liveDot').style.background = '#666';
+    document.getElementById('btnStartLive').textContent = '✅ PERTANDINGAN SELESAI';
+    document.getElementById('btnStartLive').disabled = true;
+  }
+}
+
+function updateScore(elId, val) {
+  const el = document.getElementById(elId);
+  el.textContent = val;
+  el.classList.remove('score-pop');
+  void el.offsetWidth;
+  el.classList.add('score-pop');
+}
+
+function showGoalPopup(teamName, minute) {
+  const popup = document.getElementById('goalPopup');
+  document.getElementById('goalPopupText').textContent = teamName + ' — MENIT ' + minute + "'";
+  popup.style.display = 'block';
+  setTimeout(() => { popup.style.display = 'none'; }, 3000);
+}
+
+function addGoalLog(teamName, minute, teamId) {
+  const log = document.getElementById('goalLog');
+  const isLeft = teamId === 'wineriasia';
+  const entry = document.createElement('div');
+  entry.style.cssText = 'display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #1a1a1a;animation:goalSlideIn 0.4s ease;' + (isLeft ? '' : 'flex-direction:row-reverse;');
+  entry.innerHTML = `
+    <div style="background:var(--gold);color:#000;font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;padding:6px 14px;border-radius:6px;min-width:56px;text-align:center;">${minute}'</div>
+    <div style="font-size:28px;">⚽</div>
+    <div style="${isLeft ? '' : 'text-align:right;'}">
+      <div style="font-family:'Bebas Neue';font-size:20px;color:var(--white);letter-spacing:2px;">${teamName}</div>
+      <div style="font-family:'Barlow Condensed';font-size:12px;color:#666;font-weight:700;letter-spacing:1px;text-transform:uppercase;">GOL</div>
+    </div>
+  `;
+  log.appendChild(entry);
+}
+
+function resetLiveMatch() {
+  clearInterval(liveTimer);
+  liveTimer = null;
+  liveMinute = 0;
+  liveScore1 = 0;
+  liveScore2 = 0;
+  liveGoalsLogged = [];
+  liveFinished = false;
+  document.getElementById('scoreTeam1').textContent = '0';
+  document.getElementById('scoreTeam2').textContent = '0';
+  document.getElementById('matchMinute').textContent = "0'";
+  document.getElementById('matchPhase').textContent = 'BABAK 1';
+  document.getElementById('timeProgressBar').style.width = '0%';
+  document.getElementById('liveStatusBar').style.background = 'linear-gradient(90deg,#c00,#a00)';
+  document.getElementById('liveStatusText').textContent = 'LIVE';
+  document.getElementById('liveDot').style.animation = 'blinkDot 1s infinite';
+  document.getElementById('liveDot').style.background = '#fff';
+  document.getElementById('btnStartLive').disabled = false;
+  document.getElementById('btnStartLive').textContent = '▶ MULAI PERTANDINGAN';
+  document.getElementById('goalPopup').style.display = 'none';
+  document.getElementById('goalLog').innerHTML = '<div style="font-family:\'Barlow Condensed\';font-size:14px;color:#444;letter-spacing:1px;text-align:center;padding:20px 0;">Belum ada gol — tekan MULAI PERTANDINGAN</div>';
+}
+
+// Init
 initAuth();
 </script>
 </body>
